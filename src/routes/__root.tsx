@@ -77,14 +77,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Entretien M.L — Soumission gratuite" },
+      { name: "description", content: "Entretien M.L : ménage intérieur ponctuel ou contrat, entretien des plates-bandes et lavage auto. Demandez votre soumission gratuite." },
+      { name: "author", content: "Entretien M.L" },
+      { property: "og:title", content: "Entretien M.L — Soumission gratuite" },
+      { property: "og:description", content: "Ménage intérieur, contrats, plates-bandes et lavage auto. Soumission gratuite et rapide partout au Québec." },
+      { property: "og:site_name", content: "Entretien M.L" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
