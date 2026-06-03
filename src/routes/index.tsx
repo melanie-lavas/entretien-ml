@@ -11,6 +11,35 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Entretien ménager intérieur, contrats, entretien extérieur, plates-bandes et lavage auto. Soumission rapide et gratuite." },
       { property: "og:title", content: "Entretien M.L" },
       { property: "og:description", content: "Demandez votre soumission gratuite — services d'entretien intérieur et extérieur." },
+      { property: "og:url", content: "https://entretien-ml.lovable.app/" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://entretien-ml.lovable.app/" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "Entretien M.L",
+          description: "Services d'entretien ménager intérieur (ponctuel ou contrat), entretien extérieur, plates-bandes et lavage auto.",
+          email: "Melanielavas@outlook.com",
+          url: "https://entretien-ml.lovable.app/",
+          areaServed: "Québec",
+          priceRange: "$$",
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "Services d'entretien",
+            itemListElement: [
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Entretien ménager intérieur — une fois" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Entretien ménager intérieur — contrat" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Entretien extérieur / plates-bandes" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Lavage auto" } },
+            ],
+          },
+        }),
+      },
     ],
   }),
   component: Index,
