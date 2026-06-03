@@ -9,8 +9,8 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: "Entretien M.L — Demandez votre soumission gratuite" },
       { name: "description", content: "Entretien ménager intérieur, contrats, entretien extérieur, plates-bandes et lavage auto. Soumission rapide et gratuite." },
-      { property: "og:title", content: "Entretien M.L" },
-      { property: "og:description", content: "Demandez votre soumission gratuite — services d'entretien intérieur et extérieur." },
+      { property: "og:title", content: "Entretien M.L — Services de nettoyage" },
+      { property: "og:description", content: "Ménage intérieur (une fois ou contrat), plates-bandes et lavage auto. Soumission gratuite en 30 secondes." },
       { property: "og:url", content: "https://entretien-ml.lovable.app/" },
     ],
     links: [
