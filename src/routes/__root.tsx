@@ -81,10 +81,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: "Entretien M.L : ménage intérieur ponctuel ou contrat, entretien des plates-bandes et lavage auto. Demandez votre soumission gratuite." },
       { name: "author", content: "Entretien M.L" },
       { property: "og:title", content: "Entretien M.L — Soumission gratuite" },
-      { property: "og:description", content: "Ménage intérieur, contrats, plates-bandes et lavage auto. Soumission gratuite et rapide partout au Québec." },
+      { property: "og:description", content: "Entretien M.L : ménage intérieur ponctuel ou contrat, entretien des plates-bandes et lavage auto. Demandez votre soumission gratuite." },
       { property: "og:site_name", content: "Entretien M.L" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Entretien M.L — Soumission gratuite" },
+      { name: "twitter:description", content: "Entretien M.L : ménage intérieur ponctuel ou contrat, entretien des plates-bandes et lavage auto. Demandez votre soumission gratuite." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/8d49dfa9-678f-4dae-80f9-76da98ede18f" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/8d49dfa9-678f-4dae-80f9-76da98ede18f" },
     ],
     links: [
       {
