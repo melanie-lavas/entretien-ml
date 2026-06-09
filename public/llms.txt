@@ -7,3 +7,5 @@ Entretien M.L offre des services d'entretien résidentiel au Québec : ménage i
 ## Pages
 
 - [Accueil](/): Présentation des services et formulaire de demande de soumission gratuite.
+- [Services & tarifs 2027](/services): Détail des services (résidentiel et commercial) et fourchettes de prix moyennes en Mauricie.
+
