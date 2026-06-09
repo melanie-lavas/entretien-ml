@@ -26,7 +26,7 @@ export const Route = createFileRoute("/")({
           description: "Services d'entretien ménager intérieur (ponctuel ou contrat), entretien extérieur, plates-bandes et lavage auto.",
           email: "Melanielavas@outlook.com",
           url: "https://entretien-ml.lovable.app/",
-          areaServed: "Québec",
+          areaServed: "Mauricie, Québec",
           priceRange: "$$",
           hasOfferCatalog: {
             "@type": "OfferCatalog",
