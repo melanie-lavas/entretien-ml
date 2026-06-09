@@ -78,13 +78,21 @@ function Index() {
       {/* Header */}
       <header className="flex items-center justify-between px-6 py-4 max-w-6xl mx-auto">
         <img src={logo} alt="Entretien M.L" className="h-14 w-auto" width={120} height={120} />
-        <a
-          href="#soumission"
-          className="hidden sm:inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm font-semibold text-primary-foreground"
-          style={{ background: "var(--gradient-hero)" }}
-        >
-          <Sparkles className="h-4 w-4" /> Soumission
-        </a>
+        <nav className="flex items-center gap-2 sm:gap-4 text-sm font-medium">
+          <Link to="/" className="text-foreground font-semibold">
+            Accueil
+          </Link>
+          <Link to="/services" className="text-muted-foreground hover:text-foreground transition">
+            Services & tarifs
+          </Link>
+          <a
+            href="#soumission"
+            className="hidden sm:inline-flex items-center gap-2 rounded-full px-5 py-2 text-primary-foreground"
+            style={{ background: "var(--gradient-hero)" }}
+          >
+            <Sparkles className="h-4 w-4" /> Soumission
+          </a>
+        </nav>
       </header>
 
       {/* Hero */}
