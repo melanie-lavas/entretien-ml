@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import logo from "@/assets/logo-ml.png";
+import logoAsset from "@/assets/ml-excellence-logo.png.asset.json";
 import { Home, Sparkles, Leaf, Car, Check, Building2, Mail, ArrowLeft } from "lucide-react";
+
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -130,8 +131,9 @@ function ServicesPage() {
     <div className="min-h-screen bg-background text-foreground">
       <header className="flex items-center justify-between px-6 py-4 max-w-6xl mx-auto">
         <Link to="/" className="flex items-center gap-3">
-          <img src={logo} alt="Entretien M.L" className="h-12 w-auto" width={120} height={120} />
+          <img src={logoAsset.url} alt="M.L Excellence — Services de propreté" className="h-12 w-auto" width={180} height={120} />
         </Link>
+
         <nav className="flex items-center gap-2 sm:gap-4 text-sm font-medium">
           <Link to="/" className="text-muted-foreground hover:text-foreground transition">
             Accueil
