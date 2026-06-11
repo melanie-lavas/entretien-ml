@@ -212,7 +212,7 @@ function Index() {
           </Link>
           <nav className="flex items-center gap-1 sm:gap-3 text-sm font-medium">
             <Link to="/services" className="px-2 py-1 text-muted-foreground hover:text-foreground transition">
-              Services & tarifs
+              Services
             </Link>
             <a href="#faq" className="hidden sm:inline px-2 py-1 text-muted-foreground hover:text-foreground transition">
               FAQ
@@ -325,7 +325,7 @@ function Index() {
             to="/services"
             className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
           >
-            Voir tous les services & tarifs 2027 →
+            Voir tous nos services en détail →
           </Link>
         </div>
       </section>
