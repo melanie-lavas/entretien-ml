@@ -192,6 +192,21 @@ function ServicesPage() {
               <OptionColumn label="Résidentiel — privé" icon={Home} items={residential} />
               <OptionColumn label="Commercial" icon={Building2} items={commercial} />
             </div>
+
+            <div className="px-6 sm:px-8 pb-6 sm:pb-8 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-5">
+              <p className="text-sm text-muted-foreground">
+                <span className="font-semibold text-foreground">Prix selon le service.</span>{" "}
+                Réponse en moins de 24 h, sans engagement.
+              </p>
+              <Link
+                to="/"
+                hash="soumission"
+                className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-primary-foreground"
+                style={{ background: "var(--gradient-hero)", boxShadow: "var(--shadow-glow)" }}
+              >
+                <Sparkles className="h-4 w-4" /> Demander une soumission
+              </Link>
+            </div>
           </article>
         ))}
       </section>
