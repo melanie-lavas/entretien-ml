@@ -102,25 +102,25 @@ const SERVICES: ServiceBlock[] = [
 function ServicesPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <header className="flex items-center justify-between px-6 py-4 max-w-6xl mx-auto">
-        <Link to="/" className="flex items-center gap-3">
-          <img src={logoAsset.url} alt="M.L Excellence — Services de propreté" className="h-12 w-auto" width={180} height={120} />
+      <header className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-2 px-3 sm:px-6 py-2 sm:py-4 max-w-6xl mx-auto">
+        <Link to="/" className="flex min-w-0 items-center gap-3">
+          <img src={logoAsset.url} alt="M.L Excellence — Services de propreté" className="h-9 sm:h-12 w-auto shrink-0" width={180} height={120} />
         </Link>
 
-        <nav className="flex items-center gap-2 sm:gap-4 text-sm font-medium">
-          <Link to="/" className="text-muted-foreground hover:text-foreground transition">
+        <nav className="flex items-center gap-1 sm:gap-4 text-sm font-medium shrink-0">
+          <Link to="/" className="px-2 py-1 text-muted-foreground hover:text-foreground transition">
             Accueil
           </Link>
-          <Link to="/services" className="text-foreground font-semibold">
+          <Link to="/services" className="px-2 py-1 text-foreground font-semibold">
             Services
           </Link>
           <Link
             to="/"
             hash="soumission"
-            className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-primary-foreground"
+            className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 text-primary-foreground text-xs sm:text-sm"
             style={{ background: "var(--gradient-hero)" }}
           >
-            Soumission
+            Devis
           </Link>
         </nav>
       </header>
