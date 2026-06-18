@@ -43,7 +43,7 @@ export const Route = createFileRoute("/")({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "LocalBusiness",
+          "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
           "@id": "https://entretien-ml.lovable.app/#business",
           name: "M.L Excellence",
           alternateName: "Les services de propreté M.L Excellence",
@@ -51,14 +51,37 @@ export const Route = createFileRoute("/")({
             "Services de propreté résidentiels et commerciaux en Mauricie : ménage ponctuel ou contrat, entretien extérieur, plates-bandes et lavage auto.",
           email: "Melanielavas@outlook.com",
           url: "https://entretien-ml.lovable.app/",
-          image: "https://entretien-ml.lovable.app/og.png",
+          image: "https://entretien-ml.lovable.app/og-image.jpg",
+          logo: "https://entretien-ml.lovable.app/og-image.jpg",
+          slogan: "La propreté, notre excellence.",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Trois-Rivières",
+            addressRegion: "QC",
+            addressCountry: "CA",
+          },
+          geo: {
+            "@type": "GeoCoordinates",
+            latitude: 46.3432,
+            longitude: -72.5432,
+          },
           areaServed: [
             { "@type": "AdministrativeArea", name: "Mauricie, Québec" },
             { "@type": "City", name: "Trois-Rivières" },
             { "@type": "City", name: "Shawinigan" },
             { "@type": "City", name: "Bécancour" },
+            { "@type": "City", name: "Cap-de-la-Madeleine" },
+            { "@type": "City", name: "Grand-Mère" },
           ],
+          serviceArea: {
+            "@type": "GeoCircle",
+            geoMidpoint: { "@type": "GeoCoordinates", latitude: 46.3432, longitude: -72.5432 },
+            geoRadius: 60000,
+          },
           priceRange: "$$",
+          currenciesAccepted: "CAD",
+          paymentAccepted: "Cash, Cheque, Interac e-Transfer",
+          knowsLanguage: ["fr-CA", "en"],
           openingHoursSpecification: [
             {
               "@type": "OpeningHoursSpecification",
@@ -67,17 +90,27 @@ export const Route = createFileRoute("/")({
               closes: "18:00",
             },
           ],
+          contactPoint: [{
+            "@type": "ContactPoint",
+            contactType: "customer service",
+            email: "Melanielavas@outlook.com",
+            areaServed: "CA-QC",
+            availableLanguage: ["French", "English"],
+          }],
           hasOfferCatalog: {
             "@type": "OfferCatalog",
             name: "Services M.L Excellence",
             itemListElement: [
-              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Ménage résidentiel — ponctuel" } },
-              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Contrat d'entretien récurrent" } },
-              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Nettoyage commercial" } },
-              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Entretien extérieur / plates-bandes" } },
-              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Lavage auto intérieur & extérieur" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Ménage résidentiel — ponctuel", areaServed: "Mauricie" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Contrat d'entretien récurrent", areaServed: "Mauricie" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Nettoyage commercial", areaServed: "Mauricie" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Entretien extérieur / plates-bandes", areaServed: "Mauricie" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Lavage auto intérieur & extérieur", areaServed: "Mauricie" } },
             ],
           },
+          sameAs: [
+            // TODO: ajouter ici votre URL Google Business Profile + pages Facebook/Instagram
+          ],
           aggregateRating: {
             "@type": "AggregateRating",
             ratingValue: "5.0",
