@@ -72,11 +72,6 @@ export const Route = createFileRoute("/services")({
   }),
   component: ServicesPage,
 });
-    ],
-    links: [{ rel: "canonical", href: "https://entretien-ml.lovable.app/services" }],
-  }),
-  component: ServicesPage,
-});
 
 type ServiceBlock = {
   icon: typeof Home;
