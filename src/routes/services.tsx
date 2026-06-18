@@ -200,6 +200,30 @@ function ServicesPage() {
         </p>
       </section>
 
+      {/* Pages dédiées par service (SEO) */}
+      <section className="max-w-6xl mx-auto px-6 pb-10">
+        <h2 className="sr-only">Pages détaillées par service</h2>
+        <ul className="flex flex-wrap justify-center gap-2">
+          {[
+            { slug: "menage-residentiel", label: "Ménage résidentiel" },
+            { slug: "nettoyage-commercial", label: "Nettoyage commercial" },
+            { slug: "contrat-entretien-recurrent", label: "Contrat récurrent" },
+            { slug: "entretien-plates-bandes", label: "Plates-bandes" },
+            { slug: "lavage-auto", label: "Lavage auto" },
+          ].map((s) => (
+            <li key={s.slug}>
+              <Link
+                to="/services/$slug"
+                params={{ slug: s.slug }}
+                className="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm font-medium hover:bg-accent transition"
+              >
+                {s.label} →
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+
       {/* Services */}
       <section className="max-w-6xl mx-auto px-6 pb-16 space-y-10">
         {SERVICES.map(({ icon: Icon, title, intro, includes, residential, commercial }) => (
