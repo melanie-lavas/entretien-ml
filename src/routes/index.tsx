@@ -50,32 +50,37 @@ export const Route = createFileRoute("/")({
           description:
             "Services de propreté résidentiels et commerciaux en Mauricie : ménage ponctuel ou contrat, entretien extérieur, plates-bandes et lavage auto.",
           email: "Melanielavas@outlook.com",
+          telephone: "+1-819-996-9022",
           url: "https://entretien-ml.lovable.app/",
           image: "https://entretien-ml.lovable.app/og-image.jpg",
           logo: "https://entretien-ml.lovable.app/og-image.jpg",
           slogan: "La propreté, notre excellence.",
           address: {
             "@type": "PostalAddress",
-            addressLocality: "Trois-Rivières",
+            streetAddress: "905 rue Saint-Jean-Baptiste",
+            addressLocality: "Nicolet",
             addressRegion: "QC",
+            postalCode: "J3T 1S4",
             addressCountry: "CA",
           },
           geo: {
             "@type": "GeoCoordinates",
-            latitude: 46.3432,
-            longitude: -72.5432,
+            latitude: 46.2225,
+            longitude: -72.6175,
           },
           areaServed: [
             { "@type": "AdministrativeArea", name: "Mauricie, Québec" },
-            { "@type": "City", name: "Trois-Rivières" },
-            { "@type": "City", name: "Shawinigan" },
+            { "@type": "AdministrativeArea", name: "Centre-du-Québec" },
+            { "@type": "City", name: "Nicolet" },
             { "@type": "City", name: "Bécancour" },
+            { "@type": "City", name: "Trois-Rivières" },
             { "@type": "City", name: "Cap-de-la-Madeleine" },
+            { "@type": "City", name: "Shawinigan" },
             { "@type": "City", name: "Grand-Mère" },
           ],
           serviceArea: {
             "@type": "GeoCircle",
-            geoMidpoint: { "@type": "GeoCoordinates", latitude: 46.3432, longitude: -72.5432 },
+            geoMidpoint: { "@type": "GeoCoordinates", latitude: 46.2225, longitude: -72.6175 },
             geoRadius: 60000,
           },
           priceRange: "$$",
@@ -93,6 +98,7 @@ export const Route = createFileRoute("/")({
           contactPoint: [{
             "@type": "ContactPoint",
             contactType: "customer service",
+            telephone: "+1-819-996-9022",
             email: "Melanielavas@outlook.com",
             areaServed: "CA-QC",
             availableLanguage: ["French", "English"],
@@ -525,12 +531,19 @@ function Index() {
 
       <footer className="text-center py-10 px-6 text-sm text-muted-foreground border-t border-border">
         <p className="font-bold text-foreground">M.L Excellence</p>
-        <p className="mt-1">Les services de propreté · Mauricie, Québec</p>
-        <p className="mt-2">
-          <a href="mailto:Melanielavas@outlook.com" className="hover:text-foreground">
-            Melanielavas@outlook.com
-          </a>
-        </p>
+        <p className="mt-1">Les services de propreté · Mauricie & Centre-du-Québec</p>
+        <address className="not-italic mt-3 space-y-1">
+          <p>905, rue Saint-Jean-Baptiste, Nicolet (QC)</p>
+          <p>
+            <a href="tel:+18199969022" className="hover:text-foreground font-medium">
+              819-996-9022
+            </a>
+            {" · "}
+            <a href="mailto:Melanielavas@outlook.com" className="hover:text-foreground">
+              Melanielavas@outlook.com
+            </a>
+          </p>
+        </address>
         <p className="mt-4 text-xs">© {new Date().getFullYear()} M.L Excellence — Tous droits réservés</p>
       </footer>
     </div>
