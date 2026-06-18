@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
+import { CITIES } from "@/lib/seo-locations";
+import { SERVICES } from "@/lib/seo-services";
 
 const BASE_URL = "https://entretien-ml.lovable.app";
 
@@ -7,9 +9,19 @@ export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
-        const entries = [
+        const entries: { path: string; changefreq: string; priority: string }[] = [
           { path: "/", changefreq: "weekly", priority: "1.0" },
-          { path: "/services", changefreq: "monthly", priority: "0.8" },
+          { path: "/services", changefreq: "monthly", priority: "0.9" },
+          ...SERVICES.map((s) => ({
+            path: `/services/${s.slug}`,
+            changefreq: "monthly",
+            priority: "0.8",
+          })),
+          ...CITIES.map((c) => ({
+            path: `/menage/${c.slug}`,
+            changefreq: "monthly",
+            priority: "0.8",
+          })),
         ];
 
         const urls = entries.map(
