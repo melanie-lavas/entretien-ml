@@ -87,11 +87,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "M.L Excellence" },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "fr_CA" },
+      { property: "og:image", content: "https://entretien-ml.lovable.app/og-image.jpg" },
+      { property: "og:image:width", content: "1216" },
+      { property: "og:image:height", content: "640" },
+      { property: "og:image:alt", content: "M.L Excellence — Services de propreté en Mauricie" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "M.L Excellence — Services de propreté en Mauricie" },
       { name: "twitter:description", content: "Ménage résidentiel et commercial, contrats récurrents, plates-bandes et lavage auto. Soumission gratuite." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/8d49dfa9-678f-4dae-80f9-76da98ede18f" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/8d49dfa9-678f-4dae-80f9-76da98ede18f" },
+      { name: "twitter:image", content: "https://entretien-ml.lovable.app/og-image.jpg" },
+      { name: "twitter:image:alt", content: "M.L Excellence — Services de propreté en Mauricie" },
 
     ],
     links: [
@@ -109,7 +113,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="fr-CA">
       <head>
         <HeadContent />
       </head>
