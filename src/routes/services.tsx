@@ -5,13 +5,15 @@ import { Home, Sparkles, Leaf, Car, Check, Building2, Mail, ArrowLeft } from "lu
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services de propreté — M.L Excellence Mauricie" },
+      { title: "Services de ménage Mauricie — résidentiel & commercial | M.L Excellence" },
       {
         name: "description",
         content:
-          "Découvrez tous les services M.L Excellence en Mauricie : ménage résidentiel et commercial, contrats récurrents, plates-bandes et lavage auto. Prix personnalisé selon votre besoin — soumission gratuite.",
+          "Liste complète des services M.L Excellence à Trois-Rivières, Shawinigan, Bécancour : ménage résidentiel, contrats commerciaux, plates-bandes et lavage auto. Soumission gratuite.",
       },
-      { property: "og:title", content: "Services de propreté — M.L Excellence Mauricie" },
+      { name: "geo.region", content: "CA-QC" },
+      { name: "geo.placename", content: "Mauricie" },
+      { property: "og:title", content: "Services de ménage en Mauricie — M.L Excellence" },
       {
         property: "og:description",
         content:
@@ -21,11 +23,52 @@ export const Route = createFileRoute("/services")({
       { property: "og:type", content: "website" },
       { property: "og:image", content: "https://entretien-ml.lovable.app/og-image.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Services de propreté — M.L Excellence Mauricie" },
+      { name: "twitter:title", content: "Services de ménage Mauricie — M.L Excellence" },
       { name: "twitter:description", content: "Résidentiel et commercial partout en Mauricie. Soumission gratuite." },
       { name: "twitter:image", content: "https://entretien-ml.lovable.app/og-image.jpg" },
     ],
     links: [{ rel: "canonical", href: "https://entretien-ml.lovable.app/services" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Accueil", item: "https://entretien-ml.lovable.app/" },
+            { "@type": "ListItem", position: 2, name: "Services", item: "https://entretien-ml.lovable.app/services" },
+          ],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "Services de propreté M.L Excellence en Mauricie",
+          itemListElement: [
+            "Ménage résidentiel — une fois",
+            "Contrat d'entretien récurrent",
+            "Nettoyage commercial",
+            "Entretien extérieur & plates-bandes",
+            "Lavage auto intérieur & extérieur",
+          ].map((name, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            item: {
+              "@type": "Service",
+              name,
+              provider: { "@id": "https://entretien-ml.lovable.app/#business" },
+              areaServed: [
+                { "@type": "City", name: "Trois-Rivières" },
+                { "@type": "City", name: "Shawinigan" },
+                { "@type": "City", name: "Bécancour" },
+              ],
+            },
+          })),
+        }),
+      },
+    ],
   }),
   component: ServicesPage,
 });
@@ -137,12 +180,12 @@ function ServicesPage() {
           <Sparkles className="h-3.5 w-3.5 text-primary" /> Services de propreté · Mauricie
         </p>
         <h1 className="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight">
-          Nos{" "}
+          Services de ménage en{" "}
           <span
             className="bg-clip-text text-transparent"
             style={{ backgroundImage: "var(--gradient-hero)" }}
           >
-            services
+            Mauricie
           </span>
         </h1>
         <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">

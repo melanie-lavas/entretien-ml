@@ -20,18 +20,20 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "M.L Excellence — Ménage résidentiel & commercial en Mauricie" },
+      { title: "Ménage Mauricie | Résidentiel & commercial — M.L Excellence" },
       {
         name: "description",
         content:
-          "Services de propreté M.L Excellence en Mauricie : ménage résidentiel, contrats commerciaux, entretien de plates-bandes et lavage auto. Soumission gratuite en 30 secondes.",
+          "Entreprise de ménage en Mauricie : résidentiel, commercial, contrats récurrents, plates-bandes et lavage auto à Trois-Rivières, Shawinigan, Bécancour. Soumission gratuite en 24 h.",
       },
-      { name: "keywords", content: "ménage Mauricie, entretien ménager Trois-Rivières, nettoyage commercial Mauricie, lavage auto, plates-bandes, M.L Excellence" },
+      { name: "keywords", content: "ménage Mauricie, entretien ménager Trois-Rivières, nettoyage commercial Shawinigan, femme de ménage Bécancour, lavage auto Mauricie, plates-bandes, M.L Excellence" },
+      { name: "geo.region", content: "CA-QC" },
+      { name: "geo.placename", content: "Mauricie, Trois-Rivières, Shawinigan, Bécancour" },
       { property: "og:title", content: "M.L Excellence — Services de propreté en Mauricie" },
       {
         property: "og:description",
         content:
-          "Ménage résidentiel et commercial, contrats récurrents, plates-bandes et lavage auto. Soumission gratuite et sans engagement.",
+          "Ménage résidentiel et commercial, contrats récurrents, plates-bandes et lavage auto à Trois-Rivières, Shawinigan, Bécancour. Soumission gratuite et sans engagement.",
       },
       { property: "og:url", content: "https://entretien-ml.lovable.app/" },
     ],
@@ -41,7 +43,7 @@ export const Route = createFileRoute("/")({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "LocalBusiness",
+          "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
           "@id": "https://entretien-ml.lovable.app/#business",
           name: "M.L Excellence",
           alternateName: "Les services de propreté M.L Excellence",
@@ -49,14 +51,37 @@ export const Route = createFileRoute("/")({
             "Services de propreté résidentiels et commerciaux en Mauricie : ménage ponctuel ou contrat, entretien extérieur, plates-bandes et lavage auto.",
           email: "Melanielavas@outlook.com",
           url: "https://entretien-ml.lovable.app/",
-          image: "https://entretien-ml.lovable.app/og.png",
+          image: "https://entretien-ml.lovable.app/og-image.jpg",
+          logo: "https://entretien-ml.lovable.app/og-image.jpg",
+          slogan: "La propreté, notre excellence.",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Trois-Rivières",
+            addressRegion: "QC",
+            addressCountry: "CA",
+          },
+          geo: {
+            "@type": "GeoCoordinates",
+            latitude: 46.3432,
+            longitude: -72.5432,
+          },
           areaServed: [
             { "@type": "AdministrativeArea", name: "Mauricie, Québec" },
             { "@type": "City", name: "Trois-Rivières" },
             { "@type": "City", name: "Shawinigan" },
             { "@type": "City", name: "Bécancour" },
+            { "@type": "City", name: "Cap-de-la-Madeleine" },
+            { "@type": "City", name: "Grand-Mère" },
           ],
+          serviceArea: {
+            "@type": "GeoCircle",
+            geoMidpoint: { "@type": "GeoCoordinates", latitude: 46.3432, longitude: -72.5432 },
+            geoRadius: 60000,
+          },
           priceRange: "$$",
+          currenciesAccepted: "CAD",
+          paymentAccepted: "Cash, Cheque, Interac e-Transfer",
+          knowsLanguage: ["fr-CA", "en"],
           openingHoursSpecification: [
             {
               "@type": "OpeningHoursSpecification",
@@ -65,17 +90,27 @@ export const Route = createFileRoute("/")({
               closes: "18:00",
             },
           ],
+          contactPoint: [{
+            "@type": "ContactPoint",
+            contactType: "customer service",
+            email: "Melanielavas@outlook.com",
+            areaServed: "CA-QC",
+            availableLanguage: ["French", "English"],
+          }],
           hasOfferCatalog: {
             "@type": "OfferCatalog",
             name: "Services M.L Excellence",
             itemListElement: [
-              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Ménage résidentiel — ponctuel" } },
-              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Contrat d'entretien récurrent" } },
-              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Nettoyage commercial" } },
-              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Entretien extérieur / plates-bandes" } },
-              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Lavage auto intérieur & extérieur" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Ménage résidentiel — ponctuel", areaServed: "Mauricie" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Contrat d'entretien récurrent", areaServed: "Mauricie" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Nettoyage commercial", areaServed: "Mauricie" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Entretien extérieur / plates-bandes", areaServed: "Mauricie" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Lavage auto intérieur & extérieur", areaServed: "Mauricie" } },
             ],
           },
+          sameAs: [
+            // TODO: ajouter ici votre URL Google Business Profile + pages Facebook/Instagram
+          ],
           aggregateRating: {
             "@type": "AggregateRating",
             ratingValue: "5.0",
