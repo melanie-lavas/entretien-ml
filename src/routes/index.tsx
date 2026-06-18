@@ -109,7 +109,7 @@ export const Route = createFileRoute("/")({
             ],
           },
           sameAs: [
-            // TODO: ajouter ici votre URL Google Business Profile + pages Facebook/Instagram
+            "https://www.google.com/maps?cid=2575021245876939846",
           ],
           aggregateRating: {
             "@type": "AggregateRating",
