@@ -374,6 +374,32 @@ function Index() {
         </div>
       </section>
 
+      {/* Villes desservies (SEO local) */}
+      <section className="max-w-6xl mx-auto px-6 py-12">
+        <h2 className="text-3xl font-bold text-center mb-2">Villes desservies en Mauricie</h2>
+        <p className="text-center text-muted-foreground mb-8">Cliquez sur votre ville pour voir nos services dans votre secteur.</p>
+        <ul className="flex flex-wrap justify-center gap-2">
+          {[
+            { slug: "trois-rivieres", name: "Trois-Rivières" },
+            { slug: "shawinigan", name: "Shawinigan" },
+            { slug: "becancour", name: "Bécancour" },
+            { slug: "nicolet", name: "Nicolet" },
+            { slug: "cap-de-la-madeleine", name: "Cap-de-la-Madeleine" },
+            { slug: "grand-mere", name: "Grand-Mère" },
+          ].map((c) => (
+            <li key={c.slug}>
+              <Link
+                to="/menage/$city"
+                params={{ city: c.slug }}
+                className="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm font-medium hover:bg-accent transition"
+              >
+                <MapPin className="h-3.5 w-3.5 text-primary" /> Ménage {c.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+
       {/* Testimonials */}
       <section className="px-6 py-12" style={{ background: "color-mix(in oklab, var(--primary) 4%, transparent)" }}>
         <div className="max-w-6xl mx-auto">
