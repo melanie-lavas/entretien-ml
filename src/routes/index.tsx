@@ -531,12 +531,19 @@ function Index() {
 
       <footer className="text-center py-10 px-6 text-sm text-muted-foreground border-t border-border">
         <p className="font-bold text-foreground">M.L Excellence</p>
-        <p className="mt-1">Les services de propreté · Mauricie, Québec</p>
-        <p className="mt-2">
-          <a href="mailto:Melanielavas@outlook.com" className="hover:text-foreground">
-            Melanielavas@outlook.com
-          </a>
-        </p>
+        <p className="mt-1">Les services de propreté · Mauricie & Centre-du-Québec</p>
+        <address className="not-italic mt-3 space-y-1">
+          <p>905, rue Saint-Jean-Baptiste, Nicolet (QC)</p>
+          <p>
+            <a href="tel:+18199969022" className="hover:text-foreground font-medium">
+              819-996-9022
+            </a>
+            {" · "}
+            <a href="mailto:Melanielavas@outlook.com" className="hover:text-foreground">
+              Melanielavas@outlook.com
+            </a>
+          </p>
+        </address>
         <p className="mt-4 text-xs">© {new Date().getFullYear()} M.L Excellence — Tous droits réservés</p>
       </footer>
     </div>
