@@ -20,18 +20,20 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "M.L Excellence — Ménage résidentiel & commercial en Mauricie" },
+      { title: "Ménage Mauricie | Résidentiel & commercial — M.L Excellence" },
       {
         name: "description",
         content:
-          "Services de propreté M.L Excellence en Mauricie : ménage résidentiel, contrats commerciaux, entretien de plates-bandes et lavage auto. Soumission gratuite en 30 secondes.",
+          "Entreprise de ménage en Mauricie : résidentiel, commercial, contrats récurrents, plates-bandes et lavage auto à Trois-Rivières, Shawinigan, Bécancour. Soumission gratuite en 24 h.",
       },
-      { name: "keywords", content: "ménage Mauricie, entretien ménager Trois-Rivières, nettoyage commercial Mauricie, lavage auto, plates-bandes, M.L Excellence" },
+      { name: "keywords", content: "ménage Mauricie, entretien ménager Trois-Rivières, nettoyage commercial Shawinigan, femme de ménage Bécancour, lavage auto Mauricie, plates-bandes, M.L Excellence" },
+      { name: "geo.region", content: "CA-QC" },
+      { name: "geo.placename", content: "Mauricie, Trois-Rivières, Shawinigan, Bécancour" },
       { property: "og:title", content: "M.L Excellence — Services de propreté en Mauricie" },
       {
         property: "og:description",
         content:
-          "Ménage résidentiel et commercial, contrats récurrents, plates-bandes et lavage auto. Soumission gratuite et sans engagement.",
+          "Ménage résidentiel et commercial, contrats récurrents, plates-bandes et lavage auto à Trois-Rivières, Shawinigan, Bécancour. Soumission gratuite et sans engagement.",
       },
       { property: "og:url", content: "https://entretien-ml.lovable.app/" },
     ],
