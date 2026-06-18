@@ -142,7 +142,7 @@ function ServiceDetailPage() {
         <div className="rounded-3xl border border-border bg-card p-6 sm:p-8">
           <h2 className="text-2xl font-bold mb-4">Ce qui est inclus</h2>
           <ul className="grid sm:grid-cols-2 gap-3">
-            {s.includes.map((i) => (
+            {s.includes.map((i: string) => (
               <li key={i} className="flex items-start gap-2 text-sm">
                 <Check className="h-4 w-4 mt-0.5 text-primary shrink-0" /> <span>{i}</span>
               </li>
@@ -154,7 +154,7 @@ function ServiceDetailPage() {
       <section className="max-w-5xl mx-auto px-6 pb-12">
         <h2 className="text-2xl font-bold mb-6 text-center">Pourquoi choisir M.L Excellence</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {s.benefits.map((b) => (
+          {s.benefits.map((b: { t: string; d: string }) => (
             <div key={b.t} className="rounded-2xl border border-border p-5 bg-card">
               <p className="font-bold">{b.t}</p>
               <p className="text-sm text-muted-foreground mt-1">{b.d}</p>
@@ -166,7 +166,7 @@ function ServiceDetailPage() {
       <section className="max-w-5xl mx-auto px-6 pb-12">
         <h2 className="text-2xl font-bold mb-6 text-center">Questions fréquentes</h2>
         <div className="space-y-3">
-          {s.faq.map((f) => (
+          {s.faq.map((f: { q: string; a: string }) => (
             <details key={f.q} className="rounded-2xl border border-border bg-card p-5">
               <summary className="font-semibold cursor-pointer">{f.q}</summary>
               <p className="text-sm text-muted-foreground mt-2">{f.a}</p>

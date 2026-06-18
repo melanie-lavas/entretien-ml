@@ -164,7 +164,7 @@ function CityPage() {
           <h2 className="text-xl font-bold mb-3">Secteurs desservis à {c.name}</h2>
           <p className="text-muted-foreground mb-4">Nous nous déplaçons dans tous les quartiers, sans frais supplémentaires de déplacement à l'intérieur de la ville.</p>
           <ul className="flex flex-wrap gap-2">
-            {c.neighborhoods.map((n) => (
+            {c.neighborhoods.map((n: string) => (
               <li key={n} className="rounded-full border border-border px-3 py-1.5 text-sm bg-background">
                 <Check className="inline h-3.5 w-3.5 text-primary mr-1" />
                 {n}
