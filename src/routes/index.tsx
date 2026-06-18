@@ -98,6 +98,7 @@ export const Route = createFileRoute("/")({
           contactPoint: [{
             "@type": "ContactPoint",
             contactType: "customer service",
+            telephone: "+1-819-996-9022",
             email: "Melanielavas@outlook.com",
             areaServed: "CA-QC",
             availableLanguage: ["French", "English"],
