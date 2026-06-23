@@ -3,7 +3,7 @@ import type {} from "@tanstack/react-start";
 import { CITIES } from "@/lib/seo-locations";
 import { SERVICES } from "@/lib/seo-services";
 
-const BASE_URL = "https://entretien-ml.lovable.app";
+const BASE_URL = "https://mlentretien.com";
 
 export const Route = createFileRoute("/sitemap.xml")({
   server: {

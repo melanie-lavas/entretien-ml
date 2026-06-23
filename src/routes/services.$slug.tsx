@@ -4,7 +4,7 @@ import { SERVICES, getServiceBySlug } from "@/lib/seo-services";
 import { CITIES } from "@/lib/seo-locations";
 import { Sparkles, Check, Mail, Phone, ArrowLeft } from "lucide-react";
 
-const BASE = "https://entretien-ml.lovable.app";
+const BASE = "https://mlentretien.com";
 
 export const Route = createFileRoute("/services/$slug")({
   loader: ({ params }) => {
