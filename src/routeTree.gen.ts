@@ -9,12 +9,18 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SoumissionRouteImport } from './routes/soumission'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 import { Route as MenageCityRouteImport } from './routes/menage.$city'
 
+const SoumissionRoute = SoumissionRouteImport.update({
+  id: '/soumission',
+  path: '/soumission',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -45,6 +51,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/soumission': typeof SoumissionRoute
   '/menage/$city': typeof MenageCityRoute
   '/services/$slug': typeof ServicesSlugRoute
 }
@@ -52,6 +59,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/soumission': typeof SoumissionRoute
   '/menage/$city': typeof MenageCityRoute
   '/services/$slug': typeof ServicesSlugRoute
 }
@@ -60,6 +68,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/soumission': typeof SoumissionRoute
   '/menage/$city': typeof MenageCityRoute
   '/services/$slug': typeof ServicesSlugRoute
 }
@@ -69,15 +78,23 @@ export interface FileRouteTypes {
     | '/'
     | '/services'
     | '/sitemap.xml'
+    | '/soumission'
     | '/menage/$city'
     | '/services/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/services' | '/sitemap.xml' | '/menage/$city' | '/services/$slug'
+  to:
+    | '/'
+    | '/services'
+    | '/sitemap.xml'
+    | '/soumission'
+    | '/menage/$city'
+    | '/services/$slug'
   id:
     | '__root__'
     | '/'
     | '/services'
     | '/sitemap.xml'
+    | '/soumission'
     | '/menage/$city'
     | '/services/$slug'
   fileRoutesById: FileRoutesById
@@ -86,11 +103,19 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ServicesRoute: typeof ServicesRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  SoumissionRoute: typeof SoumissionRoute
   MenageCityRoute: typeof MenageCityRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/soumission': {
+      id: '/soumission'
+      path: '/soumission'
+      fullPath: '/soumission'
+      preLoaderRoute: typeof SoumissionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -145,6 +170,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ServicesRoute: ServicesRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  SoumissionRoute: SoumissionRoute,
   MenageCityRoute: MenageCityRoute,
 }
 export const routeTree = rootRouteImport
