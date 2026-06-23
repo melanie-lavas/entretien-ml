@@ -164,8 +164,7 @@ function ServicesPage() {
             Services
           </Link>
           <Link
-            to="/"
-            hash="soumission"
+            to="/soumission"
             className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 text-primary-foreground text-xs sm:text-sm"
             style={{ background: "var(--gradient-hero)" }}
           >
@@ -272,8 +271,7 @@ function ServicesPage() {
                 Réponse en moins de 24 h, sans engagement.
               </p>
               <Link
-                to="/"
-                hash="soumission"
+                to="/soumission"
                 className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-primary-foreground"
                 style={{ background: "var(--gradient-hero)", boxShadow: "var(--shadow-glow)" }}
               >
@@ -298,8 +296,7 @@ function ServicesPage() {
             </p>
             <div className="mt-6 flex flex-wrap gap-3 justify-center">
               <Link
-                to="/"
-                hash="soumission"
+                to="/soumission"
                 className="inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-primary-foreground"
                 style={{ background: "var(--gradient-hero)", boxShadow: "var(--shadow-glow)" }}
               >

@@ -260,7 +260,7 @@ function Index() {
               FAQ
             </a>
             <a
-              href="#soumission"
+              href="/soumission"
               className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 text-primary-foreground text-xs sm:text-sm"
               style={{ background: "var(--gradient-hero)" }}
             >
@@ -294,7 +294,7 @@ function Index() {
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <a
-                href="#soumission"
+                href="/soumission"
                 className="inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-primary-foreground shadow-lg transition hover:scale-105"
                 style={{ background: "var(--gradient-hero)", boxShadow: "var(--shadow-glow)" }}
               >
@@ -548,7 +548,7 @@ function Index() {
 
       {/* Sticky mobile CTA */}
       <a
-        href="#soumission"
+        href="/soumission"
         className="sm:hidden fixed bottom-4 left-4 right-4 z-40 inline-flex items-center justify-center gap-2 rounded-full py-3.5 font-bold text-primary-foreground shadow-2xl"
         style={{ background: "var(--gradient-hero)", boxShadow: "var(--shadow-glow)" }}
       >

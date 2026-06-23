@@ -124,7 +124,7 @@ function CityPage() {
         </h1>
         <p className="mt-5 text-lg text-muted-foreground">{c.intro}</p>
         <div className="mt-6 flex flex-wrap gap-3">
-          <Link to="/" hash="soumission" className="inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-primary-foreground shadow-lg" style={{ background: "var(--gradient-hero)", boxShadow: "var(--shadow-glow)" }}>
+          <Link to="/soumission" className="inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-primary-foreground shadow-lg" style={{ background: "var(--gradient-hero)", boxShadow: "var(--shadow-glow)" }}>
             <Sparkles className="h-4 w-4" /> Soumission gratuite à {c.name}
           </Link>
           <a href="tel:+18199969022" className="inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold border-2 border-primary">
@@ -198,7 +198,7 @@ function CityPage() {
             <h2 className="text-2xl sm:text-3xl font-bold">Recevez votre soumission pour {c.name}</h2>
             <p className="text-muted-foreground mt-2">Réponse en moins de 24 h. Gratuit, sans engagement.</p>
             <div className="mt-6 flex flex-wrap gap-3 justify-center">
-              <Link to="/" hash="soumission" className="inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-primary-foreground" style={{ background: "var(--gradient-hero)", boxShadow: "var(--shadow-glow)" }}>
+              <Link to="/soumission" className="inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-primary-foreground" style={{ background: "var(--gradient-hero)", boxShadow: "var(--shadow-glow)" }}>
                 Demander ma soumission
               </Link>
               <a href="mailto:Melanielavas@outlook.com" className="inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold border-2 border-primary">
