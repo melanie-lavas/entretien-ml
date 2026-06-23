@@ -82,6 +82,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "author", content: "M.L Excellence" },
       { name: "robots", content: "index, follow" },
       { name: "google-site-verification", content: "T3u9eZOVcoxuwC2SBzXGPISfXTwSDDwJJoRECsX08FE" },
+      { name: "google-site-verification", content: "f6aJ11OhJ7Tq-5WgNQPcKOxusODo37g_F58rtR_8rf0" },
       { name: "theme-color", content: "#0b1d3a" },
       { property: "og:title", content: "M.L Excellence — Services de propreté en Mauricie" },
       { property: "og:description", content: "Ménage résidentiel et commercial, contrats récurrents, entretien des plates-bandes et lavage auto. Soumission gratuite et sans engagement." },
