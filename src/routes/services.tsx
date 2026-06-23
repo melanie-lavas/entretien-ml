@@ -19,15 +19,15 @@ export const Route = createFileRoute("/services")({
         content:
           "Résidentiel et commercial partout en Mauricie. Prix selon le service — soumission gratuite et sans engagement.",
       },
-      { property: "og:url", content: "https://entretien-ml.lovable.app/services" },
+      { property: "og:url", content: "https://mlentretien.com/services" },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: "https://entretien-ml.lovable.app/og-image.jpg" },
+      { property: "og:image", content: "https://mlentretien.com/og-image.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Services de ménage Mauricie — M.L Excellence" },
       { name: "twitter:description", content: "Résidentiel et commercial partout en Mauricie. Soumission gratuite." },
-      { name: "twitter:image", content: "https://entretien-ml.lovable.app/og-image.jpg" },
+      { name: "twitter:image", content: "https://mlentretien.com/og-image.jpg" },
     ],
-    links: [{ rel: "canonical", href: "https://entretien-ml.lovable.app/services" }],
+    links: [{ rel: "canonical", href: "https://mlentretien.com/services" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -35,8 +35,8 @@ export const Route = createFileRoute("/services")({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
-            { "@type": "ListItem", position: 1, name: "Accueil", item: "https://entretien-ml.lovable.app/" },
-            { "@type": "ListItem", position: 2, name: "Services", item: "https://entretien-ml.lovable.app/services" },
+            { "@type": "ListItem", position: 1, name: "Accueil", item: "https://mlentretien.com/" },
+            { "@type": "ListItem", position: 2, name: "Services", item: "https://mlentretien.com/services" },
           ],
         }),
       },
@@ -58,7 +58,7 @@ export const Route = createFileRoute("/services")({
             item: {
               "@type": "Service",
               name,
-              provider: { "@id": "https://entretien-ml.lovable.app/#business" },
+              provider: { "@id": "https://mlentretien.com/#business" },
               areaServed: [
                 { "@type": "City", name: "Trois-Rivières" },
                 { "@type": "City", name: "Shawinigan" },

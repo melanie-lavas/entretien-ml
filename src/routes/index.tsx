@@ -35,25 +35,25 @@ export const Route = createFileRoute("/")({
         content:
           "Ménage résidentiel et commercial, contrats récurrents, plates-bandes et lavage auto à Trois-Rivières, Shawinigan, Bécancour. Soumission gratuite et sans engagement.",
       },
-      { property: "og:url", content: "https://entretien-ml.lovable.app/" },
+      { property: "og:url", content: "https://mlentretien.com/" },
     ],
-    links: [{ rel: "canonical", href: "https://entretien-ml.lovable.app/" }],
+    links: [{ rel: "canonical", href: "https://mlentretien.com/" }],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
-          "@id": "https://entretien-ml.lovable.app/#business",
+          "@id": "https://mlentretien.com/#business",
           name: "M.L Excellence",
           alternateName: "Les services de propreté M.L Excellence",
           description:
             "Services de propreté résidentiels et commerciaux en Mauricie : ménage ponctuel ou contrat, entretien extérieur, plates-bandes et lavage auto.",
           email: "Melanielavas@outlook.com",
           telephone: "+1-819-996-9022",
-          url: "https://entretien-ml.lovable.app/",
-          image: "https://entretien-ml.lovable.app/og-image.jpg",
-          logo: "https://entretien-ml.lovable.app/og-image.jpg",
+          url: "https://mlentretien.com/",
+          image: "https://mlentretien.com/og-image.jpg",
+          logo: "https://mlentretien.com/og-image.jpg",
           slogan: "La propreté, notre excellence.",
           address: {
             "@type": "PostalAddress",

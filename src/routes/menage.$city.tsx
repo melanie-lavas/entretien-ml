@@ -3,7 +3,7 @@ import logoAsset from "@/assets/ml-excellence-logo.png.asset.json";
 import { CITIES, getCityBySlug } from "@/lib/seo-locations";
 import { Sparkles, Check, Home, Building2, Leaf, Car, Phone, Mail, MapPin, ShieldCheck } from "lucide-react";
 
-const BASE = "https://entretien-ml.lovable.app";
+const BASE = "https://mlentretien.com";
 
 export const Route = createFileRoute("/menage/$city")({
   loader: ({ params }) => {
