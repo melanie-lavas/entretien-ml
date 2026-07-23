@@ -50,9 +50,9 @@ export const SERVICES: ServiceData[] = [
     slug: "nettoyage-commercial",
     title: "Nettoyage commercial",
     h1: "Nettoyage commercial en Mauricie — bureaux, commerces, locaux",
-    metaTitle: "Nettoyage commercial Mauricie — bureaux & locaux | M.L Excellence",
+    metaTitle: "Nettoyage commercial Mauricie | M.L Excellence",
     metaDescription:
-      "Entretien ménager commercial à Trois-Rivières, Shawinigan, Bécancour : bureaux, cliniques, commerces, locaux. Contrats récurrents avec tarif réduit. Soumission gratuite.",
+      "Entretien de bureaux, cliniques et commerces à Trois-Rivières, Shawinigan et Bécancour. Contrats récurrents à tarif réduit. Soumission gratuite.",
     intro:
       "Vos clients et vos employés méritent un environnement propre et sain. Nos contrats de nettoyage commercial sont taillés sur mesure pour les bureaux, commerces de détail, cliniques, salons et petits locaux industriels de la Mauricie. Horaire flexible : avant l'ouverture, après la fermeture ou la nuit.",
     keywords:
