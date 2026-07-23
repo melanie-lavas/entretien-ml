@@ -49,11 +49,11 @@ const FAQ = [
 export const Route = createFileRoute("/soumission")({
   head: () => ({
     meta: [
-      { title: "Demander une soumission gratuite — M.L Excellence Mauricie" },
+      { title: "Soumission gratuite Mauricie | M.L Excellence" },
       {
         name: "description",
         content:
-          "Soumission gratuite en moins de 24 h pour ménage résidentiel, commercial, contrats récurrents, plates-bandes et lavage auto en Mauricie. Formulaire clair, sans engagement.",
+          "Soumission gratuite en moins de 24 h : ménage résidentiel, commercial, contrats, plates-bandes et lavage auto en Mauricie. Sans engagement.",
       },
       { name: "keywords", content: "soumission ménage Mauricie, devis nettoyage Trois-Rivières, prix entretien ménager Shawinigan, soumission gratuite Bécancour, devis ménage commercial" },
       { property: "og:title", content: "Soumission gratuite — M.L Excellence" },
