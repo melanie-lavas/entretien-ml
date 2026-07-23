@@ -15,8 +15,8 @@ export const Route = createFileRoute("/menage/$city")({
     if (!loaderData) return { meta: [] };
     const c = loaderData;
     const url = `${BASE}/menage/${c.slug}`;
-    const title = `Ménage ${c.name} — résidentiel & commercial | M.L Excellence`;
-    const description = `Service de ménage résidentiel et commercial à ${c.name} (${c.region}) : contrats récurrents, grand ménage, plates-bandes, lavage auto. Équipe assurée, soumission gratuite en 24 h.`;
+    const title = `Ménage ${c.name} | M.L Excellence Mauricie`;
+    const description = `Ménage résidentiel et commercial à ${c.name} (${c.region}) : contrats récurrents, grand ménage, plates-bandes. Équipe assurée, soumission gratuite.`;
     return {
       meta: [
         { title },
