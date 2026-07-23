@@ -112,9 +112,9 @@ export const SERVICES: ServiceData[] = [
     slug: "entretien-plates-bandes",
     title: "Entretien extérieur & plates-bandes",
     h1: "Entretien de plates-bandes en Mauricie — désherbage et taille",
-    metaTitle: "Entretien plates-bandes Mauricie — désherbage, taille | M.L Excellence",
+    metaTitle: "Entretien de plates-bandes Mauricie | M.L Excellence",
     metaDescription:
-      "Désherbage manuel, taille et entretien de plates-bandes à Trois-Rivières, Shawinigan, Bécancour. Forfait saisonnier ou visite ponctuelle. Soumission gratuite.",
+      "Désherbage manuel, taille et entretien de plates-bandes à Trois-Rivières, Shawinigan et Bécancour. Forfait saison ou visite ponctuelle.",
     intro:
       "Vos plates-bandes méritent autant d'attention que votre salon. On désherbe à la main (racines retirées, pas seulement coupées), on taille proprement, on remet le paillis en place et on repart en laissant vos bordures nettes. Idéal pour la mise en beauté printanière, la préparation à la vente ou un coup de fraîcheur avant un événement.",
     keywords:
