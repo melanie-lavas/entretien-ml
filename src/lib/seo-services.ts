@@ -81,9 +81,9 @@ export const SERVICES: ServiceData[] = [
     slug: "contrat-entretien-recurrent",
     title: "Contrat d'entretien récurrent",
     h1: "Contrats de ménage hebdomadaires, aux 2 semaines ou mensuels",
-    metaTitle: "Contrat de ménage récurrent en Mauricie | M.L Excellence",
+    metaTitle: "Contrat de ménage récurrent Mauricie | M.L Excellence",
     metaDescription:
-      "Contrats de ménage récurrents en Mauricie : hebdomadaire, aux 2 semaines, mensuel. Tarif réduit, même équipe, sans engagement à long terme. Soumission gratuite.",
+      "Contrats de ménage récurrents en Mauricie : hebdomadaire, aux 2 semaines, mensuel. Tarif réduit, même équipe, sans engagement. Soumission gratuite.",
     intro:
       "Reprenez votre temps. Avec un contrat récurrent, vous rentrez chez vous (ou au bureau) dans un espace impeccable, sans y penser. Tarif réduit par rapport au ménage ponctuel, même équipe à chaque visite quand possible, et aucun engagement à long terme — on bâtit la confiance visite après visite.",
     keywords:
