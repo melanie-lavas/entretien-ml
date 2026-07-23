@@ -141,9 +141,9 @@ export const SERVICES: ServiceData[] = [
     slug: "lavage-auto",
     title: "Lavage auto intérieur & extérieur",
     h1: "Lavage auto en Mauricie — intérieur, extérieur, esthétique",
-    metaTitle: "Lavage auto Mauricie — intérieur & extérieur | M.L Excellence",
+    metaTitle: "Lavage auto Mauricie | M.L Excellence",
     metaDescription:
-      "Lavage auto complet en Mauricie : carrosserie, jantes, habitacle aspiré, vitres sans traces. Berlines, VUS, camionnettes, flottes commerciales. Soumission gratuite.",
+      "Lavage auto complet en Mauricie : carrosserie, jantes, habitacle aspiré, vitres sans traces. Berlines, VUS, camionnettes, flottes. Soumission gratuite.",
     intro:
       "Redonnez à votre véhicule l'allure du jour de l'achat. Carrosserie lustrée, jantes propres, habitacle aspiré dans les moindres recoins, vitres sans traces et léger parfum frais. Parfait avant une revente, pour un véhicule de flotte à présenter à un client, ou simplement pour le plaisir de conduire un char impeccable.",
     keywords:
