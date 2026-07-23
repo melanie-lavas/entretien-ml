@@ -20,7 +20,7 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Ménage Mauricie | Résidentiel & commercial — M.L Excellence" },
+      { title: "Ménage Mauricie résidentiel & commercial | M.L Excellence" },
       {
         name: "description",
         content:
