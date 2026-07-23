@@ -20,7 +20,7 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Ménage Mauricie | Résidentiel & commercial — M.L Excellence" },
+      { title: "Ménage Mauricie résidentiel & commercial | M.L Excellence" },
       {
         name: "description",
         content:
@@ -464,6 +464,7 @@ function Index() {
               <div className="grid sm:grid-cols-2 gap-4">
                 <input
                   required
+                  aria-label="Votre nom"
                   placeholder="Votre nom *"
                   value={form.nom}
                   onChange={(e) => setForm({ ...form, nom: e.target.value })}
@@ -472,6 +473,7 @@ function Index() {
                   className="w-full rounded-xl border-2 border-border px-4 py-3 bg-background focus:border-primary outline-none"
                 />
                 <input
+                  aria-label="Téléphone"
                   placeholder="Téléphone"
                   value={form.tel}
                   onChange={(e) => setForm({ ...form, tel: e.target.value })}
@@ -485,6 +487,7 @@ function Index() {
                 <input
                   required
                   type="email"
+                  aria-label="Courriel"
                   placeholder="Courriel *"
                   value={form.courriel}
                   onChange={(e) => setForm({ ...form, courriel: e.target.value })}
@@ -493,6 +496,7 @@ function Index() {
                   className="w-full rounded-xl border-2 border-border px-4 py-3 bg-background focus:border-primary outline-none"
                 />
                 <input
+                  aria-label="Ville"
                   placeholder="Ville (Trois-Rivières, Shawinigan…)"
                   value={form.ville}
                   onChange={(e) => setForm({ ...form, ville: e.target.value })}
@@ -502,6 +506,7 @@ function Index() {
                 />
               </div>
               <textarea
+                aria-label="Détails de votre demande"
                 placeholder="Détails (adresse, fréquence, superficie, etc.)"
                 rows={4}
                 value={form.message}

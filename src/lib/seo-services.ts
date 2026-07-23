@@ -19,9 +19,9 @@ export const SERVICES: ServiceData[] = [
     slug: "menage-residentiel",
     title: "Ménage résidentiel",
     h1: "Ménage résidentiel en Mauricie — propre, fiable, sans engagement",
-    metaTitle: "Ménage résidentiel Mauricie — Trois-Rivières, Shawinigan | M.L Excellence",
+    metaTitle: "Ménage résidentiel Mauricie | M.L Excellence",
     metaDescription:
-      "Service de ménage résidentiel à Trois-Rivières, Shawinigan, Bécancour, Nicolet. Équipe assurée, matériel fourni, produits écoresponsables. Soumission gratuite en 24 h.",
+      "Ménage résidentiel à Trois-Rivières, Shawinigan, Bécancour et Nicolet. Équipe assurée, matériel fourni. Soumission gratuite en 24 h.",
     intro:
       "Notre service de ménage résidentiel s'adresse aux propriétaires et locataires de la Mauricie qui veulent un intérieur impeccable, sans y consacrer leur fin de semaine. Maison, condo, jumelé ou grande propriété : nous arrivons avec tout le matériel et suivons une liste détaillée pièce par pièce.",
     keywords:
@@ -50,9 +50,9 @@ export const SERVICES: ServiceData[] = [
     slug: "nettoyage-commercial",
     title: "Nettoyage commercial",
     h1: "Nettoyage commercial en Mauricie — bureaux, commerces, locaux",
-    metaTitle: "Nettoyage commercial Mauricie — bureaux & locaux | M.L Excellence",
+    metaTitle: "Nettoyage commercial Mauricie | M.L Excellence",
     metaDescription:
-      "Entretien ménager commercial à Trois-Rivières, Shawinigan, Bécancour : bureaux, cliniques, commerces, locaux. Contrats récurrents avec tarif réduit. Soumission gratuite.",
+      "Entretien de bureaux, cliniques et commerces à Trois-Rivières, Shawinigan et Bécancour. Contrats récurrents à tarif réduit. Soumission gratuite.",
     intro:
       "Vos clients et vos employés méritent un environnement propre et sain. Nos contrats de nettoyage commercial sont taillés sur mesure pour les bureaux, commerces de détail, cliniques, salons et petits locaux industriels de la Mauricie. Horaire flexible : avant l'ouverture, après la fermeture ou la nuit.",
     keywords:
@@ -81,9 +81,9 @@ export const SERVICES: ServiceData[] = [
     slug: "contrat-entretien-recurrent",
     title: "Contrat d'entretien récurrent",
     h1: "Contrats de ménage hebdomadaires, aux 2 semaines ou mensuels",
-    metaTitle: "Contrat de ménage récurrent en Mauricie | M.L Excellence",
+    metaTitle: "Contrat de ménage récurrent Mauricie | M.L Excellence",
     metaDescription:
-      "Contrats de ménage récurrents en Mauricie : hebdomadaire, aux 2 semaines, mensuel. Tarif réduit, même équipe, sans engagement à long terme. Soumission gratuite.",
+      "Contrats de ménage récurrents en Mauricie : hebdomadaire, aux 2 semaines, mensuel. Tarif réduit, même équipe, sans engagement. Soumission gratuite.",
     intro:
       "Reprenez votre temps. Avec un contrat récurrent, vous rentrez chez vous (ou au bureau) dans un espace impeccable, sans y penser. Tarif réduit par rapport au ménage ponctuel, même équipe à chaque visite quand possible, et aucun engagement à long terme — on bâtit la confiance visite après visite.",
     keywords:
@@ -112,9 +112,9 @@ export const SERVICES: ServiceData[] = [
     slug: "entretien-plates-bandes",
     title: "Entretien extérieur & plates-bandes",
     h1: "Entretien de plates-bandes en Mauricie — désherbage et taille",
-    metaTitle: "Entretien plates-bandes Mauricie — désherbage, taille | M.L Excellence",
+    metaTitle: "Entretien de plates-bandes Mauricie | M.L Excellence",
     metaDescription:
-      "Désherbage manuel, taille et entretien de plates-bandes à Trois-Rivières, Shawinigan, Bécancour. Forfait saisonnier ou visite ponctuelle. Soumission gratuite.",
+      "Désherbage manuel, taille et entretien de plates-bandes à Trois-Rivières, Shawinigan et Bécancour. Forfait saison ou visite ponctuelle.",
     intro:
       "Vos plates-bandes méritent autant d'attention que votre salon. On désherbe à la main (racines retirées, pas seulement coupées), on taille proprement, on remet le paillis en place et on repart en laissant vos bordures nettes. Idéal pour la mise en beauté printanière, la préparation à la vente ou un coup de fraîcheur avant un événement.",
     keywords:
@@ -141,9 +141,9 @@ export const SERVICES: ServiceData[] = [
     slug: "lavage-auto",
     title: "Lavage auto intérieur & extérieur",
     h1: "Lavage auto en Mauricie — intérieur, extérieur, esthétique",
-    metaTitle: "Lavage auto Mauricie — intérieur & extérieur | M.L Excellence",
+    metaTitle: "Lavage auto Mauricie | M.L Excellence",
     metaDescription:
-      "Lavage auto complet en Mauricie : carrosserie, jantes, habitacle aspiré, vitres sans traces. Berlines, VUS, camionnettes, flottes commerciales. Soumission gratuite.",
+      "Lavage auto complet en Mauricie : carrosserie, jantes, habitacle aspiré, vitres sans traces. Berlines, VUS, camionnettes, flottes. Soumission gratuite.",
     intro:
       "Redonnez à votre véhicule l'allure du jour de l'achat. Carrosserie lustrée, jantes propres, habitacle aspiré dans les moindres recoins, vitres sans traces et léger parfum frais. Parfait avant une revente, pour un véhicule de flotte à présenter à un client, ou simplement pour le plaisir de conduire un char impeccable.",
     keywords:

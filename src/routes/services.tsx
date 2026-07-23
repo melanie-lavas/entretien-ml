@@ -5,7 +5,7 @@ import { Home, Sparkles, Leaf, Car, Check, Building2, Mail, ArrowLeft } from "lu
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services de ménage Mauricie — résidentiel & commercial | M.L Excellence" },
+      { title: "Services de ménage Mauricie | M.L Excellence" },
       {
         name: "description",
         content:
