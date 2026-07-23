@@ -19,9 +19,9 @@ export const SERVICES: ServiceData[] = [
     slug: "menage-residentiel",
     title: "Ménage résidentiel",
     h1: "Ménage résidentiel en Mauricie — propre, fiable, sans engagement",
-    metaTitle: "Ménage résidentiel Mauricie — Trois-Rivières, Shawinigan | M.L Excellence",
+    metaTitle: "Ménage résidentiel Mauricie | M.L Excellence",
     metaDescription:
-      "Service de ménage résidentiel à Trois-Rivières, Shawinigan, Bécancour, Nicolet. Équipe assurée, matériel fourni, produits écoresponsables. Soumission gratuite en 24 h.",
+      "Ménage résidentiel à Trois-Rivières, Shawinigan, Bécancour et Nicolet. Équipe assurée, matériel fourni. Soumission gratuite en 24 h.",
     intro:
       "Notre service de ménage résidentiel s'adresse aux propriétaires et locataires de la Mauricie qui veulent un intérieur impeccable, sans y consacrer leur fin de semaine. Maison, condo, jumelé ou grande propriété : nous arrivons avec tout le matériel et suivons une liste détaillée pièce par pièce.",
     keywords:
