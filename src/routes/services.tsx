@@ -1,6 +1,127 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import logoAsset from "@/assets/ml-excellence-logo.png.asset.json";
-import { Home, Sparkles, Leaf, Car, Check, Building2, Mail, ArrowLeft } from "lucide-react";
+import { Home, Sparkles, Leaf, Car, Check, Building2, Mail, ArrowLeft, ShieldCheck } from "lucide-react";
+
+type ServiceBlock = {
+  icon: typeof Home;
+  title: string;
+  intro: string;
+  includes: string[];
+  residential: string[];
+  commercial: string[];
+  whyUs: { t: string; d: string }[];
+  faq: { q: string; a: string }[];
+};
+
+const SERVICES: ServiceBlock[] = [
+  {
+    icon: Home,
+    title: "Ménage intérieur — une fois",
+    intro:
+      "Retrouvez une maison qui sent le neuf en une seule visite. Parfait pour un grand ménage saisonnier, une fin de bail, un déménagement, une vente immobilière ou simplement un coup de frais avant de recevoir. Notre équipe arrive avec tout le matériel, suit une liste détaillée et ne quitte pas avant que chaque pièce brille — satisfaction garantie ou on revient sans frais.",
+    includes: [
+      "Dépoussiérage complet (meubles, plinthes, cadrages, luminaires)",
+      "Salles de bain désinfectées : douche, bain, toilette, lavabo, miroirs",
+      "Cuisine : comptoirs, électros extérieurs, évier, dosseret, hotte",
+      "Planchers : aspirateur et lavage adapté au revêtement",
+      "Vidage des poubelles et changement des sacs",
+      "Finition : vitres intérieures sur demande, parfum frais et discret",
+    ],
+    residential: ["Condo / 3½ – 4½", "Maison 5½ – 6½", "Grande propriété 7½ +"],
+    commercial: ["Bureau / local < 100 m²", "Local 100 – 250 m²", "Espace 250 m² +"],
+    whyUs: [
+      { t: "Équipe assurée", d: "Responsabilité civile complète, employés vérifiés." },
+      { t: "Satisfaction garantie", d: "Pas content ? On revient sans frais." },
+      { t: "Matériel fourni", d: "Produits, vadrouilles, aspirateur — tout est inclus." },
+      { t: "Prix ferme", d: "Aucune surprise à la fin du mandat." },
+    ],
+    faq: [
+      { q: "Combien coûte un ménage résidentiel ?", a: "Le prix dépend de la superficie et de l'état actuel. Soumission gratuite en 24 h." },
+      { q: "Dois-je être présent ?", a: "Non. Plusieurs clients nous laissent une clé ou un code — nous sommes assurés." },
+      { q: "Quels produits utilisez-vous ?", a: "Produits professionnels efficaces, gamme écoresponsable sur demande sans frais." },
+    ],
+  },
+  {
+    icon: Sparkles,
+    title: "Contrat d'entretien récurrent",
+    intro:
+      "Reprenez votre temps. Avec un contrat hebdomadaire, aux deux semaines ou mensuel, vous rentrez chez vous (ou au bureau) dans un espace impeccable, sans y penser. Tarif réduit, même équipe à chaque visite quand possible, et une liste personnalisée selon vos pièces et vos priorités. Aucun engagement à long terme — on bâtit la confiance visite après visite.",
+    includes: [
+      "Plan de ménage 100 % personnalisé selon vos pièces prioritaires",
+      "Même équipe à chaque visite quand possible — vous n'avez rien à réexpliquer",
+      "Produits écoresponsables fournis sur demande, sans frais",
+      "Ajustements saisonniers en option (vitres, frigo, four, garde-robes)",
+      "Rappels automatiques et flexibilité d'horaire",
+      "Tarif visite réduit par rapport au ménage ponctuel",
+    ],
+    residential: ["Visites aux 2 semaines", "Visites hebdomadaires", "Forfait sur mesure"],
+    commercial: ["Bureau — 1 visite / semaine", "Commerce — 2 à 3 visites / semaine", "Contrat annuel préférentiel"],
+    whyUs: [
+      { t: "Sans engagement", d: "Vous arrêtez quand vous voulez, aucune pénalité." },
+      { t: "Tarif dégressif", d: "Plus la fréquence est haute, plus le prix baisse." },
+      { t: "Même équipe", d: "Constance du résultat, aucune zone oubliée." },
+      { t: "Facturation simple", d: "Mensuelle ou par visite, à votre choix." },
+    ],
+    faq: [
+      { q: "Quelle fréquence recommandez-vous ?", a: "Famille active : aux 2 semaines. Bureau : 1 à 3 fois par semaine selon l'achalandage." },
+      { q: "Puis-je suspendre durant les vacances ?", a: "Oui, sans frais. Prévenez-nous au moins 48 h à l'avance." },
+      { q: "Y a-t-il un rabais vs ponctuel ?", a: "Oui, généralement entre 10 % et 25 % par visite selon la fréquence." },
+    ],
+  },
+  {
+    icon: Leaf,
+    title: "Entretien extérieur & plates-bandes",
+    intro:
+      "Vos plates-bandes méritent autant d'attention que votre salon. On désherbe à la main, on taille proprement, on remet le paillis en place et on repart en laissant vos bordures nettes — comme au premier jour. Idéal pour la mise en beauté printanière, la préparation à la vente d'une propriété ou un simple coup de fraîcheur avant un événement.",
+    includes: [
+      "Désherbage manuel complet (racines retirées, pas seulement coupées)",
+      "Taille légère des vivaces et arbustes pour un rendu net",
+      "Nettoyage des bordures et paillis redistribué uniformément",
+      "Ramassage et disposition responsable des résidus végétaux",
+      "Conseils gratuits pour garder un résultat durable",
+    ],
+    residential: ["Petite plate-bande", "Plate-bande moyenne", "Grande plate-bande"],
+    commercial: ["Entrée de commerce", "Forfait saison (mai à oct.)"],
+    whyUs: [
+      { t: "Travail manuel", d: "Aucun désherbant chimique sauf demande expresse." },
+      { t: "Forfait saison", d: "3 à 5 visites de mai à octobre, prix avantageux." },
+      { t: "Résultat durable", d: "Bordures propres et paillis en place pour des mois." },
+      { t: "Combinable", d: "Ajoutez un ménage intérieur ou un lavage auto la même journée." },
+    ],
+    faq: [
+      { q: "Faites-vous la tonte de pelouse ?", a: "Non, nous nous concentrons sur les plates-bandes. Référence possible vers un partenaire." },
+      { q: "Quand est le meilleur moment ?", a: "Une visite printemps, une milieu d'été et une automne donnent un résultat optimal." },
+    ],
+  },
+  {
+    icon: Car,
+    title: "Lavage auto intérieur & extérieur",
+    intro:
+      "Redonnez à votre véhicule l'allure du jour de l'achat. Carrosserie lustrée, jantes propres, habitacle aspiré dans les moindres recoins, vitres sans traces et léger parfum frais. Parfait avant une revente, pour un véhicule de flotte à présenter à un client, ou simplement pour le plaisir de conduire un char impeccable.",
+    includes: [
+      "Lavage extérieur complet, jantes et pneus lustrés",
+      "Aspirateur en profondeur (sièges, tapis, coffre, entre-sièges)",
+      "Nettoyage du tableau de bord, console et plastiques",
+      "Vitres intérieures et extérieures sans traces",
+      "Désodorisation légère et discrète",
+      "Tarif dégressif pour les flottes commerciales",
+    ],
+    residential: ["Berline / compacte", "VUS / multisegment", "Camionnette / 7 passagers"],
+    commercial: ["Flotte 3 véhicules et +", "Contrat mensuel"],
+    whyUs: [
+      { t: "À domicile possible", d: "Nous pouvons nous déplacer chez vous selon la disponibilité." },
+      { t: "Flottes commerciales", d: "Tarif spécial à partir de 3 véhicules." },
+      { t: "Préparation revente", d: "Idéal pour maximiser la valeur de votre véhicule." },
+      { t: "Sans abrasif", d: "Produits sécuritaires pour la peinture et les plastiques." },
+    ],
+    faq: [
+      { q: "Faites-vous la cire et le polissage ?", a: "Oui, en option. À ajouter à votre demande de soumission." },
+      { q: "Combien de temps pour un lavage complet ?", a: "Entre 1 h 30 et 3 h selon le format et l'état initial du véhicule." },
+    ],
+  },
+];
+
+const ALL_FAQ = SERVICES.flatMap((s) => s.faq);
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -46,18 +167,12 @@ export const Route = createFileRoute("/services")({
           "@context": "https://schema.org",
           "@type": "ItemList",
           name: "Services de propreté M.L Excellence en Mauricie",
-          itemListElement: [
-            "Ménage résidentiel — une fois",
-            "Contrat d'entretien récurrent",
-            "Nettoyage commercial",
-            "Entretien extérieur & plates-bandes",
-            "Lavage auto intérieur & extérieur",
-          ].map((name, i) => ({
+          itemListElement: SERVICES.map((s, i) => ({
             "@type": "ListItem",
             position: i + 1,
             item: {
               "@type": "Service",
-              name,
+              name: s.title,
               provider: { "@id": "https://mlentretien.com/#business" },
               areaServed: [
                 { "@type": "City", name: "Trois-Rivières" },
@@ -68,85 +183,22 @@ export const Route = createFileRoute("/services")({
           })),
         }),
       },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: ALL_FAQ.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        }),
+      },
     ],
   }),
   component: ServicesPage,
 });
-
-type ServiceBlock = {
-  icon: typeof Home;
-  title: string;
-  intro: string;
-  includes: string[];
-  residential: string[];
-  commercial: string[];
-};
-
-const SERVICES: ServiceBlock[] = [
-  {
-    icon: Home,
-    title: "Ménage intérieur — une fois",
-    intro:
-      "Retrouvez une maison qui sent le neuf en une seule visite. Parfait pour un grand ménage saisonnier, une fin de bail, un déménagement, une vente immobilière ou simplement un coup de frais avant de recevoir. Notre équipe arrive avec tout le matériel, suit une liste détaillée et ne quitte pas avant que chaque pièce brille — satisfaction garantie ou on revient sans frais.",
-    includes: [
-      "Dépoussiérage complet (meubles, plinthes, cadrages, luminaires)",
-      "Salles de bain désinfectées : douche, bain, toilette, lavabo, miroirs",
-      "Cuisine : comptoirs, électros extérieurs, évier, dosseret, hotte",
-      "Planchers : aspirateur et lavage adapté au revêtement",
-      "Vidage des poubelles et changement des sacs",
-      "Finition : vitres intérieures sur demande, parfum frais et discret",
-    ],
-    residential: ["Condo / 3½ – 4½", "Maison 5½ – 6½", "Grande propriété 7½ +"],
-    commercial: ["Bureau / local < 100 m²", "Local 100 – 250 m²", "Espace 250 m² +"],
-  },
-  {
-    icon: Sparkles,
-    title: "Contrat d'entretien récurrent",
-    intro:
-      "Reprenez votre temps. Avec un contrat hebdomadaire, aux deux semaines ou mensuel, vous rentrez chez vous (ou au bureau) dans un espace impeccable, sans y penser. Tarif réduit, même équipe à chaque visite quand possible, et une liste personnalisée selon vos pièces et vos priorités. Aucun engagement à long terme — on bâtit la confiance visite après visite.",
-    includes: [
-      "Plan de ménage 100 % personnalisé selon vos pièces prioritaires",
-      "Même équipe à chaque visite quand possible — vous n'avez rien à réexpliquer",
-      "Produits écoresponsables fournis sur demande, sans frais",
-      "Ajustements saisonniers en option (vitres, frigo, four, garde-robes)",
-      "Rappels automatiques et flexibilité d'horaire",
-      "Tarif visite réduit par rapport au ménage ponctuel",
-    ],
-    residential: ["Visites aux 2 semaines", "Visites hebdomadaires", "Forfait sur mesure"],
-    commercial: ["Bureau — 1 visite / semaine", "Commerce — 2 à 3 visites / semaine", "Contrat annuel préférentiel"],
-  },
-  {
-    icon: Leaf,
-    title: "Entretien extérieur & plates-bandes",
-    intro:
-      "Vos plates-bandes méritent autant d'attention que votre salon. On désherbe à la main, on taille proprement, on remet le paillis en place et on repart en laissant vos bordures nettes — comme au premier jour. Idéal pour la mise en beauté printanière, la préparation à la vente d'une propriété ou un simple coup de fraîcheur avant un événement.",
-    includes: [
-      "Désherbage manuel complet (racines retirées, pas seulement coupées)",
-      "Taille légère des vivaces et arbustes pour un rendu net",
-      "Nettoyage des bordures et paillis redistribué uniformément",
-      "Ramassage et disposition responsable des résidus végétaux",
-      "Conseils gratuits pour garder un résultat durable",
-    ],
-    residential: ["Petite plate-bande", "Plate-bande moyenne", "Grande plate-bande"],
-    commercial: ["Entrée de commerce", "Forfait saison (mai à oct.)"],
-  },
-  {
-    icon: Car,
-    title: "Lavage auto intérieur & extérieur",
-    intro:
-      "Redonnez à votre véhicule l'allure du jour de l'achat. Carrosserie lustrée, jantes propres, habitacle aspiré dans les moindres recoins, vitres sans traces et léger parfum frais. Parfait avant une revente, pour un véhicule de flotte à présenter à un client, ou simplement pour le plaisir de conduire un char impeccable.",
-    includes: [
-      "Lavage extérieur complet, jantes et pneus lustrés",
-      "Aspirateur en profondeur (sièges, tapis, coffre, entre-sièges)",
-      "Nettoyage du tableau de bord, console et plastiques",
-      "Vitres intérieures et extérieures sans traces",
-      "Désodorisation légère et discrète",
-      "Tarif dégressif pour les flottes commerciales",
-    ],
-    residential: ["Berline / compacte", "VUS / multisegment", "Camionnette / 7 passagers"],
-    commercial: ["Flotte 3 véhicules et +", "Contrat mensuel"],
-  },
-];
 
 function ServicesPage() {
   return (
@@ -225,7 +277,7 @@ function ServicesPage() {
 
       {/* Services */}
       <section className="max-w-6xl mx-auto px-6 pb-16 space-y-10">
-        {SERVICES.map(({ icon: Icon, title, intro, includes, residential, commercial }) => (
+        {SERVICES.map(({ icon: Icon, title, intro, includes, residential, commercial, whyUs, faq }) => (
           <article
             key={title}
             className="rounded-3xl border border-border bg-card overflow-hidden shadow-sm"
@@ -263,6 +315,36 @@ function ServicesPage() {
 
               <OptionColumn label="Résidentiel — privé" icon={Home} items={residential} />
               <OptionColumn label="Commercial" icon={Building2} items={commercial} />
+            </div>
+
+            {/* Pourquoi nous choisir */}
+            <div className="px-6 sm:px-8 pb-6 sm:pb-8">
+              <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-2">
+                <ShieldCheck className="h-4 w-4 text-primary" /> Pourquoi nous choisir
+              </h3>
+              <div className="mt-3 grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                {whyUs.map((b) => (
+                  <div key={b.t} className="rounded-2xl border border-border p-4 bg-background">
+                    <p className="font-bold text-sm">{b.t}</p>
+                    <p className="text-xs text-muted-foreground mt-1">{b.d}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* FAQ */}
+            <div className="px-6 sm:px-8 pb-6 sm:pb-8">
+              <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground">
+                Questions fréquentes
+              </h3>
+              <div className="mt-3 space-y-2">
+                {faq.map((f) => (
+                  <details key={f.q} className="rounded-2xl border border-border bg-background p-4">
+                    <summary className="font-semibold cursor-pointer text-sm">{f.q}</summary>
+                    <p className="text-sm text-muted-foreground mt-2">{f.a}</p>
+                  </details>
+                ))}
+              </div>
             </div>
 
             <div className="px-6 sm:px-8 pb-6 sm:pb-8 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-5">
