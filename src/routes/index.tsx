@@ -243,6 +243,17 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      {/* Bandeau réponse 24 h */}
+      <div
+        className="px-4 py-2 text-center text-[11px] sm:text-sm font-semibold text-primary-foreground"
+        style={{ background: "var(--gradient-hero)" }}
+      >
+        Réponse garantie en moins de 24 h ·{" "}
+        <a href="tel:+18199969022" className="underline underline-offset-2">
+          819-996-9022
+        </a>
+      </div>
+
       {/* Header */}
       <header
         className="sticky top-0 z-30 backdrop-blur border-b border-border/50"
@@ -255,6 +266,9 @@ function Index() {
           <nav className="flex items-center gap-1 sm:gap-3 text-sm font-medium shrink-0">
             <Link to="/services" className="px-2 py-1 text-muted-foreground hover:text-foreground transition">
               Services
+            </Link>
+            <Link to="/zones" className="hidden sm:inline px-2 py-1 text-muted-foreground hover:text-foreground transition">
+              Zones
             </Link>
             <a href="#faq" className="hidden sm:inline px-2 py-1 text-muted-foreground hover:text-foreground transition">
               FAQ

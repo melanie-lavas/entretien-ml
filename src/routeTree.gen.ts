@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ZonesRouteImport } from './routes/zones'
 import { Route as SoumissionRouteImport } from './routes/soumission'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
@@ -16,6 +17,11 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
 import { Route as MenageCityRouteImport } from './routes/menage.$city'
 
+const ZonesRoute = ZonesRouteImport.update({
+  id: '/zones',
+  path: '/zones',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SoumissionRoute = SoumissionRouteImport.update({
   id: '/soumission',
   path: '/soumission',
@@ -52,6 +58,7 @@ export interface FileRoutesByFullPath {
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/soumission': typeof SoumissionRoute
+  '/zones': typeof ZonesRoute
   '/menage/$city': typeof MenageCityRoute
   '/services/$slug': typeof ServicesSlugRoute
 }
@@ -60,6 +67,7 @@ export interface FileRoutesByTo {
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/soumission': typeof SoumissionRoute
+  '/zones': typeof ZonesRoute
   '/menage/$city': typeof MenageCityRoute
   '/services/$slug': typeof ServicesSlugRoute
 }
@@ -69,6 +77,7 @@ export interface FileRoutesById {
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/soumission': typeof SoumissionRoute
+  '/zones': typeof ZonesRoute
   '/menage/$city': typeof MenageCityRoute
   '/services/$slug': typeof ServicesSlugRoute
 }
@@ -79,6 +88,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/soumission'
+    | '/zones'
     | '/menage/$city'
     | '/services/$slug'
   fileRoutesByTo: FileRoutesByTo
@@ -87,6 +97,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/soumission'
+    | '/zones'
     | '/menage/$city'
     | '/services/$slug'
   id:
@@ -95,6 +106,7 @@ export interface FileRouteTypes {
     | '/services'
     | '/sitemap.xml'
     | '/soumission'
+    | '/zones'
     | '/menage/$city'
     | '/services/$slug'
   fileRoutesById: FileRoutesById
@@ -104,11 +116,19 @@ export interface RootRouteChildren {
   ServicesRoute: typeof ServicesRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SoumissionRoute: typeof SoumissionRoute
+  ZonesRoute: typeof ZonesRoute
   MenageCityRoute: typeof MenageCityRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/zones': {
+      id: '/zones'
+      path: '/zones'
+      fullPath: '/zones'
+      preLoaderRoute: typeof ZonesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/soumission': {
       id: '/soumission'
       path: '/soumission'
@@ -171,18 +191,9 @@ const rootRouteChildren: RootRouteChildren = {
   ServicesRoute: ServicesRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SoumissionRoute: SoumissionRoute,
+  ZonesRoute: ZonesRoute,
   MenageCityRoute: MenageCityRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
