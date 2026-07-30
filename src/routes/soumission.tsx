@@ -1,13 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { z } from "zod";
 import {
-  Sparkles,
-  Home,
-  Building2,
-  Repeat,
-  Flower2,
-  Car,
   Check,
   Phone,
   Mail,
@@ -18,6 +12,7 @@ import {
 } from "lucide-react";
 
 const BASE = "https://mlentretien.com";
+const CONTACT_EMAIL = "Melanielavas@outlook.com";
 
 const FAQ = [
   {
@@ -29,16 +24,16 @@ const FAQ = [
     a: "Oui — toujours gratuite et sans aucun engagement. Vous recevez un prix ferme et clair, adapté à vos besoins réels.",
   },
   {
+    q: "Pourquoi un grand ménage initial est-il parfois nécessaire ?",
+    a: "Lorsqu'une résidence n'a pas été nettoyée en profondeur depuis longtemps, un grand ménage initial remet la maison à niveau. L'entretien régulier devient ensuite plus rapide et plus efficace.",
+  },
+  {
     q: "Quelles informations dois-je fournir ?",
-    a: "Le type de service souhaité, votre ville, la superficie ou le nombre de pièces, la fréquence désirée et toute particularité (animaux, allergies, accès, etc.).",
+    a: "Le type de résidence, le nombre de pièces, la superficie, les services souhaités, la fréquence désirée et toute particularité (animaux, allergies, accès, produits).",
   },
   {
     q: "Quels secteurs desservez-vous ?",
     a: "Toute la Mauricie et le Centre-du-Québec : Trois-Rivières, Shawinigan, Bécancour, Nicolet, Cap-de-la-Madeleine, Grand-Mère et environs.",
-  },
-  {
-    q: "Quels modes de paiement acceptez-vous ?",
-    a: "Virement Interac, chèque ou comptant pour les particuliers. Facturation mensuelle par courriel pour les contrats commerciaux.",
   },
   {
     q: "Êtes-vous assurés ?",
@@ -53,17 +48,22 @@ export const Route = createFileRoute("/soumission")({
       {
         name: "description",
         content:
-          "Soumission gratuite en moins de 24 h : ménage résidentiel, commercial, contrats, plates-bandes et lavage auto en Mauricie. Sans engagement.",
+          "Questionnaire de soumission détaillé : entretien régulier ou grand ménage initial, services, fréquence, produits. Réponse en moins de 24 h, sans engagement.",
       },
-      { name: "keywords", content: "soumission ménage Mauricie, devis nettoyage Trois-Rivières, prix entretien ménager Shawinigan, soumission gratuite Bécancour, devis ménage commercial" },
+      {
+        name: "keywords",
+        content:
+          "soumission ménage Mauricie, devis nettoyage Trois-Rivières, grand ménage initial, entretien régulier Nicolet, soumission gratuite Bécancour",
+      },
       { property: "og:title", content: "Soumission gratuite — M.L Excellence" },
       {
         property: "og:description",
         content:
-          "Recevez votre soumission en moins de 24 h. Résidentiel, commercial, plates-bandes, lavage auto. Sans engagement.",
+          "Questionnaire complet pour une soumission précise. Réponse en moins de 24 h. Sans engagement.",
       },
       { property: "og:url", content: `${BASE}/soumission` },
       { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Soumission gratuite — M.L Excellence" },
       {
         name: "twitter:description",
@@ -112,104 +112,276 @@ export const Route = createFileRoute("/soumission")({
   component: SoumissionPage,
 });
 
-const SERVICES = [
-  { id: "residentiel", label: "Ménage résidentiel", icon: Home },
-  { id: "commercial", label: "Nettoyage commercial", icon: Building2 },
-  { id: "recurrent", label: "Contrat récurrent", icon: Repeat },
-  { id: "plates-bandes", label: "Plates-bandes / extérieur", icon: Flower2 },
-  { id: "auto", label: "Lavage auto", icon: Car },
+const TYPES_RESIDENCE = [
+  "Maison unifamiliale",
+  "Condo",
+  "Jumelé",
+  "Duplex / plex",
+  "Appartement",
+  "Chalet",
+  "Local commercial",
+  "Autre",
+];
+
+const SERVICE_TYPE = [
+  {
+    id: "regulier",
+    titre: "Entretien régulier seulement",
+    desc: "La maison est déjà bien entretenue.",
+  },
+  {
+    id: "grand-menage",
+    titre: "Grand ménage initial + entretien régulier",
+    desc: "Remise à niveau complète avant le suivi régulier.",
+  },
+  {
+    id: "grand-menage-seul",
+    titre: "Grand ménage ponctuel seulement",
+    desc: "Une seule visite en profondeur.",
+  },
+] as const;
+
+const GRAND_MENAGE_OPTIONS = [
+  "Armoires (extérieur)",
+  "Armoires (intérieur)",
+  "Réfrigérateur",
+  "Four",
+  "Hotte de cuisine",
+  "Fenêtres intérieures",
+  "Cadres de fenêtres",
+  "Plinthes",
+  "Murs",
+  "Ventilateurs",
+  "Luminaires",
+];
+
+const SERVICES_OPTIONS = [
+  "Époussetage complet",
+  "Aspirateur",
+  "Lavage des planchers",
+  "Nettoyage de la cuisine",
+  "Nettoyage des salles de bain",
+  "Désinfection des surfaces",
+  "Nettoyage des miroirs",
+  "Changement de la literie",
+  "Lavage et pliage du linge",
+  "Vidage des poubelles",
 ];
 
 const FREQUENCES = [
-  "Ponctuel (une seule fois)",
-  "Hebdomadaire",
+  "Une seule fois (ponctuel)",
+  "Deux fois par semaine",
+  "Une fois par semaine",
   "Aux 2 semaines",
-  "Mensuel",
+  "Une fois par mois",
   "Saisonnier",
   "Je ne sais pas encore",
 ];
 
-const TYPES = ["Résidentiel", "Commercial"] as const;
+const JOURS = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
+
+const OUI_NON = ["Oui", "Non"] as const;
+
+const trimmed = (max: number) => z.string().trim().max(max).optional().or(z.literal(""));
 
 const soumissionSchema = z.object({
-  nom: z
-    .string()
-    .trim()
-    .min(2, "Nom trop court")
-    .max(120, "Nom trop long"),
+  nom: z.string().trim().min(2, "Nom trop court").max(120, "Nom trop long"),
+  adresse: z.string().trim().min(4, "Adresse requise").max(200, "Adresse trop longue"),
   tel: z
     .string()
     .trim()
     .min(8, "Téléphone requis (min. 8 chiffres)")
     .max(30, "Téléphone trop long")
     .regex(/^[0-9+()\-.\s]+$/, "Téléphone invalide"),
-  courriel: z
-    .string()
-    .trim()
-    .email("Courriel invalide")
-    .max(150, "Courriel trop long"),
-  ville: z.string().trim().min(2, "Ville requise").max(80, "Ville trop longue"),
-  type: z.enum(TYPES, { errorMap: () => ({ message: "Sélectionnez un type" }) }),
+  courriel: z.string().trim().email("Courriel invalide").max(150, "Courriel trop long"),
+  typeResidence: z.string().trim().min(2, "Type de résidence requis").max(80),
+  chambres: trimmed(20),
+  sdb: trimmed(20),
+  sallesEau: trimmed(20),
+  etages: trimmed(20),
+  superficie: trimmed(60),
+  sousSol: z.string().trim().max(10).optional().or(z.literal("")),
+  garage: z.string().trim().max(10).optional().or(z.literal("")),
+  serviceType: z.enum(["regulier", "grand-menage", "grand-menage-seul"], {
+    errorMap: () => ({ message: "Sélectionnez le service recherché" }),
+  }),
+  depuisQuand: trimmed(120),
+  accumulations: trimmed(500),
+  piecesAttention: trimmed(500),
+  grandMenageOptions: z.array(z.string()).max(20),
+  grandMenageAutre: trimmed(200),
   services: z.array(z.string()).min(1, "Sélectionnez au moins un service"),
-  frequence: z.string().trim().max(60).optional().or(z.literal("")),
-  superficie: z.string().trim().max(80).optional().or(z.literal("")),
-  date: z.string().trim().max(40).optional().or(z.literal("")),
-  message: z.string().trim().max(2000, "Message trop long").optional().or(z.literal("")),
+  servicesAutre: trimmed(200),
+  frequence: z.string().trim().min(2, "Fréquence requise").max(60),
+  jours: z.array(z.string()).max(7),
+  heure: trimmed(40),
+  flexible: z.string().trim().max(10).optional().or(z.literal("")),
+  animaux: z.string().trim().max(10).optional().or(z.literal("")),
+  animauxDetails: trimmed(200),
+  produits: z.string().trim().max(60).optional().or(z.literal("")),
+  produitsPreferences: trimmed(300),
+  present: z.string().trim().max(10).optional().or(z.literal("")),
+  acces: trimmed(300),
+  consignes: trimmed(500),
+  commentaires: trimmed(2000),
   consent: z.literal(true, { errorMap: () => ({ message: "Consentement requis" }) }),
 });
 
 type FormState = {
   nom: string;
+  adresse: string;
   tel: string;
   courriel: string;
-  ville: string;
-  type: "" | (typeof TYPES)[number];
-  services: string[];
-  frequence: string;
+  typeResidence: string;
+  chambres: string;
+  sdb: string;
+  sallesEau: string;
+  etages: string;
   superficie: string;
-  date: string;
-  message: string;
+  sousSol: string;
+  garage: string;
+  serviceType: "" | (typeof SERVICE_TYPE)[number]["id"];
+  depuisQuand: string;
+  accumulations: string;
+  piecesAttention: string;
+  grandMenageOptions: string[];
+  grandMenageAutre: string;
+  services: string[];
+  servicesAutre: string;
+  frequence: string;
+  jours: string[];
+  heure: string;
+  flexible: string;
+  animaux: string;
+  animauxDetails: string;
+  produits: string;
+  produitsPreferences: string;
+  present: string;
+  acces: string;
+  consignes: string;
+  commentaires: string;
   consent: boolean;
 };
 
 const initialForm: FormState = {
   nom: "",
+  adresse: "",
   tel: "",
   courriel: "",
-  ville: "",
-  type: "",
-  services: [],
-  frequence: "",
+  typeResidence: "",
+  chambres: "",
+  sdb: "",
+  sallesEau: "",
+  etages: "",
   superficie: "",
-  date: "",
-  message: "",
+  sousSol: "",
+  garage: "",
+  serviceType: "",
+  depuisQuand: "",
+  accumulations: "",
+  piecesAttention: "",
+  grandMenageOptions: [],
+  grandMenageAutre: "",
+  services: [],
+  servicesAutre: "",
+  frequence: "",
+  jours: [],
+  heure: "",
+  flexible: "",
+  animaux: "",
+  animauxDetails: "",
+  produits: "",
+  produitsPreferences: "",
+  present: "",
+  acces: "",
+  consignes: "",
+  commentaires: "",
   consent: false,
 };
 
 function SoumissionPage() {
   const [form, setForm] = useState<FormState>(initialForm);
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [sent, setSent] = useState(false);
+  const [mailtoUrl, setMailtoUrl] = useState<string | null>(null);
 
   const set = <K extends keyof FormState>(k: K, v: FormState[K]) =>
     setForm((f) => ({ ...f, [k]: v }));
 
-  const toggleService = (id: string) =>
+  const toggle = (k: "grandMenageOptions" | "services" | "jours", value: string) =>
     setForm((f) => ({
       ...f,
-      services: f.services.includes(id)
-        ? f.services.filter((x) => x !== id)
-        : [...f.services, id],
+      [k]: f[k].includes(value) ? f[k].filter((x) => x !== value) : [...f[k], value],
     }));
 
-  const servicesLabels = useMemo(
-    () =>
-      form.services
-        .map((id) => SERVICES.find((s) => s.id === id)?.label)
-        .filter(Boolean)
-        .join(", "),
-    [form.services],
-  );
+  const grandMenage = form.serviceType !== "regulier" && form.serviceType !== "";
+
+  const buildBody = (d: z.infer<typeof soumissionSchema>) => {
+    const serviceLabel =
+      SERVICE_TYPE.find((s) => s.id === d.serviceType)?.titre ?? d.serviceType;
+    const L: (string | null)[] = [
+      "=== INFORMATIONS GÉNÉRALES ===",
+      `Nom: ${d.nom}`,
+      `Adresse: ${d.adresse}`,
+      `Téléphone: ${d.tel}`,
+      `Courriel: ${d.courriel}`,
+      "",
+      "=== RÉSIDENCE ===",
+      `Type de résidence: ${d.typeResidence}`,
+      `Chambres: ${d.chambres || "—"}`,
+      `Salles de bain: ${d.sdb || "—"}`,
+      `Salles d'eau: ${d.sallesEau || "—"}`,
+      `Étages: ${d.etages || "—"}`,
+      `Superficie approximative: ${d.superficie || "—"}`,
+      `Sous-sol à entretenir: ${d.sousSol || "—"}`,
+      `Garage à entretenir: ${d.garage || "—"}`,
+      "",
+      "=== TYPE DE SERVICE ===",
+      `Service recherché: ${serviceLabel}`,
+    ];
+
+    if (d.serviceType !== "regulier") {
+      L.push(
+        `Dernier ménage complet: ${d.depuisQuand || "—"}`,
+        `Accumulations (poussière, graisse, savon, calcaire): ${d.accumulations || "—"}`,
+        `Pièces demandant une attention particulière: ${d.piecesAttention || "—"}`,
+        `Nettoyages en profondeur demandés: ${
+          d.grandMenageOptions.length ? d.grandMenageOptions.join(", ") : "—"
+        }`,
+        d.grandMenageAutre ? `Autres (grand ménage): ${d.grandMenageAutre}` : null,
+      );
+    }
+
+    L.push(
+      "",
+      "=== SERVICES SOUHAITÉS ===",
+      d.services.join(", "),
+      d.servicesAutre ? `Autres: ${d.servicesAutre}` : null,
+      "",
+      "=== FRÉQUENCE ===",
+      `Fréquence: ${d.frequence}`,
+      `Journées préférées: ${d.jours.length ? d.jours.join(", ") : "—"}`,
+      `Heure souhaitée: ${d.heure || "—"}`,
+      `Horaire flexible: ${d.flexible || "—"}`,
+      "",
+      "=== ANIMAUX ===",
+      `Animaux: ${d.animaux || "—"}`,
+      d.animauxDetails ? `Lesquels: ${d.animauxDetails}` : null,
+      "",
+      "=== PRODUITS ===",
+      `Fourniture des produits: ${d.produits || "—"}`,
+      `Préférences particulières: ${d.produitsPreferences || "—"}`,
+      "",
+      "=== ACCÈS À LA RÉSIDENCE ===",
+      `Présent lors des visites: ${d.present || "—"}`,
+      `Clé / serrure intelligente / code: ${d.acces || "—"}`,
+      `Consignes particulières: ${d.consignes || "—"}`,
+      "",
+      "=== COMMENTAIRES ===",
+      d.commentaires || "(aucun)",
+    );
+
+    return L.filter((x) => x !== null).join("\n");
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -223,31 +395,19 @@ function SoumissionPage() {
         }
       }
       setErrors(fieldErrors);
+      const first = document.querySelector<HTMLElement>("[data-error='true']");
+      first?.scrollIntoView({ behavior: "smooth", block: "center" });
       return;
     }
     setErrors({});
-
-    const data = result.data;
+    const d = result.data;
     const subject = encodeURIComponent(
-      `Demande de soumission — ${data.type} — ${data.ville}`,
+      `Demande de soumission — ${d.typeResidence} — ${d.nom}`,
     );
-    const lines = [
-      `Nom: ${data.nom}`,
-      `Téléphone: ${data.tel}`,
-      `Courriel: ${data.courriel}`,
-      `Ville: ${data.ville}`,
-      `Type: ${data.type}`,
-      `Services: ${servicesLabels}`,
-      data.frequence ? `Fréquence souhaitée: ${data.frequence}` : null,
-      data.superficie ? `Superficie / pièces: ${data.superficie}` : null,
-      data.date ? `Date souhaitée: ${data.date}` : null,
-      "",
-      "Message:",
-      data.message || "(aucun)",
-    ].filter(Boolean);
-    const body = encodeURIComponent(lines.join("\n"));
-    setSent(true);
-    window.location.href = `mailto:Melanielavas@outlook.com?subject=${subject}&body=${body}`;
+    const body = encodeURIComponent(buildBody(d));
+    const url = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+    setMailtoUrl(url);
+    window.location.href = url;
   };
 
   const fieldClass = (k: string) =>
@@ -257,9 +417,90 @@ function SoumissionPage() {
         : "border-border focus:border-primary"
     }`;
 
+  const Err = ({ k }: { k: string }) =>
+    errors[k] ? <p className="mt-1 text-xs text-destructive">{errors[k]}</p> : null;
+
+  const Section = ({
+    n,
+    title,
+    subtitle,
+    children,
+  }: {
+    n: number;
+    title: string;
+    subtitle?: string;
+    children: React.ReactNode;
+  }) => (
+    <fieldset className="rounded-2xl border border-border bg-background/40 p-5">
+      <legend className="px-2 text-sm font-bold text-primary">
+        {n}. {title}
+      </legend>
+      {subtitle && <p className="mb-4 text-sm text-muted-foreground">{subtitle}</p>}
+      <div className="space-y-3">{children}</div>
+    </fieldset>
+  );
+
+  const CheckCard = ({
+    label,
+    active,
+    onClick,
+  }: {
+    label: string;
+    active: boolean;
+    onClick: () => void;
+  }) => (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-pressed={active}
+      className={`flex items-center gap-2 text-left rounded-xl px-3 py-2.5 border-2 text-sm font-medium transition ${
+        active
+          ? "border-primary bg-primary/10"
+          : "border-border bg-background hover:border-primary/50"
+      }`}
+    >
+      <span
+        className={`grid h-4 w-4 shrink-0 place-items-center rounded border-2 ${
+          active ? "border-primary bg-primary" : "border-muted-foreground/40"
+        }`}
+      >
+        {active && <Check className="h-3 w-3 text-primary-foreground" />}
+      </span>
+      {label}
+    </button>
+  );
+
+  const YesNo = ({
+    value,
+    onChange,
+    name,
+  }: {
+    value: string;
+    onChange: (v: string) => void;
+    name: string;
+  }) => (
+    <div className="flex gap-2">
+      {OUI_NON.map((o) => (
+        <button
+          key={o}
+          type="button"
+          aria-label={`${name} : ${o}`}
+          aria-pressed={value === o}
+          onClick={() => onChange(value === o ? "" : o)}
+          className={`rounded-xl px-4 py-2 border-2 text-sm font-medium transition ${
+            value === o
+              ? "border-primary bg-primary/10"
+              : "border-border bg-background hover:border-primary/50"
+          }`}
+        >
+          {o}
+        </button>
+      ))}
+    </div>
+  );
+
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Header */}
       <header
         className="sticky top-0 z-30 backdrop-blur border-b border-border/50"
         style={{ background: "color-mix(in oklab, var(--background) 85%, transparent)" }}
@@ -269,7 +510,10 @@ function SoumissionPage() {
             M.L Excellence
           </Link>
           <nav className="flex items-center gap-1 sm:gap-3 text-sm font-medium shrink-0">
-            <Link to="/services" className="px-2 py-1 text-muted-foreground hover:text-foreground transition">
+            <Link
+              to="/services"
+              className="px-2 py-1 text-muted-foreground hover:text-foreground transition"
+            >
               Services
             </Link>
             <a
@@ -282,14 +526,13 @@ function SoumissionPage() {
         </div>
       </header>
 
-      {/* Hero */}
       <section className="px-6 pt-12 pb-8 max-w-3xl mx-auto text-center">
         <p className="inline-flex items-center gap-2 rounded-full border border-border px-3 py-1 text-xs font-semibold text-muted-foreground">
           <Star className="h-3.5 w-3.5 text-primary fill-primary" />
           Réponse garantie en moins de 24 h
         </p>
         <h1 className="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight">
-          Demandez votre{" "}
+          Questionnaire de{" "}
           <span
             className="bg-clip-text text-transparent"
             style={{ backgroundImage: "var(--gradient-hero)" }}
@@ -298,8 +541,8 @@ function SoumissionPage() {
           </span>
         </h1>
         <p className="mt-4 text-muted-foreground">
-          Remplissez le formulaire ci-dessous — c'est rapide, sans engagement et toujours
-          gratuit. Mélanie vous répond personnellement avec un prix clair.
+          Plus vos réponses sont précises, plus votre soumission sera juste. Mélanie vous
+          répond personnellement avec un prix clair — sans engagement.
         </p>
 
         <div className="mt-6 grid sm:grid-cols-3 gap-3 text-sm">
@@ -308,91 +551,30 @@ function SoumissionPage() {
             { icon: ShieldCheck, t: "Équipe assurée" },
             { icon: Check, t: "Sans engagement" },
           ].map(({ icon: Icon, t }) => (
-            <div key={t} className="inline-flex items-center justify-center gap-2 rounded-full bg-card border border-border px-3 py-2">
+            <div
+              key={t}
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-card border border-border px-3 py-2"
+            >
               <Icon className="h-4 w-4 text-primary" /> {t}
             </div>
           ))}
         </div>
       </section>
 
-      {/* Form */}
-      <section id="form" className="px-6 pb-16">
+      <section id="form" className="px-4 sm:px-6 pb-16">
         <div
           className="max-w-3xl mx-auto rounded-3xl p-1"
           style={{ background: "var(--gradient-hero)" }}
         >
-          <div className="bg-card rounded-[calc(1.5rem-4px)] p-6 sm:p-10">
-            <form onSubmit={handleSubmit} className="space-y-7" noValidate>
-              {/* Type */}
-              <div>
-                <label className="block text-sm font-semibold mb-3">
-                  1. Type de demande <span className="text-destructive">*</span>
-                </label>
-                <div className="grid grid-cols-2 gap-2">
-                  {TYPES.map((t) => {
-                    const active = form.type === t;
-                    return (
-                      <button
-                        type="button"
-                        key={t}
-                        onClick={() => set("type", t)}
-                        className={`rounded-xl px-4 py-3 border-2 font-medium transition ${
-                          active
-                            ? "border-primary bg-primary/10"
-                            : "border-border bg-background hover:border-primary/50"
-                        }`}
-                      >
-                        {t}
-                      </button>
-                    );
-                  })}
-                </div>
-                {errors.type && (
-                  <p className="mt-2 text-sm text-destructive">{errors.type}</p>
-                )}
-              </div>
-
-              {/* Services */}
-              <div>
-                <label className="block text-sm font-semibold mb-3">
-                  2. Service(s) souhaité(s) <span className="text-destructive">*</span>
-                </label>
-                <div className="grid sm:grid-cols-2 gap-2">
-                  {SERVICES.map((s) => {
-                    const active = form.services.includes(s.id);
-                    const Icon = s.icon;
-                    return (
-                      <button
-                        type="button"
-                        key={s.id}
-                        onClick={() => toggleService(s.id)}
-                        className={`flex items-center gap-3 text-left rounded-xl px-4 py-3 border-2 transition ${
-                          active
-                            ? "border-primary bg-primary/10"
-                            : "border-border bg-background hover:border-primary/50"
-                        }`}
-                      >
-                        <Icon className="h-5 w-5 shrink-0 text-primary" />
-                        <span className="text-sm font-medium">{s.label}</span>
-                        {active && <Check className="h-4 w-4 ml-auto text-primary" />}
-                      </button>
-                    );
-                  })}
-                </div>
-                {errors.services && (
-                  <p className="mt-2 text-sm text-destructive">{errors.services}</p>
-                )}
-              </div>
-
-              {/* Coordonnées */}
-              <div>
-                <label className="block text-sm font-semibold mb-3">
-                  3. Vos coordonnées <span className="text-destructive">*</span>
-                </label>
+          <div className="bg-card rounded-[calc(1.5rem-4px)] p-4 sm:p-8">
+            <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+              {/* 1 — Informations générales */}
+              <Section n={1} title="Informations générales">
                 <div className="grid sm:grid-cols-2 gap-3">
-                  <div>
+                  <div data-error={!!errors.nom}>
                     <input
                       placeholder="Nom complet *"
+                      aria-label="Nom complet"
                       value={form.nom}
                       onChange={(e) => set("nom", e.target.value)}
                       maxLength={120}
@@ -400,11 +582,12 @@ function SoumissionPage() {
                       className={fieldClass("nom")}
                       aria-invalid={!!errors.nom}
                     />
-                    {errors.nom && <p className="mt-1 text-xs text-destructive">{errors.nom}</p>}
+                    <Err k="nom" />
                   </div>
-                  <div>
+                  <div data-error={!!errors.tel}>
                     <input
                       placeholder="Téléphone *"
+                      aria-label="Téléphone"
                       value={form.tel}
                       onChange={(e) => set("tel", e.target.value)}
                       type="tel"
@@ -414,12 +597,13 @@ function SoumissionPage() {
                       className={fieldClass("tel")}
                       aria-invalid={!!errors.tel}
                     />
-                    {errors.tel && <p className="mt-1 text-xs text-destructive">{errors.tel}</p>}
+                    <Err k="tel" />
                   </div>
-                  <div>
+                  <div data-error={!!errors.courriel}>
                     <input
                       type="email"
                       placeholder="Courriel *"
+                      aria-label="Courriel"
                       value={form.courriel}
                       onChange={(e) => set("courriel", e.target.value)}
                       maxLength={150}
@@ -428,79 +612,371 @@ function SoumissionPage() {
                       className={fieldClass("courriel")}
                       aria-invalid={!!errors.courriel}
                     />
-                    {errors.courriel && (
-                      <p className="mt-1 text-xs text-destructive">{errors.courriel}</p>
-                    )}
+                    <Err k="courriel" />
                   </div>
-                  <div>
+                  <div data-error={!!errors.adresse}>
                     <input
-                      placeholder="Ville *"
-                      value={form.ville}
-                      onChange={(e) => set("ville", e.target.value)}
-                      maxLength={80}
-                      autoComplete="address-level2"
-                      className={fieldClass("ville")}
-                      aria-invalid={!!errors.ville}
+                      placeholder="Adresse complète (ville incluse) *"
+                      aria-label="Adresse complète"
+                      value={form.adresse}
+                      onChange={(e) => set("adresse", e.target.value)}
+                      maxLength={200}
+                      autoComplete="street-address"
+                      className={fieldClass("adresse")}
+                      aria-invalid={!!errors.adresse}
                     />
-                    {errors.ville && (
-                      <p className="mt-1 text-xs text-destructive">{errors.ville}</p>
-                    )}
+                    <Err k="adresse" />
                   </div>
                 </div>
-              </div>
+              </Section>
 
-              {/* Détails */}
-              <div>
-                <label className="block text-sm font-semibold mb-3">
-                  4. Détails (optionnel mais accélère la soumission)
-                </label>
-                <div className="grid sm:grid-cols-2 gap-3">
+              {/* 2 — Résidence */}
+              <Section n={2} title="Informations sur la résidence">
+                <div data-error={!!errors.typeResidence}>
                   <select
+                    aria-label="Type de résidence"
+                    value={form.typeResidence}
+                    onChange={(e) => set("typeResidence", e.target.value)}
+                    className={fieldClass("typeResidence")}
+                  >
+                    <option value="">Type de résidence *</option>
+                    {TYPES_RESIDENCE.map((t) => (
+                      <option key={t} value={t}>
+                        {t}
+                      </option>
+                    ))}
+                  </select>
+                  <Err k="typeResidence" />
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                  <input
+                    placeholder="Chambres"
+                    aria-label="Nombre de chambres"
+                    inputMode="numeric"
+                    value={form.chambres}
+                    onChange={(e) => set("chambres", e.target.value)}
+                    maxLength={20}
+                    className={fieldClass("chambres")}
+                  />
+                  <input
+                    placeholder="Salles de bain"
+                    aria-label="Nombre de salles de bain"
+                    inputMode="numeric"
+                    value={form.sdb}
+                    onChange={(e) => set("sdb", e.target.value)}
+                    maxLength={20}
+                    className={fieldClass("sdb")}
+                  />
+                  <input
+                    placeholder="Salles d'eau"
+                    aria-label="Nombre de salles d'eau"
+                    inputMode="numeric"
+                    value={form.sallesEau}
+                    onChange={(e) => set("sallesEau", e.target.value)}
+                    maxLength={20}
+                    className={fieldClass("sallesEau")}
+                  />
+                  <input
+                    placeholder="Étages"
+                    aria-label="Nombre d'étages"
+                    inputMode="numeric"
+                    value={form.etages}
+                    onChange={(e) => set("etages", e.target.value)}
+                    maxLength={20}
+                    className={fieldClass("etages")}
+                  />
+                </div>
+                <input
+                  placeholder="Superficie approximative (pi²)"
+                  aria-label="Superficie approximative"
+                  value={form.superficie}
+                  onChange={(e) => set("superficie", e.target.value)}
+                  maxLength={60}
+                  className={fieldClass("superficie")}
+                />
+                <div className="grid sm:grid-cols-2 gap-4 pt-1">
+                  <div>
+                    <p className="mb-2 text-sm font-medium">Sous-sol à entretenir</p>
+                    <YesNo
+                      name="Sous-sol à entretenir"
+                      value={form.sousSol}
+                      onChange={(v) => set("sousSol", v)}
+                    />
+                  </div>
+                  <div>
+                    <p className="mb-2 text-sm font-medium">Garage à entretenir</p>
+                    <YesNo
+                      name="Garage à entretenir"
+                      value={form.garage}
+                      onChange={(v) => set("garage", v)}
+                    />
+                  </div>
+                </div>
+              </Section>
+
+              {/* 3 — Type de service */}
+              <Section
+                n={3}
+                title="Entretien régulier ou grand ménage initial"
+                subtitle="Avant de débuter un entretien régulier, certaines résidences nécessitent un grand ménage initial afin de remettre la maison à niveau."
+              >
+                <div className="grid gap-2" data-error={!!errors.serviceType}>
+                  {SERVICE_TYPE.map((s) => {
+                    const active = form.serviceType === s.id;
+                    return (
+                      <button
+                        type="button"
+                        key={s.id}
+                        aria-pressed={active}
+                        onClick={() => set("serviceType", s.id)}
+                        className={`text-left rounded-xl px-4 py-3 border-2 transition ${
+                          active
+                            ? "border-primary bg-primary/10"
+                            : "border-border bg-background hover:border-primary/50"
+                        }`}
+                      >
+                        <span className="block font-semibold text-sm">{s.titre}</span>
+                        <span className="block text-xs text-muted-foreground mt-0.5">
+                          {s.desc}
+                        </span>
+                      </button>
+                    );
+                  })}
+                  <Err k="serviceType" />
+                </div>
+
+                {grandMenage && (
+                  <div className="mt-4 space-y-3 rounded-xl border border-primary/30 bg-primary/5 p-4">
+                    <p className="text-sm font-semibold">
+                      Précisions pour le grand ménage
+                    </p>
+                    <input
+                      placeholder="Depuis combien de temps un ménage complet n'a pas été fait ?"
+                      aria-label="Depuis combien de temps un ménage complet n'a pas été effectué"
+                      value={form.depuisQuand}
+                      onChange={(e) => set("depuisQuand", e.target.value)}
+                      maxLength={120}
+                      className={fieldClass("depuisQuand")}
+                    />
+                    <textarea
+                      rows={2}
+                      placeholder="Accumulations importantes de poussière, graisse, savon ou calcaire ?"
+                      aria-label="Accumulations importantes"
+                      value={form.accumulations}
+                      onChange={(e) => set("accumulations", e.target.value)}
+                      maxLength={500}
+                      className={`${fieldClass("accumulations")} resize-none`}
+                    />
+                    <textarea
+                      rows={2}
+                      placeholder="Certaines pièces demandent-elles une attention particulière ?"
+                      aria-label="Pièces demandant une attention particulière"
+                      value={form.piecesAttention}
+                      onChange={(e) => set("piecesAttention", e.target.value)}
+                      maxLength={500}
+                      className={`${fieldClass("piecesAttention")} resize-none`}
+                    />
+                    <p className="pt-1 text-sm font-medium">
+                      Souhaitez-vous également le nettoyage des :
+                    </p>
+                    <div className="grid sm:grid-cols-2 gap-2">
+                      {GRAND_MENAGE_OPTIONS.map((o) => (
+                        <CheckCard
+                          key={o}
+                          label={o}
+                          active={form.grandMenageOptions.includes(o)}
+                          onClick={() => toggle("grandMenageOptions", o)}
+                        />
+                      ))}
+                    </div>
+                    <input
+                      placeholder="Autres (précisez)"
+                      aria-label="Autres éléments à nettoyer"
+                      value={form.grandMenageAutre}
+                      onChange={(e) => set("grandMenageAutre", e.target.value)}
+                      maxLength={200}
+                      className={fieldClass("grandMenageAutre")}
+                    />
+                  </div>
+                )}
+              </Section>
+
+              {/* 4 — Services souhaités */}
+              <Section n={4} title="Services souhaités">
+                <div className="grid sm:grid-cols-2 gap-2" data-error={!!errors.services}>
+                  {SERVICES_OPTIONS.map((o) => (
+                    <CheckCard
+                      key={o}
+                      label={o}
+                      active={form.services.includes(o)}
+                      onClick={() => toggle("services", o)}
+                    />
+                  ))}
+                </div>
+                <Err k="services" />
+                <input
+                  placeholder="Autres services (précisez)"
+                  aria-label="Autres services"
+                  value={form.servicesAutre}
+                  onChange={(e) => set("servicesAutre", e.target.value)}
+                  maxLength={200}
+                  className={fieldClass("servicesAutre")}
+                />
+              </Section>
+
+              {/* 5 — Fréquence */}
+              <Section n={5} title="Fréquence et horaire">
+                <div data-error={!!errors.frequence}>
+                  <select
+                    aria-label="Fréquence souhaitée"
                     value={form.frequence}
                     onChange={(e) => set("frequence", e.target.value)}
                     className={fieldClass("frequence")}
                   >
-                    <option value="">Fréquence souhaitée</option>
+                    <option value="">Fréquence souhaitée *</option>
                     {FREQUENCES.map((f) => (
                       <option key={f} value={f}>
                         {f}
                       </option>
                     ))}
                   </select>
+                  <Err k="frequence" />
+                </div>
+                <div>
+                  <p className="mb-2 text-sm font-medium">Journées préférées</p>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                    {JOURS.map((j) => (
+                      <CheckCard
+                        key={j}
+                        label={j}
+                        active={form.jours.includes(j)}
+                        onClick={() => toggle("jours", j)}
+                      />
+                    ))}
+                  </div>
+                </div>
+                <div className="grid sm:grid-cols-2 gap-4 items-end">
                   <input
-                    placeholder="Superficie / nb de pièces"
-                    value={form.superficie}
-                    onChange={(e) => set("superficie", e.target.value)}
-                    maxLength={80}
-                    className={fieldClass("superficie")}
+                    placeholder="Heure souhaitée (ex. avant-midi)"
+                    aria-label="Heure souhaitée"
+                    value={form.heure}
+                    onChange={(e) => set("heure", e.target.value)}
+                    maxLength={40}
+                    className={fieldClass("heure")}
                   />
-                  <input
-                    type="date"
-                    value={form.date}
-                    onChange={(e) => set("date", e.target.value)}
-                    className={`${fieldClass("date")} sm:col-span-2`}
+                  <div>
+                    <p className="mb-2 text-sm font-medium">Horaire flexible</p>
+                    <YesNo
+                      name="Horaire flexible"
+                      value={form.flexible}
+                      onChange={(v) => set("flexible", v)}
+                    />
+                  </div>
+                </div>
+              </Section>
+
+              {/* 6 — Animaux */}
+              <Section n={6} title="Animaux">
+                <div>
+                  <p className="mb-2 text-sm font-medium">Avez-vous des animaux ?</p>
+                  <YesNo
+                    name="Avez-vous des animaux"
+                    value={form.animaux}
+                    onChange={(v) => set("animaux", v)}
                   />
                 </div>
-                <textarea
-                  placeholder="Message — adresse, particularités, animaux, allergies, accès…"
-                  rows={4}
-                  value={form.message}
-                  onChange={(e) => set("message", e.target.value)}
-                  maxLength={2000}
-                  className={`${fieldClass("message")} mt-3 resize-none`}
-                />
-                {errors.message && (
-                  <p className="mt-1 text-xs text-destructive">{errors.message}</p>
+                {form.animaux === "Oui" && (
+                  <input
+                    placeholder="Si oui, lesquels ?"
+                    aria-label="Quels animaux"
+                    value={form.animauxDetails}
+                    onChange={(e) => set("animauxDetails", e.target.value)}
+                    maxLength={200}
+                    className={fieldClass("animauxDetails")}
+                  />
                 )}
-              </div>
+              </Section>
 
-              {/* Consent */}
-              <label className="flex items-start gap-3 text-sm">
+              {/* 7 — Produits */}
+              <Section n={7} title="Produits ménagers">
+                <div className="grid sm:grid-cols-2 gap-2">
+                  {[
+                    "Je fournis les produits",
+                    "L'entreprise fournit les produits",
+                  ].map((p) => (
+                    <CheckCard
+                      key={p}
+                      label={p}
+                      active={form.produits === p}
+                      onClick={() => set("produits", form.produits === p ? "" : p)}
+                    />
+                  ))}
+                </div>
+                <input
+                  placeholder="Préférences particulières (sans parfum, écologiques…)"
+                  aria-label="Préférences de produits"
+                  value={form.produitsPreferences}
+                  onChange={(e) => set("produitsPreferences", e.target.value)}
+                  maxLength={300}
+                  className={fieldClass("produitsPreferences")}
+                />
+              </Section>
+
+              {/* 8 — Accès */}
+              <Section n={8} title="Accès à la résidence">
+                <div>
+                  <p className="mb-2 text-sm font-medium">
+                    Serez-vous présent lors des visites ?
+                  </p>
+                  <YesNo
+                    name="Présent lors des visites"
+                    value={form.present}
+                    onChange={(v) => set("present", v)}
+                  />
+                </div>
+                <input
+                  placeholder="Clé, serrure intelligente ou code d'accès ?"
+                  aria-label="Mode d'accès"
+                  value={form.acces}
+                  onChange={(e) => set("acces", e.target.value)}
+                  maxLength={300}
+                  className={fieldClass("acces")}
+                />
+                <textarea
+                  rows={2}
+                  placeholder="Consignes particulières ?"
+                  aria-label="Consignes particulières"
+                  value={form.consignes}
+                  onChange={(e) => set("consignes", e.target.value)}
+                  maxLength={500}
+                  className={`${fieldClass("consignes")} resize-none`}
+                />
+              </Section>
+
+              {/* 9 — Commentaires */}
+              <Section
+                n={9}
+                title="Commentaires"
+                subtitle="Ajoutez toute information pouvant nous aider à préparer une soumission précise."
+              >
+                <textarea
+                  rows={4}
+                  placeholder="Vos commentaires…"
+                  aria-label="Commentaires"
+                  value={form.commentaires}
+                  onChange={(e) => set("commentaires", e.target.value)}
+                  maxLength={2000}
+                  className={`${fieldClass("commentaires")} resize-none`}
+                />
+              </Section>
+
+              <label className="flex items-start gap-3 text-sm" data-error={!!errors.consent}>
                 <input
                   type="checkbox"
                   checked={form.consent}
                   onChange={(e) => set("consent", e.target.checked)}
                   className="mt-1 h-4 w-4 accent-primary"
+                  aria-label="Consentement à être contacté"
                 />
                 <span className="text-muted-foreground">
                   J'accepte d'être contacté par M.L Excellence concernant ma demande. Mes
@@ -519,11 +995,27 @@ function SoumissionPage() {
                 Envoyer ma demande de soumission
               </button>
 
-              {sent && (
-                <p className="text-sm text-center text-primary font-medium">
-                  Votre logiciel de courriel devrait s'ouvrir. Sinon, écrivez à
-                  Melanielavas@outlook.com.
-                </p>
+              {mailtoUrl && (
+                <div className="rounded-xl border border-primary/40 bg-primary/5 p-4 text-sm text-center">
+                  <p className="font-medium">
+                    Votre logiciel de courriel devrait s'ouvrir avec votre questionnaire
+                    complété.
+                  </p>
+                  <p className="mt-2 text-muted-foreground">
+                    S'il ne s'ouvre pas,{" "}
+                    <a href={mailtoUrl} className="text-primary underline font-medium">
+                      cliquez ici
+                    </a>{" "}
+                    ou écrivez directement à{" "}
+                    <a
+                      href={`mailto:${CONTACT_EMAIL}`}
+                      className="text-primary underline font-medium break-all"
+                    >
+                      {CONTACT_EMAIL}
+                    </a>
+                    .
+                  </p>
+                </div>
               )}
 
               <p className="text-xs text-center text-muted-foreground">
@@ -533,7 +1025,6 @@ function SoumissionPage() {
           </div>
         </div>
 
-        {/* Contact alternatif */}
         <div className="max-w-3xl mx-auto mt-8 grid sm:grid-cols-3 gap-3 text-sm">
           <a
             href="tel:+18199969022"
@@ -546,13 +1037,13 @@ function SoumissionPage() {
             </div>
           </a>
           <a
-            href="mailto:Melanielavas@outlook.com"
+            href={`mailto:${CONTACT_EMAIL}`}
             className="flex items-center gap-3 rounded-2xl border border-border bg-card p-4 hover:border-primary transition"
           >
             <Mail className="h-5 w-5 text-primary shrink-0" />
             <div>
               <p className="font-semibold">Courriel</p>
-              <p className="text-muted-foreground break-all">Melanielavas@outlook.com</p>
+              <p className="text-muted-foreground break-all">{CONTACT_EMAIL}</p>
             </div>
           </a>
           <div className="flex items-center gap-3 rounded-2xl border border-border bg-card p-4">
@@ -565,7 +1056,6 @@ function SoumissionPage() {
         </div>
       </section>
 
-      {/* FAQ */}
       <section id="faq" className="max-w-3xl mx-auto px-6 pb-20">
         <h2 className="text-3xl font-bold text-center mb-8">Questions fréquentes</h2>
         <div className="space-y-3">
@@ -590,8 +1080,13 @@ function SoumissionPage() {
         <p className="font-bold text-foreground">M.L Excellence</p>
         <p className="mt-1">Services de propreté · Mauricie & Centre-du-Québec</p>
         <p className="mt-3">
-          <Link to="/" className="hover:text-foreground">Accueil</Link> ·{" "}
-          <Link to="/services" className="hover:text-foreground">Services</Link>
+          <Link to="/" className="hover:text-foreground">
+            Accueil
+          </Link>{" "}
+          ·{" "}
+          <Link to="/services" className="hover:text-foreground">
+            Services
+          </Link>
         </p>
       </footer>
     </div>
