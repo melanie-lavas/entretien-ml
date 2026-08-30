@@ -20,22 +20,29 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Ménage Mauricie résidentiel & commercial | M.L Excellence" },
+      { title: "Entretien ménager commercial & résidentiel Mauricie | M.L" },
       {
         name: "description",
         content:
-          "Entreprise de ménage en Mauricie : résidentiel, commercial, contrats récurrents, plates-bandes et lavage auto à Trois-Rivières, Shawinigan, Bécancour. Soumission gratuite en 24 h.",
+          "Contrats d'entretien commercial 1 à 5 fois/semaine en Mauricie : bureaux, commerces, cliniques, garderies, immeubles. Ménage résidentiel et homme à tout faire. Soumission gratuite en 24 h.",
       },
-      { name: "keywords", content: "ménage Mauricie, entretien ménager Trois-Rivières, nettoyage commercial Shawinigan, femme de ménage Bécancour, lavage auto Mauricie, plates-bandes, M.L Excellence" },
+      { name: "keywords", content: "entretien ménager commercial Mauricie, contrat entretien bureau Trois-Rivières, nettoyage commerce Shawinigan, ménage résidentiel Bécancour, homme à tout faire Mauricie, rénovation mineure, conciergerie immeuble" },
       { name: "geo.region", content: "CA-QC" },
       { name: "geo.placename", content: "Mauricie, Trois-Rivières, Shawinigan, Bécancour" },
-      { property: "og:title", content: "M.L Excellence — Services de propreté en Mauricie" },
+      { property: "og:title", content: "M.L Entretien — Contrats d'entretien commercial en Mauricie" },
       {
         property: "og:description",
         content:
-          "Ménage résidentiel et commercial, contrats récurrents, plates-bandes et lavage auto à Trois-Rivières, Shawinigan, Bécancour. Soumission gratuite et sans engagement.",
+          "1 à 5 passages par semaine pour bureaux, commerces, cliniques et immeubles. Ménage résidentiel et homme à tout faire. Soumission gratuite, réponse en 24 h.",
       },
       { property: "og:url", content: "https://mlentretien.com/" },
+      { property: "og:type", content: "website" },
+      { property: "og:image", content: "https://mlentretien.com/og-image.jpg" },
+      { property: "og:locale", content: "fr_CA" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "M.L Entretien — Entretien commercial & résidentiel Mauricie" },
+      { name: "twitter:description", content: "Contrats 1 à 5 fois/semaine pour entreprises. Soumission gratuite en 24 h." },
+      { name: "twitter:image", content: "https://mlentretien.com/og-image.jpg" },
     ],
     links: [{ rel: "canonical", href: "https://mlentretien.com/" }],
     scripts: [
