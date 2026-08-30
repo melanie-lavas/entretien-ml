@@ -20,22 +20,29 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Ménage Mauricie résidentiel & commercial | M.L Excellence" },
+      { title: "Entretien ménager commercial & résidentiel Mauricie | M.L" },
       {
         name: "description",
         content:
-          "Entreprise de ménage en Mauricie : résidentiel, commercial, contrats récurrents, plates-bandes et lavage auto à Trois-Rivières, Shawinigan, Bécancour. Soumission gratuite en 24 h.",
+          "Contrats d'entretien commercial 1 à 5 fois/semaine en Mauricie : bureaux, commerces, cliniques, garderies, immeubles. Ménage résidentiel et homme à tout faire. Soumission gratuite en 24 h.",
       },
-      { name: "keywords", content: "ménage Mauricie, entretien ménager Trois-Rivières, nettoyage commercial Shawinigan, femme de ménage Bécancour, lavage auto Mauricie, plates-bandes, M.L Excellence" },
+      { name: "keywords", content: "entretien ménager commercial Mauricie, contrat entretien bureau Trois-Rivières, nettoyage commerce Shawinigan, ménage résidentiel Bécancour, homme à tout faire Mauricie, rénovation mineure, conciergerie immeuble" },
       { name: "geo.region", content: "CA-QC" },
       { name: "geo.placename", content: "Mauricie, Trois-Rivières, Shawinigan, Bécancour" },
-      { property: "og:title", content: "M.L Excellence — Services de propreté en Mauricie" },
+      { property: "og:title", content: "M.L Entretien — Contrats d'entretien commercial en Mauricie" },
       {
         property: "og:description",
         content:
-          "Ménage résidentiel et commercial, contrats récurrents, plates-bandes et lavage auto à Trois-Rivières, Shawinigan, Bécancour. Soumission gratuite et sans engagement.",
+          "1 à 5 passages par semaine pour bureaux, commerces, cliniques et immeubles. Ménage résidentiel et homme à tout faire. Soumission gratuite, réponse en 24 h.",
       },
       { property: "og:url", content: "https://mlentretien.com/" },
+      { property: "og:type", content: "website" },
+      { property: "og:image", content: "https://mlentretien.com/og-image.jpg" },
+      { property: "og:locale", content: "fr_CA" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "M.L Entretien — Entretien commercial & résidentiel Mauricie" },
+      { name: "twitter:description", content: "Contrats 1 à 5 fois/semaine pour entreprises. Soumission gratuite en 24 h." },
+      { name: "twitter:image", content: "https://mlentretien.com/og-image.jpg" },
     ],
     links: [{ rel: "canonical", href: "https://mlentretien.com/" }],
     scripts: [
@@ -112,6 +119,8 @@ export const Route = createFileRoute("/")({
               { "@type": "Offer", itemOffered: { "@type": "Service", name: "Nettoyage commercial", areaServed: "Mauricie" } },
               { "@type": "Offer", itemOffered: { "@type": "Service", name: "Entretien extérieur / plates-bandes", areaServed: "Mauricie" } },
               { "@type": "Offer", itemOffered: { "@type": "Service", name: "Lavage auto intérieur & extérieur", areaServed: "Mauricie" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Contrat commercial 1 à 5 passages par semaine", areaServed: "Mauricie" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Homme à tout faire & rénovations mineures", areaServed: "Mauricie" } },
             ],
           },
           sameAs: [
@@ -171,6 +180,22 @@ export const Route = createFileRoute("/")({
                 text: "Nous acceptons les virements Interac, les chèques et l'argent comptant. Les contrats commerciaux peuvent être facturés mensuellement.",
               },
             },
+            {
+              "@type": "Question",
+              name: "Quelles fréquences offrez-vous aux entreprises ?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Nous offrons des contrats d'entretien commercial de 1, 2, 3 ou 5 passages par semaine, selon vos besoins : bureaux, commerces, locaux professionnels, immeubles, salons, cliniques, garderies, espaces communs et bâtiments locatifs.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Offrez-vous un service d'homme à tout faire ?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Oui, sur demande : petits travaux, réparations et rénovations mineures pour les résidences, bureaux et immeubles locatifs de la Mauricie.",
+              },
+            },
           ],
         }),
       },
@@ -180,12 +205,42 @@ export const Route = createFileRoute("/")({
 });
 
 const SERVICES = [
+  { id: "commercial", label: "Contrat commercial (1 à 5 x / semaine)", icon: Building2 },
   { id: "interieur-unique", label: "Ménage résidentiel — une fois", icon: Home },
-  { id: "interieur-contrat", label: "Contrat d'entretien récurrent", icon: Sparkles },
-  { id: "commercial", label: "Nettoyage commercial", icon: ShieldCheck },
+  { id: "interieur-contrat", label: "Contrat résidentiel récurrent", icon: Sparkles },
+  { id: "homme-a-tout-faire", label: "Homme à tout faire / rénos mineures", icon: Wrench },
   { id: "plates-bandes", label: "Entretien extérieur / plates-bandes", icon: Leaf },
   { id: "auto", label: "Lavage auto", icon: Car },
-  { id: "autre", label: "Autre / sur mesure", icon: Check },
+];
+
+const FREQUENCES = [
+  { f: "1 fois / semaine", d: "Petits bureaux et locaux à faible achalandage" },
+  { f: "2 fois / semaine", d: "Commerces, salons et cliniques de quartier" },
+  { f: "3 fois / semaine", d: "Achalandage soutenu, aires communes partagées" },
+  { f: "5 jours / semaine", d: "Bureaux actifs, garderies, immeubles en opération" },
+];
+
+const TYPES_ENTREPRISES = [
+  "Bureaux",
+  "Commerces",
+  "Locaux professionnels",
+  "Immeubles",
+  "Salons",
+  "Cliniques",
+  "Garderies",
+  "Espaces communs",
+  "Commerces de détail",
+  "Bâtiments locatifs",
+];
+
+const INCLUS_COMMERCIAL = [
+  "1 à 5 passages par semaine",
+  "Entretien des espaces de travail",
+  "Salles de bain",
+  "Aires communes",
+  "Surfaces et planchers",
+  "Entretien régulier et fiable",
+  "Service adapté à vos besoins",
 ];
 
 const TRUST = [

@@ -167,6 +167,36 @@ export const SERVICES: ServiceData[] = [
       { q: "Combien de temps pour un lavage complet ?", a: "Entre 1 h 30 et 3 h selon le format du véhicule et son état initial." },
     ],
   },
+  {
+    slug: "homme-a-tout-faire",
+    title: "Homme à tout faire & rénovations mineures",
+    h1: "Homme à tout faire en Mauricie — petits travaux et rénovations mineures",
+    metaTitle: "Homme à tout faire Mauricie | M.L Entretien",
+    metaDescription:
+      "Homme à tout faire en Mauricie : petits travaux, réparations et rénovations mineures à Trois-Rivières, Shawinigan, Bécancour et Nicolet. Soumission gratuite.",
+    intro:
+      "Cette tablette à installer, ce robinet qui coule, cette pièce à repeindre : nos clients nous demandaient un homme à tout faire fiable, nous l'offrons maintenant sur demande. Petits travaux, réparations et rénovations mineures pour les résidences, les bureaux et les immeubles locatifs de la Mauricie.",
+    keywords:
+      "homme à tout faire Mauricie, petits travaux Trois-Rivières, rénovation mineure Shawinigan, réparation maison Bécancour, handyman Nicolet, entretien immeuble locatif",
+    includes: [
+      "Installation : tablettes, stores, cadres, poignées, luminaires simples",
+      "Réparations mineures de plomberie et de quincaillerie",
+      "Peinture et retouches (murs, portes, cadrages, plinthes)",
+      "Petits travaux de menuiserie et calfeutrage",
+      "Montage de meubles et remise en état entre deux locataires",
+      "Corvées d'entretien préventif pour bureaux et immeubles",
+    ],
+    benefits: [
+      { t: "Sur demande", d: "Disponible en complément de votre contrat d'entretien." },
+      { t: "Une seule ressource", d: "Ménage et petits travaux par la même entreprise assurée." },
+      { t: "Prix selon les travaux", d: "Soumission claire avant de commencer, sans surprise." },
+      { t: "Immeubles locatifs", d: "Idéal pour la remise en état entre deux locataires." },
+    ],
+    faq: [
+      { q: "Faites-vous de la rénovation majeure ?", a: "Non. Nous nous concentrons sur les travaux mineurs et l'entretien. Pour un projet majeur, nous pouvons vous référer." },
+      { q: "Peut-on combiner les petits travaux avec le ménage ?", a: "Oui, c'est même l'idéal : une seule visite, une seule facture." },
+    ],
+  },
 ];
 
 export const getServiceBySlug = (slug: string) => SERVICES.find((s) => s.slug === slug);
