@@ -180,6 +180,22 @@ export const Route = createFileRoute("/")({
                 text: "Nous acceptons les virements Interac, les chèques et l'argent comptant. Les contrats commerciaux peuvent être facturés mensuellement.",
               },
             },
+            {
+              "@type": "Question",
+              name: "Quelles fréquences offrez-vous aux entreprises ?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Nous offrons des contrats d'entretien commercial de 1, 2, 3 ou 5 passages par semaine, selon vos besoins : bureaux, commerces, locaux professionnels, immeubles, salons, cliniques, garderies, espaces communs et bâtiments locatifs.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Offrez-vous un service d'homme à tout faire ?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Oui, sur demande : petits travaux, réparations et rénovations mineures pour les résidences, bureaux et immeubles locatifs de la Mauricie.",
+              },
+            },
           ],
         }),
       },
