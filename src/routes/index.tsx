@@ -205,12 +205,42 @@ export const Route = createFileRoute("/")({
 });
 
 const SERVICES = [
+  { id: "commercial", label: "Contrat commercial (1 à 5 x / semaine)", icon: Building2 },
   { id: "interieur-unique", label: "Ménage résidentiel — une fois", icon: Home },
-  { id: "interieur-contrat", label: "Contrat d'entretien récurrent", icon: Sparkles },
-  { id: "commercial", label: "Nettoyage commercial", icon: ShieldCheck },
+  { id: "interieur-contrat", label: "Contrat résidentiel récurrent", icon: Sparkles },
+  { id: "homme-a-tout-faire", label: "Homme à tout faire / rénos mineures", icon: Wrench },
   { id: "plates-bandes", label: "Entretien extérieur / plates-bandes", icon: Leaf },
   { id: "auto", label: "Lavage auto", icon: Car },
-  { id: "autre", label: "Autre / sur mesure", icon: Check },
+];
+
+const FREQUENCES = [
+  { f: "1 fois / semaine", d: "Petits bureaux et locaux à faible achalandage" },
+  { f: "2 fois / semaine", d: "Commerces, salons et cliniques de quartier" },
+  { f: "3 fois / semaine", d: "Achalandage soutenu, aires communes partagées" },
+  { f: "5 jours / semaine", d: "Bureaux actifs, garderies, immeubles en opération" },
+];
+
+const TYPES_ENTREPRISES = [
+  "Bureaux",
+  "Commerces",
+  "Locaux professionnels",
+  "Immeubles",
+  "Salons",
+  "Cliniques",
+  "Garderies",
+  "Espaces communs",
+  "Commerces de détail",
+  "Bâtiments locatifs",
+];
+
+const INCLUS_COMMERCIAL = [
+  "1 à 5 passages par semaine",
+  "Entretien des espaces de travail",
+  "Salles de bain",
+  "Aires communes",
+  "Surfaces et planchers",
+  "Entretien régulier et fiable",
+  "Service adapté à vos besoins",
 ];
 
 const TRUST = [
