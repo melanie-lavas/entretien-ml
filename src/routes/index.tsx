@@ -119,6 +119,8 @@ export const Route = createFileRoute("/")({
               { "@type": "Offer", itemOffered: { "@type": "Service", name: "Nettoyage commercial", areaServed: "Mauricie" } },
               { "@type": "Offer", itemOffered: { "@type": "Service", name: "Entretien extérieur / plates-bandes", areaServed: "Mauricie" } },
               { "@type": "Offer", itemOffered: { "@type": "Service", name: "Lavage auto intérieur & extérieur", areaServed: "Mauricie" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Contrat commercial 1 à 5 passages par semaine", areaServed: "Mauricie" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Homme à tout faire & rénovations mineures", areaServed: "Mauricie" } },
             ],
           },
           sameAs: [
