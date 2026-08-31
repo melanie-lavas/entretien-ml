@@ -15,6 +15,9 @@ import {
   Star,
   Phone,
   MapPin,
+  Building2,
+  Wrench,
+  CalendarCheck,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
