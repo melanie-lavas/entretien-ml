@@ -414,16 +414,20 @@ function Index() {
         <p className="text-center text-muted-foreground mb-10">
           Une seule équipe pour l'intérieur, l'extérieur et même votre véhicule.
         </p>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {[
-            { icon: Home, t: "Ménage résidentiel", d: "Une fois ou récurrent" },
-            { icon: ShieldCheck, t: "Nettoyage commercial", d: "Bureaux, locaux, commerces" },
-            { icon: Leaf, t: "Plates-bandes", d: "Désherbage et entretien" },
-            { icon: Car, t: "Lavage auto", d: "Intérieur et extérieur" },
-          ].map(({ icon: Icon, t, d }) => (
-            <div
+            { icon: Building2, t: "Nettoyage commercial", d: "Bureaux, commerces, immeubles — 1 à 5 x / semaine", slug: "nettoyage-commercial" },
+            { icon: Home, t: "Ménage résidentiel", d: "Une fois ou récurrent", slug: "menage-residentiel" },
+            { icon: Sparkles, t: "Contrat récurrent", d: "Hebdomadaire, aux 2 semaines ou mensuel", slug: "contrat-entretien-recurrent" },
+            { icon: Wrench, t: "Homme à tout faire", d: "Petits travaux et rénovations mineures", slug: "homme-a-tout-faire" },
+            { icon: Leaf, t: "Plates-bandes", d: "Désherbage et entretien extérieur", slug: "entretien-plates-bandes" },
+            { icon: Car, t: "Lavage auto", d: "Intérieur et extérieur", slug: "lavage-auto" },
+          ].map(({ icon: Icon, t, d, slug }) => (
+            <Link
               key={t}
-              className="rounded-2xl bg-card p-6 border border-border hover:-translate-y-1 transition shadow-sm"
+              to="/services/$slug"
+              params={{ slug }}
+              className="block rounded-2xl bg-card p-6 border border-border hover:-translate-y-1 transition shadow-sm"
             >
               <div
                 className="h-12 w-12 rounded-xl flex items-center justify-center mb-4 text-primary-foreground"
@@ -433,7 +437,7 @@ function Index() {
               </div>
               <h3 className="font-bold text-lg">{t}</h3>
               <p className="text-sm text-muted-foreground mt-1">{d}</p>
-            </div>
+            </Link>
           ))}
         </div>
         <div className="text-center mt-8">
@@ -443,6 +447,93 @@ function Index() {
           >
             Voir tous nos services en détail →
           </Link>
+        </div>
+      </section>
+
+      {/* Entreprises de la région */}
+      <section
+        className="px-6 py-14"
+        style={{ background: "color-mix(in oklab, var(--primary) 5%, transparent)" }}
+      >
+        <div className="max-w-6xl mx-auto">
+          <p className="text-xs font-bold uppercase tracking-widest text-primary text-center">
+            Entreprises de la région
+          </p>
+          <h2 className="mt-2 text-3xl font-bold text-center">
+            Contrats d'entretien pour PME en Mauricie
+          </h2>
+          <p className="mt-3 text-center text-muted-foreground max-w-2xl mx-auto">
+            M.L Entretien offre des services réguliers adaptés aux petites et moyennes entreprises.
+            Notre objectif est simple : vous n'avez plus à penser au ménage.
+          </p>
+
+          <div className="mt-10 grid md:grid-cols-2 gap-6">
+            <div className="rounded-2xl bg-card border border-border p-6 shadow-sm">
+              <h3 className="font-bold flex items-center gap-2">
+                <CalendarCheck className="h-5 w-5 text-primary" /> Fréquences disponibles
+              </h3>
+              <ul className="mt-4 space-y-3">
+                {FREQUENCES.map((x) => (
+                  <li key={x.f} className="flex gap-3">
+                    <Check className="h-4 w-4 text-primary mt-1 shrink-0" />
+                    <span className="text-sm">
+                      <strong>{x.f}</strong>
+                      <span className="block text-muted-foreground">{x.d}</span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="rounded-2xl bg-card border border-border p-6 shadow-sm">
+              <h3 className="font-bold flex items-center gap-2">
+                <Check className="h-5 w-5 text-primary" /> Ce qui est inclus
+              </h3>
+              <ul className="mt-4 grid gap-2">
+                {INCLUS_COMMERCIAL.map((x) => (
+                  <li key={x} className="flex gap-2 text-sm">
+                    <Check className="h-4 w-4 text-primary mt-0.5 shrink-0" /> {x}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <h3 className="mt-10 text-center font-bold">Selon vos besoins</h3>
+          <ul className="mt-4 flex flex-wrap justify-center gap-2">
+            {TYPES_ENTREPRISES.map((t) => (
+              <li
+                key={t}
+                className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium"
+              >
+                {t}
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-8 rounded-2xl border-2 border-primary/40 bg-card p-6 text-center">
+            <p className="font-semibold">
+              Nous recherchons de nouvelles entreprises pour l'horaire automne-hiver 2026-2027.
+            </p>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Secteur desservi : Mauricie et secteurs environnants · Des espaces propres. Un service fiable.
+            </p>
+            <div className="mt-5 flex flex-wrap justify-center gap-3">
+              <a
+                href="/soumission"
+                className="inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-primary-foreground"
+                style={{ background: "var(--gradient-hero)" }}
+              >
+                <Sparkles className="h-4 w-4" /> Soumission gratuite
+              </a>
+              <a
+                href="tel:+18199969022"
+                className="inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold border-2 border-primary"
+              >
+                <Phone className="h-4 w-4" /> 819-996-9022
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
