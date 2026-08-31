@@ -1,10 +1,18 @@
-# M.L Excellence
+# M.L Excellence (M.L Entretien)
 
-> Services de propreté en Mauricie : ménage résidentiel et commercial, contrats récurrents, entretien extérieur, plates-bandes et lavage auto. Prix selon le service — soumission gratuite et rapide.
+> Entretien ménager commercial et résidentiel en Mauricie : contrats 1 à 5 fois/semaine pour bureaux, commerces, cliniques, garderies et immeubles, ménage résidentiel ponctuel ou récurrent, homme à tout faire pour rénovations mineures, entretien des plates-bandes et lavage auto. Prix selon le service — soumission gratuite, réponse en 24 h.
 
-M.L Excellence (Les services de propreté selon M.L) dessert toute la Mauricie (Trois-Rivières, Shawinigan, Bécancour et environs) : ménage résidentiel ponctuel ou récurrent, nettoyage commercial, entretien des plates-bandes, et lavage auto intérieur/extérieur. Entreprise assurée. Les prix sont toujours établis selon le service demandé, la superficie et la fréquence. Les demandes de soumission sont envoyées par courriel à Melanielavas@outlook.com.
+M.L Excellence (Les services de propreté selon M.L) dessert toute la Mauricie et les secteurs environnants : Trois-Rivières, Shawinigan, Bécancour, Nicolet, Cap-de-la-Madeleine et Grand-Mère. Entreprise assurée en responsabilité civile. Adresse : 905 rue St-Jean-Baptiste, Nicolet. Téléphone : 819-996-9022. Courriel : Melanielavas@outlook.com. Les prix sont établis selon le service, la superficie et la fréquence. Nous recherchons de nouvelles entreprises pour l'horaire automne-hiver 2026-2027.
 
 ## Pages
 
-- [Accueil](/): Présentation des services, témoignages, FAQ et formulaire de soumission gratuite.
-- [Services](/services): Détail des services résidentiels et commerciaux — prix sur soumission.
+- [Accueil](/): Services, contrats commerciaux 1 à 5 x/semaine, témoignages, FAQ et formulaire de soumission rapide.
+- [Demander une soumission](/soumission): Questionnaire détaillé (résidence, grand ménage, fréquence, accès) envoyé par courriel.
+- [Services](/services): Détail de tous les services résidentiels et commerciaux — prix sur soumission.
+- [Ménage résidentiel](/services/menage-residentiel)
+- [Nettoyage commercial](/services/nettoyage-commercial)
+- [Contrat d'entretien récurrent](/services/contrat-entretien-recurrent)
+- [Homme à tout faire & rénovations mineures](/services/homme-a-tout-faire)
+- [Entretien des plates-bandes](/services/entretien-plates-bandes)
+- [Lavage auto](/services/lavage-auto)
+- [Zones desservies](/zones): Villes et secteurs couverts en Mauricie.
