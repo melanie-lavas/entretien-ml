@@ -59,7 +59,7 @@ export const Route = createFileRoute("/")({
           alternateName: "Les services de propreté M.L Excellence",
           description:
             "Services de propreté résidentiels et commerciaux en Mauricie : ménage ponctuel ou contrat, entretien extérieur, plates-bandes et lavage auto.",
-          email: "Melanielavas@outlook.com",
+          email: "melanielavas4@gmail.com",
           telephone: "+1-819-996-9022",
           url: "https://mlentretien.com/",
           image: "https://mlentretien.com/og-image.jpg",
@@ -109,7 +109,7 @@ export const Route = createFileRoute("/")({
             "@type": "ContactPoint",
             contactType: "customer service",
             telephone: "+1-819-996-9022",
-            email: "Melanielavas@outlook.com",
+            email: "melanielavas4@gmail.com",
             areaServed: "CA-QC",
             availableLanguage: ["French", "English"],
           }],
@@ -296,7 +296,7 @@ function Index() {
     const body = encodeURIComponent(
       `Nom: ${form.nom}\nTéléphone: ${form.tel}\nCourriel: ${form.courriel}\nVille: ${form.ville}\n\nServices demandés:\n${services || "(aucun sélectionné)"}\n\nMessage:\n${form.message}`
     );
-    window.location.href = `mailto:Melanielavas@outlook.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:melanielavas4@gmail.com?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -373,7 +373,7 @@ function Index() {
                 Soumission gratuite
               </a>
               <a
-                href="mailto:Melanielavas@outlook.com"
+                href="mailto:melanielavas4@gmail.com"
                 className="inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold border-2 border-primary text-foreground"
               >
                 <Mail className="h-4 w-4" /> Nous écrire
@@ -686,7 +686,7 @@ function Index() {
               </button>
               <p className="text-xs text-center text-muted-foreground">
                 Votre demande sera envoyée directement à Mélanie ·{" "}
-                <span className="whitespace-nowrap">Melanielavas@outlook.com</span>
+                <span className="whitespace-nowrap">melanielavas4@gmail.com</span>
               </p>
             </form>
           </div>
@@ -733,8 +733,8 @@ function Index() {
               819-996-9022
             </a>
             {" · "}
-            <a href="mailto:Melanielavas@outlook.com" className="hover:text-foreground">
-              Melanielavas@outlook.com
+            <a href="mailto:melanielavas4@gmail.com" className="hover:text-foreground">
+              melanielavas4@gmail.com
             </a>
           </p>
         </address>

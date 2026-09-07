@@ -385,10 +385,10 @@ function ServicesPage() {
                 Demander ma soumission
               </Link>
               <a
-                href="mailto:Melanielavas@outlook.com"
+                href="mailto:melanielavas4@gmail.com"
                 className="inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold border-2 border-primary"
               >
-                <Mail className="h-4 w-4" /> Melanielavas@outlook.com
+                <Mail className="h-4 w-4" /> melanielavas4@gmail.com
               </a>
             </div>
             <Link

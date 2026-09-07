@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 
 const BASE = "https://mlentretien.com";
-const CONTACT_EMAIL = "Melanielavas@outlook.com";
+const CONTACT_EMAIL = "melanielavas4@gmail.com";
 
 const FAQ = [
   {

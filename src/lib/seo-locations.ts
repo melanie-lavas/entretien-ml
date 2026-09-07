@@ -9,6 +9,10 @@ export type CityData = {
   lng: number;
   intro: string;
   neighborhoods: string[];
+  /** Contenu long optionnel (paragraphes) pour renforcer le SEO local. */
+  longform?: string[];
+  /** FAQ locale optionnelle — génère un schéma FAQPage sur la page ville. */
+  faq?: { q: string; a: string }[];
 };
 
 export const CITIES: CityData[] = [
@@ -39,8 +43,40 @@ export const CITIES: CityData[] = [
     lat: 46.3406,
     lng: -72.4341,
     intro:
-      "Ménage résidentiel, contrats commerciaux, entretien des plates-bandes et lavage auto à Bécancour. Nous desservons les six secteurs de la ville avec une équipe assurée et un protocole rigoureux. Idéal pour les propriétés à vendre, les fins de bail ou un grand ménage avant les fêtes.",
-    neighborhoods: ["Gentilly", "Sainte-Angèle-de-Laval", "Saint-Grégoire", "Précieux-Sang", "Sainte-Gertrude"],
+      "Vous cherchez une entreprise d'entretien ménager à Bécancour ? M.L Excellence est basée à Nicolet, à quelques minutes de vos secteurs : nous sommes chez vous rapidement, sans frais de déplacement. Ménage résidentiel, contrats commerciaux et industriels, entretien des plates-bandes et lavage auto — équipe assurée, produits fournis, soumission gratuite en moins de 24 h.",
+    neighborhoods: [
+      "Gentilly",
+      "Sainte-Angèle-de-Laval",
+      "Saint-Grégoire",
+      "Précieux-Sang",
+      "Sainte-Gertrude",
+      "Bécancour (secteur)",
+      "Parc industriel et portuaire",
+      "Wôlinak",
+    ],
+    longform: [
+      "Bécancour est notre voisine directe : notre point de service du 905 rue Saint-Jean-Baptiste à Nicolet est à moins de 15 minutes de Saint-Grégoire, Gentilly et Sainte-Angèle-de-Laval. C'est ce qui nous permet d'offrir des contrats d'entretien fiables, même 5 jours par semaine, sans surcharge de déplacement.",
+      "Côté commercial, nous entretenons bureaux, commerces de détail, cliniques, garderies, salons, immeubles locatifs et espaces communs, incluant les entreprises du parc industriel et portuaire de Bécancour. Passages de 1 à 5 fois par semaine, le soir, la nuit ou la fin de semaine selon vos opérations. Nous cherchons actuellement de nouvelles entreprises pour l'horaire automne-hiver 2026-2027.",
+      "Côté résidentiel, nous faisons le grand ménage initial, l'entretien récurrent (hebdomadaire, aux 2 semaines ou mensuel), les fins de bail et les ménages avant la vente d'une propriété. Un homme à tout faire est aussi disponible sur demande pour les réparations et rénovations mineures.",
+    ],
+    faq: [
+      {
+        q: "Desservez-vous tous les secteurs de Bécancour ?",
+        a: "Oui : Gentilly, Sainte-Angèle-de-Laval, Saint-Grégoire, Précieux-Sang, Sainte-Gertrude, le secteur Bécancour ainsi que le parc industriel et portuaire. Aucun frais de déplacement à l'intérieur de la ville.",
+      },
+      {
+        q: "Quel est le prix d'un ménage à Bécancour ?",
+        a: "Le prix est établi selon le service, la superficie et la fréquence. Vous recevez une soumission gratuite et ferme en moins de 24 h, sans engagement.",
+      },
+      {
+        q: "Faites-vous l'entretien de bureaux et de commerces à Bécancour ?",
+        a: "Oui. Nous offrons des contrats commerciaux de 1 à 5 passages par semaine pour bureaux, commerces, cliniques, garderies, immeubles locatifs et entreprises du parc industriel.",
+      },
+      {
+        q: "En combien de temps pouvez-vous commencer ?",
+        a: "Bécancour étant voisine de notre point de service à Nicolet, nous pouvons généralement débuter dans la même semaine selon les disponibilités.",
+      },
+    ],
   },
   {
     slug: "nicolet",

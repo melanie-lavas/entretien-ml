@@ -70,6 +70,22 @@ export const Route = createFileRoute("/menage/$city")({
             },
           }),
         },
+        ...(c.faq && c.faq.length
+          ? [
+              {
+                type: "application/ld+json",
+                children: JSON.stringify({
+                  "@context": "https://schema.org",
+                  "@type": "FAQPage",
+                  mainEntity: c.faq.map((f) => ({
+                    "@type": "Question",
+                    name: f.q,
+                    acceptedAnswer: { "@type": "Answer", text: f.a },
+                  })),
+                }),
+              },
+            ]
+          : []),
       ],
     };
   },
@@ -174,6 +190,17 @@ function CityPage() {
         </div>
       </section>
 
+      {c.longform && c.longform.length > 0 && (
+        <section className="max-w-4xl mx-auto px-6 pb-12">
+          <h2 className="text-2xl font-bold mb-4">Entretien ménager à {c.name} : ce qu'il faut savoir</h2>
+          <div className="space-y-4 text-muted-foreground">
+            {c.longform.map((p: string) => (
+              <p key={p.slice(0, 24)}>{p}</p>
+            ))}
+          </div>
+        </section>
+      )}
+
       <section className="max-w-5xl mx-auto px-6 pb-12">
         <h2 className="text-2xl font-bold mb-6 text-center">Pourquoi nous choisir à {c.name}</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -192,6 +219,20 @@ function CityPage() {
         </div>
       </section>
 
+      {c.faq && c.faq.length > 0 && (
+        <section className="max-w-3xl mx-auto px-6 pb-12">
+          <h2 className="text-2xl font-bold mb-6 text-center">Questions fréquentes — {c.name}</h2>
+          <div className="space-y-3">
+            {c.faq.map((f) => (
+              <details key={f.q} className="rounded-2xl border border-border bg-card p-5">
+                <summary className="font-semibold cursor-pointer">{f.q}</summary>
+                <p className="mt-2 text-sm text-muted-foreground">{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      )}
+
       <section className="px-6 pb-16">
         <div className="max-w-3xl mx-auto rounded-3xl p-1" style={{ background: "var(--gradient-hero)" }}>
           <div className="bg-card rounded-[calc(1.5rem-4px)] p-8 text-center">
@@ -201,8 +242,8 @@ function CityPage() {
               <Link to="/soumission" className="inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-primary-foreground" style={{ background: "var(--gradient-hero)", boxShadow: "var(--shadow-glow)" }}>
                 Demander ma soumission
               </Link>
-              <a href="mailto:Melanielavas@outlook.com" className="inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold border-2 border-primary">
-                <Mail className="h-4 w-4" /> Melanielavas@outlook.com
+              <a href="mailto:melanielavas4@gmail.com" className="inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold border-2 border-primary">
+                <Mail className="h-4 w-4" /> melanielavas4@gmail.com
               </a>
             </div>
           </div>
