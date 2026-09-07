@@ -70,6 +70,22 @@ export const Route = createFileRoute("/menage/$city")({
             },
           }),
         },
+        ...(c.faq && c.faq.length
+          ? [
+              {
+                type: "application/ld+json",
+                children: JSON.stringify({
+                  "@context": "https://schema.org",
+                  "@type": "FAQPage",
+                  mainEntity: c.faq.map((f) => ({
+                    "@type": "Question",
+                    name: f.q,
+                    acceptedAnswer: { "@type": "Answer", text: f.a },
+                  })),
+                }),
+              },
+            ]
+          : []),
       ],
     };
   },
