@@ -190,6 +190,17 @@ function CityPage() {
         </div>
       </section>
 
+      {c.longform && c.longform.length > 0 && (
+        <section className="max-w-4xl mx-auto px-6 pb-12">
+          <h2 className="text-2xl font-bold mb-4">Entretien ménager à {c.name} : ce qu'il faut savoir</h2>
+          <div className="space-y-4 text-muted-foreground">
+            {c.longform.map((p: string) => (
+              <p key={p.slice(0, 24)}>{p}</p>
+            ))}
+          </div>
+        </section>
+      )}
+
       <section className="max-w-5xl mx-auto px-6 pb-12">
         <h2 className="text-2xl font-bold mb-6 text-center">Pourquoi nous choisir à {c.name}</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
