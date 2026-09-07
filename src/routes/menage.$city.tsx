@@ -219,6 +219,20 @@ function CityPage() {
         </div>
       </section>
 
+      {c.faq && c.faq.length > 0 && (
+        <section className="max-w-3xl mx-auto px-6 pb-12">
+          <h2 className="text-2xl font-bold mb-6 text-center">Questions fréquentes — {c.name}</h2>
+          <div className="space-y-3">
+            {c.faq.map((f) => (
+              <details key={f.q} className="rounded-2xl border border-border bg-card p-5">
+                <summary className="font-semibold cursor-pointer">{f.q}</summary>
+                <p className="mt-2 text-sm text-muted-foreground">{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      )}
+
       <section className="px-6 pb-16">
         <div className="max-w-3xl mx-auto rounded-3xl p-1" style={{ background: "var(--gradient-hero)" }}>
           <div className="bg-card rounded-[calc(1.5rem-4px)] p-8 text-center">
