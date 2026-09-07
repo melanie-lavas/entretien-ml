@@ -9,6 +9,10 @@ export type CityData = {
   lng: number;
   intro: string;
   neighborhoods: string[];
+  /** Contenu long optionnel (paragraphes) pour renforcer le SEO local. */
+  longform?: string[];
+  /** FAQ locale optionnelle — génère un schéma FAQPage sur la page ville. */
+  faq?: { q: string; a: string }[];
 };
 
 export const CITIES: CityData[] = [
