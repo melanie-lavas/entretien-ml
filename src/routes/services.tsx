@@ -402,7 +402,19 @@ function ServicesPage() {
       </section>
 
       <footer className="text-center py-8 text-sm text-muted-foreground">
-        © {new Date().getFullYear()} M.L Excellence — Au service de la Mauricie
+        <p className="font-semibold text-foreground">M.L Excellence</p>
+        <p className="mt-1">905 rue Saint-Jean-Baptiste, Nicolet (QC) · 819-996-9022</p>
+        <p className="mt-2">
+          <a
+            href="https://www.google.com/maps?cid=1541346873343242194"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary hover:underline"
+          >
+            Voir sur Google · Avis & horaires
+          </a>
+        </p>
+        <p className="mt-3">© {new Date().getFullYear()} M.L Excellence — Au service de la Mauricie</p>
       </footer>
     </div>
   );

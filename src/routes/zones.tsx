@@ -194,6 +194,15 @@ function ZonesPage() {
             ·{" "}
             <a href="mailto:melanielavas4@gmail.com" className="hover:text-foreground">
               melanielavas4@gmail.com
+            </a>{" "}
+            ·{" "}
+            <a
+              href="https://www.google.com/maps?cid=1541346873343242194"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline"
+            >
+              Voir sur Google
             </a>
           </p>
         </div>

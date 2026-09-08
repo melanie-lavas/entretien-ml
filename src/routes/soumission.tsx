@@ -1079,6 +1079,7 @@ function SoumissionPage() {
       <footer className="text-center py-10 px-6 text-sm text-muted-foreground border-t border-border">
         <p className="font-bold text-foreground">M.L Excellence</p>
         <p className="mt-1">Services de propreté · Mauricie & Centre-du-Québec</p>
+        <p className="mt-2">905 rue Saint-Jean-Baptiste, Nicolet (QC) · 819-996-9022</p>
         <p className="mt-3">
           <Link to="/" className="hover:text-foreground">
             Accueil
@@ -1086,7 +1087,16 @@ function SoumissionPage() {
           ·{" "}
           <Link to="/services" className="hover:text-foreground">
             Services
-          </Link>
+          </Link>{" "}
+          ·{" "}
+          <a
+            href="https://www.google.com/maps?cid=1541346873343242194"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary hover:underline"
+          >
+            Voir sur Google
+          </a>
         </p>
       </footer>
     </div>

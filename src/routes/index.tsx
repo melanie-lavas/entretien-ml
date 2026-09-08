@@ -738,6 +738,16 @@ function Index() {
             </a>
           </p>
         </address>
+        <p className="mt-3">
+          <a
+            href="https://www.google.com/maps?cid=1541346873343242194"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-primary hover:underline font-medium"
+          >
+            Voir sur Google · Avis & horaires
+          </a>
+        </p>
         <p className="mt-4 text-xs">© {new Date().getFullYear()} M.L Excellence — Tous droits réservés</p>
       </footer>
     </div>
