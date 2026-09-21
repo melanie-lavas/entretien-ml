@@ -16,6 +16,68 @@ export type ServiceData = {
 
 export const SERVICES: ServiceData[] = [
   {
+    slug: "entretien-immeubles-locatifs",
+    title: "Entretien d’immeubles locatifs",
+    h1: "Entretien d’immeubles locatifs en Mauricie",
+    metaTitle: "Entretien immeubles locatifs Mauricie | M.L Excellence",
+    metaDescription:
+      "Entretien régulier d’immeubles locatifs en Mauricie : halls, corridors, escaliers, buanderies et remise en état. Soumission gratuite.",
+    intro:
+      "Vous gérez vos immeubles. Nous gardons les espaces communs propres, accueillants et suivis avec constance. Chaque contrat est adapté au nombre de logements, à l’achalandage et aux priorités de votre propriété, avec une communication directe et une équipe qui connaît les lieux.",
+    keywords:
+      "entretien immeuble locatif Mauricie, ménage bloc appartement Trois-Rivières, nettoyage espaces communs Bécancour, entretien immeuble Nicolet, conciergerie immeuble locatif",
+    includes: [
+      "Entrées, halls, vestibules et portes vitrées",
+      "Corridors, cages d’escalier, rampes et ascenseurs",
+      "Buanderies, salles communes et espaces partagés",
+      "Aspiration, lavage des planchers et désinfection des points de contact",
+      "Vidage des poubelles et entretien des zones prévues au contrat",
+      "Remise en état entre deux locataires, sur demande",
+    ],
+    benefits: [
+      { t: "Suivi constant", d: "Une liste de tâches claire et une qualité régulière à chaque passage." },
+      { t: "Horaire flexible", d: "Interventions planifiées selon les besoins de vos locataires." },
+      { t: "Équipe assurée", d: "Responsabilité civile et preuve d’assurance sur demande." },
+      { t: "Un seul contact", d: "Communication directe pour les demandes et ajustements." },
+    ],
+    faq: [
+      { q: "Quels types d’immeubles entretenez-vous ?", a: "Blocs appartements, duplex et plex, immeubles à logements, bâtiments locatifs et leurs espaces communs." },
+      { q: "Pouvez-vous intervenir entre deux locataires ?", a: "Oui. Nous offrons une remise en état adaptée avant l’arrivée du prochain occupant." },
+      { q: "À quelle fréquence pouvez-vous passer ?", a: "De 1 à 5 passages par semaine, selon le nombre de logements, l’achalandage et les espaces à entretenir." },
+    ],
+  },
+  {
+    slug: "deneigement-manuel",
+    title: "Déneigement manuel",
+    h1: "Déneigement manuel pour immeubles locatifs en Mauricie",
+    metaTitle: "Déneigement manuel immeubles Mauricie | M.L Excellence",
+    metaDescription:
+      "Déneigement manuel saisonnier pour immeubles locatifs en Mauricie. Intervention dès 5 cm, accès et trottoirs sécuritaires. Évaluation gratuite.",
+    intro:
+      "Une solution saisonnière pensée pour les propriétaires et gestionnaires qui veulent maintenir des accès propres, sécuritaires et fonctionnels sans gérer chaque tempête. Une équipe intervient à partir de 5 cm selon les conditions et les secteurs convenus au contrat.",
+    keywords:
+      "déneigement manuel Mauricie, déneigement immeuble locatif, déneigement trottoir Trois-Rivières, déneigement entrée Bécancour, contrat déneigement Nicolet",
+    includes: [
+      "Intervention à partir d’une accumulation de 5 cm",
+      "Passage après la tempête pour dégager les accès prévus",
+      "Entrées, trottoirs et passages piétonniers au contrat",
+      "Accès aux espaces communs et au cabanon, lorsque prévu",
+      "Passages supplémentaires possibles lorsque les précipitations dépassent 24 heures",
+      "Intervention particulière disponible avec supplément",
+    ],
+    benefits: [
+      { t: "Accès sécuritaires", d: "Les parcours prévus restent propres et fonctionnels pour vos locataires." },
+      { t: "Équipe formée", d: "Nous privilégions une équipe attitrée qui connaît votre propriété." },
+      { t: "Forfait saisonnier", d: "Soumission selon les accès, logements et besoins réels." },
+      { t: "Paiements échelonnés", d: "Dépenses réparties pendant la saison selon l’entente." },
+    ],
+    faq: [
+      { q: "À partir de quelle accumulation intervenez-vous ?", a: "L’intervention est prévue à partir de 5 cm, selon les conditions météorologiques et les modalités du contrat." },
+      { q: "Quels accès peuvent être inclus ?", a: "Entrées, trottoirs, passages piétonniers, accès aux espaces communs et au cabanon, selon l’évaluation des lieux." },
+      { q: "Que se passe-t-il pendant une longue tempête ?", a: "Des passages supplémentaires sont possibles lorsque les précipitations se prolongent au-delà de 24 heures afin de maintenir les accès sécuritaires." },
+    ],
+  },
+  {
     slug: "menage-residentiel",
     title: "Ménage résidentiel",
     h1: "Ménage résidentiel en Mauricie — propre, fiable, sans engagement",

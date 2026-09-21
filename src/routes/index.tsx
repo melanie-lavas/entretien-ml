@@ -18,6 +18,9 @@ import {
   Building2,
   Wrench,
   CalendarCheck,
+  Snowflake,
+  KeyRound,
+  ClipboardCheck,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -27,7 +30,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Contrats d'entretien commercial 1 à 5 fois/semaine en Mauricie : bureaux, commerces, cliniques, garderies, immeubles. Ménage résidentiel et homme à tout faire. Soumission gratuite en 24 h.",
+          "Entretien d’immeubles locatifs en Mauricie : espaces communs, remises en état et déneigement manuel. Contrats commerciaux et résidentiels. Soumission gratuite.",
       },
       { name: "keywords", content: "entretien ménager commercial Mauricie, contrat entretien bureau Trois-Rivières, nettoyage commerce Shawinigan, ménage résidentiel Bécancour, homme à tout faire Mauricie, rénovation mineure, conciergerie immeuble" },
       { name: "geo.region", content: "CA-QC" },
@@ -59,7 +62,7 @@ export const Route = createFileRoute("/")({
           alternateName: "Les services de propreté M.L Excellence",
           description:
             "Services de propreté résidentiels et commerciaux en Mauricie : ménage ponctuel ou contrat, entretien extérieur, plates-bandes et lavage auto.",
-          email: "melanielavas4@gmail.com",
+          email: "info.mlexcellance@gmail.com",
           telephone: "+1-819-996-9022",
           url: "https://mlentretien.com/",
           image: "https://mlentretien.com/og-image.jpg",
@@ -109,7 +112,7 @@ export const Route = createFileRoute("/")({
             "@type": "ContactPoint",
             contactType: "customer service",
             telephone: "+1-819-996-9022",
-            email: "melanielavas4@gmail.com",
+            email: "info.mlexcellance@gmail.com",
             areaServed: "CA-QC",
             availableLanguage: ["French", "English"],
           }],
@@ -124,6 +127,8 @@ export const Route = createFileRoute("/")({
               { "@type": "Offer", itemOffered: { "@type": "Service", name: "Lavage auto intérieur & extérieur", areaServed: "Mauricie" } },
               { "@type": "Offer", itemOffered: { "@type": "Service", name: "Contrat commercial 1 à 5 passages par semaine", areaServed: "Mauricie" } },
               { "@type": "Offer", itemOffered: { "@type": "Service", name: "Homme à tout faire & rénovations mineures", areaServed: "Mauricie" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Entretien d’immeubles locatifs", areaServed: "Mauricie" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Déneigement manuel saisonnier", areaServed: "Mauricie" } },
             ],
           },
           sameAs: [
@@ -208,6 +213,8 @@ export const Route = createFileRoute("/")({
 });
 
 const SERVICES = [
+  { id: "immeuble-locatif", label: "Entretien d’immeuble locatif", icon: Building2 },
+  { id: "deneigement", label: "Déneigement manuel saisonnier", icon: Snowflake },
   { id: "commercial", label: "Contrat commercial (1 à 5 x / semaine)", icon: Building2 },
   { id: "interieur-unique", label: "Ménage résidentiel — une fois", icon: Home },
   { id: "interieur-contrat", label: "Contrat résidentiel récurrent", icon: Sparkles },
@@ -296,7 +303,7 @@ function Index() {
     const body = encodeURIComponent(
       `Nom: ${form.nom}\nTéléphone: ${form.tel}\nCourriel: ${form.courriel}\nVille: ${form.ville}\n\nServices demandés:\n${services || "(aucun sélectionné)"}\n\nMessage:\n${form.message}`
     );
-    window.location.href = `mailto:melanielavas4@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:info.mlexcellance@gmail.com?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -361,7 +368,7 @@ function Index() {
               </span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-md">
-              Ménage résidentiel et commercial, contrats récurrents, plates-bandes et lavage auto.
+              Entretien fiable pour immeubles locatifs, commerces et résidences, avec déneigement manuel saisonnier.
               Partout en Mauricie. Soumission gratuite en 30 secondes.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
@@ -373,7 +380,7 @@ function Index() {
                 Soumission gratuite
               </a>
               <a
-                href="mailto:melanielavas4@gmail.com"
+                href="mailto:info.mlexcellance@gmail.com"
                 className="inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold border-2 border-primary text-foreground"
               >
                 <Mail className="h-4 w-4" /> Nous écrire
@@ -416,6 +423,8 @@ function Index() {
         </p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {[
+             { icon: Building2, t: "Immeubles locatifs", d: "Espaces communs, suivis réguliers et remises en état", slug: "entretien-immeubles-locatifs" },
+             { icon: Snowflake, t: "Déneigement manuel", d: "Accès sécuritaires dès 5 cm, selon le contrat", slug: "deneigement-manuel" },
             { icon: Building2, t: "Nettoyage commercial", d: "Bureaux, commerces, immeubles — 1 à 5 x / semaine", slug: "nettoyage-commercial" },
             { icon: Home, t: "Ménage résidentiel", d: "Une fois ou récurrent", slug: "menage-residentiel" },
             { icon: Sparkles, t: "Contrat récurrent", d: "Hebdomadaire, aux 2 semaines ou mensuel", slug: "contrat-entretien-recurrent" },
@@ -447,6 +456,48 @@ function Index() {
           >
             Voir tous nos services en détail →
           </Link>
+        </div>
+      </section>
+
+      <section className="border-y border-border bg-primary text-primary-foreground">
+        <div className="max-w-6xl mx-auto px-6 py-14">
+          <p className="text-xs font-bold uppercase text-primary-foreground/70">Propriétaires et gestionnaires</p>
+          <div className="mt-3 grid lg:grid-cols-[1.15fr_.85fr] gap-10 items-start">
+            <div>
+              <h2 className="text-3xl sm:text-4xl font-bold">Vos immeubles. Notre suivi. Moins de soucis.</h2>
+              <p className="mt-4 text-primary-foreground/80 max-w-2xl">
+                Un entretien adapté aux blocs appartements et propriétés locatives, avec des passages planifiés,
+                une équipe qui connaît les lieux et un contact direct pour vos demandes.
+              </p>
+              <div className="mt-6 grid sm:grid-cols-2 gap-3">
+                {["Entrées, halls et vestibules", "Corridors et cages d’escalier", "Buanderies et espaces communs", "Remise en état entre locataires", "Planchers et points de contact", "Déneigement manuel dès 5 cm"].map((item) => (
+                  <div key={item} className="flex items-start gap-2 text-sm">
+                    <Check className="h-4 w-4 mt-0.5 shrink-0" /> {item}
+                  </div>
+                ))}
+              </div>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <Link to="/services/$slug" params={{ slug: "entretien-immeubles-locatifs" }} className="inline-flex items-center gap-2 rounded-md bg-background px-5 py-3 font-semibold text-foreground">
+                  Voir l’offre pour immeubles
+                </Link>
+                <Link to="/soumission" className="inline-flex items-center gap-2 rounded-md border border-primary-foreground/40 px-5 py-3 font-semibold">
+                  Demander une évaluation
+                </Link>
+              </div>
+            </div>
+            <div className="grid gap-3">
+              {[
+                { icon: ClipboardCheck, t: "Plan d’entretien clair", d: "Les tâches, espaces et fréquences sont définis avant le début." },
+                { icon: KeyRound, t: "Gestion des accès", d: "Consignes d’accès et particularités de l’immeuble consignées." },
+                { icon: Snowflake, t: "Service hivernal", d: "Déneigement manuel saisonnier des accès prévus au contrat." },
+              ].map(({ icon: Icon, t, d }) => (
+                <div key={t} className="rounded-md border border-primary-foreground/20 bg-primary-foreground/5 p-4 flex gap-3">
+                  <Icon className="h-5 w-5 shrink-0" />
+                  <div><h3 className="font-bold">{t}</h3><p className="mt-1 text-sm text-primary-foreground/75">{d}</p></div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -686,7 +737,7 @@ function Index() {
               </button>
               <p className="text-xs text-center text-muted-foreground">
                 Votre demande sera envoyée directement à Mélanie ·{" "}
-                <span className="whitespace-nowrap">melanielavas4@gmail.com</span>
+                <span className="whitespace-nowrap">info.mlexcellance@gmail.com</span>
               </p>
             </form>
           </div>
@@ -733,8 +784,8 @@ function Index() {
               819-996-9022
             </a>
             {" · "}
-            <a href="mailto:melanielavas4@gmail.com" className="hover:text-foreground">
-              melanielavas4@gmail.com
+            <a href="mailto:info.mlexcellance@gmail.com" className="hover:text-foreground">
+              info.mlexcellance@gmail.com
             </a>
           </p>
         </address>

@@ -192,8 +192,8 @@ function ZonesPage() {
               {PHONE}
             </a>{" "}
             ·{" "}
-            <a href="mailto:melanielavas4@gmail.com" className="hover:text-foreground">
-              melanielavas4@gmail.com
+            <a href="mailto:info.mlexcellance@gmail.com" className="hover:text-foreground">
+              info.mlexcellance@gmail.com
             </a>{" "}
             ·{" "}
             <a

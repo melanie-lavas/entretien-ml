@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 
 const BASE = "https://mlentretien.com";
-const CONTACT_EMAIL = "melanielavas4@gmail.com";
+const CONTACT_EMAIL = "info.mlexcellance@gmail.com";
 
 const FAQ = [
   {
@@ -120,6 +120,7 @@ const TYPES_RESIDENCE = [
   "Appartement",
   "Chalet",
   "Local commercial",
+  "Immeuble locatif / bloc appartements",
   "Autre",
 ];
 
@@ -166,6 +167,11 @@ const SERVICES_OPTIONS = [
   "Changement de la literie",
   "Lavage et pliage du linge",
   "Vidage des poubelles",
+  "Entrées, halls et vestibules",
+  "Corridors et cages d’escalier",
+  "Buanderies et espaces communs",
+  "Remise en état entre locataires",
+  "Déneigement manuel saisonnier",
 ];
 
 const FREQUENCES = [
