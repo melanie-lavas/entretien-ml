@@ -74,11 +74,6 @@ export const Route = createFileRoute("/")({
             addressRegion: "QC",
             addressCountry: "CA",
           },
-          geo: {
-            "@type": "GeoCoordinates",
-            latitude: 46.2225,
-            longitude: -72.6175,
-          },
           areaServed: [
             { "@type": "AdministrativeArea", name: "Mauricie, Québec" },
             { "@type": "AdministrativeArea", name: "Centre-du-Québec" },
