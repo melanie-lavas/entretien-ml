@@ -1055,8 +1055,8 @@ function SoumissionPage() {
           <div className="flex items-center gap-3 rounded-2xl border border-border bg-card p-4">
             <MapPin className="h-5 w-5 text-primary shrink-0" />
             <div>
-              <p className="font-semibold">Adresse</p>
-              <p className="text-muted-foreground">905 rue St-Jean-Baptiste, Nicolet</p>
+              <p className="font-semibold">Zone de service</p>
+              <p className="text-muted-foreground">Nicolet et environs · Mauricie & Centre-du-Québec</p>
             </div>
           </div>
         </div>
@@ -1085,7 +1085,7 @@ function SoumissionPage() {
       <footer className="text-center py-10 px-6 text-sm text-muted-foreground border-t border-border">
         <p className="font-bold text-foreground">M.L Excellence</p>
         <p className="mt-1">Services de propreté · Mauricie & Centre-du-Québec</p>
-        <p className="mt-2">905 rue Saint-Jean-Baptiste, Nicolet (QC) · 819-996-9022</p>
+        <p className="mt-2">Nicolet (QC) · Desserte : Mauricie & Centre-du-Québec · 819-996-9022</p>
         <p className="mt-3">
           <Link to="/" className="hover:text-foreground">
             Accueil

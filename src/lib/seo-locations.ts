@@ -55,7 +55,7 @@ export const CITIES: CityData[] = [
       "Wôlinak",
     ],
     longform: [
-      "Bécancour est notre voisine directe : notre point de service du 905 rue Saint-Jean-Baptiste à Nicolet est à moins de 15 minutes de Saint-Grégoire, Gentilly et Sainte-Angèle-de-Laval. C'est ce qui nous permet d'offrir des contrats d'entretien fiables, même 5 jours par semaine, sans surcharge de déplacement.",
+      "Bécancour est notre voisine directe : notre point de service à Nicolet est à moins de 15 minutes de Saint-Grégoire, Gentilly et Sainte-Angèle-de-Laval. C'est ce qui nous permet d'offrir des contrats d'entretien fiables, même 5 jours par semaine, sans surcharge de déplacement.",
       "Côté commercial, nous entretenons bureaux, commerces de détail, cliniques, garderies, salons, immeubles locatifs et espaces communs, incluant les entreprises du parc industriel et portuaire de Bécancour. Passages de 1 à 5 fois par semaine, le soir, la nuit ou la fin de semaine selon vos opérations. Nous cherchons actuellement de nouvelles entreprises pour l'horaire automne-hiver 2026-2027.",
       "Côté résidentiel, nous faisons le grand ménage initial, l'entretien récurrent (hebdomadaire, aux 2 semaines ou mensuel), les fins de bail et les ménages avant la vente d'une propriété. Un homme à tout faire est aussi disponible sur demande pour les réparations et rénovations mineures.",
     ],
@@ -85,7 +85,7 @@ export const CITIES: CityData[] = [
     lat: 46.2225,
     lng: -72.6175,
     intro:
-      "Basée au 905 rue Saint-Jean-Baptiste à Nicolet, M.L Excellence est votre entreprise de ménage de proximité. Service rapide, équipe locale et tarifs justes pour le résidentiel comme pour le commercial. Nous connaissons votre coin — vous nous voyez sur la route presque tous les jours.",
+      "Basée à Nicolet, M.L Excellence est votre entreprise de ménage de proximité. Service rapide, équipe locale et tarifs justes pour le résidentiel comme pour le commercial. Nous connaissons votre coin — vous nous voyez sur la route presque tous les jours.",
     neighborhoods: ["Centre-ville Nicolet", "Nicolet-Sud", "Port-Saint-François"],
   },
   {

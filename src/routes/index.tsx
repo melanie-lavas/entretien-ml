@@ -70,16 +70,9 @@ export const Route = createFileRoute("/")({
           slogan: "La propreté, notre excellence.",
           address: {
             "@type": "PostalAddress",
-            streetAddress: "905 rue Saint-Jean-Baptiste",
             addressLocality: "Nicolet",
             addressRegion: "QC",
-            postalCode: "J3T 1S4",
             addressCountry: "CA",
-          },
-          geo: {
-            "@type": "GeoCoordinates",
-            latitude: 46.2225,
-            longitude: -72.6175,
           },
           areaServed: [
             { "@type": "AdministrativeArea", name: "Mauricie, Québec" },
@@ -93,7 +86,7 @@ export const Route = createFileRoute("/")({
           ],
           serviceArea: {
             "@type": "GeoCircle",
-            geoMidpoint: { "@type": "GeoCoordinates", latitude: 46.2225, longitude: -72.6175 },
+            geoMidpoint: { "@type": "GeoCoordinates", latitude: 46.343, longitude: -72.5477 },
             geoRadius: 60000,
           },
           priceRange: "$$",
@@ -778,7 +771,7 @@ function Index() {
         <p className="font-bold text-foreground">M.L Excellence</p>
         <p className="mt-1">Les services de propreté · Mauricie & Centre-du-Québec</p>
         <address className="not-italic mt-3 space-y-1">
-          <p>905, rue Saint-Jean-Baptiste, Nicolet (QC)</p>
+          <p>Nicolet (QC) · Desserte : Mauricie & Centre-du-Québec</p>
           <p>
             <a href="tel:+18199969022" className="hover:text-foreground font-medium">
               819-996-9022
