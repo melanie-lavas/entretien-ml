@@ -231,7 +231,7 @@ function ServiceDetailPage() {
 
       <footer className="text-center py-8 text-sm text-muted-foreground px-4">
         <p className="font-semibold text-foreground">M.L Excellence</p>
-        <p>905 rue Saint-Jean-Baptiste, Nicolet (QC) · <a href="tel:+18199969022" className="hover:underline">819-996-9022</a></p>
+        <p>Nicolet (QC) · Desserte : Mauricie & Centre-du-Québec · <a href="tel:+18199969022" className="hover:underline">819-996-9022</a></p>
         <p className="mt-2">
           <a
             href="https://www.google.com/maps?cid=1541346873343242194"

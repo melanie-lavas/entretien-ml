@@ -100,7 +100,7 @@ function ZonesPage() {
           Zones desservies — entretien ménager partout en Mauricie
         </h1>
         <p className="mt-4 text-muted-foreground max-w-2xl">
-          Basés au 905 rue Saint-Jean-Baptiste à Nicolet, nous nous déplaçons dans un rayon de 60 km :
+          Basés à Nicolet, nous nous déplaçons dans un rayon de 60 km :
           Trois-Rivières, Shawinigan, Bécancour, Cap-de-la-Madeleine, Grand-Mère et les municipalités
           environnantes. Résidentiel, commercial, contrats récurrents, plates-bandes et lavage auto.
         </p>
@@ -186,7 +186,7 @@ function ZonesPage() {
       <footer className="border-t border-border/50 mt-10">
         <div className="max-w-5xl mx-auto px-5 py-8 text-sm text-muted-foreground">
           <p className="font-semibold text-foreground">M.L Excellence</p>
-          <p>905 rue Saint-Jean-Baptiste, Nicolet (Québec)</p>
+          <p>Nicolet (Québec) · Desserte : Mauricie & Centre-du-Québec</p>
           <p>
             <a href={PHONE_HREF} className="hover:text-foreground">
               {PHONE}
