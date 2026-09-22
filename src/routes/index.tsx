@@ -398,9 +398,9 @@ function Index() {
             />
             <img
               src={hero}
-              alt="Hall et corridor d'immeuble fraîchement entretenus — M.L Excellence"
-              width={1600}
-              height={1104}
+              alt="Intérieur de maison propre et brillant — M.L Excellence"
+              width={1536}
+              height={1024}
               className="relative rounded-3xl shadow-2xl w-full h-auto object-cover"
               loading="eager"
             />
