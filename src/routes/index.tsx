@@ -70,10 +70,8 @@ export const Route = createFileRoute("/")({
           slogan: "La propreté, notre excellence.",
           address: {
             "@type": "PostalAddress",
-            streetAddress: "905 rue Saint-Jean-Baptiste",
             addressLocality: "Nicolet",
             addressRegion: "QC",
-            postalCode: "J3T 1S4",
             addressCountry: "CA",
           },
           geo: {
@@ -93,7 +91,7 @@ export const Route = createFileRoute("/")({
           ],
           serviceArea: {
             "@type": "GeoCircle",
-            geoMidpoint: { "@type": "GeoCoordinates", latitude: 46.2225, longitude: -72.6175 },
+            geoMidpoint: { "@type": "GeoCoordinates", latitude: 46.343, longitude: -72.5477 },
             geoRadius: 60000,
           },
           priceRange: "$$",
