@@ -1010,9 +1010,87 @@ function SoumissionPage() {
                 />
               </Section>
 
-              {/* 9 — Commentaires */}
+              {/* 9 — Immeuble locatif */}
               <Section
                 n={9}
+                title="Immeuble locatif ou commercial (si applicable)"
+                subtitle="Pour les propriétaires et gestionnaires d'immeubles : ces détails nous permettent de chiffrer un contrat précis."
+              >
+                <input
+                  placeholder="Nom de l'immeuble"
+                  aria-label="Nom de l'immeuble"
+                  value={form.immeubleNom}
+                  onChange={(e) => set("immeubleNom", e.target.value)}
+                  maxLength={140}
+                  className={fieldClass("immeubleNom")}
+                />
+                <div className="grid grid-cols-2 gap-3">
+                  <input
+                    placeholder="Nombre de logements"
+                    aria-label="Nombre de logements"
+                    inputMode="numeric"
+                    value={form.nbLogements}
+                    onChange={(e) => set("nbLogements", e.target.value)}
+                    maxLength={20}
+                    className={fieldClass("nbLogements")}
+                  />
+                  <input
+                    placeholder="Nombre d'entrées"
+                    aria-label="Nombre d'entrées"
+                    inputMode="numeric"
+                    value={form.nbEntrees}
+                    onChange={(e) => set("nbEntrees", e.target.value)}
+                    maxLength={20}
+                    className={fieldClass("nbEntrees")}
+                  />
+                </div>
+                <div>
+                  <p className="mb-2 text-sm font-medium">Services requis</p>
+                  <div className="grid sm:grid-cols-2 gap-2">
+                    {ESPACES_COMMUNS.map((o) => (
+                      <label
+                        key={o}
+                        className="flex items-center gap-2 text-sm rounded-lg border border-border px-3 py-2 cursor-pointer hover:border-primary/50"
+                      >
+                        <input
+                          type="checkbox"
+                          checked={form.espacesCommuns.includes(o)}
+                          onChange={() => toggle("espacesCommuns", o)}
+                          className="h-4 w-4 accent-primary"
+                          aria-label={o}
+                        />
+                        <span>{o}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+                <select
+                  aria-label="Fréquence d'entretien de l'immeuble"
+                  value={form.frequenceImmeuble}
+                  onChange={(e) => set("frequenceImmeuble", e.target.value)}
+                  className={fieldClass("frequenceImmeuble")}
+                >
+                  <option value="">Fréquence d'entretien souhaitée</option>
+                  {FREQUENCES_IMMEUBLE.map((f) => (
+                    <option key={f} value={f}>
+                      {f}
+                    </option>
+                  ))}
+                </select>
+                <textarea
+                  rows={3}
+                  placeholder="Disponibilités d'accès (jours, heures, code de porte, concierge, stationnement…)"
+                  aria-label="Disponibilités d'accès"
+                  value={form.accesDispos}
+                  onChange={(e) => set("accesDispos", e.target.value)}
+                  maxLength={500}
+                  className={`${fieldClass("accesDispos")} resize-none`}
+                />
+              </Section>
+
+              {/* 10 — Commentaires */}
+              <Section
+                n={10}
                 title="Commentaires"
                 subtitle="Ajoutez toute information pouvant nous aider à préparer une soumission précise."
               >
