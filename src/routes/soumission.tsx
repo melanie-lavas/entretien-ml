@@ -188,6 +188,28 @@ const JOURS = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dim
 
 const OUI_NON = ["Oui", "Non"] as const;
 
+const ESPACES_COMMUNS = [
+  "Entrées et halls",
+  "Corridors",
+  "Cages d'escalier",
+  "Ascenseurs",
+  "Buanderies",
+  "Salles communes",
+  "Stationnement / extérieur",
+  "Remise en état entre locataires",
+  "Déneigement manuel (dès 5 cm)",
+];
+
+const FREQUENCES_IMMEUBLE = [
+  "1 fois par semaine",
+  "2 fois par semaine",
+  "3 fois par semaine",
+  "5 fois par semaine",
+  "Aux deux semaines",
+  "1 fois par mois",
+  "Sur appel / au besoin",
+];
+
 const trimmed = (max: number) => z.string().trim().max(max).optional().or(z.literal(""));
 
 const soumissionSchema = z.object({
@@ -208,6 +230,12 @@ const soumissionSchema = z.object({
   superficie: trimmed(60),
   sousSol: z.string().trim().max(10).optional().or(z.literal("")),
   garage: z.string().trim().max(10).optional().or(z.literal("")),
+  immeubleNom: trimmed(140),
+  nbLogements: trimmed(20),
+  nbEntrees: trimmed(20),
+  espacesCommuns: z.array(z.string()).max(20),
+  frequenceImmeuble: trimmed(60),
+  accesDispos: trimmed(500),
   serviceType: z.enum(["regulier", "grand-menage", "grand-menage-seul"], {
     errorMap: () => ({ message: "Sélectionnez le service recherché" }),
   }),
@@ -246,6 +274,12 @@ type FormState = {
   superficie: string;
   sousSol: string;
   garage: string;
+  immeubleNom: string;
+  nbLogements: string;
+  nbEntrees: string;
+  espacesCommuns: string[];
+  frequenceImmeuble: string;
+  accesDispos: string;
   serviceType: "" | (typeof SERVICE_TYPE)[number]["id"];
   depuisQuand: string;
   accumulations: string;
@@ -282,6 +316,12 @@ const initialForm: FormState = {
   superficie: "",
   sousSol: "",
   garage: "",
+  immeubleNom: "",
+  nbLogements: "",
+  nbEntrees: "",
+  espacesCommuns: [],
+  frequenceImmeuble: "",
+  accesDispos: "",
   serviceType: "",
   depuisQuand: "",
   accumulations: "",
@@ -313,7 +353,10 @@ function SoumissionPage() {
   const set = <K extends keyof FormState>(k: K, v: FormState[K]) =>
     setForm((f) => ({ ...f, [k]: v }));
 
-  const toggle = (k: "grandMenageOptions" | "services" | "jours", value: string) =>
+  const toggle = (
+    k: "grandMenageOptions" | "services" | "jours" | "espacesCommuns",
+    value: string,
+  ) =>
     setForm((f) => ({
       ...f,
       [k]: f[k].includes(value) ? f[k].filter((x) => x !== value) : [...f[k], value],
@@ -340,6 +383,14 @@ function SoumissionPage() {
       `Superficie approximative: ${d.superficie || "—"}`,
       `Sous-sol à entretenir: ${d.sousSol || "—"}`,
       `Garage à entretenir: ${d.garage || "—"}`,
+      "",
+      "=== IMMEUBLE LOCATIF / COMMERCIAL ===",
+      `Nom de l'immeuble: ${d.immeubleNom || "—"}`,
+      `Nombre de logements: ${d.nbLogements || "—"}`,
+      `Nombre d'entrées: ${d.nbEntrees || "—"}`,
+      `Services requis: ${d.espacesCommuns?.length ? d.espacesCommuns.join(", ") : "—"}`,
+      `Fréquence d'entretien souhaitée: ${d.frequenceImmeuble || "—"}`,
+      `Disponibilités d'accès: ${d.accesDispos || "—"}`,
       "",
       "=== TYPE DE SERVICE ===",
       `Service recherché: ${serviceLabel}`,
