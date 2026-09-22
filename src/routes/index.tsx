@@ -771,7 +771,7 @@ function Index() {
         <p className="font-bold text-foreground">M.L Excellence</p>
         <p className="mt-1">Les services de propreté · Mauricie & Centre-du-Québec</p>
         <address className="not-italic mt-3 space-y-1">
-          <p>905, rue Saint-Jean-Baptiste, Nicolet (QC)</p>
+          <p>Nicolet (QC) · Desserte : Mauricie & Centre-du-Québec</p>
           <p>
             <a href="tel:+18199969022" className="hover:text-foreground font-medium">
               819-996-9022
