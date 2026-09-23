@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import logoAsset from "@/assets/ml-excellence-logo.png.asset.json";
-import hero from "@/assets/hero-cleaning.jpg";
+import heroAsset from "@/assets/hero-immeubles.jpg.asset.json";
 import {
   Sparkles,
   Home,
@@ -393,15 +393,16 @@ function Index() {
           </div>
           <div className="relative">
             <div
-              className="absolute -inset-4 rounded-3xl opacity-30 blur-2xl"
+              className="absolute -inset-5 rounded-[2rem] opacity-40 blur-3xl"
               style={{ background: "var(--gradient-hero)" }}
             />
             <img
-              src={hero}
-              alt="Intérieur de maison propre et brillant — M.L Excellence"
-              width={1536}
-              height={1024}
-              className="relative rounded-3xl shadow-2xl w-full h-auto object-cover"
+              src={heroAsset.url}
+              alt="Hall d'immeuble locatif impeccable avec chariot d'entretien — M.L Excellence"
+              width={1600}
+              height={1100}
+              className="relative rounded-[2rem] w-full h-auto object-cover ring-1 ring-primary/15"
+              style={{ boxShadow: "var(--shadow-glow)" }}
               loading="eager"
             />
           </div>

@@ -188,6 +188,17 @@ const JOURS = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dim
 
 const OUI_NON = ["Oui", "Non"] as const;
 
+const ESPACES_COMMUNS = [
+  "Entrée / hall",
+  "Corridors",
+  "Cages d'escalier",
+  "Ascenseur",
+  "Buanderie commune",
+  "Salle communautaire",
+  "Sortie de secours",
+  "Stationnement / remise",
+] as const;
+
 const trimmed = (max: number) => z.string().trim().max(max).optional().or(z.literal(""));
 
 const soumissionSchema = z.object({
@@ -208,6 +219,11 @@ const soumissionSchema = z.object({
   superficie: trimmed(60),
   sousSol: z.string().trim().max(10).optional().or(z.literal("")),
   garage: z.string().trim().max(10).optional().or(z.literal("")),
+  nomImmeuble: trimmed(120),
+  nbLogements: trimmed(20),
+  nbEntrees: trimmed(20),
+  espacesCommuns: z.array(z.string()).max(20),
+  disponibilitesAcces: trimmed(300),
   serviceType: z.enum(["regulier", "grand-menage", "grand-menage-seul"], {
     errorMap: () => ({ message: "Sélectionnez le service recherché" }),
   }),
@@ -246,6 +262,11 @@ type FormState = {
   superficie: string;
   sousSol: string;
   garage: string;
+  nomImmeuble: string;
+  nbLogements: string;
+  nbEntrees: string;
+  espacesCommuns: string[];
+  disponibilitesAcces: string;
   serviceType: "" | (typeof SERVICE_TYPE)[number]["id"];
   depuisQuand: string;
   accumulations: string;
@@ -282,6 +303,11 @@ const initialForm: FormState = {
   superficie: "",
   sousSol: "",
   garage: "",
+  nomImmeuble: "",
+  nbLogements: "",
+  nbEntrees: "",
+  espacesCommuns: [],
+  disponibilitesAcces: "",
   serviceType: "",
   depuisQuand: "",
   accumulations: "",
@@ -313,7 +339,10 @@ function SoumissionPage() {
   const set = <K extends keyof FormState>(k: K, v: FormState[K]) =>
     setForm((f) => ({ ...f, [k]: v }));
 
-  const toggle = (k: "grandMenageOptions" | "services" | "jours", value: string) =>
+  const toggle = (
+    k: "grandMenageOptions" | "services" | "jours" | "espacesCommuns",
+    value: string,
+  ) =>
     setForm((f) => ({
       ...f,
       [k]: f[k].includes(value) ? f[k].filter((x) => x !== value) : [...f[k], value],
@@ -340,6 +369,15 @@ function SoumissionPage() {
       `Superficie approximative: ${d.superficie || "—"}`,
       `Sous-sol à entretenir: ${d.sousSol || "—"}`,
       `Garage à entretenir: ${d.garage || "—"}`,
+      "",
+      "=== IMMEUBLE LOCATIF (si applicable) ===",
+      `Nom de l'immeuble: ${d.nomImmeuble || "—"}`,
+      `Nombre de logements: ${d.nbLogements || "—"}`,
+      `Nombre d'entrées: ${d.nbEntrees || "—"}`,
+      `Espaces communs à entretenir: ${
+        d.espacesCommuns.length ? d.espacesCommuns.join(", ") : "—"
+      }`,
+      `Disponibilités d'accès: ${d.disponibilitesAcces || "—"}`,
       "",
       "=== TYPE DE SERVICE ===",
       `Service recherché: ${serviceLabel}`,
@@ -432,7 +470,7 @@ function SoumissionPage() {
     subtitle,
     children,
   }: {
-    n: number;
+    n: number | string;
     title: string;
     subtitle?: string;
     children: React.ReactNode;
@@ -634,6 +672,62 @@ function SoumissionPage() {
                     <Err k="adresse" />
                   </div>
                 </div>
+              </Section>
+
+              {/* Immeuble locatif */}
+              <Section
+                n={1.5 as unknown as number}
+                title="Immeuble locatif (si applicable)"
+                subtitle="À remplir si la demande concerne un bloc appartements ou un immeuble avec espaces communs."
+              >
+                <div className="grid sm:grid-cols-3 gap-3">
+                  <input
+                    placeholder="Nom de l'immeuble"
+                    aria-label="Nom de l'immeuble"
+                    value={form.nomImmeuble}
+                    onChange={(e) => set("nomImmeuble", e.target.value)}
+                    maxLength={120}
+                    className={fieldClass("nomImmeuble")}
+                  />
+                  <input
+                    placeholder="Nombre de logements"
+                    aria-label="Nombre de logements"
+                    value={form.nbLogements}
+                    onChange={(e) => set("nbLogements", e.target.value)}
+                    maxLength={20}
+                    inputMode="numeric"
+                    className={fieldClass("nbLogements")}
+                  />
+                  <input
+                    placeholder="Nombre d'entrées"
+                    aria-label="Nombre d'entrées"
+                    value={form.nbEntrees}
+                    onChange={(e) => set("nbEntrees", e.target.value)}
+                    maxLength={20}
+                    inputMode="numeric"
+                    className={fieldClass("nbEntrees")}
+                  />
+                </div>
+                <p className="text-sm font-semibold">Espaces communs à entretenir</p>
+                <div className="grid sm:grid-cols-2 gap-2">
+                  {ESPACES_COMMUNS.map((e) => (
+                    <CheckCard
+                      key={e}
+                      label={e}
+                      active={form.espacesCommuns.includes(e)}
+                      onClick={() => toggle("espacesCommuns", e)}
+                    />
+                  ))}
+                </div>
+                <textarea
+                  placeholder="Disponibilités d'accès (jours, heures, code de porte, concierge sur place…)"
+                  aria-label="Disponibilités d'accès"
+                  value={form.disponibilitesAcces}
+                  onChange={(e) => set("disponibilitesAcces", e.target.value)}
+                  maxLength={300}
+                  rows={3}
+                  className={fieldClass("disponibilitesAcces")}
+                />
               </Section>
 
               {/* 2 — Résidence */}
