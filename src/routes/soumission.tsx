@@ -470,7 +470,7 @@ function SoumissionPage() {
     subtitle,
     children,
   }: {
-    n: number;
+    n: number | string;
     title: string;
     subtitle?: string;
     children: React.ReactNode;
