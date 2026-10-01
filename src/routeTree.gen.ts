@@ -9,27 +9,17 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as ServicesRouteImport } from './routes/services'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as SoumissionRouteImport } from './routes/soumission'
 import { Route as ZonesRouteImport } from './routes/zones'
-import { Route as MenageCityRouteImport } from './routes/menage.$city'
+import { Route as SoumissionRouteImport } from './routes/soumission'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
+import { Route as MenageCityRouteImport } from './routes/menage.$city'
 
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ServicesRoute = ServicesRouteImport.update({
-  id: '/services',
-  path: '/services',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
+const ZonesRoute = ZonesRouteImport.update({
+  id: '/zones',
+  path: '/zones',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SoumissionRoute = SoumissionRouteImport.update({
@@ -37,20 +27,30 @@ const SoumissionRoute = SoumissionRouteImport.update({
   path: '/soumission',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ZonesRoute = ZonesRouteImport.update({
-  id: '/zones',
-  path: '/zones',
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
-const MenageCityRoute = MenageCityRouteImport.update({
-  id: '/menage/$city',
-  path: '/menage/$city',
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesSlugRoute = ServicesSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
   getParentRoute: () => ServicesRoute,
+} as any)
+const MenageCityRoute = MenageCityRouteImport.update({
+  id: '/menage/$city',
+  path: '/menage/$city',
+  getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -122,25 +122,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/services': {
-      id: '/services'
-      path: '/services'
-      fullPath: '/services'
-      preLoaderRoute: typeof ServicesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
+    '/zones': {
+      id: '/zones'
+      path: '/zones'
+      fullPath: '/zones'
+      preLoaderRoute: typeof ZonesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/soumission': {
@@ -150,18 +136,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SoumissionRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/zones': {
-      id: '/zones'
-      path: '/zones'
-      fullPath: '/zones'
-      preLoaderRoute: typeof ZonesRouteImport
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/menage/$city': {
-      id: '/menage/$city'
-      path: '/menage/$city'
-      fullPath: '/menage/$city'
-      preLoaderRoute: typeof MenageCityRouteImport
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services/$slug': {
@@ -170,6 +163,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/services/$slug'
       preLoaderRoute: typeof ServicesSlugRouteImport
       parentRoute: typeof ServicesRoute
+    }
+    '/menage/$city': {
+      id: '/menage/$city'
+      path: '/menage/$city'
+      fullPath: '/menage/$city'
+      preLoaderRoute: typeof MenageCityRouteImport
+      parentRoute: typeof rootRouteImport
     }
   }
 }
