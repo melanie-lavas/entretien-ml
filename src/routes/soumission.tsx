@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
 import { z } from "zod";
 import {
@@ -9,7 +10,14 @@ import {
   Clock,
   ShieldCheck,
   Star,
+  Sparkles,
+  LoaderCircle,
+  WandSparkles,
 } from "lucide-react";
+import {
+  getServiceRecommendations,
+  type ServiceAdvisorResult,
+} from "@/lib/service-advisor.functions";
 
 const BASE = "https://mlentretien.com";
 const CONTACT_EMAIL = "info.mlexcellance@gmail.com";
@@ -335,6 +343,11 @@ function SoumissionPage() {
   const [form, setForm] = useState<FormState>(initialForm);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [mailtoUrl, setMailtoUrl] = useState<string | null>(null);
+  const [advisorDescription, setAdvisorDescription] = useState("");
+  const [advisorResult, setAdvisorResult] = useState<ServiceAdvisorResult | null>(null);
+  const [advisorError, setAdvisorError] = useState("");
+  const [advisorLoading, setAdvisorLoading] = useState(false);
+  const recommendServices = useServerFn(getServiceRecommendations);
 
   const set = <K extends keyof FormState>(k: K, v: FormState[K]) =>
     setForm((f) => ({ ...f, [k]: v }));
@@ -349,6 +362,42 @@ function SoumissionPage() {
     }));
 
   const grandMenage = form.serviceType !== "regulier" && form.serviceType !== "";
+
+  const handleAdvisor = async () => {
+    const description = advisorDescription.trim();
+    if (description.length < 30) {
+      setAdvisorError("Décrivez votre logement et vos besoins en au moins quelques phrases.");
+      return;
+    }
+    setAdvisorError("");
+    setAdvisorLoading(true);
+    try {
+      const response = await recommendServices({ data: { description } });
+      if (!response.ok) {
+        setAdvisorResult(null);
+        setAdvisorError(response.error);
+        return;
+      }
+      setAdvisorResult(response.recommendation);
+    } catch {
+      setAdvisorResult(null);
+      setAdvisorError("L’analyse n’a pas pu être complétée. Vous pouvez continuer le formulaire normalement.");
+    } finally {
+      setAdvisorLoading(false);
+    }
+  };
+
+  const applyAdvisorResult = () => {
+    if (!advisorResult) return;
+    setForm((current) => ({
+      ...current,
+      serviceType: current.serviceType || advisorResult.serviceType,
+      frequence: current.frequence || advisorResult.frequence,
+      services: Array.from(new Set([...current.services, ...advisorResult.services])),
+      commentaires: current.commentaires || advisorDescription,
+    }));
+    document.querySelector("#form")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   const buildBody = (d: z.infer<typeof soumissionSchema>) => {
     const serviceLabel =
@@ -606,6 +655,107 @@ function SoumissionPage() {
       </section>
 
       <section id="form" className="px-4 sm:px-6 pb-16">
+        <div className="mx-auto mb-8 max-w-3xl overflow-hidden rounded-2xl border border-primary/30 bg-card shadow-sm">
+          <div className="border-b border-border bg-primary/5 p-5 sm:p-6">
+            <div className="flex items-start gap-3">
+              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-primary text-primary-foreground">
+                <WandSparkles className="h-5 w-5" aria-hidden="true" />
+              </span>
+              <div>
+                <p className="text-xs font-bold uppercase text-primary">Conseiller intelligent</p>
+                <h2 className="mt-1 text-2xl font-bold">Trouvez le bon service en quelques mots</h2>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  Décrivez votre logement, son état actuel, vos priorités et la fréquence souhaitée.
+                  Vous recevrez des recommandations avant de remplir la demande.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="space-y-4 p-5 sm:p-6">
+            <label htmlFor="advisor-description" className="text-sm font-semibold">
+              Votre logement et le service recherché
+            </label>
+            <textarea
+              id="advisor-description"
+              rows={5}
+              value={advisorDescription}
+              onChange={(event) => setAdvisorDescription(event.target.value)}
+              maxLength={3000}
+              placeholder="Ex. Maison de 3 chambres à Bécancour, deux salles de bain, avec un chien. Nous aimerions un grand ménage puis un entretien aux deux semaines, surtout pour la cuisine et les planchers."
+              className={`${fieldClass("advisorDescription")} resize-none`}
+            />
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <span className="text-xs text-muted-foreground">{advisorDescription.length} / 3 000 caractères</span>
+              <button
+                type="button"
+                onClick={handleAdvisor}
+                disabled={advisorLoading}
+                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-primary px-5 py-3 font-bold text-primary-foreground transition hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-60"
+              >
+                {advisorLoading ? (
+                  <LoaderCircle className="h-4 w-4 animate-spin" aria-hidden="true" />
+                ) : (
+                  <Sparkles className="h-4 w-4" aria-hidden="true" />
+                )}
+                {advisorLoading ? "Analyse en cours…" : "Obtenir mes recommandations"}
+              </button>
+            </div>
+            {advisorError && (
+              <p role="alert" className="rounded-lg border border-destructive/30 bg-destructive/5 p-3 text-sm text-destructive">
+                {advisorError}
+              </p>
+            )}
+            {advisorResult && (
+              <div className="space-y-5 border-t border-border pt-5" aria-live="polite">
+                <div>
+                  <p className="text-xs font-bold uppercase text-primary">Notre recommandation</p>
+                  <p className="mt-1 font-medium leading-relaxed">{advisorResult.resume}</p>
+                </div>
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <div>
+                    <h3 className="text-sm font-bold">Services adaptés</h3>
+                    <ul className="mt-2 space-y-2 text-sm text-muted-foreground">
+                      {advisorResult.services.map((service) => (
+                        <li key={service} className="flex gap-2">
+                          <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+                          {service}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-bold">Pourquoi</h3>
+                    <ul className="mt-2 space-y-2 text-sm text-muted-foreground">
+                      {advisorResult.raisons.map((raison) => (
+                        <li key={raison} className="flex gap-2">
+                          <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+                          {raison}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+                <div className="rounded-lg border border-border bg-muted/50 p-4">
+                  <h3 className="text-sm font-bold">À préciser dans votre demande</h3>
+                  <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-muted-foreground">
+                    {advisorResult.renseignements.map((item) => <li key={item}>{item}</li>)}
+                  </ul>
+                </div>
+                <button
+                  type="button"
+                  onClick={applyAdvisorResult}
+                  className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg border-2 border-primary bg-primary/10 px-5 py-3 font-bold text-primary transition hover:bg-primary/15"
+                >
+                  <Check className="h-4 w-4" aria-hidden="true" />
+                  Ajouter ces choix à ma demande
+                </button>
+                <p className="text-xs text-muted-foreground">
+                  Ces conseils sont indicatifs. M.L Excellence confirmera les services après examen de votre demande.
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
         <div
           className="max-w-3xl mx-auto rounded-3xl p-1"
           style={{ background: "var(--gradient-hero)" }}
