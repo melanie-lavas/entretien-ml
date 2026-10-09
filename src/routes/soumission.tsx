@@ -339,6 +339,85 @@ const initialForm: FormState = {
   consent: false,
 };
 
+const Section = ({
+  n,
+  title,
+  subtitle,
+  children,
+}: {
+  n: number | string;
+  title: string;
+  subtitle?: string;
+  children: React.ReactNode;
+}) => (
+  <fieldset className="rounded-2xl border border-border bg-background/40 p-5">
+    <legend className="px-2 text-sm font-bold text-primary">
+      {n}. {title}
+    </legend>
+    {subtitle && <p className="mb-4 text-sm text-muted-foreground">{subtitle}</p>}
+    <div className="space-y-3">{children}</div>
+  </fieldset>
+);
+
+const CheckCard = ({
+  label,
+  active,
+  onClick,
+}: {
+  label: string;
+  active: boolean;
+  onClick: () => void;
+}) => (
+  <button
+    type="button"
+    onClick={onClick}
+    aria-pressed={active}
+    className={`flex items-center gap-2 text-left rounded-xl px-3 py-2.5 border-2 text-sm font-medium transition ${
+      active
+        ? "border-primary bg-primary/10"
+        : "border-border bg-background hover:border-primary/50"
+    }`}
+  >
+    <span
+      className={`grid h-4 w-4 shrink-0 place-items-center rounded border-2 ${
+        active ? "border-primary bg-primary" : "border-muted-foreground/40"
+      }`}
+    >
+      {active && <Check className="h-3 w-3 text-primary-foreground" />}
+    </span>
+    {label}
+  </button>
+);
+
+const YesNo = ({
+  value,
+  onChange,
+  name,
+}: {
+  value: string;
+  onChange: (v: string) => void;
+  name: string;
+}) => (
+  <div className="flex gap-2">
+    {OUI_NON.map((o) => (
+      <button
+        key={o}
+        type="button"
+        aria-label={`${name} : ${o}`}
+        aria-pressed={value === o}
+        onClick={() => onChange(value === o ? "" : o)}
+        className={`rounded-xl px-4 py-2 border-2 text-sm font-medium transition ${
+          value === o
+            ? "border-primary bg-primary/10"
+            : "border-border bg-background hover:border-primary/50"
+        }`}
+      >
+        {o}
+      </button>
+    ))}
+  </div>
+);
+
 function SoumissionPage() {
   const [form, setForm] = useState<FormState>(initialForm);
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -513,84 +592,6 @@ function SoumissionPage() {
   const Err = ({ k }: { k: string }) =>
     errors[k] ? <p className="mt-1 text-xs text-destructive">{errors[k]}</p> : null;
 
-  const Section = ({
-    n,
-    title,
-    subtitle,
-    children,
-  }: {
-    n: number | string;
-    title: string;
-    subtitle?: string;
-    children: React.ReactNode;
-  }) => (
-    <fieldset className="rounded-2xl border border-border bg-background/40 p-5">
-      <legend className="px-2 text-sm font-bold text-primary">
-        {n}. {title}
-      </legend>
-      {subtitle && <p className="mb-4 text-sm text-muted-foreground">{subtitle}</p>}
-      <div className="space-y-3">{children}</div>
-    </fieldset>
-  );
-
-  const CheckCard = ({
-    label,
-    active,
-    onClick,
-  }: {
-    label: string;
-    active: boolean;
-    onClick: () => void;
-  }) => (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-pressed={active}
-      className={`flex items-center gap-2 text-left rounded-xl px-3 py-2.5 border-2 text-sm font-medium transition ${
-        active
-          ? "border-primary bg-primary/10"
-          : "border-border bg-background hover:border-primary/50"
-      }`}
-    >
-      <span
-        className={`grid h-4 w-4 shrink-0 place-items-center rounded border-2 ${
-          active ? "border-primary bg-primary" : "border-muted-foreground/40"
-        }`}
-      >
-        {active && <Check className="h-3 w-3 text-primary-foreground" />}
-      </span>
-      {label}
-    </button>
-  );
-
-  const YesNo = ({
-    value,
-    onChange,
-    name,
-  }: {
-    value: string;
-    onChange: (v: string) => void;
-    name: string;
-  }) => (
-    <div className="flex gap-2">
-      {OUI_NON.map((o) => (
-        <button
-          key={o}
-          type="button"
-          aria-label={`${name} : ${o}`}
-          aria-pressed={value === o}
-          onClick={() => onChange(value === o ? "" : o)}
-          className={`rounded-xl px-4 py-2 border-2 text-sm font-medium transition ${
-            value === o
-              ? "border-primary bg-primary/10"
-              : "border-border bg-background hover:border-primary/50"
-          }`}
-        >
-          {o}
-        </button>
-      ))}
-    </div>
-  );
 
   return (
     <div className="min-h-screen bg-background text-foreground">
