@@ -179,7 +179,6 @@ const SERVICES_OPTIONS = [
   "Corridors et cages d’escalier",
   "Buanderies et espaces communs",
   "Remise en état entre locataires",
-  "Déneigement manuel saisonnier",
 ];
 
 const FREQUENCES = [
