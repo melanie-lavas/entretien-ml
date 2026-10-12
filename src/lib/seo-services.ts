@@ -47,37 +47,6 @@ export const SERVICES: ServiceData[] = [
     ],
   },
   {
-    slug: "deneigement-manuel",
-    title: "Déneigement manuel",
-    h1: "Déneigement manuel pour immeubles locatifs en Mauricie",
-    metaTitle: "Déneigement manuel immeubles Mauricie | M.L Excellence",
-    metaDescription:
-      "Déneigement manuel saisonnier pour immeubles locatifs en Mauricie. Intervention dès 5 cm, accès et trottoirs sécuritaires. Évaluation gratuite.",
-    intro:
-      "Une solution saisonnière pensée pour les propriétaires et gestionnaires qui veulent maintenir des accès propres, sécuritaires et fonctionnels sans gérer chaque tempête. Une équipe intervient à partir de 5 cm selon les conditions et les secteurs convenus au contrat.",
-    keywords:
-      "déneigement manuel Mauricie, déneigement immeuble locatif, déneigement trottoir Trois-Rivières, déneigement entrée Bécancour, contrat déneigement Nicolet",
-    includes: [
-      "Intervention à partir d’une accumulation de 5 cm",
-      "Passage après la tempête pour dégager les accès prévus",
-      "Entrées, trottoirs et passages piétonniers au contrat",
-      "Accès aux espaces communs et au cabanon, lorsque prévu",
-      "Passages supplémentaires possibles lorsque les précipitations dépassent 24 heures",
-      "Intervention particulière disponible avec supplément",
-    ],
-    benefits: [
-      { t: "Accès sécuritaires", d: "Les parcours prévus restent propres et fonctionnels pour vos locataires." },
-      { t: "Équipe formée", d: "Nous privilégions une équipe attitrée qui connaît votre propriété." },
-      { t: "Forfait saisonnier", d: "Soumission selon les accès, logements et besoins réels." },
-      { t: "Paiements échelonnés", d: "Dépenses réparties pendant la saison selon l’entente." },
-    ],
-    faq: [
-      { q: "À partir de quelle accumulation intervenez-vous ?", a: "L’intervention est prévue à partir de 5 cm, selon les conditions météorologiques et les modalités du contrat." },
-      { q: "Quels accès peuvent être inclus ?", a: "Entrées, trottoirs, passages piétonniers, accès aux espaces communs et au cabanon, selon l’évaluation des lieux." },
-      { q: "Que se passe-t-il pendant une longue tempête ?", a: "Des passages supplémentaires sont possibles lorsque les précipitations se prolongent au-delà de 24 heures afin de maintenir les accès sécuritaires." },
-    ],
-  },
-  {
     slug: "menage-residentiel",
     title: "Ménage résidentiel",
     h1: "Ménage résidentiel en Mauricie — propre, fiable, sans engagement",
@@ -106,6 +75,7 @@ export const SERVICES: ServiceData[] = [
       { q: "Quel est le prix d'un ménage résidentiel ?", a: "Le prix dépend de la superficie, du nombre de pièces et de la fréquence. Comptez à partir de quelques heures par visite. Soumission gratuite en 24 h." },
       { q: "Est-ce que je dois être présent durant le ménage ?", a: "Non. Plusieurs clients nous laissent une clé ou un code d'entrée — c'est sécuritaire et nous sommes assurés." },
       { q: "Quels produits utilisez-vous ?", a: "Nous apportons des produits efficaces et, sur demande, une gamme écoresponsable sans frais additionnels." },
+      { q: "Puis-je prendre un contrat ou juste une visite ?", a: "Les deux : ménage ponctuel, grand ménage initial ou contrat récurrent hebdomadaire, aux 2 semaines ou mensuel, avec tarif réduit en contrat." },
     ],
   },
   {

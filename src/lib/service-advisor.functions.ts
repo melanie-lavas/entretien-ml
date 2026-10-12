@@ -27,7 +27,6 @@ const SERVICE_IDS = [
   "Corridors et cages d’escalier",
   "Buanderies et espaces communs",
   "Remise en état entre locataires",
-  "Déneigement manuel saisonnier",
 ] as const;
 
 const FREQUENCIES = [

@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import logoAsset from "@/assets/ml-excellence-logo.png.asset.json";
-import { Home, Sparkles, Leaf, Car, Check, Building2, Mail, ArrowLeft, ShieldCheck, Snowflake } from "lucide-react";
+import { Home, Sparkles, Leaf, Car, Check, Building2, Mail, ArrowLeft, ShieldCheck } from "lucide-react";
 
 type ServiceBlock = {
   icon: typeof Home;
@@ -23,16 +23,6 @@ const SERVICES: ServiceBlock[] = [
     commercial: ["1 à 5 passages / semaine", "Plan par immeuble", "Facturation mensuelle"],
     whyUs: [{ t: "Constance", d: "Une liste claire suivie à chaque visite." }, { t: "Équipe assurée", d: "Responsabilité civile complète." }, { t: "Accès organisés", d: "Consignes consignées pour votre propriété." }, { t: "Contact direct", d: "Ajustements rapides avec la gestion." }],
     faq: [{ q: "Faites-vous les logements vacants ?", a: "Oui, nous pouvons effectuer une remise en état complète entre deux locataires." }, { q: "Quelle fréquence offrez-vous ?", a: "De 1 à 5 passages par semaine selon l’achalandage et les espaces communs." }],
-  },
-  {
-    icon: Snowflake,
-    title: "Déneigement manuel saisonnier",
-    intro: "Une solution adaptée aux immeubles résidentiels et locatifs pour garder les accès sécuritaires après les chutes de neige. Intervention à partir de 5 cm selon les conditions et les secteurs définis au contrat.",
-    includes: ["Entrées et trottoirs", "Passages piétonniers", "Accès aux espaces communs", "Accès au cabanon si prévu", "Passage après la tempête", "Passages supplémentaires possibles lors de longues précipitations"],
-    residential: ["Duplex et plex", "Blocs appartements", "Propriétés locatives"],
-    commercial: ["Forfait saisonnier", "Évaluation des lieux", "Paiements échelonnés"],
-    whyUs: [{ t: "Dès 5 cm", d: "Déclenchement selon les conditions météo." }, { t: "Équipe formée", d: "Personnel informé des accès prioritaires." }, { t: "Service suivi", d: "Continuité prévue pendant la saison." }, { t: "Soumission claire", d: "Prix adapté aux secteurs à dégager." }],
-    faq: [{ q: "Quels secteurs déneigez-vous ?", a: "Les entrées, trottoirs, passages et accès convenus lors de l’évaluation." }, { q: "Intervenez-vous pendant une longue tempête ?", a: "Des passages supplémentaires sont possibles lorsque les précipitations dépassent 24 heures." }],
   },
   {
     icon: Home,
@@ -278,7 +268,6 @@ function ServicesPage() {
           {[
             { slug: "menage-residentiel", label: "Ménage résidentiel" },
             { slug: "entretien-immeubles-locatifs", label: "Immeubles locatifs" },
-            { slug: "deneigement-manuel", label: "Déneigement manuel" },
             { slug: "nettoyage-commercial", label: "Nettoyage commercial" },
             { slug: "contrat-entretien-recurrent", label: "Contrat récurrent" },
             { slug: "entretien-plates-bandes", label: "Plates-bandes" },

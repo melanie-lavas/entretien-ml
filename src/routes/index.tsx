@@ -18,7 +18,6 @@ import {
   Building2,
   Wrench,
   CalendarCheck,
-  Snowflake,
   KeyRound,
   ClipboardCheck,
 } from "lucide-react";
@@ -30,9 +29,9 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Entretien d’immeubles locatifs en Mauricie : espaces communs, remises en état et déneigement manuel. Contrats commerciaux et résidentiels. Soumission gratuite.",
+          "Ménage résidentiel une fois ou en contrat, entretien commercial et d’immeubles locatifs en Mauricie. Espaces communs, remises en état. Soumission gratuite en 24 h.",
       },
-      { name: "keywords", content: "entretien ménager commercial Mauricie, contrat entretien bureau Trois-Rivières, nettoyage commerce Shawinigan, ménage résidentiel Bécancour, homme à tout faire Mauricie, rénovation mineure, conciergerie immeuble" },
+      { name: "keywords", content: "ménage résidentiel Mauricie, femme de ménage Trois-Rivières, grand ménage Shawinigan, entretien ménager commercial Mauricie, contrat entretien bureau, nettoyage commerce, ménage résidentiel Bécancour, ménage Nicolet, homme à tout faire, conciergerie immeuble" },
       { name: "geo.region", content: "CA-QC" },
       { name: "geo.placename", content: "Mauricie, Trois-Rivières, Shawinigan, Bécancour" },
       { property: "og:title", content: "M.L Entretien — Contrats d'entretien commercial en Mauricie" },
@@ -121,7 +120,6 @@ export const Route = createFileRoute("/")({
               { "@type": "Offer", itemOffered: { "@type": "Service", name: "Contrat commercial 1 à 5 passages par semaine", areaServed: "Mauricie" } },
               { "@type": "Offer", itemOffered: { "@type": "Service", name: "Homme à tout faire & rénovations mineures", areaServed: "Mauricie" } },
               { "@type": "Offer", itemOffered: { "@type": "Service", name: "Entretien d’immeubles locatifs", areaServed: "Mauricie" } },
-              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Déneigement manuel saisonnier", areaServed: "Mauricie" } },
             ],
           },
           sameAs: [
@@ -207,7 +205,6 @@ export const Route = createFileRoute("/")({
 
 const SERVICES = [
   { id: "immeuble-locatif", label: "Entretien d’immeuble locatif", icon: Building2 },
-  { id: "deneigement", label: "Déneigement manuel saisonnier", icon: Snowflake },
   { id: "commercial", label: "Contrat commercial (1 à 5 x / semaine)", icon: Building2 },
   { id: "interieur-unique", label: "Ménage résidentiel — une fois", icon: Home },
   { id: "interieur-contrat", label: "Contrat résidentiel récurrent", icon: Sparkles },
@@ -273,6 +270,7 @@ const TESTIMONIALS = [
 
 const FAQ = [
   { q: "Quelles régions desservez-vous ?", a: "Toute la Mauricie : Trois-Rivières, Shawinigan, Bécancour, Cap-de-la-Madeleine, Grand-Mère et environs." },
+  { q: "Faites-vous le ménage résidentiel une seule fois ?", a: "Oui — ménage ponctuel, grand ménage ou contrat récurrent pour les maisons, condos et appartements de la Mauricie." },
   { q: "La soumission est-elle vraiment gratuite ?", a: "Oui — toujours gratuite et sans engagement. Vous recevez un prix clair en moins de 24 h." },
   { q: "Êtes-vous assurés ?", a: "Oui, M.L Excellence est entièrement assurée en responsabilité civile." },
   { q: "Produits et équipement fournis ?", a: "Oui, nous apportons tout. Produits écoresponsables disponibles sur demande, sans frais." },
@@ -361,7 +359,7 @@ function Index() {
               </span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-md">
-              Entretien fiable pour immeubles locatifs, commerces et résidences, avec déneigement manuel saisonnier.
+              Ménage résidentiel une fois ou en contrat, entretien de commerces et d’immeubles locatifs.
               Partout en Mauricie. Soumission gratuite en 30 secondes.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
@@ -418,7 +416,6 @@ function Index() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {[
              { icon: Building2, t: "Immeubles locatifs", d: "Espaces communs, suivis réguliers et remises en état", slug: "entretien-immeubles-locatifs" },
-             { icon: Snowflake, t: "Déneigement manuel", d: "Accès sécuritaires dès 5 cm, selon le contrat", slug: "deneigement-manuel" },
             { icon: Building2, t: "Nettoyage commercial", d: "Bureaux, commerces, immeubles — 1 à 5 x / semaine", slug: "nettoyage-commercial" },
             { icon: Home, t: "Ménage résidentiel", d: "Une fois ou récurrent", slug: "menage-residentiel" },
             { icon: Sparkles, t: "Contrat récurrent", d: "Hebdomadaire, aux 2 semaines ou mensuel", slug: "contrat-entretien-recurrent" },
@@ -464,7 +461,7 @@ function Index() {
                 une équipe qui connaît les lieux et un contact direct pour vos demandes.
               </p>
               <div className="mt-6 grid sm:grid-cols-2 gap-3">
-                {["Entrées, halls et vestibules", "Corridors et cages d’escalier", "Buanderies et espaces communs", "Remise en état entre locataires", "Planchers et points de contact", "Déneigement manuel dès 5 cm"].map((item) => (
+                {["Entrées, halls et vestibules", "Corridors et cages d’escalier", "Buanderies et espaces communs", "Remise en état entre locataires", "Planchers et points de contact"].map((item) => (
                   <div key={item} className="flex items-start gap-2 text-sm">
                     <Check className="h-4 w-4 mt-0.5 shrink-0" /> {item}
                   </div>
@@ -483,7 +480,6 @@ function Index() {
               {[
                 { icon: ClipboardCheck, t: "Plan d’entretien clair", d: "Les tâches, espaces et fréquences sont définis avant le début." },
                 { icon: KeyRound, t: "Gestion des accès", d: "Consignes d’accès et particularités de l’immeuble consignées." },
-                { icon: Snowflake, t: "Service hivernal", d: "Déneigement manuel saisonnier des accès prévus au contrat." },
               ].map(({ icon: Icon, t, d }) => (
                 <div key={t} className="rounded-md border border-primary-foreground/20 bg-primary-foreground/5 p-4 flex gap-3">
                   <Icon className="h-5 w-5 shrink-0" />
