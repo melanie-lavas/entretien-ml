@@ -148,3 +148,8 @@
     color: var(--color-foreground);
   }
 }
+
+.mobile-action-bar { padding-bottom: calc(12px + env(safe-area-inset-bottom)); }
+@media (max-width: 767px) {
+  .public-page-content { padding-bottom: calc(84px + env(safe-area-inset-bottom)); }
+}

@@ -11,6 +11,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import { MobileActionBar } from "@/components/mobile-action-bar";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
@@ -92,15 +93,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "M.L Excellence" },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "fr_CA" },
-      { property: "og:image", content: "https://mlentretien.com/og-image.jpg" },
-      { property: "og:image:width", content: "1216" },
-      { property: "og:image:height", content: "640" },
-      { property: "og:image:alt", content: "M.L Excellence — Services de propreté en Mauricie" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "M.L Excellence — Services de propreté en Mauricie" },
       { name: "twitter:description", content: "Ménage résidentiel et commercial, contrats récurrents, plates-bandes et lavage auto. Soumission gratuite." },
-      { name: "twitter:image", content: "https://mlentretien.com/og-image.jpg" },
-      { name: "twitter:image:alt", content: "M.L Excellence — Services de propreté en Mauricie" },
 
     ],
     links: [
@@ -138,7 +133,8 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <div className="public-page-content"><Outlet /></div>
+      <MobileActionBar />
     </QueryClientProvider>
   );
 }
