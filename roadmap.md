@@ -1,0 +1,5 @@
+- [ ] Enregistrer et vérifier le formulaire rapide dans leads, conserver le questionnaire en appoint.
+- [ ] Ajouter la barre d'action mobile sur les pages publiques.
+- [ ] Mettre le ménage résidentiel en premier sur l'accueil.
+- [ ] Ajouter Saint-Grégoire et Gentilly, leurs liens et vérifier le sitemap.
+- [ ] Vérifier les demandes, la confidentialité et les affichages mobile et ordinateur.
