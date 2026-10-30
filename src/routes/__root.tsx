@@ -79,8 +79,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "M.L Excellence — Services de propreté en Mauricie" },
-      { name: "description", content: "M.L Excellence : ménage résidentiel et commercial, contrats récurrents, entretien des plates-bandes et lavage auto en Mauricie. Soumission gratuite en 30 secondes." },
+      { title: "M.L Excellence — Services de propreté à Bécancour" },
+      { name: "description", content: "M.L Excellence : ménage après chantier et ménage résidentiel à Bécancour, Gentilly, Saint-Grégoire et Nicolet. Soumission gratuite en 30 secondes." },
       { name: "author", content: "M.L Excellence" },
       { name: "robots", content: "index, follow" },
       { name: "google-site-verification", content: "T3u9eZOVcoxuwC2SBzXGPISfXTwSDDwJJoRECsX08FE" },
@@ -88,14 +88,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "msvalidate.01", content: "998DDAAB02D52C131A83715BB0B23F95" },
 
       { name: "theme-color", content: "#0b1d3a" },
-      { property: "og:title", content: "M.L Excellence — Services de propreté en Mauricie" },
-      { property: "og:description", content: "Ménage résidentiel et commercial, contrats récurrents, entretien des plates-bandes et lavage auto. Soumission gratuite et sans engagement." },
+      { property: "og:title", content: "M.L Excellence — Services de propreté à Bécancour" },
+      { property: "og:description", content: "Ménage après chantier et ménage résidentiel à Bécancour et Nicolet. Soumission gratuite et sans engagement." },
       { property: "og:site_name", content: "M.L Excellence" },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "fr_CA" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "M.L Excellence — Services de propreté en Mauricie" },
-      { name: "twitter:description", content: "Ménage résidentiel et commercial, contrats récurrents, plates-bandes et lavage auto. Soumission gratuite." },
+      { name: "twitter:title", content: "M.L Excellence — Services de propreté à Bécancour" },
+      { name: "twitter:description", content: "Ménage après chantier et ménage résidentiel à Bécancour et Nicolet. Soumission gratuite." },
 
     ],
     links: [

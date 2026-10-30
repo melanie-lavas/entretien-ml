@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import logoAsset from "@/assets/ml-excellence-logo.png.asset.json";
 import { CITIES, getCityBySlug } from "@/lib/seo-locations";
-import { Sparkles, Check, Home, Building2, Leaf, Car, Phone, Mail, MapPin, ShieldCheck } from "lucide-react";
+import { Sparkles, Check, Home, HardHat, Phone, Mail, MapPin, ShieldCheck } from "lucide-react";
 
 const BASE = "https://mlentretien.com";
 
@@ -15,13 +15,13 @@ export const Route = createFileRoute("/menage/$city")({
     if (!loaderData) return { meta: [] };
     const c = loaderData;
     const url = `${BASE}/menage/${c.slug}`;
-    const title = `Ménage ${c.name} | M.L Excellence Mauricie`;
-    const description = `Ménage résidentiel et commercial à ${c.name} (${c.region}) : contrats récurrents, grand ménage, plates-bandes. Équipe assurée, soumission gratuite.`;
+    const title = `Ménage ${c.name} | M.L Excellence`;
+    const description = `Ménage après chantier et résidentiel à ${c.name} (${c.region}) : grand ménage, entretien récurrent. Équipe assurée, soumission gratuite.`;
     return {
       meta: [
         { title },
         { name: "description", content: description },
-        { name: "keywords", content: `ménage ${c.name}, entretien ménager ${c.name}, nettoyage commercial ${c.name}, femme de ménage ${c.name}, M.L Excellence ${c.name}` },
+        { name: "keywords", content: `ménage ${c.name}, entretien ménager ${c.name}, ménage après chantier ${c.name}, femme de ménage ${c.name}, M.L Excellence ${c.name}` },
         { name: "geo.region", content: "CA-QC" },
         { name: "geo.placename", content: `${c.name}, ${c.region}, Québec` },
         { name: "geo.position", content: `${c.lat};${c.lng}` },
@@ -56,7 +56,7 @@ export const Route = createFileRoute("/menage/$city")({
           children: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            name: `Ménage résidentiel et commercial à ${c.name}`,
+            name: `Ménage après chantier et résidentiel à ${c.name}`,
             serviceType: "Entretien ménager",
             provider: { "@id": `${BASE}/#business` },
             areaServed: { "@type": "City", name: c.name, address: { "@type": "PostalAddress", addressLocality: c.name, addressRegion: "QC", addressCountry: "CA" } },
@@ -133,7 +133,7 @@ function CityPage() {
           <MapPin className="h-3.5 w-3.5 text-primary" /> {c.region} · {c.name}
         </p>
         <h1 className="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight">
-          Ménage résidentiel et commercial à{" "}
+          Ménage après chantier et résidentiel à{" "}
           <span className="bg-clip-text text-transparent" style={{ backgroundImage: "var(--gradient-hero)" }}>
             {c.name}
           </span>
@@ -151,13 +151,12 @@ function CityPage() {
 
       <section className="max-w-6xl mx-auto px-6 pb-12">
         <h2 className="text-2xl sm:text-3xl font-bold text-center mb-2">Nos services à {c.name}</h2>
-        <p className="text-center text-muted-foreground mb-8">Tout est offert dans votre secteur — résidentiel comme commercial.</p>
+        <p className="text-center text-muted-foreground mb-8">Après chantier et résidentiel — tout est offert dans votre secteur.</p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
+            { icon: HardHat, t: "Ménage après chantier", slug: "menage-apres-chantier" },
             { icon: Home, t: "Ménage résidentiel", slug: "menage-residentiel" },
-            { icon: Building2, t: "Nettoyage commercial", slug: "nettoyage-commercial" },
-            { icon: Leaf, t: "Plates-bandes", slug: "entretien-plates-bandes" },
-            { icon: Car, t: "Lavage auto", slug: "lavage-auto" },
+            { icon: Check, t: "Contrat récurrent", slug: "contrat-entretien-recurrent" },
           ].map(({ icon: Icon, t, slug }) => (
             <Link
               key={slug}
@@ -251,7 +250,7 @@ function CityPage() {
       </section>
 
       <section className="max-w-5xl mx-auto px-6 pb-16">
-        <h2 className="text-xl font-bold mb-4">Autres villes desservies en Mauricie & Centre-du-Québec</h2>
+        <h2 className="text-xl font-bold mb-4">Autres secteurs desservis</h2>
         <ul className="flex flex-wrap gap-2">
           {CITIES.filter((x) => x.slug !== c.slug).map((other) => (
             <li key={other.slug}>
@@ -269,7 +268,7 @@ function CityPage() {
 
       <footer className="text-center py-8 text-sm text-muted-foreground px-4">
         <p className="font-semibold text-foreground">M.L Excellence</p>
-        <p>Nicolet (QC) · Desserte : Mauricie & Centre-du-Québec · <a href="tel:+18199969022" className="hover:underline">819-996-9022</a></p>
+        <p>Nicolet (QC) · Desserte : Bécancour et Nicolet · <a href="tel:+18199969022" className="hover:underline">819-996-9022</a></p>
         <p className="mt-2">
           <a
             href="https://www.google.com/maps?cid=1541346873343242194"
@@ -280,7 +279,7 @@ function CityPage() {
             Voir sur Google · Avis & horaires
           </a>
         </p>
-        <p className="mt-3">© {new Date().getFullYear()} — Au service de la Mauricie</p>
+        <p className="mt-3">© {new Date().getFullYear()} — Au service de Bécancour et Nicolet</p>
       </footer>
     </div>
   );

@@ -8,17 +8,17 @@ const PHONE_HREF = "tel:+18199969022";
 export const Route = createFileRoute("/zones")({
   head: () => ({
     meta: [
-      { title: "Zones desservies en Mauricie | M.L Excellence" },
+      { title: "Zones desservies — Bécancour et Nicolet | M.L Excellence" },
       {
         name: "description",
         content:
-          "Ménage résidentiel et commercial à Trois-Rivières, Shawinigan, Bécancour, Nicolet, Cap-de-la-Madeleine et Grand-Mère. Rappel rapide, réponse en moins de 24 h.",
+          "Ménage après chantier et résidentiel à Bécancour — Gentilly, Saint-Grégoire, Sainte-Angèle-de-Laval — et à Nicolet. Rappel rapide, réponse en moins de 24 h.",
       },
-      { property: "og:title", content: "Zones desservies — Mauricie et Centre-du-Québec" },
+      { property: "og:title", content: "Zones desservies — Bécancour et Nicolet" },
       {
         property: "og:description",
         content:
-          "M.L Excellence dessert toute la Mauricie et le Centre-du-Québec. Soumission gratuite, réponse en moins de 24 h.",
+          "M.L Excellence dessert Bécancour et ses secteurs, ainsi que Nicolet. Soumission gratuite, réponse en moins de 24 h.",
       },
       { property: "og:type", content: "website" },
       { property: "og:image", content: "https://mlentretien.com/og-image.jpg" },
@@ -94,15 +94,15 @@ function ZonesPage() {
 
       <main className="max-w-5xl mx-auto px-5 py-10">
         <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-          Mauricie · Centre-du-Québec
+          Bécancour · Nicolet
         </p>
         <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight">
-          Zones desservies — entretien ménager partout en Mauricie
+          Zones desservies — entretien ménager à Bécancour et Nicolet
         </h1>
         <p className="mt-4 text-muted-foreground max-w-2xl">
-          Basés à Nicolet, nous nous déplaçons dans un rayon de 60 km :
-          Trois-Rivières, Shawinigan, Bécancour, Cap-de-la-Madeleine, Grand-Mère et les municipalités
-          environnantes. Résidentiel, commercial, contrats récurrents, plates-bandes et lavage auto.
+          Basés à Nicolet, nous desservons Bécancour et tous ses secteurs — Gentilly,
+          Saint-Grégoire, Sainte-Angèle-de-Laval, Sainte-Gertrude et Précieux-Sang — ainsi que
+          Nicolet. Ménage après chantier et ménage résidentiel, une fois ou en contrat récurrent.
         </p>
 
         {/* Rappel rapide */}
@@ -166,12 +166,11 @@ function ZonesPage() {
 
         <section className="mt-10 rounded-2xl border border-border p-5 sm:p-6">
           <h2 className="flex items-center gap-2 text-lg font-bold">
-            <ShieldCheck className="h-5 w-5 text-primary" /> Votre municipalité n'est pas listée ?
+            <ShieldCheck className="h-5 w-5 text-primary" /> Votre secteur n'est pas listé ?
           </h2>
           <p className="mt-2 text-sm text-muted-foreground">
-            Nous desservons aussi Saint-Célestin, Sainte-Monique, Baie-du-Febvre, Louiseville,
-            Yamachiche, Pointe-du-Lac, Saint-Grégoire et plusieurs autres. Écrivez-nous : si c'est
-            dans notre rayon, on s'y rend.
+            Nous couvrons l'ensemble de la ville de Bécancour et Nicolet. Un doute pour votre
+            adresse ? Écrivez-nous : si c'est dans notre secteur, on s'y rend.
           </p>
           <a
             href="/soumission"
@@ -186,7 +185,7 @@ function ZonesPage() {
       <footer className="border-t border-border/50 mt-10">
         <div className="max-w-5xl mx-auto px-5 py-8 text-sm text-muted-foreground">
           <p className="font-semibold text-foreground">M.L Excellence</p>
-          <p>Nicolet (Québec) · Desserte : Mauricie & Centre-du-Québec</p>
+          <p>Nicolet (Québec) · Desserte : Bécancour et Nicolet</p>
           <p>
             <a href={PHONE_HREF} className="hover:text-foreground">
               {PHONE}
