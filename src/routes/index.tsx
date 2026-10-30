@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import logoAsset from "@/assets/ml-excellence-logo.png.asset.json";
 import heroAsset from "@/assets/hero-immeubles.jpg.asset.json";
+import { QuickLeadForm } from "@/components/quick-lead-form";
 import {
   Sparkles,
   Home,
@@ -25,7 +26,7 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Entretien ménager commercial & résidentiel Mauricie | M.L" },
+      { title: "Ménage résidentiel & entretien commercial en Mauricie | M.L Excellence" },
       {
         name: "description",
         content:
@@ -34,7 +35,7 @@ export const Route = createFileRoute("/")({
       { name: "keywords", content: "ménage résidentiel Mauricie, femme de ménage Trois-Rivières, grand ménage Shawinigan, entretien ménager commercial Mauricie, contrat entretien bureau, nettoyage commerce, ménage résidentiel Bécancour, ménage Nicolet, homme à tout faire, conciergerie immeuble" },
       { name: "geo.region", content: "CA-QC" },
       { name: "geo.placename", content: "Mauricie, Trois-Rivières, Shawinigan, Bécancour" },
-      { property: "og:title", content: "M.L Entretien — Contrats d'entretien commercial en Mauricie" },
+      { property: "og:title", content: "M.L Entretien — Ménage résidentiel & entretien commercial en Mauricie" },
       {
         property: "og:description",
         content:
@@ -350,17 +351,16 @@ function Index() {
               <Star className="h-3.5 w-3.5 text-primary fill-primary" /> 5,0/5 · Clients de la Mauricie
             </p>
             <h1 className="mt-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
-              L'excellence{" "}
+              Une maison propre et impeccable,{" "}
               <span
                 className="bg-clip-text text-transparent"
                 style={{ backgroundImage: "var(--gradient-hero)" }}
               >
-                au service de votre propreté.
+                sans le moindre effort.
               </span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-md">
-              Ménage résidentiel une fois ou en contrat, entretien de commerces et d’immeubles locatifs.
-              Partout en Mauricie. Soumission gratuite en 30 secondes.
+              Ménage résidentiel ponctuel ou en contrat récurrent : grand ménage, entretien hebdomadaire ou aux 2 semaines, partout en Mauricie et au Centre-du-Québec. Entretien commercial et d’immeubles aussi offert. Soumission gratuite en 30 secondes.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <a
@@ -407,6 +407,8 @@ function Index() {
         </div>
       </section>
 
+      <QuickLeadForm sourcePage="/" />
+
       {/* Services */}
       <section className="max-w-6xl mx-auto px-6 py-12">
         <h2 className="text-3xl font-bold text-center mb-2">Nos services</h2>
@@ -415,10 +417,10 @@ function Index() {
         </p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {[
-             { icon: Building2, t: "Immeubles locatifs", d: "Espaces communs, suivis réguliers et remises en état", slug: "entretien-immeubles-locatifs" },
-            { icon: Building2, t: "Nettoyage commercial", d: "Bureaux, commerces, immeubles — 1 à 5 x / semaine", slug: "nettoyage-commercial" },
             { icon: Home, t: "Ménage résidentiel", d: "Une fois ou récurrent", slug: "menage-residentiel" },
             { icon: Sparkles, t: "Contrat récurrent", d: "Hebdomadaire, aux 2 semaines ou mensuel", slug: "contrat-entretien-recurrent" },
+             { icon: Building2, t: "Immeubles locatifs", d: "Espaces communs, suivis réguliers et remises en état", slug: "entretien-immeubles-locatifs" },
+            { icon: Building2, t: "Nettoyage commercial", d: "Bureaux, commerces, immeubles — 1 à 5 x / semaine", slug: "nettoyage-commercial" },
             { icon: Wrench, t: "Homme à tout faire", d: "Petits travaux et rénovations mineures", slug: "homme-a-tout-faire" },
             { icon: Leaf, t: "Plates-bandes", d: "Désherbage et entretien extérieur", slug: "entretien-plates-bandes" },
             { icon: Car, t: "Lavage auto", d: "Intérieur et extérieur", slug: "lavage-auto" },
