@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import logoAsset from "@/assets/ml-excellence-logo.png.asset.json";
-import { Home, Sparkles, Leaf, Car, Check, Building2, Mail, ArrowLeft, ShieldCheck, HardHat } from "lucide-react";
+import { Home, Sparkles, Check, Building2, Mail, ArrowLeft, ShieldCheck, HardHat } from "lucide-react";
 
 type ServiceBlock = {
   icon: typeof Home;
@@ -13,26 +13,15 @@ type ServiceBlock = {
   faq: { q: string; a: string }[];
 };
 
-const SERVICES: ServiceBlock[] = [
-  {
+const SERVICES: ServiceBlock[] = [  {
     icon: HardHat,
     title: "Ménage après chantier",
-    intro: "Construction neuve ou rénovation terminée ? Nous enlevons la poussière de chantier et nettoyons jusqu’à la finition : armoires, cuisine, salles de bain, vitres intérieures et planchers — pour remettre un bâtiment impeccable, prêt à livrer ou à habiter. Service pour entrepreneurs et propriétaires à Gentilly, Bécancour, Nicolet et Trois-Rivières.",
+    intro: "Construction neuve ou rénovation terminée ? Nous enlevons la poussière de chantier et nettoyons jusqu’à la finition : armoires, cuisine, salles de bain, vitres intérieures et planchers — pour remettre un bâtiment impeccable, prêt à livrer ou à habiter. Service pour entrepreneurs et propriétaires à Gentilly, Bécancour et Nicolet.",
     includes: ["Poussière de construction (murs, plafonds, surfaces)", "Armoires et rangements, intérieur et extérieur", "Cuisine et salles de bain complètes", "Vitres, cadres et rails (intérieur)", "Planchers aspirés et lavés", "Plinthes, luminaires et bouches de ventilation dépoussiérés"],
     residential: ["Maison neuve avant emménagement", "Après rénovation", "Agrandissement"],
     commercial: ["Remise de chantier à l’entrepreneur", "Projets commerciaux", "Coordination avec l’échéancier"],
     whyUs: [{ t: "Prêt à livrer", d: "Une finition qui met votre travail en valeur." }, { t: "Équipe assurée", d: "Responsabilité civile complète." }, { t: "Selon votre échéancier", d: "Intervention coordonnée avec la fin des travaux." }, { t: "Contact direct", d: "Vous parlez directement à Mélanie." }],
-    faq: [{ q: "Quel est le délai pour une soumission ?", a: "La soumission est gratuite et arrive en moins de 24 h. Indiquez la superficie et la date de fin des travaux." }, { q: "Desservez-vous les entrepreneurs de Gentilly et Bécancour ?", a: "Oui, c’est même un de nos secteurs prioritaires, avec Nicolet et Trois-Rivières." }],
-  },
-  {
-    icon: Building2,
-    title: "Entretien d’immeubles locatifs",
-    intro: "Un service structuré pour les propriétaires et gestionnaires qui veulent des espaces communs propres sans multiplier les suivis. Nous adaptons la fréquence, la liste des tâches et les accès à chaque propriété.",
-    includes: ["Entrées, halls et vestibules", "Corridors, escaliers et rampes", "Buanderies et espaces communs", "Planchers et points de contact", "Poubelles des zones prévues", "Remise en état entre locataires"],
-    residential: ["Duplex et triplex", "Blocs appartements", "Propriétés locatives"],
-    commercial: ["1 à 5 passages / semaine", "Plan par immeuble", "Facturation mensuelle"],
-    whyUs: [{ t: "Constance", d: "Une liste claire suivie à chaque visite." }, { t: "Équipe assurée", d: "Responsabilité civile complète." }, { t: "Accès organisés", d: "Consignes consignées pour votre propriété." }, { t: "Contact direct", d: "Ajustements rapides avec la gestion." }],
-    faq: [{ q: "Faites-vous les logements vacants ?", a: "Oui, nous pouvons effectuer une remise en état complète entre deux locataires." }, { q: "Quelle fréquence offrez-vous ?", a: "De 1 à 5 passages par semaine selon l’achalandage et les espaces communs." }],
+    faq: [{ q: "Quel est le délai pour une soumission ?", a: "La soumission est gratuite et arrive en moins de 24 h. Indiquez la superficie et la date de fin des travaux." }, { q: "Desservez-vous les entrepreneurs de Gentilly et Bécancour ?", a: "Oui, c’est même un de nos secteurs prioritaires, avec Nicolet." }],
   },
   {
     icon: Home,
@@ -48,7 +37,7 @@ const SERVICES: ServiceBlock[] = [
       "Finition : vitres intérieures sur demande, parfum frais et discret",
     ],
     residential: ["Condo / 3½ – 4½", "Maison 5½ – 6½", "Grande propriété 7½ +"],
-    commercial: ["Bureau / local < 100 m²", "Local 100 – 250 m²", "Espace 250 m² +"],
+    commercial: [],
     whyUs: [
       { t: "Équipe assurée", d: "Responsabilité civile complète, employés vérifiés." },
       { t: "Satisfaction garantie", d: "Pas content ? On revient sans frais." },
@@ -65,7 +54,7 @@ const SERVICES: ServiceBlock[] = [
     icon: Sparkles,
     title: "Contrat d'entretien récurrent",
     intro:
-      "Reprenez votre temps. Avec un contrat hebdomadaire, aux deux semaines ou mensuel, vous rentrez chez vous (ou au bureau) dans un espace impeccable, sans y penser. Tarif réduit, même équipe à chaque visite quand possible, et une liste personnalisée selon vos pièces et vos priorités. Aucun engagement à long terme — on bâtit la confiance visite après visite.",
+      "Reprenez votre temps. Avec un contrat hebdomadaire, aux deux semaines ou mensuel, vous rentrez chez vous dans un espace impeccable, sans y penser. Tarif réduit, même équipe à chaque visite quand possible, et une liste personnalisée selon vos pièces et vos priorités. Aucun engagement à long terme — on bâtit la confiance visite après visite.",
     includes: [
       "Plan de ménage 100 % personnalisé selon vos pièces prioritaires",
       "Même équipe à chaque visite quand possible — vous n'avez rien à réexpliquer",
@@ -75,7 +64,7 @@ const SERVICES: ServiceBlock[] = [
       "Tarif visite réduit par rapport au ménage ponctuel",
     ],
     residential: ["Visites aux 2 semaines", "Visites hebdomadaires", "Forfait sur mesure"],
-    commercial: ["Bureau — 1 visite / semaine", "Commerce — 2 à 3 visites / semaine", "Contrat annuel préférentiel"],
+    commercial: [],
     whyUs: [
       { t: "Sans engagement", d: "Vous arrêtez quand vous voulez, aucune pénalité." },
       { t: "Tarif dégressif", d: "Plus la fréquence est haute, plus le prix baisse." },
@@ -83,62 +72,11 @@ const SERVICES: ServiceBlock[] = [
       { t: "Facturation simple", d: "Mensuelle ou par visite, à votre choix." },
     ],
     faq: [
-      { q: "Quelle fréquence recommandez-vous ?", a: "Famille active : aux 2 semaines. Bureau : 1 à 3 fois par semaine selon l'achalandage." },
+      { q: "Quelle fréquence recommandez-vous ?", a: "Famille active : aux 2 semaines. Grands besoins : chaque semaine." },
       { q: "Puis-je suspendre durant les vacances ?", a: "Oui, sans frais. Prévenez-nous au moins 48 h à l'avance." },
       { q: "Y a-t-il un rabais vs ponctuel ?", a: "Oui, généralement entre 10 % et 25 % par visite selon la fréquence." },
     ],
-  },
-  {
-    icon: Leaf,
-    title: "Entretien extérieur & plates-bandes",
-    intro:
-      "Vos plates-bandes méritent autant d'attention que votre salon. On désherbe à la main, on taille proprement, on remet le paillis en place et on repart en laissant vos bordures nettes — comme au premier jour. Idéal pour la mise en beauté printanière, la préparation à la vente d'une propriété ou un simple coup de fraîcheur avant un événement.",
-    includes: [
-      "Désherbage manuel complet (racines retirées, pas seulement coupées)",
-      "Taille légère des vivaces et arbustes pour un rendu net",
-      "Nettoyage des bordures et paillis redistribué uniformément",
-      "Ramassage et disposition responsable des résidus végétaux",
-      "Conseils gratuits pour garder un résultat durable",
-    ],
-    residential: ["Petite plate-bande", "Plate-bande moyenne", "Grande plate-bande"],
-    commercial: ["Entrée de commerce", "Forfait saison (mai à oct.)"],
-    whyUs: [
-      { t: "Travail manuel", d: "Aucun désherbant chimique sauf demande expresse." },
-      { t: "Forfait saison", d: "3 à 5 visites de mai à octobre, prix avantageux." },
-      { t: "Résultat durable", d: "Bordures propres et paillis en place pour des mois." },
-      { t: "Combinable", d: "Ajoutez un ménage intérieur ou un lavage auto la même journée." },
-    ],
-    faq: [
-      { q: "Faites-vous la tonte de pelouse ?", a: "Non, nous nous concentrons sur les plates-bandes. Référence possible vers un partenaire." },
-      { q: "Quand est le meilleur moment ?", a: "Une visite printemps, une milieu d'été et une automne donnent un résultat optimal." },
-    ],
-  },
-  {
-    icon: Car,
-    title: "Lavage auto intérieur & extérieur",
-    intro:
-      "Redonnez à votre véhicule l'allure du jour de l'achat. Carrosserie lustrée, jantes propres, habitacle aspiré dans les moindres recoins, vitres sans traces et léger parfum frais. Parfait avant une revente, pour un véhicule de flotte à présenter à un client, ou simplement pour le plaisir de conduire un char impeccable.",
-    includes: [
-      "Lavage extérieur complet, jantes et pneus lustrés",
-      "Aspirateur en profondeur (sièges, tapis, coffre, entre-sièges)",
-      "Nettoyage du tableau de bord, console et plastiques",
-      "Vitres intérieures et extérieures sans traces",
-      "Désodorisation légère et discrète",
-      "Tarif dégressif pour les flottes commerciales",
-    ],
-    residential: ["Berline / compacte", "VUS / multisegment", "Camionnette / 7 passagers"],
-    commercial: ["Flotte 3 véhicules et +", "Contrat mensuel"],
-    whyUs: [
-      { t: "À domicile possible", d: "Nous pouvons nous déplacer chez vous selon la disponibilité." },
-      { t: "Flottes commerciales", d: "Tarif spécial à partir de 3 véhicules." },
-      { t: "Préparation revente", d: "Idéal pour maximiser la valeur de votre véhicule." },
-      { t: "Sans abrasif", d: "Produits sécuritaires pour la peinture et les plastiques." },
-    ],
-    faq: [
-      { q: "Faites-vous la cire et le polissage ?", a: "Oui, en option. À ajouter à votre demande de soumission." },
-      { q: "Combien de temps pour un lavage complet ?", a: "Entre 1 h 30 et 3 h selon le format et l'état initial du véhicule." },
-    ],
-  },
+  }
 ];
 
 const ALL_FAQ = SERVICES.flatMap((s) => s.faq);
@@ -146,26 +84,26 @@ const ALL_FAQ = SERVICES.flatMap((s) => s.faq);
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services de ménage Mauricie | M.L Excellence" },
+      { title: "Services de ménage Bécancour & Nicolet | M.L Excellence" },
       {
         name: "description",
         content:
-          "Liste complète des services M.L Excellence à Trois-Rivières, Shawinigan, Bécancour : ménage résidentiel, contrats commerciaux, plates-bandes et lavage auto. Soumission gratuite.",
+          "Services M.L Excellence à Bécancour et Nicolet : ménage après chantier et ménage résidentiel. Soumission gratuite.",
       },
       { name: "geo.region", content: "CA-QC" },
-      { name: "geo.placename", content: "Mauricie" },
-      { property: "og:title", content: "Services de ménage en Mauricie — M.L Excellence" },
+      { name: "geo.placename", content: "Bécancour, Gentilly, Nicolet" },
+      { property: "og:title", content: "Services de ménage à Bécancour — M.L Excellence" },
       {
         property: "og:description",
         content:
-          "Résidentiel et commercial partout en Mauricie. Prix selon le service — soumission gratuite et sans engagement.",
+          "Après chantier et résidentiel à Bécancour et Nicolet. Prix selon le service — soumission gratuite et sans engagement.",
       },
       { property: "og:url", content: "https://mlentretien.com/services" },
       { property: "og:type", content: "website" },
       { property: "og:image", content: "https://mlentretien.com/og-image.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Services de ménage Mauricie — M.L Excellence" },
-      { name: "twitter:description", content: "Résidentiel et commercial partout en Mauricie. Soumission gratuite." },
+      { name: "twitter:title", content: "Services de ménage Bécancour — M.L Excellence" },
+      { name: "twitter:description", content: "Après chantier et résidentiel à Bécancour et Nicolet. Soumission gratuite." },
       { name: "twitter:image", content: "https://mlentretien.com/og-image.jpg" },
     ],
     links: [{ rel: "canonical", href: "https://mlentretien.com/services" }],
@@ -186,7 +124,7 @@ export const Route = createFileRoute("/services")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ItemList",
-          name: "Services de propreté M.L Excellence en Mauricie",
+          name: "Services de propreté M.L Excellence à Bécancour",
           itemListElement: SERVICES.map((s, i) => ({
             "@type": "ListItem",
             position: i + 1,
@@ -195,9 +133,9 @@ export const Route = createFileRoute("/services")({
               name: s.title,
               provider: { "@id": "https://mlentretien.com/#business" },
               areaServed: [
-                { "@type": "City", name: "Trois-Rivières" },
-                { "@type": "City", name: "Shawinigan" },
                 { "@type": "City", name: "Bécancour" },
+                { "@type": "City", name: "Gentilly" },
+                { "@type": "City", name: "Nicolet" },
               ],
             },
           })),
@@ -248,19 +186,19 @@ function ServicesPage() {
       {/* Hero */}
       <section className="max-w-5xl mx-auto px-6 pt-6 pb-10 text-center">
         <p className="inline-flex items-center gap-2 rounded-full border border-border px-3 py-1 text-xs font-semibold text-muted-foreground">
-          <Sparkles className="h-3.5 w-3.5 text-primary" /> Services de propreté · Mauricie
+          <Sparkles className="h-3.5 w-3.5 text-primary" /> Services de propreté · Bécancour & Nicolet
         </p>
         <h1 className="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight">
-          Services de ménage en{" "}
+          Services de ménage à{" "}
           <span
             className="bg-clip-text text-transparent"
             style={{ backgroundImage: "var(--gradient-hero)" }}
           >
-            Mauricie
+            Bécancour et Nicolet
           </span>
         </h1>
         <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-          Résidentiel ou commercial, partout en Mauricie. Voici ce que comprend chaque service.
+          Après chantier et résidentiel, à Bécancour et Nicolet. Voici ce que comprend chaque service.
           Le prix est toujours établi selon le service demandé, la superficie et la fréquence —
           soumission gratuite et sans engagement.
         </p>
@@ -276,12 +214,9 @@ function ServicesPage() {
         <h2 className="sr-only">Pages détaillées par service</h2>
         <ul className="flex flex-wrap justify-center gap-2">
           {[
+            { slug: "menage-apres-chantier", label: "Ménage après chantier" },
             { slug: "menage-residentiel", label: "Ménage résidentiel" },
-            { slug: "entretien-immeubles-locatifs", label: "Immeubles locatifs" },
-            { slug: "nettoyage-commercial", label: "Nettoyage commercial" },
             { slug: "contrat-entretien-recurrent", label: "Contrat récurrent" },
-            { slug: "entretien-plates-bandes", label: "Plates-bandes" },
-            { slug: "lavage-auto", label: "Lavage auto" },
           ].map((s) => (
             <li key={s.slug}>
               <Link
@@ -335,7 +270,7 @@ function ServicesPage() {
               </div>
 
               <OptionColumn label="Résidentiel — privé" icon={Home} items={residential} />
-              <OptionColumn label="Commercial" icon={Building2} items={commercial} />
+              {commercial.length > 0 && <OptionColumn label="Commercial" icon={Building2} items={commercial} />}
             </div>
 
             {/* Pourquoi nous choisir */}
@@ -424,7 +359,7 @@ function ServicesPage() {
 
       <footer className="text-center py-8 text-sm text-muted-foreground">
         <p className="font-semibold text-foreground">M.L Excellence</p>
-        <p className="mt-1">Nicolet (QC) · Desserte : Mauricie & Centre-du-Québec · 819-996-9022</p>
+        <p className="mt-1">Nicolet (QC) · Desserte : Bécancour et Nicolet · 819-996-9022</p>
         <p className="mt-2">
           <a
             href="https://www.google.com/maps?cid=1541346873343242194"
@@ -435,7 +370,7 @@ function ServicesPage() {
             Voir sur Google · Avis & horaires
           </a>
         </p>
-        <p className="mt-3">© {new Date().getFullYear()} M.L Excellence — Au service de la Mauricie</p>
+        <p className="mt-3">© {new Date().getFullYear()} M.L Excellence — Au service de Bécancour et Nicolet</p>
       </footer>
     </div>
   );

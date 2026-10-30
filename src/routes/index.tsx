@@ -6,8 +6,6 @@ import { QuickLeadForm } from "@/components/quick-lead-form";
 import {
   Sparkles,
   Home,
-  Leaf,
-  Car,
   Mail,
   Check,
   ShieldCheck,
@@ -16,39 +14,35 @@ import {
   Star,
   Phone,
   MapPin,
-  Building2,
-  Wrench,
   CalendarCheck,
-  KeyRound,
-  ClipboardCheck,
   HardHat,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Ménage résidentiel & entretien commercial en Mauricie | M.L Excellence" },
+      { title: "Ménage après chantier et résidentiel à Bécancour | M.L Excellence" },
       {
         name: "description",
         content:
-          "Ménage résidentiel une fois ou en contrat, entretien commercial et d’immeubles locatifs en Mauricie. Espaces communs, remises en état. Soumission gratuite en 24 h.",
+          "Ménage après chantier et ménage résidentiel à Bécancour, Gentilly, Saint-Grégoire et Nicolet. Soumission gratuite en 24 h.",
       },
-      { name: "keywords", content: "ménage résidentiel Mauricie, femme de ménage Trois-Rivières, grand ménage Shawinigan, entretien ménager commercial Mauricie, contrat entretien bureau, nettoyage commerce, ménage résidentiel Bécancour, ménage Nicolet, homme à tout faire, conciergerie immeuble" },
+      { name: "keywords", content: "ménage après chantier Bécancour, nettoyage après construction Gentilly, ménage résidentiel Bécancour, femme de ménage Nicolet, grand ménage Saint-Grégoire, entretien ménager résidentiel" },
       { name: "geo.region", content: "CA-QC" },
-      { name: "geo.placename", content: "Mauricie, Trois-Rivières, Shawinigan, Bécancour" },
-      { property: "og:title", content: "M.L Entretien — Ménage résidentiel & entretien commercial en Mauricie" },
+      { name: "geo.placename", content: "Bécancour, Gentilly, Saint-Grégoire, Nicolet" },
+      { property: "og:title", content: "M.L Excellence — Ménage après chantier et résidentiel à Bécancour" },
       {
         property: "og:description",
         content:
-          "1 à 5 passages par semaine pour bureaux, commerces, cliniques et immeubles. Ménage résidentiel et homme à tout faire. Soumission gratuite, réponse en 24 h.",
+          "Ménage après chantier prêt à livrer et ménage résidentiel à Bécancour et Nicolet. Soumission gratuite, réponse en 24 h.",
       },
       { property: "og:url", content: "https://mlentretien.com/" },
       { property: "og:type", content: "website" },
       { property: "og:image", content: "https://mlentretien.com/og-image.jpg" },
       { property: "og:locale", content: "fr_CA" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "M.L Entretien — Entretien commercial & résidentiel Mauricie" },
-      { name: "twitter:description", content: "Contrats 1 à 5 fois/semaine pour entreprises. Soumission gratuite en 24 h." },
+      { name: "twitter:title", content: "M.L Excellence — Après chantier et résidentiel à Bécancour" },
+      { name: "twitter:description", content: "Après chantier et résidentiel à Bécancour et Nicolet. Soumission gratuite en 24 h." },
       { name: "twitter:image", content: "https://mlentretien.com/og-image.jpg" },
     ],
     links: [{ rel: "canonical", href: "https://mlentretien.com/" }],
@@ -62,7 +56,7 @@ export const Route = createFileRoute("/")({
           name: "M.L Excellence",
           alternateName: "Les services de propreté M.L Excellence",
           description:
-            "Services de propreté résidentiels et commerciaux en Mauricie : ménage ponctuel ou contrat, entretien extérieur, plates-bandes et lavage auto.",
+            "Ménage après chantier et ménage résidentiel à Bécancour et Nicolet : nettoyage après construction ou rénovation, ménage ponctuel ou en contrat récurrent.",
           email: "info.mlexcellance@gmail.com",
           telephone: "+1-819-996-9022",
           url: "https://mlentretien.com/",
@@ -76,19 +70,15 @@ export const Route = createFileRoute("/")({
             addressCountry: "CA",
           },
           areaServed: [
-            { "@type": "AdministrativeArea", name: "Mauricie, Québec" },
-            { "@type": "AdministrativeArea", name: "Centre-du-Québec" },
-            { "@type": "City", name: "Nicolet" },
             { "@type": "City", name: "Bécancour" },
-            { "@type": "City", name: "Trois-Rivières" },
-            { "@type": "City", name: "Cap-de-la-Madeleine" },
-            { "@type": "City", name: "Shawinigan" },
-            { "@type": "City", name: "Grand-Mère" },
+            { "@type": "City", name: "Gentilly" },
+            { "@type": "City", name: "Saint-Grégoire" },
+            { "@type": "City", name: "Nicolet" },
           ],
           serviceArea: {
             "@type": "GeoCircle",
-            geoMidpoint: { "@type": "GeoCoordinates", latitude: 46.343, longitude: -72.5477 },
-            geoRadius: 60000,
+            geoMidpoint: { "@type": "GeoCoordinates", latitude: 46.3406, longitude: -72.4341 },
+            geoRadius: 25000,
           },
           priceRange: "$$",
           currenciesAccepted: "CAD",
@@ -114,15 +104,9 @@ export const Route = createFileRoute("/")({
             "@type": "OfferCatalog",
             name: "Services M.L Excellence",
             itemListElement: [
-              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Ménage après chantier / après construction", areaServed: "Mauricie" } },
-              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Ménage résidentiel — ponctuel", areaServed: "Mauricie" } },
-              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Contrat d'entretien récurrent", areaServed: "Mauricie" } },
-              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Nettoyage commercial", areaServed: "Mauricie" } },
-              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Entretien extérieur / plates-bandes", areaServed: "Mauricie" } },
-              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Lavage auto intérieur & extérieur", areaServed: "Mauricie" } },
-              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Contrat commercial 1 à 5 passages par semaine", areaServed: "Mauricie" } },
-              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Homme à tout faire & rénovations mineures", areaServed: "Mauricie" } },
-              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Entretien d’immeubles locatifs", areaServed: "Mauricie" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Ménage après chantier / après construction", areaServed: "Bécancour" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Ménage résidentiel — ponctuel", areaServed: "Bécancour" } },
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Contrat d'entretien résidentiel récurrent", areaServed: "Bécancour" } },
             ],
           },
           sameAs: [
@@ -147,7 +131,7 @@ export const Route = createFileRoute("/")({
               name: "Quelles régions desservez-vous ?",
               acceptedAnswer: {
                 "@type": "Answer",
-                text: "M.L Excellence dessert toute la Mauricie : Trois-Rivières, Shawinigan, Bécancour, Cap-de-la-Madeleine, Grand-Mère et les municipalités environnantes.",
+                text: "M.L Excellence dessert Bécancour et tous ses secteurs — Gentilly, Saint-Grégoire, Sainte-Angèle-de-Laval, Sainte-Gertrude, Précieux-Sang — ainsi que Nicolet.",
               },
             },
             {
@@ -179,23 +163,7 @@ export const Route = createFileRoute("/")({
               name: "Comment puis-je payer ?",
               acceptedAnswer: {
                 "@type": "Answer",
-                text: "Nous acceptons les virements Interac, les chèques et l'argent comptant. Les contrats commerciaux peuvent être facturés mensuellement.",
-              },
-            },
-            {
-              "@type": "Question",
-              name: "Quelles fréquences offrez-vous aux entreprises ?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "Nous offrons des contrats d'entretien commercial de 1, 2, 3 ou 5 passages par semaine, selon vos besoins : bureaux, commerces, locaux professionnels, immeubles, salons, cliniques, garderies, espaces communs et bâtiments locatifs.",
-              },
-            },
-            {
-              "@type": "Question",
-              name: "Offrez-vous un service d'homme à tout faire ?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "Oui, sur demande : petits travaux, réparations et rénovations mineures pour les résidences, bureaux et immeubles locatifs de la Mauricie.",
+                text: "Nous acceptons les virements Interac, les chèques et l'argent comptant. Les contrats d'entretien peuvent être facturés mensuellement.",
               },
             },
           ],
@@ -208,77 +176,28 @@ export const Route = createFileRoute("/")({
 
 const SERVICES = [
   { id: "apres-chantier", label: "Ménage après chantier / après construction", icon: HardHat },
-  { id: "immeuble-locatif", label: "Entretien d’immeuble locatif", icon: Building2 },
-  { id: "commercial", label: "Contrat commercial (1 à 5 x / semaine)", icon: Building2 },
   { id: "interieur-unique", label: "Ménage résidentiel — une fois", icon: Home },
   { id: "interieur-contrat", label: "Contrat résidentiel récurrent", icon: Sparkles },
-  { id: "homme-a-tout-faire", label: "Homme à tout faire / rénos mineures", icon: Wrench },
-  { id: "plates-bandes", label: "Entretien extérieur / plates-bandes", icon: Leaf },
-  { id: "auto", label: "Lavage auto", icon: Car },
 ];
 
-const FREQUENCES = [
-  { f: "1 fois / semaine", d: "Petits bureaux et locaux à faible achalandage" },
-  { f: "2 fois / semaine", d: "Commerces, salons et cliniques de quartier" },
-  { f: "3 fois / semaine", d: "Achalandage soutenu, aires communes partagées" },
-  { f: "5 jours / semaine", d: "Bureaux actifs, garderies, immeubles en opération" },
-];
 
-const TYPES_ENTREPRISES = [
-  "Bureaux",
-  "Commerces",
-  "Locaux professionnels",
-  "Immeubles",
-  "Salons",
-  "Cliniques",
-  "Garderies",
-  "Espaces communs",
-  "Commerces de détail",
-  "Bâtiments locatifs",
-];
 
-const INCLUS_COMMERCIAL = [
-  "1 à 5 passages par semaine",
-  "Entretien des espaces de travail",
-  "Salles de bain",
-  "Aires communes",
-  "Surfaces et planchers",
-  "Entretien régulier et fiable",
-  "Service adapté à vos besoins",
-];
 
 const TRUST = [
   { icon: ShieldCheck, t: "Assurée & vérifiée", d: "Responsabilité civile complète" },
   { icon: Clock, t: "Réponse < 24 h", d: "Soumission rapide et claire" },
   { icon: Award, t: "Satisfaction garantie", d: "On revient gratuitement si besoin" },
-  { icon: MapPin, t: "Partout en Mauricie", d: "Trois-Rivières, Shawinigan, Bécancour…" },
+  { icon: MapPin, t: "Bécancour et Nicolet", d: "Gentilly, Saint-Grégoire, Sainte-Angèle…" },
 ];
 
-const TESTIMONIALS = [
-  {
-    name: "Caroline D.",
-    city: "Trois-Rivières",
-    quote: "Service impeccable, à l'écoute et toujours ponctuelle. Ma maison n'a jamais été aussi propre.",
-  },
-  {
-    name: "Marc-André L.",
-    city: "Shawinigan",
-    quote: "On a un contrat mensuel pour notre bureau, l'équipe est fiable et le résultat est constant.",
-  },
-  {
-    name: "Sophie R.",
-    city: "Bécancour",
-    quote: "Lavage auto et plates-bandes la même journée — quel gain de temps. Je recommande à 100 %.",
-  },
-];
 
 const FAQ = [
-  { q: "Quelles régions desservez-vous ?", a: "Toute la Mauricie : Trois-Rivières, Shawinigan, Bécancour, Cap-de-la-Madeleine, Grand-Mère et environs." },
-  { q: "Faites-vous le ménage résidentiel une seule fois ?", a: "Oui — ménage ponctuel, grand ménage ou contrat récurrent pour les maisons, condos et appartements de la Mauricie." },
+  { q: "Quelles régions desservez-vous ?", a: "Bécancour et tous ses secteurs — Gentilly, Saint-Grégoire, Sainte-Angèle-de-Laval, Sainte-Gertrude, Précieux-Sang — ainsi que Nicolet." },
+  { q: "Faites-vous le ménage résidentiel une seule fois ?", a: "Oui — ménage ponctuel, grand ménage ou contrat récurrent pour les maisons, condos et appartements de Bécancour et Nicolet." },
   { q: "La soumission est-elle vraiment gratuite ?", a: "Oui — toujours gratuite et sans engagement. Vous recevez un prix clair en moins de 24 h." },
   { q: "Êtes-vous assurés ?", a: "Oui, M.L Excellence est entièrement assurée en responsabilité civile." },
   { q: "Produits et équipement fournis ?", a: "Oui, nous apportons tout. Produits écoresponsables disponibles sur demande, sans frais." },
-  { q: "Modes de paiement ?", a: "Virement Interac, chèque ou comptant. Facturation mensuelle pour les contrats commerciaux." },
+  { q: "Modes de paiement ?", a: "Virement Interac, chèque ou comptant. Facturation mensuelle pour les contrats d'entretien." },
 ];
 
 function Index() {
@@ -351,7 +270,7 @@ function Index() {
         <div className="max-w-6xl mx-auto px-6 pt-10 pb-16 grid lg:grid-cols-2 gap-10 items-center">
           <div>
             <p className="inline-flex items-center gap-2 rounded-full border border-border px-3 py-1 text-xs font-semibold text-muted-foreground">
-              <Star className="h-3.5 w-3.5 text-primary fill-primary" /> 5,0/5 · Clients de la Mauricie
+              <Star className="h-3.5 w-3.5 text-primary fill-primary" /> 5,0/5 · Clients de Bécancour et Nicolet
             </p>
             <h1 className="mt-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
               Une maison propre et impeccable,{" "}
@@ -363,7 +282,7 @@ function Index() {
               </span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-md">
-              Ménage résidentiel ponctuel ou en contrat récurrent : grand ménage, entretien hebdomadaire ou aux 2 semaines, partout en Mauricie et au Centre-du-Québec. Entretien commercial et d’immeubles aussi offert. Soumission gratuite en 30 secondes.
+              Ménage résidentiel ponctuel ou en contrat récurrent : grand ménage, entretien hebdomadaire ou aux 2 semaines, à Bécancour, Gentilly, Saint-Grégoire et Nicolet. Et pour vos chantiers : un nettoyage après construction prêt à livrer. Soumission gratuite en 30 secondes.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <a
@@ -399,7 +318,7 @@ function Index() {
             />
             <img
               src={heroAsset.url}
-              alt="Hall d'immeuble locatif impeccable avec chariot d'entretien — M.L Excellence"
+              alt="Entrée impeccable entretenue par M.L Excellence"
               width={1600}
               height={1100}
               className="relative rounded-[2rem] w-full h-auto object-cover ring-1 ring-primary/15"
@@ -422,7 +341,7 @@ function Index() {
               <p className="mt-4 text-primary-foreground/80 max-w-2xl">
                 Construction neuve ou rénovation : nous enlevons la poussière de chantier et terminons le nettoyage
                 jusqu’à la finition, pour que vous remettiez un bâtiment impeccable à votre client. Service offert
-                à Gentilly, Bécancour, Nicolet et Trois-Rivières, selon votre échéancier.
+                à Gentilly, Bécancour et Nicolet, selon votre échéancier.
               </p>
               <div className="mt-6 grid sm:grid-cols-2 gap-3">
                 {["Poussière de construction enlevée partout", "Armoires, cuisine et salles de bain prêtes à utiliser", "Vitres et cadres nettoyés (intérieur)", "Planchers propres, prêts à livrer", "Coordination avec votre date de fin des travaux"].map((item) => (
@@ -459,18 +378,13 @@ function Index() {
       <section className="max-w-6xl mx-auto px-6 py-12">
         <h2 className="text-3xl font-bold text-center mb-2">Nos services</h2>
         <p className="text-center text-muted-foreground mb-10">
-          Une seule équipe pour l'intérieur, l'extérieur et même votre véhicule.
+          Après chantier et résidentiel — une seule équipe pour vos chantiers et votre maison.
         </p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {[
             { icon: HardHat, t: "Ménage après chantier", d: "Après construction ou rénovation — prêt à livrer", slug: "menage-apres-chantier" },
             { icon: Home, t: "Ménage résidentiel", d: "Une fois ou récurrent", slug: "menage-residentiel" },
             { icon: Sparkles, t: "Contrat récurrent", d: "Hebdomadaire, aux 2 semaines ou mensuel", slug: "contrat-entretien-recurrent" },
-             { icon: Building2, t: "Immeubles locatifs", d: "Espaces communs, suivis réguliers et remises en état", slug: "entretien-immeubles-locatifs" },
-            { icon: Building2, t: "Nettoyage commercial", d: "Bureaux, commerces, immeubles — 1 à 5 x / semaine", slug: "nettoyage-commercial" },
-            { icon: Wrench, t: "Homme à tout faire", d: "Petits travaux et rénovations mineures", slug: "homme-a-tout-faire" },
-            { icon: Leaf, t: "Plates-bandes", d: "Désherbage et entretien extérieur", slug: "entretien-plates-bandes" },
-            { icon: Car, t: "Lavage auto", d: "Intérieur et extérieur", slug: "lavage-auto" },
           ].map(({ icon: Icon, t, d, slug }) => (
             <Link
               key={t}
@@ -499,146 +413,19 @@ function Index() {
         </div>
       </section>
 
-      <section className="border-y border-border bg-primary text-primary-foreground">
-        <div className="max-w-6xl mx-auto px-6 py-14">
-          <p className="text-xs font-bold uppercase text-primary-foreground/70">Propriétaires et gestionnaires</p>
-          <div className="mt-3 grid lg:grid-cols-[1.15fr_.85fr] gap-10 items-start">
-            <div>
-              <h2 className="text-3xl sm:text-4xl font-bold">Vos immeubles. Notre suivi. Moins de soucis.</h2>
-              <p className="mt-4 text-primary-foreground/80 max-w-2xl">
-                Un entretien adapté aux blocs appartements et propriétés locatives, avec des passages planifiés,
-                une équipe qui connaît les lieux et un contact direct pour vos demandes.
-              </p>
-              <div className="mt-6 grid sm:grid-cols-2 gap-3">
-                {["Entrées, halls et vestibules", "Corridors et cages d’escalier", "Buanderies et espaces communs", "Remise en état entre locataires", "Planchers et points de contact"].map((item) => (
-                  <div key={item} className="flex items-start gap-2 text-sm">
-                    <Check className="h-4 w-4 mt-0.5 shrink-0" /> {item}
-                  </div>
-                ))}
-              </div>
-              <div className="mt-7 flex flex-wrap gap-3">
-                <Link to="/services/$slug" params={{ slug: "entretien-immeubles-locatifs" }} className="inline-flex items-center gap-2 rounded-md bg-background px-5 py-3 font-semibold text-foreground">
-                  Voir l’offre pour immeubles
-                </Link>
-                <Link to="/soumission" className="inline-flex items-center gap-2 rounded-md border border-primary-foreground/40 px-5 py-3 font-semibold">
-                  Demander une évaluation
-                </Link>
-              </div>
-            </div>
-            <div className="grid gap-3">
-              {[
-                { icon: ClipboardCheck, t: "Plan d’entretien clair", d: "Les tâches, espaces et fréquences sont définis avant le début." },
-                { icon: KeyRound, t: "Gestion des accès", d: "Consignes d’accès et particularités de l’immeuble consignées." },
-              ].map(({ icon: Icon, t, d }) => (
-                <div key={t} className="rounded-md border border-primary-foreground/20 bg-primary-foreground/5 p-4 flex gap-3">
-                  <Icon className="h-5 w-5 shrink-0" />
-                  <div><h3 className="font-bold">{t}</h3><p className="mt-1 text-sm text-primary-foreground/75">{d}</p></div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Entreprises de la région */}
-      <section
-        className="px-6 py-14"
-        style={{ background: "color-mix(in oklab, var(--primary) 5%, transparent)" }}
-      >
-        <div className="max-w-6xl mx-auto">
-          <p className="text-xs font-bold uppercase tracking-widest text-primary text-center">
-            Entreprises de la région
-          </p>
-          <h2 className="mt-2 text-3xl font-bold text-center">
-            Contrats d'entretien pour PME en Mauricie
-          </h2>
-          <p className="mt-3 text-center text-muted-foreground max-w-2xl mx-auto">
-            M.L Entretien offre des services réguliers adaptés aux petites et moyennes entreprises.
-            Notre objectif est simple : vous n'avez plus à penser au ménage.
-          </p>
-
-          <div className="mt-10 grid md:grid-cols-2 gap-6">
-            <div className="rounded-2xl bg-card border border-border p-6 shadow-sm">
-              <h3 className="font-bold flex items-center gap-2">
-                <CalendarCheck className="h-5 w-5 text-primary" /> Fréquences disponibles
-              </h3>
-              <ul className="mt-4 space-y-3">
-                {FREQUENCES.map((x) => (
-                  <li key={x.f} className="flex gap-3">
-                    <Check className="h-4 w-4 text-primary mt-1 shrink-0" />
-                    <span className="text-sm">
-                      <strong>{x.f}</strong>
-                      <span className="block text-muted-foreground">{x.d}</span>
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="rounded-2xl bg-card border border-border p-6 shadow-sm">
-              <h3 className="font-bold flex items-center gap-2">
-                <Check className="h-5 w-5 text-primary" /> Ce qui est inclus
-              </h3>
-              <ul className="mt-4 grid gap-2">
-                {INCLUS_COMMERCIAL.map((x) => (
-                  <li key={x} className="flex gap-2 text-sm">
-                    <Check className="h-4 w-4 text-primary mt-0.5 shrink-0" /> {x}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          <h3 className="mt-10 text-center font-bold">Selon vos besoins</h3>
-          <ul className="mt-4 flex flex-wrap justify-center gap-2">
-            {TYPES_ENTREPRISES.map((t) => (
-              <li
-                key={t}
-                className="rounded-full border border-border bg-card px-4 py-2 text-sm font-medium"
-              >
-                {t}
-              </li>
-            ))}
-          </ul>
-
-          <div className="mt-8 rounded-2xl border-2 border-primary/40 bg-card p-6 text-center">
-            <p className="font-semibold">
-              Nous recherchons de nouvelles entreprises pour l'horaire automne-hiver 2026-2027.
-            </p>
-            <p className="mt-1 text-sm text-muted-foreground">
-              Secteur desservi : Mauricie et secteurs environnants · Des espaces propres. Un service fiable.
-            </p>
-            <div className="mt-5 flex flex-wrap justify-center gap-3">
-              <a
-                href="/soumission"
-                className="inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-primary-foreground"
-                style={{ background: "var(--gradient-hero)" }}
-              >
-                <Sparkles className="h-4 w-4" /> Soumission gratuite
-              </a>
-              <a
-                href="tel:+18199969022"
-                className="inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold border-2 border-primary"
-              >
-                <Phone className="h-4 w-4" /> 819-996-9022
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Villes desservies (SEO local) */}
       <section className="max-w-6xl mx-auto px-6 py-12">
-        <h2 className="text-3xl font-bold text-center mb-2">Villes desservies en Mauricie</h2>
+        <h2 className="text-3xl font-bold text-center mb-2">Secteurs desservis</h2>
         <p className="text-center text-muted-foreground mb-8">Cliquez sur votre ville pour voir nos services dans votre secteur.</p>
         <ul className="flex flex-wrap justify-center gap-2">
           {[
-            { slug: "trois-rivieres", name: "Trois-Rivières" },
-            { slug: "shawinigan", name: "Shawinigan" },
             { slug: "becancour", name: "Bécancour" },
+            { slug: "gentilly", name: "Gentilly" },
+            { slug: "saint-gregoire", name: "Saint-Grégoire" },
             { slug: "nicolet", name: "Nicolet" },
-            { slug: "cap-de-la-madeleine", name: "Cap-de-la-Madeleine" },
-            { slug: "grand-mere", name: "Grand-Mère" },
           ].map((c) => (
             <li key={c.slug}>
               <Link
@@ -654,26 +441,6 @@ function Index() {
       </section>
 
       {/* Testimonials */}
-      <section className="px-6 py-12" style={{ background: "color-mix(in oklab, var(--primary) 4%, transparent)" }}>
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-10">Ce que disent nos clients</h2>
-          <div className="grid md:grid-cols-3 gap-5">
-            {TESTIMONIALS.map((t) => (
-              <figure key={t.name} className="rounded-2xl bg-card p-6 border border-border shadow-sm">
-                <div className="flex gap-0.5 mb-3">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="h-4 w-4 text-primary fill-primary" />
-                  ))}
-                </div>
-                <blockquote className="text-sm leading-relaxed">"{t.quote}"</blockquote>
-                <figcaption className="mt-4 text-xs font-semibold text-muted-foreground">
-                  — {t.name}, {t.city}
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Form */}
       <section id="soumission" className="px-6 py-16">
@@ -750,7 +517,7 @@ function Index() {
                 />
                 <input
                   aria-label="Ville"
-                  placeholder="Ville (Trois-Rivières, Shawinigan…)"
+                  placeholder="Ville (Bécancour, Gentilly, Nicolet…)"
                   value={form.ville}
                   onChange={(e) => setForm({ ...form, ville: e.target.value })}
                   maxLength={80}
@@ -815,9 +582,9 @@ function Index() {
 
       <footer className="text-center py-10 px-6 text-sm text-muted-foreground border-t border-border">
         <p className="font-bold text-foreground">M.L Excellence</p>
-        <p className="mt-1">Les services de propreté · Mauricie & Centre-du-Québec</p>
+        <p className="mt-1">Les services de propreté · Bécancour & Nicolet</p>
         <address className="not-italic mt-3 space-y-1">
-          <p>Nicolet (QC) · Desserte : Mauricie & Centre-du-Québec</p>
+          <p>Nicolet (QC) · Desserte : Bécancour, Gentilly, Saint-Grégoire et Nicolet</p>
           <p>
             <a href="tel:+18199969022" className="hover:text-foreground font-medium">
               819-996-9022

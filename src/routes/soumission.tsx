@@ -42,7 +42,7 @@ const FAQ = [
   },
   {
     q: "Quels secteurs desservez-vous ?",
-    a: "Toute la Mauricie et le Centre-du-Québec : Trois-Rivières, Shawinigan, Bécancour, Nicolet, Cap-de-la-Madeleine, Grand-Mère et environs.",
+    a: "Bécancour et tous ses secteurs — Gentilly, Saint-Grégoire, Sainte-Angèle-de-Laval, Sainte-Gertrude, Précieux-Sang — ainsi que Nicolet.",
   },
   {
     q: "Êtes-vous assurés ?",
@@ -53,7 +53,7 @@ const FAQ = [
 export const Route = createFileRoute("/soumission")({
   head: () => ({
     meta: [
-      { title: "Soumission gratuite Mauricie | M.L Excellence" },
+      { title: "Soumission gratuite Bécancour | M.L Excellence" },
       {
         name: "description",
         content:
@@ -62,7 +62,7 @@ export const Route = createFileRoute("/soumission")({
       {
         name: "keywords",
         content:
-          "soumission ménage Mauricie, devis nettoyage Trois-Rivières, grand ménage initial, entretien régulier Nicolet, soumission gratuite Bécancour",
+          "soumission ménage Bécancour, devis nettoyage Gentilly, grand ménage initial, entretien régulier Nicolet, ménage après chantier Bécancour",
       },
       { property: "og:title", content: "Soumission gratuite — M.L Excellence" },
       {
@@ -76,7 +76,7 @@ export const Route = createFileRoute("/soumission")({
       { name: "twitter:title", content: "Soumission gratuite — M.L Excellence" },
       {
         name: "twitter:description",
-        content: "Réponse en moins de 24 h. Sans engagement. Partout en Mauricie.",
+        content: "Réponse en moins de 24 h. Sans engagement. À Bécancour et Nicolet.",
       },
     ],
     links: [{ rel: "canonical", href: `${BASE}/soumission` }],
@@ -128,8 +128,6 @@ const TYPES_RESIDENCE = [
   "Duplex / plex",
   "Appartement",
   "Chalet",
-  "Local commercial",
-  "Immeuble locatif / bloc appartements",
   "Autre",
 ];
 
@@ -176,10 +174,6 @@ const SERVICES_OPTIONS = [
   "Changement de la literie",
   "Lavage et pliage du linge",
   "Vidage des poubelles",
-  "Entrées, halls et vestibules",
-  "Corridors et cages d’escalier",
-  "Buanderies et espaces communs",
-  "Remise en état entre locataires",
 ];
 
 const FREQUENCES = [
@@ -196,16 +190,6 @@ const JOURS = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dim
 
 const OUI_NON = ["Oui", "Non"] as const;
 
-const ESPACES_COMMUNS = [
-  "Entrée / hall",
-  "Corridors",
-  "Cages d'escalier",
-  "Ascenseur",
-  "Buanderie commune",
-  "Salle communautaire",
-  "Sortie de secours",
-  "Stationnement / remise",
-] as const;
 
 const trimmed = (max: number) => z.string().trim().max(max).optional().or(z.literal(""));
 
@@ -227,11 +211,6 @@ const soumissionSchema = z.object({
   superficie: trimmed(60),
   sousSol: z.string().trim().max(10).optional().or(z.literal("")),
   garage: z.string().trim().max(10).optional().or(z.literal("")),
-  nomImmeuble: trimmed(120),
-  nbLogements: trimmed(20),
-  nbEntrees: trimmed(20),
-  espacesCommuns: z.array(z.string()).max(20),
-  disponibilitesAcces: trimmed(300),
   serviceType: z.enum(["regulier", "grand-menage", "grand-menage-seul"], {
     errorMap: () => ({ message: "Sélectionnez le service recherché" }),
   }),
@@ -270,11 +249,6 @@ type FormState = {
   superficie: string;
   sousSol: string;
   garage: string;
-  nomImmeuble: string;
-  nbLogements: string;
-  nbEntrees: string;
-  espacesCommuns: string[];
-  disponibilitesAcces: string;
   serviceType: "" | (typeof SERVICE_TYPE)[number]["id"];
   depuisQuand: string;
   accumulations: string;
@@ -311,11 +285,6 @@ const initialForm: FormState = {
   superficie: "",
   sousSol: "",
   garage: "",
-  nomImmeuble: "",
-  nbLogements: "",
-  nbEntrees: "",
-  espacesCommuns: [],
-  disponibilitesAcces: "",
   serviceType: "",
   depuisQuand: "",
   accumulations: "",
@@ -432,7 +401,7 @@ function SoumissionPage() {
     setForm((f) => ({ ...f, [k]: v }));
 
   const toggle = (
-    k: "grandMenageOptions" | "services" | "jours" | "espacesCommuns",
+    k: "grandMenageOptions" | "services" | "jours",
     value: string,
   ) =>
     setForm((f) => ({
@@ -497,15 +466,6 @@ function SoumissionPage() {
       `Superficie approximative: ${d.superficie || "—"}`,
       `Sous-sol à entretenir: ${d.sousSol || "—"}`,
       `Garage à entretenir: ${d.garage || "—"}`,
-      "",
-      "=== IMMEUBLE LOCATIF (si applicable) ===",
-      `Nom de l'immeuble: ${d.nomImmeuble || "—"}`,
-      `Nombre de logements: ${d.nbLogements || "—"}`,
-      `Nombre d'entrées: ${d.nbEntrees || "—"}`,
-      `Espaces communs à entretenir: ${
-        d.espacesCommuns.length ? d.espacesCommuns.join(", ") : "—"
-      }`,
-      `Disponibilités d'accès: ${d.disponibilitesAcces || "—"}`,
       "",
       "=== TYPE DE SERVICE ===",
       `Service recherché: ${serviceLabel}`,
@@ -827,61 +787,6 @@ function SoumissionPage() {
                 </div>
               </Section>
 
-              {/* Immeuble locatif */}
-              <Section
-                n={1.5 as unknown as number}
-                title="Immeuble locatif (si applicable)"
-                subtitle="À remplir si la demande concerne un bloc appartements ou un immeuble avec espaces communs."
-              >
-                <div className="grid sm:grid-cols-3 gap-3">
-                  <input
-                    placeholder="Nom de l'immeuble"
-                    aria-label="Nom de l'immeuble"
-                    value={form.nomImmeuble}
-                    onChange={(e) => set("nomImmeuble", e.target.value)}
-                    maxLength={120}
-                    className={fieldClass("nomImmeuble")}
-                  />
-                  <input
-                    placeholder="Nombre de logements"
-                    aria-label="Nombre de logements"
-                    value={form.nbLogements}
-                    onChange={(e) => set("nbLogements", e.target.value)}
-                    maxLength={20}
-                    inputMode="numeric"
-                    className={fieldClass("nbLogements")}
-                  />
-                  <input
-                    placeholder="Nombre d'entrées"
-                    aria-label="Nombre d'entrées"
-                    value={form.nbEntrees}
-                    onChange={(e) => set("nbEntrees", e.target.value)}
-                    maxLength={20}
-                    inputMode="numeric"
-                    className={fieldClass("nbEntrees")}
-                  />
-                </div>
-                <p className="text-sm font-semibold">Espaces communs à entretenir</p>
-                <div className="grid sm:grid-cols-2 gap-2">
-                  {ESPACES_COMMUNS.map((e) => (
-                    <CheckCard
-                      key={e}
-                      label={e}
-                      active={form.espacesCommuns.includes(e)}
-                      onClick={() => toggle("espacesCommuns", e)}
-                    />
-                  ))}
-                </div>
-                <textarea
-                  placeholder="Disponibilités d'accès (jours, heures, code de porte, concierge sur place…)"
-                  aria-label="Disponibilités d'accès"
-                  value={form.disponibilitesAcces}
-                  onChange={(e) => set("disponibilitesAcces", e.target.value)}
-                  maxLength={300}
-                  rows={3}
-                  className={fieldClass("disponibilitesAcces")}
-                />
-              </Section>
 
               {/* 2 — Résidence */}
               <Section n={2} title="Informations sur la résidence">
@@ -1303,7 +1208,7 @@ function SoumissionPage() {
             <MapPin className="h-5 w-5 text-primary shrink-0" />
             <div>
               <p className="font-semibold">Zone de service</p>
-              <p className="text-muted-foreground">Nicolet et environs · Mauricie & Centre-du-Québec</p>
+              <p className="text-muted-foreground">Bécancour, Gentilly, Saint-Grégoire et Nicolet</p>
             </div>
           </div>
         </div>
@@ -1331,8 +1236,8 @@ function SoumissionPage() {
 
       <footer className="text-center py-10 px-6 text-sm text-muted-foreground border-t border-border">
         <p className="font-bold text-foreground">M.L Excellence</p>
-        <p className="mt-1">Services de propreté · Mauricie & Centre-du-Québec</p>
-        <p className="mt-2">Nicolet (QC) · Desserte : Mauricie & Centre-du-Québec · 819-996-9022</p>
+        <p className="mt-1">Services de propreté · Bécancour & Nicolet</p>
+        <p className="mt-2">Nicolet (QC) · Desserte : Bécancour et Nicolet · 819-996-9022</p>
         <p className="mt-3">
           <Link to="/" className="hover:text-foreground">
             Accueil
