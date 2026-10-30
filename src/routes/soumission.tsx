@@ -18,6 +18,7 @@ import {
   getServiceRecommendations,
   type ServiceAdvisorResult,
 } from "@/lib/service-advisor.functions";
+import { QuickLeadForm } from "@/components/quick-lead-form";
 
 const BASE = "https://mlentretien.com";
 const CONTACT_EMAIL = "info.mlexcellance@gmail.com";
@@ -653,6 +654,8 @@ function SoumissionPage() {
           ))}
         </div>
       </section>
+
+      <QuickLeadForm sourcePage="/soumission" />
 
       <section id="form" className="px-4 sm:px-6 pb-16">
         <div className="mx-auto mb-8 max-w-3xl overflow-hidden rounded-2xl border border-primary/30 bg-card shadow-sm">

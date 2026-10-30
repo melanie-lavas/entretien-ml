@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import logoAsset from "@/assets/ml-excellence-logo.png.asset.json";
 import heroAsset from "@/assets/hero-immeubles.jpg.asset.json";
+import { QuickLeadForm } from "@/components/quick-lead-form";
 import {
   Sparkles,
   Home,
@@ -20,12 +21,13 @@ import {
   CalendarCheck,
   KeyRound,
   ClipboardCheck,
+  HardHat,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Entretien ménager commercial & résidentiel Mauricie | M.L" },
+      { title: "Ménage résidentiel & entretien commercial en Mauricie | M.L Excellence" },
       {
         name: "description",
         content:
@@ -34,7 +36,7 @@ export const Route = createFileRoute("/")({
       { name: "keywords", content: "ménage résidentiel Mauricie, femme de ménage Trois-Rivières, grand ménage Shawinigan, entretien ménager commercial Mauricie, contrat entretien bureau, nettoyage commerce, ménage résidentiel Bécancour, ménage Nicolet, homme à tout faire, conciergerie immeuble" },
       { name: "geo.region", content: "CA-QC" },
       { name: "geo.placename", content: "Mauricie, Trois-Rivières, Shawinigan, Bécancour" },
-      { property: "og:title", content: "M.L Entretien — Contrats d'entretien commercial en Mauricie" },
+      { property: "og:title", content: "M.L Entretien — Ménage résidentiel & entretien commercial en Mauricie" },
       {
         property: "og:description",
         content:
@@ -112,6 +114,7 @@ export const Route = createFileRoute("/")({
             "@type": "OfferCatalog",
             name: "Services M.L Excellence",
             itemListElement: [
+              { "@type": "Offer", itemOffered: { "@type": "Service", name: "Ménage après chantier / après construction", areaServed: "Mauricie" } },
               { "@type": "Offer", itemOffered: { "@type": "Service", name: "Ménage résidentiel — ponctuel", areaServed: "Mauricie" } },
               { "@type": "Offer", itemOffered: { "@type": "Service", name: "Contrat d'entretien récurrent", areaServed: "Mauricie" } },
               { "@type": "Offer", itemOffered: { "@type": "Service", name: "Nettoyage commercial", areaServed: "Mauricie" } },
@@ -204,6 +207,7 @@ export const Route = createFileRoute("/")({
 });
 
 const SERVICES = [
+  { id: "apres-chantier", label: "Ménage après chantier / après construction", icon: HardHat },
   { id: "immeuble-locatif", label: "Entretien d’immeuble locatif", icon: Building2 },
   { id: "commercial", label: "Contrat commercial (1 à 5 x / semaine)", icon: Building2 },
   { id: "interieur-unique", label: "Ménage résidentiel — une fois", icon: Home },
@@ -350,17 +354,16 @@ function Index() {
               <Star className="h-3.5 w-3.5 text-primary fill-primary" /> 5,0/5 · Clients de la Mauricie
             </p>
             <h1 className="mt-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
-              L'excellence{" "}
+              Une maison propre et impeccable,{" "}
               <span
                 className="bg-clip-text text-transparent"
                 style={{ backgroundImage: "var(--gradient-hero)" }}
               >
-                au service de votre propreté.
+                sans le moindre effort.
               </span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-md">
-              Ménage résidentiel une fois ou en contrat, entretien de commerces et d’immeubles locatifs.
-              Partout en Mauricie. Soumission gratuite en 30 secondes.
+              Ménage résidentiel ponctuel ou en contrat récurrent : grand ménage, entretien hebdomadaire ou aux 2 semaines, partout en Mauricie et au Centre-du-Québec. Entretien commercial et d’immeubles aussi offert. Soumission gratuite en 30 secondes.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <a
@@ -407,6 +410,51 @@ function Index() {
         </div>
       </section>
 
+      <QuickLeadForm sourcePage="/" />
+
+      {/* Après chantier — entrepreneurs */}
+      <section className="border-y border-border bg-primary text-primary-foreground">
+        <div className="max-w-6xl mx-auto px-6 py-14">
+          <p className="text-xs font-bold uppercase text-primary-foreground/70">Entrepreneurs et rénovations</p>
+          <div className="mt-3 grid lg:grid-cols-[1.15fr_.85fr] gap-10 items-start">
+            <div>
+              <h2 className="text-3xl sm:text-4xl font-bold">Des chantiers propres, prêts à livrer.</h2>
+              <p className="mt-4 text-primary-foreground/80 max-w-2xl">
+                Construction neuve ou rénovation : nous enlevons la poussière de chantier et terminons le nettoyage
+                jusqu’à la finition, pour que vous remettiez un bâtiment impeccable à votre client. Service offert
+                à Gentilly, Bécancour, Nicolet et Trois-Rivières, selon votre échéancier.
+              </p>
+              <div className="mt-6 grid sm:grid-cols-2 gap-3">
+                {["Poussière de construction enlevée partout", "Armoires, cuisine et salles de bain prêtes à utiliser", "Vitres et cadres nettoyés (intérieur)", "Planchers propres, prêts à livrer", "Coordination avec votre date de fin des travaux"].map((item) => (
+                  <div key={item} className="flex items-start gap-2 text-sm">
+                    <Check className="h-4 w-4 mt-0.5 shrink-0" /> {item}
+                  </div>
+                ))}
+              </div>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <Link to="/services/$slug" params={{ slug: "menage-apres-chantier" }} className="inline-flex items-center gap-2 rounded-md bg-background px-5 py-3 font-semibold text-foreground">
+                  Voir le service après chantier
+                </Link>
+                <Link to="/soumission" className="inline-flex items-center gap-2 rounded-md border border-primary-foreground/40 px-5 py-3 font-semibold">
+                  Demander une soumission
+                </Link>
+              </div>
+            </div>
+            <div className="grid gap-3">
+              {[
+                { icon: HardHat, t: "Pensé pour les chantiers", d: "Construction neuve, rénovation, agrandissement : on s’adapte à l’état des lieux." },
+                { icon: CalendarCheck, t: "Selon votre échéancier", d: "Intervention coordonnée avec la fin des travaux, même à court délai." },
+              ].map(({ icon: Icon, t, d }) => (
+                <div key={t} className="rounded-md border border-primary-foreground/20 bg-primary-foreground/5 p-4 flex gap-3">
+                  <Icon className="h-5 w-5 shrink-0" />
+                  <div><h3 className="font-bold">{t}</h3><p className="mt-1 text-sm text-primary-foreground/75">{d}</p></div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Services */}
       <section className="max-w-6xl mx-auto px-6 py-12">
         <h2 className="text-3xl font-bold text-center mb-2">Nos services</h2>
@@ -415,10 +463,11 @@ function Index() {
         </p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {[
-             { icon: Building2, t: "Immeubles locatifs", d: "Espaces communs, suivis réguliers et remises en état", slug: "entretien-immeubles-locatifs" },
-            { icon: Building2, t: "Nettoyage commercial", d: "Bureaux, commerces, immeubles — 1 à 5 x / semaine", slug: "nettoyage-commercial" },
+            { icon: HardHat, t: "Ménage après chantier", d: "Après construction ou rénovation — prêt à livrer", slug: "menage-apres-chantier" },
             { icon: Home, t: "Ménage résidentiel", d: "Une fois ou récurrent", slug: "menage-residentiel" },
             { icon: Sparkles, t: "Contrat récurrent", d: "Hebdomadaire, aux 2 semaines ou mensuel", slug: "contrat-entretien-recurrent" },
+             { icon: Building2, t: "Immeubles locatifs", d: "Espaces communs, suivis réguliers et remises en état", slug: "entretien-immeubles-locatifs" },
+            { icon: Building2, t: "Nettoyage commercial", d: "Bureaux, commerces, immeubles — 1 à 5 x / semaine", slug: "nettoyage-commercial" },
             { icon: Wrench, t: "Homme à tout faire", d: "Petits travaux et rénovations mineures", slug: "homme-a-tout-faire" },
             { icon: Leaf, t: "Plates-bandes", d: "Désherbage et entretien extérieur", slug: "entretien-plates-bandes" },
             { icon: Car, t: "Lavage auto", d: "Intérieur et extérieur", slug: "lavage-auto" },

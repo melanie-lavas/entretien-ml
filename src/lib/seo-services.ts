@@ -16,6 +16,39 @@ export type ServiceData = {
 
 export const SERVICES: ServiceData[] = [
   {
+    slug: "menage-apres-chantier",
+    title: "Ménage après chantier",
+    h1: "Ménage après chantier et après construction en Mauricie",
+    metaTitle: "Ménage après chantier Mauricie & Bécancour | M.L Excellence",
+    metaDescription:
+      "Nettoyage après construction et après rénovation à Gentilly, Bécancour, Nicolet et Trois-Rivières : poussière de chantier, finition complète, prêt à livrer. Soumission gratuite en 24 h.",
+    intro:
+      "Vous terminez une construction ou une rénovation ? M.L Excellence remet le chantier impeccable avant la livraison : enlèvement de la poussière fine, nettoyage des surfaces et des armoires, salles de bain prêtes à utiliser et planchers propres du premier coup. Nous travaillons avec les entrepreneurs et les propriétaires de Gentilly, Bécancour, Nicolet et Trois-Rivières, selon votre échéancier.",
+    keywords:
+      "ménage après chantier, nettoyage après construction Bécancour, ménage après rénovation Gentilly, nettoyage fin de chantier Mauricie, ménage avant livraison maison neuve",
+    includes: [
+      "Enlèvement de la poussière de construction (murs, plafonds, surfaces)",
+      "Nettoyage intérieur et extérieur des armoires et rangements",
+      "Cuisine et salles de bain complètes, prêtes à utiliser",
+      "Vitres, cadres et rails de fenêtres (intérieur)",
+      "Aspiration et lavage de tous les planchers",
+      "Dépoussiérage des luminaires, plinthes et bouches de ventilation",
+      "Retrait des résidus légers et des protections temporaires",
+    ],
+    benefits: [
+      { t: "Prêt à livrer", d: "Une finition propre qui met votre travail en valeur devant le client." },
+      { t: "Selon votre échéancier", d: "Intervention coordonnée avec la fin des travaux, même à court délai." },
+      { t: "Équipe assurée", d: "Responsabilité civile complète, preuve d’assurance sur demande." },
+      { t: "Un seul contact", d: "Vous parlez directement à Mélanie, du devis à la livraison." },
+    ],
+    faq: [
+      { q: "Où offrez-vous le ménage après chantier ?", a: "À Gentilly, Saint-Grégoire et dans tous les secteurs de Bécancour, ainsi qu’à Nicolet, Trois-Rivières et les environs — maisons neuves, rénovations et projets commerciaux." },
+      { q: "Qu’est-ce qui est inclus dans un ménage après chantier ?", a: "L’enlèvement de la poussière de construction, le nettoyage des armoires, de la cuisine et des salles de bain, les vitres intérieures et les planchers — jusqu’à ce que le bâtiment soit prêt à être livré ou habité." },
+      { q: "Quel est le délai pour une soumission ?", a: "La soumission est gratuite et vous la recevez en moins de 24 h. Indiquez-nous la superficie et la date de fin des travaux." },
+      { q: "Pouvez-vous intervenir rapidement en fin de chantier ?", a: "Oui, selon les disponibilités. Contactez-nous dès que votre date de fin de travaux est connue pour réserver votre place." },
+    ],
+  },
+  {
     slug: "entretien-immeubles-locatifs",
     title: "Entretien d’immeubles locatifs",
     h1: "Entretien d’immeubles locatifs en Mauricie",

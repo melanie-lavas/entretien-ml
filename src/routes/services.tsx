@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import logoAsset from "@/assets/ml-excellence-logo.png.asset.json";
-import { Home, Sparkles, Leaf, Car, Check, Building2, Mail, ArrowLeft, ShieldCheck } from "lucide-react";
+import { Home, Sparkles, Leaf, Car, Check, Building2, Mail, ArrowLeft, ShieldCheck, HardHat } from "lucide-react";
 
 type ServiceBlock = {
   icon: typeof Home;
@@ -14,6 +14,16 @@ type ServiceBlock = {
 };
 
 const SERVICES: ServiceBlock[] = [
+  {
+    icon: HardHat,
+    title: "Ménage après chantier",
+    intro: "Construction neuve ou rénovation terminée ? Nous enlevons la poussière de chantier et nettoyons jusqu’à la finition : armoires, cuisine, salles de bain, vitres intérieures et planchers — pour remettre un bâtiment impeccable, prêt à livrer ou à habiter. Service pour entrepreneurs et propriétaires à Gentilly, Bécancour, Nicolet et Trois-Rivières.",
+    includes: ["Poussière de construction (murs, plafonds, surfaces)", "Armoires et rangements, intérieur et extérieur", "Cuisine et salles de bain complètes", "Vitres, cadres et rails (intérieur)", "Planchers aspirés et lavés", "Plinthes, luminaires et bouches de ventilation dépoussiérés"],
+    residential: ["Maison neuve avant emménagement", "Après rénovation", "Agrandissement"],
+    commercial: ["Remise de chantier à l’entrepreneur", "Projets commerciaux", "Coordination avec l’échéancier"],
+    whyUs: [{ t: "Prêt à livrer", d: "Une finition qui met votre travail en valeur." }, { t: "Équipe assurée", d: "Responsabilité civile complète." }, { t: "Selon votre échéancier", d: "Intervention coordonnée avec la fin des travaux." }, { t: "Contact direct", d: "Vous parlez directement à Mélanie." }],
+    faq: [{ q: "Quel est le délai pour une soumission ?", a: "La soumission est gratuite et arrive en moins de 24 h. Indiquez la superficie et la date de fin des travaux." }, { q: "Desservez-vous les entrepreneurs de Gentilly et Bécancour ?", a: "Oui, c’est même un de nos secteurs prioritaires, avec Nicolet et Trois-Rivières." }],
+  },
   {
     icon: Building2,
     title: "Entretien d’immeubles locatifs",
