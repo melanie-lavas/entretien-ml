@@ -19,6 +19,7 @@ import {
   type ServiceAdvisorResult,
 } from "@/lib/service-advisor.functions";
 import { QuickLeadForm } from "@/components/quick-lead-form";
+import { sendLeadByEmail } from "@/lib/web3forms";
 
 const BASE = "https://mlentretien.com";
 const CONTACT_EMAIL = "info.mlexcellance@gmail.com";
@@ -390,7 +391,7 @@ const YesNo = ({
 function SoumissionPage() {
   const [form, setForm] = useState<FormState>(initialForm);
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [mailtoUrl, setMailtoUrl] = useState<string | null>(null);
+  const [sendState, setSendState] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [advisorDescription, setAdvisorDescription] = useState("");
   const [advisorResult, setAdvisorResult] = useState<ServiceAdvisorResult | null>(null);
   const [advisorError, setAdvisorError] = useState("");
@@ -515,8 +516,9 @@ function SoumissionPage() {
     return L.filter((x) => x !== null).join("\n");
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (sendState === "sending" || sendState === "sent") return;
     const result = soumissionSchema.safeParse(form);
     if (!result.success) {
       const fieldErrors: Record<string, string> = {};
@@ -533,13 +535,13 @@ function SoumissionPage() {
     }
     setErrors({});
     const d = result.data;
-    const subject = encodeURIComponent(
-      `Demande de soumission — ${d.typeResidence} — ${d.nom}`,
-    );
-    const body = encodeURIComponent(buildBody(d));
-    const url = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
-    setMailtoUrl(url);
-    window.location.href = url;
+    setSendState("sending");
+    const ok = await sendLeadByEmail({
+      subject: `Demande de soumission — ${d.typeResidence} — ${d.nom}`,
+      email: d.courriel,
+      Détails: buildBody(d),
+    });
+    setSendState(ok ? "sent" : "error");
   };
 
   const fieldClass = (k: string) =>
@@ -1147,31 +1149,45 @@ function SoumissionPage() {
 
               <button
                 type="submit"
-                className="w-full rounded-full py-4 font-bold text-primary-foreground text-lg transition hover:scale-[1.02]"
+                disabled={sendState === "sending" || sendState === "sent"}
+                className="w-full rounded-full py-4 font-bold text-primary-foreground text-lg transition hover:scale-[1.02] disabled:opacity-60 disabled:hover:scale-100"
                 style={{ background: "var(--gradient-hero)", boxShadow: "var(--shadow-glow)" }}
               >
-                Envoyer ma demande de soumission
+                {sendState === "sending"
+                  ? "Envoi en cours…"
+                  : sendState === "sent"
+                    ? "Demande envoyée !"
+                    : "Envoyer ma demande de soumission"}
               </button>
 
-              {mailtoUrl && (
-                <div className="rounded-xl border border-primary/40 bg-primary/5 p-4 text-sm text-center">
+              {sendState === "sent" && (
+                <div role="status" className="rounded-xl border border-primary/40 bg-primary/5 p-4 text-sm text-center">
                   <p className="font-medium">
-                    Votre logiciel de courriel devrait s'ouvrir avec votre questionnaire
-                    complété.
+                    Votre demande est bien envoyée ! Mélanie vous répond en moins de
+                    24 h.
                   </p>
                   <p className="mt-2 text-muted-foreground">
-                    S'il ne s'ouvre pas,{" "}
-                    <a href={mailtoUrl} className="text-primary underline font-medium">
-                      cliquez ici
-                    </a>{" "}
-                    ou écrivez directement à{" "}
+                    Pour une urgence, appelez le{" "}
+                    <a href="tel:+18199969022" className="text-primary underline font-medium">
+                      819-996-9022
+                    </a>
+                    .
+                  </p>
+                </div>
+              )}
+
+              {sendState === "error" && (
+                <div role="alert" className="rounded-xl border border-destructive/40 bg-destructive/5 p-4 text-sm text-center">
+                  <p className="font-medium">L'envoi n'a pas fonctionné.</p>
+                  <p className="mt-2 text-muted-foreground">
+                    Réessayez, ou écrivez directement à{" "}
                     <a
                       href={`mailto:${CONTACT_EMAIL}`}
                       className="text-primary underline font-medium break-all"
                     >
                       {CONTACT_EMAIL}
-                    </a>
-                    .
+                    </a>{" "}
+                    — ou appelez le 819-996-9022.
                   </p>
                 </div>
               )}
