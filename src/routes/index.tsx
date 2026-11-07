@@ -3,6 +3,7 @@ import { useState } from "react";
 import logoAsset from "@/assets/ml-excellence-logo.png.asset.json";
 import heroAsset from "@/assets/hero-immeubles.jpg.asset.json";
 import { QuickLeadForm } from "@/components/quick-lead-form";
+import { sendLeadByEmail } from "@/lib/web3forms";
 import {
   Sparkles,
   Home,
@@ -203,21 +204,30 @@ const FAQ = [
 function Index() {
   const [selected, setSelected] = useState<string[]>([]);
   const [form, setForm] = useState({ nom: "", tel: "", courriel: "", ville: "", message: "" });
+  const [sendState, setSendState] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   const toggle = (id: string) =>
     setSelected((s) => (s.includes(id) ? s.filter((x) => x !== id) : [...s, id]));
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (sendState === "sending" || sendState === "sent") return;
     const services = selected
       .map((id) => SERVICES.find((s) => s.id === id)?.label)
       .filter(Boolean)
       .join(", ");
-    const subject = encodeURIComponent("Demande de soumission — M.L Excellence");
-    const body = encodeURIComponent(
-      `Nom: ${form.nom}\nTéléphone: ${form.tel}\nCourriel: ${form.courriel}\nVille: ${form.ville}\n\nServices demandés:\n${services || "(aucun sélectionné)"}\n\nMessage:\n${form.message}`
-    );
-    window.location.href = `mailto:info.mlexcellance@gmail.com?subject=${subject}&body=${body}`;
+    setSendState("sending");
+    const ok = await sendLeadByEmail({
+      subject: "Demande de soumission — M.L Excellence (page d'accueil)",
+      ...(form.courriel ? { email: form.courriel } : {}),
+      Nom: form.nom,
+      Téléphone: form.tel,
+      Courriel: form.courriel,
+      Ville: form.ville,
+      "Services demandés": services || "(aucun sélectionné)",
+      Message: form.message,
+    });
+    setSendState(ok ? "sent" : "error");
   };
 
   return (
@@ -454,6 +464,21 @@ function Index() {
               Gratuit, sans engagement. Réponse en moins de 24 h.
             </p>
 
+            {sendState === "sent" ? (
+              <div role="status" className="mt-8 flex gap-3 rounded-xl border border-primary/40 bg-primary/5 p-5">
+                <Check className="h-6 w-6 shrink-0 text-primary" />
+                <div>
+                  <p className="font-semibold">Merci ! Votre demande est bien envoyée.</p>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    Mélanie vous répond en moins de 24 h. Pour une urgence, appelez le{" "}
+                    <a href="tel:+18199969022" className="font-semibold text-primary">
+                      819-996-9022
+                    </a>
+                    .
+                  </p>
+                </div>
+              </div>
+            ) : (
             <form onSubmit={handleSubmit} className="mt-8 space-y-6">
               <div>
                 <label className="block text-sm font-semibold mb-3">Quel(s) service(s) ?</label>
@@ -536,16 +561,23 @@ function Index() {
               />
               <button
                 type="submit"
-                className="w-full rounded-full py-4 font-bold text-primary-foreground text-lg transition hover:scale-[1.02]"
+                disabled={sendState === "sending"}
+                className="w-full rounded-full py-4 font-bold text-primary-foreground text-lg transition hover:scale-[1.02] disabled:opacity-60 disabled:hover:scale-100"
                 style={{ background: "var(--gradient-hero)", boxShadow: "var(--shadow-glow)" }}
               >
-                Envoyer ma demande
+                {sendState === "sending" ? "Envoi en cours…" : "Envoyer ma demande"}
               </button>
+              {sendState === "error" && (
+                <p role="alert" className="text-sm text-center text-destructive font-medium">
+                  L'envoi n'a pas fonctionné. Réessayez, ou appelez le 819-996-9022.
+                </p>
+              )}
               <p className="text-xs text-center text-muted-foreground">
                 Votre demande sera envoyée directement à Mélanie ·{" "}
                 <span className="whitespace-nowrap">info.mlexcellance@gmail.com</span>
               </p>
             </form>
+            )}
           </div>
         </div>
       </section>
