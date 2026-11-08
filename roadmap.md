@@ -1,3 +1,4 @@
+- [ ] Renforcer le ménage après construction à Gentilly et Saint-Léonard-d’Aston, relier les pages et vérifier les métadonnées et le sitemap.
 - [ ] Enregistrer et vérifier le formulaire rapide dans leads, conserver le questionnaire en appoint.
 - [ ] Ajouter la barre d'action mobile sur les pages publiques.
 - [ ] Mettre le ménage résidentiel en premier sur l'accueil.
