@@ -15,13 +15,13 @@ export const Route = createFileRoute("/menage/$city")({
     if (!loaderData) return { meta: [] };
     const c = loaderData;
     const url = `${BASE}/menage/${c.slug}`;
-    const title = `Ménage ${c.name} | M.L Excellence`;
-    const description = `Ménage après chantier et résidentiel à ${c.name} (${c.region}) : grand ménage, entretien récurrent. Équipe assurée, soumission gratuite.`;
+    const title = c.metaTitle ?? `Ménage ${c.name} | M.L Excellence`;
+    const description = c.metaDescription ?? `Ménage après chantier et résidentiel à ${c.name} (${c.region}) : grand ménage, entretien récurrent. Équipe assurée, soumission gratuite.`;
     return {
       meta: [
         { title },
         { name: "description", content: description },
-        { name: "keywords", content: `ménage ${c.name}, entretien ménager ${c.name}, ménage après chantier ${c.name}, femme de ménage ${c.name}, M.L Excellence ${c.name}` },
+        { name: "keywords", content: `ménage ${c.name}, entretien ménager ${c.name}, nettoyage après construction ${c.name}, ménage après rénovation ${c.name}, M.L Excellence ${c.name}` },
         { name: "geo.region", content: "CA-QC" },
         { name: "geo.placename", content: `${c.name}, ${c.region}, Québec` },
         { name: "geo.position", content: `${c.lat};${c.lng}` },
@@ -31,11 +31,9 @@ export const Route = createFileRoute("/menage/$city")({
         { property: "og:url", content: url },
         { property: "og:type", content: "website" },
         { property: "og:locale", content: "fr_CA" },
-        { property: "og:image", content: `${BASE}/og-image.jpg` },
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: title },
         { name: "twitter:description", content: description },
-        { name: "twitter:image", content: `${BASE}/og-image.jpg` },
       ],
       links: [{ rel: "canonical", href: url }],
       scripts: [
@@ -46,7 +44,7 @@ export const Route = createFileRoute("/menage/$city")({
             "@type": "BreadcrumbList",
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Accueil", item: `${BASE}/` },
-              { "@type": "ListItem", position: 2, name: "Villes desservies", item: `${BASE}/services` },
+              { "@type": "ListItem", position: 2, name: "Villes desservies", item: `${BASE}/zones` },
               { "@type": "ListItem", position: 3, name: c.name, item: url },
             ],
           }),
@@ -56,7 +54,7 @@ export const Route = createFileRoute("/menage/$city")({
           children: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            name: `Ménage après chantier et résidentiel à ${c.name}`,
+            name: c.h1 ?? `Ménage après chantier et résidentiel à ${c.name}`,
             serviceType: "Entretien ménager",
             provider: { "@id": `${BASE}/#business` },
             areaServed: { "@type": "City", name: c.name, address: { "@type": "PostalAddress", addressLocality: c.name, addressRegion: "QC", addressCountry: "CA" } },
@@ -126,14 +124,14 @@ function CityPage() {
       <section className="max-w-5xl mx-auto px-6 pt-8 pb-12">
         <nav aria-label="Fil d'Ariane" className="text-xs text-muted-foreground mb-4">
           <Link to="/" className="hover:text-foreground">Accueil</Link> ›{" "}
-          <Link to="/services" className="hover:text-foreground">Services</Link> ›{" "}
+          <Link to="/zones" className="hover:text-foreground">Zones desservies</Link> ›{" "}
           <span className="text-foreground font-medium">{c.name}</span>
         </nav>
         <p className="inline-flex items-center gap-2 rounded-full border border-border px-3 py-1 text-xs font-semibold text-muted-foreground">
           <MapPin className="h-3.5 w-3.5 text-primary" /> {c.region} · {c.name}
         </p>
         <h1 className="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight">
-          Ménage après chantier et résidentiel à{" "}
+          {c.h1 ? c.h1.replace(c.name, "") : "Ménage après chantier et résidentiel à "}
           <span className="bg-clip-text text-transparent" style={{ backgroundImage: "var(--gradient-hero)" }}>
             {c.name}
           </span>
@@ -177,7 +175,7 @@ function CityPage() {
       <section className="max-w-5xl mx-auto px-6 pb-12">
         <div className="rounded-3xl border border-border bg-card p-6 sm:p-8">
           <h2 className="text-xl font-bold mb-3">Secteurs desservis à {c.name}</h2>
-          <p className="text-muted-foreground mb-4">Nous nous déplaçons dans tous les quartiers, sans frais supplémentaires de déplacement à l'intérieur de la ville.</p>
+          <p className="text-muted-foreground mb-4">{c.travelNote ?? "Nous nous déplaçons dans tous les quartiers, sans frais supplémentaires de déplacement à l'intérieur de la ville."}</p>
           <ul className="flex flex-wrap gap-2">
             {c.neighborhoods.map((n: string) => (
               <li key={n} className="rounded-full border border-border px-3 py-1.5 text-sm bg-background">
@@ -268,7 +266,7 @@ function CityPage() {
 
       <footer className="text-center py-8 text-sm text-muted-foreground px-4">
         <p className="font-semibold text-foreground">M.L Excellence</p>
-        <p>Nicolet (QC) · Desserte : Bécancour et Nicolet · <a href="tel:+18199969022" className="hover:underline">819-996-9022</a></p>
+        <p>Nicolet (QC) · Desserte : Mauricie & Centre-du-Québec · <a href="tel:+18199969022" className="hover:underline">819-996-9022</a></p>
         <p className="mt-2">
           <a
             href="https://www.google.com/maps?cid=1541346873343242194"
@@ -279,7 +277,7 @@ function CityPage() {
             Voir sur Google · Avis & horaires
           </a>
         </p>
-        <p className="mt-3">© {new Date().getFullYear()} — Au service de Bécancour et Nicolet</p>
+        <p className="mt-3">© {new Date().getFullYear()} — M.L Excellence</p>
       </footer>
     </div>
   );

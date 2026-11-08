@@ -28,11 +28,9 @@ export const Route = createFileRoute("/services/$slug")({
         { property: "og:url", content: url },
         { property: "og:type", content: "website" },
         { property: "og:locale", content: "fr_CA" },
-        { property: "og:image", content: `${BASE}/og-image.jpg` },
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: s.metaTitle },
         { name: "twitter:description", content: s.metaDescription },
-        { name: "twitter:image", content: `${BASE}/og-image.jpg` },
       ],
       links: [{ rel: "canonical", href: url }],
       scripts: [
@@ -185,7 +183,7 @@ function ServiceDetailPage() {
                 params={{ city: c.slug }}
                 className="inline-flex items-center gap-1 rounded-full border border-border px-3 py-1.5 text-sm hover:bg-accent transition"
               >
-                {s.title.split(" ")[0]} à {c.name}
+                {s.slug === "menage-apres-chantier" ? "Après construction" : s.title} à {c.name}
               </Link>
             </li>
           ))}
