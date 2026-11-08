@@ -8,22 +8,21 @@ const PHONE_HREF = "tel:+18199969022";
 export const Route = createFileRoute("/zones")({
   head: () => ({
     meta: [
-      { title: "Zones desservies — Bécancour et Nicolet | M.L Excellence" },
+      { title: "Ménage Gentilly, Saint-Léonard-d’Aston & environs | M.L Excellence" },
       {
         name: "description",
         content:
-          "Ménage après chantier et résidentiel à Bécancour — Gentilly, Saint-Grégoire, Sainte-Angèle-de-Laval — et à Nicolet. Rappel rapide, réponse en moins de 24 h.",
+          "Ménage après construction à Gentilly et Saint-Léonard-d’Aston, entretien résidentiel à Bécancour et Nicolet. Consultez les secteurs et demandez une soumission.",
       },
-      { property: "og:title", content: "Zones desservies — Bécancour et Nicolet" },
+      { property: "og:title", content: "Secteurs desservis — M.L Excellence" },
       {
         property: "og:description",
         content:
-          "M.L Excellence dessert Bécancour et ses secteurs, ainsi que Nicolet. Soumission gratuite, réponse en moins de 24 h.",
+          "Gentilly, Saint-Léonard-d’Aston, Bécancour et Nicolet : ménage après construction et résidentiel. Soumission gratuite.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: "https://mlentretien.com/og-image.jpg" },
+      { property: "og:url", content: "https://mlentretien.com/zones" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: "https://mlentretien.com/og-image.jpg" },
     ],
     links: [{ rel: "canonical", href: "https://mlentretien.com/zones" }],
     scripts: [
@@ -94,15 +93,16 @@ function ZonesPage() {
 
       <main className="max-w-5xl mx-auto px-5 py-10">
         <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-          Bécancour · Nicolet
+          Gentilly · Saint-Léonard-d’Aston · Bécancour · Nicolet
         </p>
         <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight">
-          Zones desservies — entretien ménager à Bécancour et Nicolet
+          Zones desservies — ménage après construction et résidentiel
         </h1>
         <p className="mt-4 text-muted-foreground max-w-2xl">
           Basés à Nicolet, nous desservons Bécancour et tous ses secteurs — Gentilly,
           Saint-Grégoire, Sainte-Angèle-de-Laval, Sainte-Gertrude et Précieux-Sang — ainsi que
-          Nicolet. Ménage après chantier et ménage résidentiel, une fois ou en contrat récurrent.
+          Nicolet et Saint-Léonard-d’Aston. Ménage après construction ou rénovation, et ménage résidentiel,
+          une fois ou en contrat récurrent. Pour les alentours, précisez votre municipalité afin de confirmer la disponibilité.
         </p>
 
         {/* Rappel rapide */}
@@ -169,7 +169,7 @@ function ZonesPage() {
             <ShieldCheck className="h-5 w-5 text-primary" /> Votre secteur n'est pas listé ?
           </h2>
           <p className="mt-2 text-sm text-muted-foreground">
-            Nous couvrons l'ensemble de la ville de Bécancour et Nicolet. Un doute pour votre
+            Nous desservons Gentilly, Bécancour, Nicolet et Saint-Léonard-d’Aston. Un doute pour votre
             adresse ? Écrivez-nous : si c'est dans notre secteur, on s'y rend.
           </p>
           <a
