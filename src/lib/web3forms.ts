@@ -10,6 +10,7 @@ export async function sendLeadByEmail(
   try {
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
+      signal: AbortSignal.timeout(8000),
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",

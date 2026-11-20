@@ -83,9 +83,9 @@ export const Route = createFileRoute("/")({
           openingHoursSpecification: [
             {
               "@type": "OpeningHoursSpecification",
-              dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-              opens: "08:00",
-              closes: "18:00",
+              dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+              opens: "00:00",
+              closes: "23:59",
             },
           ],
           contactPoint: [{
@@ -109,11 +109,6 @@ export const Route = createFileRoute("/")({
             "https://www.google.com/maps?cid=1541346873343242194",
             // TODO: ajouter ici vos pages Facebook/Instagram
           ],
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: "5.0",
-            reviewCount: "24",
-          },
         }),
       },
       {

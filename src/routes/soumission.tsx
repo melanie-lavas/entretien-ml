@@ -54,11 +54,11 @@ const FAQ = [
 export const Route = createFileRoute("/soumission")({
   head: () => ({
     meta: [
-      { title: "Soumission gratuite Bécancour | M.L Excellence" },
+      { title: "Soumission ménage Gentilly & Bécancour | M.L Excellence" },
       {
         name: "description",
         content:
-          "Questionnaire de soumission détaillé : entretien régulier ou grand ménage initial, services, fréquence, produits. Réponse en moins de 24 h, sans engagement.",
+          "Demande rapide pour ménage résidentiel ou après construction à Gentilly, Saint-Grégoire, Saint-Léonard-d’Aston et Nicolet. Soumission gratuite en moins de 24 h.",
       },
       {
         name: "keywords",
@@ -69,7 +69,7 @@ export const Route = createFileRoute("/soumission")({
       {
         property: "og:description",
         content:
-          "Questionnaire complet pour une soumission précise. Réponse en moins de 24 h. Sans engagement.",
+          "Ménage résidentiel ou après construction : envoyez votre demande rapide sans ouvrir votre application courriel. Gentilly, Bécancour, Nicolet et environs.",
       },
       { property: "og:url", content: `${BASE}/soumission` },
       { property: "og:type", content: "website" },

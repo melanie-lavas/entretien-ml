@@ -27,10 +27,9 @@ export function QuickLeadForm({ sourcePage = "/soumission" }: { sourcePage?: "/"
     setPending(true); setErrors({}); setFailure("");
     try {
       const v = parsed.data;
-      let saved = false;
-      try { await send({ data: v }); saved = true; }
-      catch { /* La base de données n'a pas répondu : on tente quand même le courriel. */ }
-      const emailed = await sendLeadByEmail({
+      await send({ data: v });
+      setSuccess(true);
+      await sendLeadByEmail({
         subject: `Nouvelle demande (formulaire rapide) — ${v.nom} — ${v.secteur}`,
         ...(v.courriel ? { email: v.courriel } : {}),
         Nom: v.nom,
@@ -42,9 +41,8 @@ export function QuickLeadForm({ sourcePage = "/soumission" }: { sourcePage?: "/"
         Message: v.message || "(aucun)",
         Page: v.source_page,
       });
-      if (saved || emailed) setSuccess(true);
-      else setFailure("Votre demande n’a pas été enregistrée. Réessayez ou appelez le 819-996-9022.");
     }
+    catch { setFailure("Votre demande n’a pas été enregistrée. Réessayez ou appelez le 819-996-9022."); }
     finally { locked.current = false; setPending(false); }
   }
   return <section aria-label="Demande rapide" className="mx-auto max-w-3xl px-4 py-8 sm:px-6">
