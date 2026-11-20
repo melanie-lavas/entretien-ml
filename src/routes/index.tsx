@@ -107,7 +107,7 @@ export const Route = createFileRoute("/")({
           },
           sameAs: [
             "https://www.google.com/maps?cid=1541346873343242194",
-            // TODO: ajouter ici vos pages Facebook/Instagram
+            "https://www.instagram.com/melanie.2020.0/",
           ],
         }),
       },
@@ -617,6 +617,15 @@ function Index() {
             className="inline-flex items-center gap-1.5 text-primary hover:underline font-medium"
           >
             Voir sur Google · Avis & horaires
+          </a>
+          {" · "}
+          <a
+            href="https://www.instagram.com/melanie.2020.0/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-primary hover:underline font-medium"
+          >
+            Suivez-nous sur Instagram
           </a>
         </p>
         <p className="mt-4 text-xs">© {new Date().getFullYear()} M.L Excellence — Tous droits réservés</p>

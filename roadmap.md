@@ -1,5 +1,5 @@
 - [x] Confirmer l’enregistrement des soumissions rapides et corriger la confirmation bloquée par le courriel; vérifier les liens Google et les métadonnées.
-- [ ] Relier Instagram : en attente du lien ou nom @ de Mélanie.
+- [x] Relier Instagram (@melanie.2020.0) au pied de page et aux données structurées.
 - [ ] Confirmer les avis courriel : domaine d’envoi non configuré et réception Web3Forms non confirmée.
 - [ ] Renforcer le ménage après construction à Gentilly et Saint-Léonard-d’Aston, relier les pages et vérifier les métadonnées et le sitemap.
 - [ ] Enregistrer et vérifier le formulaire rapide dans leads, conserver le questionnaire en appoint.
