@@ -1,7 +1,7 @@
 import { z } from "zod";
 
-export const LEAD_SECTEURS = ["Gentilly", "Saint-Grégoire", "Bécancour (autre secteur)", "Nicolet", "Autre secteur"] as const;
-export const LEAD_BESOINS = ["Ménage après chantier / construction", "Entretien régulier résidentiel", "Grand ménage", "Ménage avant vente / fin de bail", "Autre"] as const;
+export const LEAD_SECTEURS = ["Nicolet", "Saint-Grégoire", "Bécancour (autre secteur)", "Saint-Léonard-d’Aston", "Saint-Célestin", "Saint-Pierre-les-Becquets", "Saint-Sylvère", "Autre secteur"] as const;
+export const LEAD_BESOINS = ["Ménage après chantier / construction", "Entretien régulier résidentiel", "Grand ménage", "Ménage avant vente / fin de bail", "Commercial", "Autre"] as const;
 export const LEAD_FREQUENCES = ["Chaque semaine", "Aux 2 semaines", "Chaque mois", "Une seule fois", "À déterminer"] as const;
 export const leadSchema = z.object({
   nom: z.string().trim().min(2, "Indiquez votre nom.").max(120),

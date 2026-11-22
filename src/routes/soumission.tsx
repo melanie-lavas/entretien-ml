@@ -43,7 +43,7 @@ const FAQ = [
   },
   {
     q: "Quels secteurs desservez-vous ?",
-    a: "Bécancour et tous ses secteurs — Gentilly, Saint-Grégoire, Sainte-Angèle-de-Laval, Sainte-Gertrude, Précieux-Sang — ainsi que Nicolet.",
+    a: "Bécancour et tous ses secteurs — Saint-Grégoire, Sainte-Angèle-de-Laval, Sainte-Gertrude, Précieux-Sang — ainsi que Nicolet.",
   },
   {
     q: "Êtes-vous assurés ?",
@@ -54,22 +54,22 @@ const FAQ = [
 export const Route = createFileRoute("/soumission")({
   head: () => ({
     meta: [
-      { title: "Soumission ménage Gentilly & Bécancour | M.L Excellence" },
+      { title: "Soumission ménage Mauricie & Centre-du-Québec | M.L Excellence" },
       {
         name: "description",
         content:
-          "Demande rapide pour ménage résidentiel ou après construction à Gentilly, Saint-Grégoire, Saint-Léonard-d’Aston et Nicolet. Soumission gratuite en moins de 24 h.",
+          "Soumission gratuite pour ménage résidentiel ou après construction : Nicolet, Bécancour et environs en Mauricie et au Centre-du-Québec. Réponse en 24 h.",
       },
       {
         name: "keywords",
         content:
-          "soumission ménage Bécancour, devis nettoyage Gentilly, grand ménage initial, entretien régulier Nicolet, ménage après chantier Bécancour",
+          "soumission ménage Bécancour, devis nettoyage grand ménage initial, entretien régulier Nicolet, ménage après chantier Bécancour",
       },
       { property: "og:title", content: "Soumission gratuite — M.L Excellence" },
       {
         property: "og:description",
         content:
-          "Ménage résidentiel ou après construction : envoyez votre demande rapide sans ouvrir votre application courriel. Gentilly, Bécancour, Nicolet et environs.",
+          "Ménage résidentiel ou après construction : envoyez votre demande rapide sans ouvrir votre application courriel. Bécancour, Nicolet et environs.",
       },
       { property: "og:url", content: `${BASE}/soumission` },
       { property: "og:type", content: "website" },
@@ -1224,7 +1224,7 @@ function SoumissionPage() {
             <MapPin className="h-5 w-5 text-primary shrink-0" />
             <div>
               <p className="font-semibold">Zone de service</p>
-              <p className="text-muted-foreground">Bécancour, Gentilly, Saint-Grégoire et Nicolet</p>
+              <p className="text-muted-foreground">Mauricie et Centre-du-Québec — autres secteurs sur demande</p>
             </div>
           </div>
         </div>

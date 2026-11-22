@@ -5,8 +5,8 @@ export type CityData = {
   slug: string;
   name: string;
   region: string;
-  lat: number;
-  lng: number;
+  lat?: number;
+  lng?: number;
   intro: string;
   neighborhoods: string[];
   metaTitle?: string;
@@ -28,7 +28,6 @@ export const CITIES: CityData[] = [  {
     intro:
       "Vous cherchez une entreprise d'entretien ménager à Bécancour ? M.L Excellence est basée à Nicolet, à quelques minutes de vos secteurs : nous sommes chez vous rapidement, sans frais de déplacement. Ménage résidentiel, ménage après chantier et entretien régulier — équipe assurée, produits fournis, soumission gratuite en moins de 24 h.",
     neighborhoods: [
-      "Gentilly",
       "Sainte-Angèle-de-Laval",
       "Saint-Grégoire",
       "Précieux-Sang",
@@ -38,14 +37,14 @@ export const CITIES: CityData[] = [  {
       "Wôlinak",
     ],
     longform: [
-      "Notre point de service est à Nicolet, à moins de 15 minutes de Saint-Grégoire et à environ 25 minutes de Gentilly. Nous desservons les secteurs de Bécancour sans frais de déplacement.",
+      "Notre point de service est à Nicolet, à moins de 15 minutes de Saint-Grégoire. Nous desservons les secteurs de Bécancour sans frais de déplacement.",
       "Côté après chantier, nous nettoyons les constructions neuves et les rénovations — résidentielles comme commerciales, y compris dans le parc industriel et portuaire de Bécancour — jusqu'à la finition, prêtes à livrer. Nous développons présentement ce service à Bécancour pour l'horaire automne-hiver 2026-2027 : entrepreneurs, réservez votre place.",
       "Côté résidentiel, nous faisons le grand ménage initial, l'entretien récurrent (hebdomadaire, aux 2 semaines ou mensuel), les fins de bail et les ménages avant la vente d'une propriété.",
     ],
     faq: [
       {
         q: "Desservez-vous tous les secteurs de Bécancour ?",
-        a: "Oui : Gentilly, Sainte-Angèle-de-Laval, Saint-Grégoire, Précieux-Sang, Sainte-Gertrude, le secteur Bécancour ainsi que le parc industriel et portuaire. Aucun frais de déplacement à l'intérieur de la ville.",
+        a: "Oui : Sainte-Angèle-de-Laval, Saint-Grégoire, Précieux-Sang, Sainte-Gertrude, le secteur Bécancour ainsi que le parc industriel et portuaire. Aucun frais de déplacement à l'intérieur de la ville.",
       },
       {
         q: "Quel est le prix d'un ménage à Bécancour ?",
@@ -58,51 +57,6 @@ export const CITIES: CityData[] = [  {
       {
         q: "En combien de temps pouvez-vous commencer ?",
         a: "Bécancour étant voisine de notre point de service à Nicolet, nous pouvons généralement débuter dans la même semaine selon les disponibilités.",
-      },
-    ],
-  },
-  {
-    slug: "gentilly",
-    name: "Gentilly",
-    metaTitle: "Ménage après construction à Gentilly | M.L Excellence",
-    metaDescription: "Nettoyage après construction et rénovation à Gentilly : poussière, armoires, vitres intérieures et planchers. Soumission gratuite avec M.L Excellence.",
-    h1: "Ménage après construction et rénovation à Gentilly",
-    region: "Centre-du-Québec",
-    lat: 46.3967,
-    lng: -72.2683,
-    intro:
-      "Votre maison neuve ou votre rénovation à Gentilly est presque terminée ? M.L Excellence offre le ménage après construction avant l’emménagement ou la remise des clés : poussière de chantier, armoires, cuisine, salles de bain, vitres intérieures et planchers. Basée à Nicolet, à environ 25 minutes, notre équipe dessert Gentilly sans frais de déplacement. Le ménage résidentiel régulier et le grand ménage restent également disponibles.",
-    neighborhoods: ["Centre du village", "Secteur résidentiel", "Secteur rural", "Bord du fleuve"],
-    longform: [
-      "Pour votre nettoyage de fin de chantier à Gentilly, précisez les pièces rénovées, la superficie à nettoyer et l’état des travaux. Un nettoyage après construction demande une attention particulière à la poussière fine sur les surfaces, les plinthes et les rangements : les tâches sont définies dans votre soumission, selon votre projet.",
-      "Pour coordonner la visite avant la livraison ou l’emménagement, indiquez la date prévue de fin des travaux, votre échéance et les disponibilités d’accès. Nous confirmons les possibilités d’intervention avec vous; le prix est établi selon le service, la superficie et l’état des lieux.",
-      "Gentilly est un secteur que nous développons activement côté résidentiel : nous y ouvrons présentement des places en entretien régulier. En vous joignant tôt à notre route de Gentilly, vous réservez votre plage horaire récurrente — hebdomadaire, aux 2 semaines ou mensuelle — avec la même équipe à chaque visite.",
-      "Nos services à Gentilly incluent le grand ménage en profondeur, l'entretien ménager récurrent, les fins de bail et les ménages avant la vente d'une propriété. Nous offrons aussi le ménage après chantier pour les constructions neuves et les rénovations du secteur.",
-    ],
-    faq: [
-      {
-        q: "Faites-vous le ménage après construction à Gentilly ?",
-        a: "Oui, pour une maison neuve, une rénovation ou un agrandissement. Les tâches comprennent notamment le dépoussiérage, les armoires, la cuisine, les salles de bain, les vitres intérieures et les planchers, selon la soumission.",
-      },
-      {
-        q: "Que préciser pour une soumission après chantier à Gentilly ?",
-        a: "Indiquez Gentilly, la superficie, les pièces concernées, l’état du chantier, la date de fin des travaux et les disponibilités d’accès. La soumission est gratuite et la réponse arrive en moins de 24 h.",
-      },
-      {
-        q: "Desservez-vous tout le secteur de Gentilly ?",
-        a: "Oui : le village, les secteurs résidentiels et ruraux ainsi que le bord du fleuve, sans frais de déplacement à l'intérieur du secteur.",
-      },
-      {
-        q: "Quel est le prix d'un ménage résidentiel à Gentilly ?",
-        a: "Le prix est établi selon la superficie, les services demandés et la fréquence. La soumission est gratuite, ferme et sans engagement, en moins de 24 h.",
-      },
-      {
-        q: "Puis-je réserver une place en entretien régulier à Gentilly ?",
-        a: "Oui, nous ouvrons présentement des places en entretien récurrent à Gentilly. Contactez-nous pour réserver votre plage horaire hebdomadaire, aux 2 semaines ou mensuelle.",
-      },
-      {
-        q: "En combien de temps pouvez-vous commencer ?",
-        a: "Selon les disponibilités de la route de Gentilly, nous pouvons généralement débuter dans la même semaine ou la semaine suivante.",
       },
     ],
   },
@@ -171,6 +125,69 @@ export const CITIES: CityData[] = [  {
     intro:
       "Basée à Nicolet, M.L Excellence est votre entreprise de ménage de proximité. Service rapide, équipe locale et tarifs justes pour le résidentiel comme pour l'après chantier. Nous connaissons votre coin — vous nous voyez sur la route presque tous les jours.",
     neighborhoods: ["Centre-ville Nicolet", "Nicolet-Sud", "Port-Saint-François"],
+  },
+  {
+    slug: "saint-celestin",
+    name: "Saint-Célestin",
+    region: "Centre-du-Québec",
+    metaTitle: "Ménage à Saint-Célestin | M.L Excellence",
+    metaDescription: "Entretien ménager à Saint-Célestin : ménage régulier, grand ménage et nettoyage après rénovation. Décrivez votre besoin pour une soumission gratuite.",
+    h1: "Ménage résidentiel et après rénovation à Saint-Célestin",
+    intro: "À Saint-Célestin, M.L Excellence vous accompagne pour entretenir votre maison, préparer un déménagement ou nettoyer après des travaux. Choisissez une visite ponctuelle ou un entretien régulier adapté à vos pièces et à votre rythme. Notre point de service est à Nicolet : indiquez votre secteur et les disponibilités d’accès pour organiser votre ménage.",
+    neighborhoods: ["Saint-Célestin", "Village et municipalité — précisez votre secteur"],
+    travelNote: "La disponibilité et les modalités de déplacement à Saint-Célestin sont confirmées dans votre soumission.",
+    longform: [
+      "Pour un entretien régulier à Saint-Célestin, précisez les pièces à entretenir, la fréquence souhaitée — chaque semaine, aux deux semaines ou chaque mois — et vos priorités. Cuisine, salles de bain, dépoussiérage et planchers : les tâches sont définies selon votre résidence.",
+      "Vous préparez une vente ou un changement de locataire ? Un grand ménage peut être demandé en une seule visite. Ajoutez la date de remise des clés et les options souhaitées, comme l’intérieur des armoires, du réfrigérateur ou du four.",
+      "Après une rénovation, indiquez les pièces touchées et l’état des travaux. Nous définissons le nettoyage de la poussière, des surfaces et des planchers avant de confirmer l’intervention.",
+    ],
+    faq: [
+      { q: "Comment demander un ménage à Saint-Célestin ?", a: "Choisissez Saint-Célestin dans le formulaire rapide et indiquez votre téléphone, le besoin et la fréquence. La soumission est gratuite et Mélanie répond en moins de 24 h." },
+      { q: "Puis-je demander un grand ménage sans contrat ?", a: "Oui. Sélectionnez Grand ménage et Une seule fois, puis précisez les pièces et les tâches souhaitées." },
+      { q: "Le déplacement est-il inclus ?", a: "Les modalités de déplacement et les disponibilités sont précisées dans votre soumission, selon votre secteur exact." },
+    ],
+  },
+  {
+    slug: "saint-pierre-les-becquets",
+    name: "Saint-Pierre-les-Becquets",
+    region: "Centre-du-Québec",
+    metaTitle: "Ménage Saint-Pierre-les-Becquets | M.L Excellence",
+    metaDescription: "Ménage résidentiel et après construction à Saint-Pierre-les-Becquets. Entretien régulier, grand ménage ou avant emménagement. Soumission gratuite.",
+    h1: "Ménage et nettoyage après construction à Saint-Pierre-les-Becquets",
+    intro: "Une maison à entretenir ou un chantier à terminer à Saint-Pierre-les-Becquets ? M.L Excellence propose le ménage résidentiel et le nettoyage après construction ou rénovation. Présentez votre projet, les pièces à nettoyer et votre échéance pour recevoir une soumission adaptée, sans prix imposé à l’avance.",
+    neighborhoods: ["Saint-Pierre-les-Becquets", "Environs — disponibilité à confirmer"],
+    travelNote: "Précisez votre emplacement à Saint-Pierre-les-Becquets; l’horaire et le déplacement sont confirmés avant l’intervention.",
+    longform: [
+      "Pour préparer l’emménagement dans une construction neuve, décrivez l’état du chantier et la date prévue de fin des travaux. Le nettoyage peut comprendre les surfaces, les armoires et rangements, la cuisine, les salles de bain, les vitres intérieures et les planchers, selon la soumission.",
+      "Pour votre résidence à Saint-Pierre-les-Becquets, choisissez un grand ménage ponctuel ou un entretien récurrent. Mentionnez la superficie, le nombre de pièces et les surfaces nécessitant une attention particulière afin de définir le mandat.",
+      "Les entreprises de Saint-Pierre-les-Becquets peuvent aussi demander une soumission commerciale. Notre offre commerciale couvre le Québec; chaque mandat est organisé selon l’accès aux locaux, la fréquence et les disponibilités.",
+    ],
+    faq: [
+      { q: "Faites-vous le ménage après construction à Saint-Pierre-les-Becquets ?", a: "Oui. Indiquez la superficie, les travaux réalisés, les pièces concernées et la date prévue de livraison pour définir les tâches et l’horaire." },
+      { q: "Quelles informations fournir pour un entretien résidentiel ?", a: "Précisez le type de logement, les pièces, la fréquence souhaitée et les disponibilités d’accès. Les options comme le four ou les armoires intérieures doivent être indiquées." },
+      { q: "Comment le prix est-il établi ?", a: "Le prix dépend du service, de la superficie, de l’état des lieux et de la fréquence. Les modalités de déplacement sont confirmées avec votre soumission gratuite." },
+    ],
+  },
+  {
+    slug: "saint-sylvere",
+    name: "Saint-Sylvère",
+    region: "Centre-du-Québec",
+    metaTitle: "Entretien ménager Saint-Sylvère | M.L Excellence",
+    metaDescription: "Ménage à Saint-Sylvère : entretien résidentiel, grand ménage et nettoyage après travaux. Fréquence et tâches sur mesure. Demandez une soumission gratuite.",
+    h1: "Entretien ménager résidentiel à Saint-Sylvère",
+    intro: "À Saint-Sylvère, confiez votre entretien résidentiel à M.L Excellence pour un ménage ponctuel ou régulier. Cuisine, salles de bain, poussière et planchers : nous définissons les tâches avec vous. Un grand ménage avant une vente, un déménagement ou après une rénovation peut aussi être demandé.",
+    neighborhoods: ["Saint-Sylvère", "Environs — disponibilité à confirmer"],
+    travelNote: "Pour Saint-Sylvère, indiquez votre secteur exact. La disponibilité et les modalités de déplacement sont confirmées dans la soumission.",
+    longform: [
+      "Un entretien aux deux semaines peut être demandé pour conserver une maison propre entre les visites. Une fréquence hebdomadaire ou mensuelle est aussi possible : expliquez vos priorités pour que le mandat corresponde à votre quotidien.",
+      "Si votre maison nécessite une remise à niveau, choisissez un grand ménage initial. Décrivez les zones à traiter et les options souhaitées; un entretien régulier peut ensuite être organisé selon les disponibilités.",
+      "Après des travaux à Saint-Sylvère, le nettoyage est défini selon les pièces touchées par la poussière et la finition. Ajoutez la date de fin des travaux et les accès pour préparer une soumission après chantier.",
+    ],
+    faq: [
+      { q: "Offrez-vous le ménage régulier à Saint-Sylvère ?", a: "Oui. Choisissez l’entretien régulier résidentiel et votre fréquence dans le formulaire. Mélanie confirme les disponibilités avec vous." },
+      { q: "Pouvez-vous nettoyer avant un déménagement ?", a: "Oui. Choisissez Ménage avant vente / fin de bail et précisez la date de départ ou d’emménagement ainsi que les pièces à nettoyer." },
+      { q: "Est-ce possible de demander un nettoyage après rénovation ?", a: "Oui. Précisez les travaux réalisés, la superficie et les zones touchées par la poussière pour recevoir une soumission adaptée." },
+    ],
   }
 ];
 

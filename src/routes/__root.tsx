@@ -80,7 +80,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "M.L Excellence — Services de propreté à Bécancour" },
-      { name: "description", content: "M.L Excellence : ménage après chantier et ménage résidentiel à Bécancour, Gentilly, Saint-Grégoire et Nicolet. Soumission gratuite en 30 secondes." },
+      { name: "description", content: "M.L Excellence : ménage après chantier et ménage résidentiel à Bécancour, Saint-Grégoire et Nicolet. Soumission gratuite en 30 secondes." },
       { name: "author", content: "M.L Excellence" },
       { name: "robots", content: "index, follow" },
       { name: "google-site-verification", content: "T3u9eZOVcoxuwC2SBzXGPISfXTwSDDwJJoRECsX08FE" },

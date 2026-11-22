@@ -16,12 +16,12 @@ type ServiceBlock = {
 const SERVICES: ServiceBlock[] = [  {
     icon: HardHat,
     title: "Ménage après chantier",
-    intro: "Construction neuve ou rénovation terminée ? Nous enlevons la poussière de chantier et nettoyons jusqu’à la finition : armoires, cuisine, salles de bain, vitres intérieures et planchers — pour remettre un bâtiment impeccable, prêt à livrer ou à habiter. Service pour entrepreneurs et propriétaires à Gentilly, Bécancour et Nicolet.",
+    intro: "Construction neuve ou rénovation terminée ? Nous enlevons la poussière de chantier et nettoyons jusqu’à la finition : armoires, cuisine, salles de bain, vitres intérieures et planchers — pour remettre un bâtiment impeccable, prêt à livrer ou à habiter. Service pour entrepreneurs et propriétaires à Bécancour et Nicolet.",
     includes: ["Poussière de construction (murs, plafonds, surfaces)", "Armoires et rangements, intérieur et extérieur", "Cuisine et salles de bain complètes", "Vitres, cadres et rails (intérieur)", "Planchers aspirés et lavés", "Plinthes, luminaires et bouches de ventilation dépoussiérés"],
     residential: ["Maison neuve avant emménagement", "Après rénovation", "Agrandissement"],
     commercial: ["Remise de chantier à l’entrepreneur", "Projets commerciaux", "Coordination avec l’échéancier"],
     whyUs: [{ t: "Prêt à livrer", d: "Une finition qui met votre travail en valeur." }, { t: "Équipe assurée", d: "Responsabilité civile complète." }, { t: "Selon votre échéancier", d: "Intervention coordonnée avec la fin des travaux." }, { t: "Contact direct", d: "Vous parlez directement à Mélanie." }],
-    faq: [{ q: "Quel est le délai pour une soumission ?", a: "La soumission est gratuite et arrive en moins de 24 h. Indiquez la superficie et la date de fin des travaux." }, { q: "Desservez-vous les entrepreneurs de Gentilly et Bécancour ?", a: "Oui, c’est même un de nos secteurs prioritaires, avec Nicolet." }],
+    faq: [{ q: "Quel est le délai pour une soumission ?", a: "La soumission est gratuite et arrive en moins de 24 h. Indiquez la superficie et la date de fin des travaux." }, { q: "Dans quels secteurs nettoyez-vous les chantiers ?", a: "Nous intervenons à Nicolet, Bécancour et Saint-Léonard-d’Aston. Pour les autres municipalités de la Mauricie et du Centre-du-Québec, la disponibilité et le déplacement sont confirmés dans votre soumission." }],
   },
   {
     icon: Home,
@@ -84,14 +84,14 @@ const ALL_FAQ = SERVICES.flatMap((s) => s.faq);
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services de ménage Bécancour & Nicolet | M.L Excellence" },
+      { title: "Services de ménage Mauricie & Centre-du-Québec | M.L Excellence" },
       {
         name: "description",
         content:
           "Services M.L Excellence à Bécancour et Nicolet : ménage après chantier et ménage résidentiel. Soumission gratuite.",
       },
       { name: "geo.region", content: "CA-QC" },
-      { name: "geo.placename", content: "Bécancour, Gentilly, Nicolet" },
+      { name: "geo.placename", content: "Bécancour, Nicolet" },
       { property: "og:title", content: "Services de ménage à Bécancour — M.L Excellence" },
       {
         property: "og:description",
@@ -134,8 +134,7 @@ export const Route = createFileRoute("/services")({
               provider: { "@id": "https://mlentretien.com/#business" },
               areaServed: [
                 { "@type": "City", name: "Bécancour" },
-                { "@type": "City", name: "Gentilly" },
-                { "@type": "City", name: "Nicolet" },
+                    { "@type": "City", name: "Nicolet" },
               ],
             },
           })),

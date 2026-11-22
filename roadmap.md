@@ -1,9 +1,12 @@
 - [x] Confirmer l’enregistrement des soumissions rapides et corriger la confirmation bloquée par le courriel; vérifier les liens Google et les métadonnées.
 - [x] Relier Instagram (@melanie.2020.0) au pied de page et aux données structurées.
 - [ ] Confirmer les avis courriel : domaine d’envoi non configuré et réception Web3Forms non confirmée.
-- [ ] Renforcer le ménage après construction à Gentilly et Saint-Léonard-d’Aston, relier les pages et vérifier les métadonnées et le sitemap.
+- [ ] Renforcer le ménage après construction à Saint-Léonard-d’Aston et environs, relier les pages et vérifier les métadonnées et le sitemap.
 - [ ] Enregistrer et vérifier le formulaire rapide dans leads, conserver le questionnaire en appoint.
 - [ ] Ajouter la barre d'action mobile sur les pages publiques.
 - [ ] Mettre le ménage résidentiel en premier sur l'accueil.
-- [ ] Ajouter Saint-Grégoire et Gentilly, leurs liens et vérifier le sitemap.
+- [ ] Vérifier les pages locales et leurs liens dans le sitemap.
 - [ ] Vérifier les demandes, la confidentialité et les affichages mobile et ordinateur.
+- [ ] Retirer Gentilly du site, élargir la présentation régionale et vérifier les métadonnées, liens et sitemap.
+- [x] Confirmer les nouvelles villes à desservir avec Mélanie.
+- [ ] Ajouter Saint-Célestin, Saint-Pierre-les-Becquets et Saint-Sylvère et présenter le commercial partout au Québec.

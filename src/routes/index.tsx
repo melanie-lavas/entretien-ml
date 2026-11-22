@@ -23,27 +23,27 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Ménage après construction & résidentiel | M.L Excellence" },
+      { title: "Ménage résidentiel Mauricie & Centre-du-Québec | M.L Excellence" },
       {
         name: "description",
         content:
-          "Ménage après construction à Gentilly, Saint-Léonard-d’Aston et Bécancour. Ménage résidentiel à Nicolet et environs. Soumission gratuite en 24 h.",
+          "Ménage résidentiel et nettoyage après construction en Mauricie et au Centre-du-Québec. Nicolet, Bécancour et environs. Soumission gratuite en 24 h.",
       },
-      { name: "keywords", content: "ménage après chantier Bécancour, nettoyage après construction Gentilly, ménage résidentiel Bécancour, femme de ménage Nicolet, grand ménage Saint-Grégoire, entretien ménager résidentiel" },
+      { name: "keywords", content: "ménage après chantier Bécancour, nettoyage après construction ménage résidentiel Bécancour, femme de ménage Nicolet, grand ménage Saint-Grégoire, entretien ménager résidentiel" },
       { name: "geo.region", content: "CA-QC" },
-      { name: "geo.placename", content: "Gentilly, Saint-Léonard-d’Aston, Bécancour, Nicolet" },
-      { property: "og:title", content: "M.L Excellence — Ménage après construction et résidentiel" },
+      { name: "geo.placename", content: "Saint-Léonard-d’Aston, Bécancour, Nicolet" },
+      { property: "og:title", content: "M.L Excellence — Ménage résidentiel et après construction" },
       {
         property: "og:description",
         content:
-          "Nettoyage après construction à Gentilly et Saint-Léonard-d’Aston, ménage résidentiel à Bécancour et Nicolet. Soumission gratuite.",
+          "Nettoyage après construction à Saint-Léonard-d’Aston, ménage résidentiel à Bécancour et Nicolet. Soumission gratuite.",
       },
       { property: "og:url", content: "https://mlentretien.com/" },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "fr_CA" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "M.L Excellence — Ménage après construction et résidentiel" },
-      { name: "twitter:description", content: "Après construction à Gentilly et Saint-Léonard-d’Aston. Ménage résidentiel à Bécancour et Nicolet. Soumission gratuite." },
+      { name: "twitter:title", content: "M.L Excellence — Ménage résidentiel et après construction" },
+      { name: "twitter:description", content: "Après construction à Saint-Léonard-d’Aston. Ménage résidentiel à Bécancour et Nicolet. Soumission gratuite." },
     ],
     links: [{ rel: "canonical", href: "https://mlentretien.com/" }],
     scripts: [
@@ -56,7 +56,7 @@ export const Route = createFileRoute("/")({
           name: "M.L Excellence",
           alternateName: "Les services de propreté M.L Excellence",
           description:
-            "Ménage après construction ou rénovation à Gentilly, Saint-Léonard-d’Aston, Bécancour et Nicolet. Ménage résidentiel ponctuel ou récurrent.",
+            "Ménage après construction ou rénovation à Saint-Léonard-d’Aston, Bécancour et Nicolet. Ménage résidentiel ponctuel ou récurrent.",
           email: "info.mlexcellance@gmail.com",
           telephone: "+1-819-996-9022",
           url: "https://mlentretien.com/",
@@ -71,7 +71,6 @@ export const Route = createFileRoute("/")({
           },
           areaServed: [
             { "@type": "City", name: "Bécancour" },
-            { "@type": "City", name: "Gentilly" },
             { "@type": "City", name: "Saint-Grégoire" },
             { "@type": "City", name: "Nicolet" },
             { "@type": "City", name: "Saint-Léonard-d’Aston" },
@@ -122,7 +121,7 @@ export const Route = createFileRoute("/")({
               name: "Quelles régions desservez-vous ?",
               acceptedAnswer: {
                 "@type": "Answer",
-                text: "M.L Excellence dessert Bécancour et tous ses secteurs — Gentilly, Saint-Grégoire, Sainte-Angèle-de-Laval, Sainte-Gertrude, Précieux-Sang — ainsi que Nicolet et Saint-Léonard-d’Aston. Pour les environs, la disponibilité est confirmée lors de la soumission.",
+                text: "M.L Excellence dessert Bécancour et tous ses secteurs — Saint-Grégoire, Sainte-Angèle-de-Laval, Sainte-Gertrude, Précieux-Sang — ainsi que Nicolet et Saint-Léonard-d’Aston. Pour les environs, la disponibilité est confirmée lors de la soumission.",
               },
             },
             {
@@ -178,12 +177,12 @@ const TRUST = [
   { icon: ShieldCheck, t: "Assurée & vérifiée", d: "Responsabilité civile complète" },
   { icon: Clock, t: "Réponse < 24 h", d: "Soumission rapide et claire" },
   { icon: Award, t: "Satisfaction garantie", d: "On revient gratuitement si besoin" },
-  { icon: MapPin, t: "Bécancour et Nicolet", d: "Gentilly, Saint-Grégoire, Sainte-Angèle…" },
+  { icon: MapPin, t: "Équipe locale", d: "Mauricie & Centre-du-Québec" },
 ];
 
 
 const FAQ = [
-  { q: "Quelles régions desservez-vous ?", a: "Bécancour et tous ses secteurs — Gentilly, Saint-Grégoire, Sainte-Angèle-de-Laval, Sainte-Gertrude, Précieux-Sang — ainsi que Nicolet et Saint-Léonard-d’Aston. Pour les environs, la disponibilité est confirmée lors de la soumission." },
+  { q: "Quelles régions desservez-vous ?", a: "Bécancour et tous ses secteurs — Saint-Grégoire, Sainte-Angèle-de-Laval, Sainte-Gertrude, Précieux-Sang — ainsi que Nicolet et Saint-Léonard-d’Aston. Pour les environs, la disponibilité est confirmée lors de la soumission." },
   { q: "Faites-vous le ménage résidentiel une seule fois ?", a: "Oui — ménage ponctuel, grand ménage ou contrat récurrent pour les maisons, condos et appartements de Bécancour et Nicolet." },
   { q: "La soumission est-elle vraiment gratuite ?", a: "Oui — toujours gratuite et sans engagement. Vous recevez un prix clair en moins de 24 h." },
   { q: "Êtes-vous assurés ?", a: "Oui, M.L Excellence est entièrement assurée en responsabilité civile." },
@@ -273,16 +272,16 @@ function Index() {
               <Star className="h-3.5 w-3.5 text-primary fill-primary" /> 5,0/5 · Clients de Bécancour et Nicolet
             </p>
             <h1 className="mt-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
-              Une maison propre et impeccable,{" "}
+              Ménage résidentiel en Mauricie et au Centre-du-Québec,{" "}
               <span
                 className="bg-clip-text text-transparent"
                 style={{ backgroundImage: "var(--gradient-hero)" }}
               >
-                sans le moindre effort.
+                avec M.L Excellence.
               </span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-md">
-              Ménage résidentiel ponctuel ou en contrat récurrent : grand ménage, entretien hebdomadaire ou aux 2 semaines, à Bécancour, Gentilly, Saint-Grégoire et Nicolet. Et pour vos chantiers : un nettoyage après construction prêt à livrer. Soumission gratuite en 30 secondes.
+              Ménage résidentiel ponctuel ou en contrat récurrent : grand ménage, entretien hebdomadaire ou aux 2 semaines, à Bécancour, Saint-Grégoire et Nicolet. Et pour vos chantiers : un nettoyage après construction prêt à livrer. Soumission gratuite en 30 secondes.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <a
@@ -337,15 +336,14 @@ function Index() {
           <p className="text-xs font-bold uppercase text-primary-foreground/70">Entrepreneurs et rénovations</p>
           <div className="mt-3 grid lg:grid-cols-[1.15fr_.85fr] gap-10 items-start">
             <div>
-              <h2 className="text-3xl sm:text-4xl font-bold">Ménage après construction à Gentilly et Saint-Léonard-d’Aston</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold">Ménage après construction et rénovation</h2>
               <p className="mt-4 text-primary-foreground/80 max-w-2xl">
                 Construction neuve ou rénovation : nous enlevons la poussière de chantier et terminons le nettoyage
                 jusqu’à la finition, pour que vous remettiez un bâtiment impeccable à votre client. Service offert
-                à Gentilly, Saint-Léonard-d’Aston, Bécancour et Nicolet, selon les disponibilités et votre échéancier.
+                à Saint-Léonard-d’Aston, Bécancour et Nicolet, selon les disponibilités et votre échéancier.
                 Pour les alentours, précisez votre municipalité dans la demande.
               </p>
               <div className="mt-5 flex flex-wrap gap-4 text-sm font-semibold">
-                <Link to="/menage/$city" params={{ city: "gentilly" }} className="underline underline-offset-4">Après construction à Gentilly</Link>
                 <Link to="/menage/$city" params={{ city: "saint-leonard-daston" }} className="underline underline-offset-4">Après construction à Saint-Léonard-d’Aston</Link>
               </div>
               <p className="mt-4 text-sm text-primary-foreground/80">Pour votre soumission : superficie, pièces concernées, état du chantier, date de fin des travaux et disponibilités d’accès.</p>
@@ -425,7 +423,7 @@ function Index() {
       {/* Villes desservies (SEO local) */}
       <section className="max-w-6xl mx-auto px-6 py-12">
         <h2 className="text-3xl font-bold text-center mb-2">Secteurs desservis</h2>
-        <p className="text-center text-muted-foreground mb-8">Cliquez sur votre ville pour voir nos services dans votre secteur.</p>
+        <p className="text-center text-muted-foreground mb-8">Nicolet, Bécancour, Saint-Grégoire et Saint-Léonard-d’Aston. Ailleurs en Mauricie ou au Centre-du-Québec ? Indiquez votre municipalité : nous confirmons la disponibilité et le déplacement avec votre soumission.</p>
         <ul className="flex flex-wrap justify-center gap-2">
           {CITIES.map((c) => (
             <li key={c.slug}>
@@ -533,7 +531,7 @@ function Index() {
                 />
                 <input
                   aria-label="Ville"
-                  placeholder="Ville (Bécancour, Gentilly, Nicolet…)"
+                  placeholder="Ville (Bécancour, Nicolet…)"
                   value={form.ville}
                   onChange={(e) => setForm({ ...form, ville: e.target.value })}
                   maxLength={80}
@@ -598,7 +596,7 @@ function Index() {
         <p className="font-bold text-foreground">M.L Excellence</p>
         <p className="mt-1">Les services de propreté · Bécancour & Nicolet</p>
         <address className="not-italic mt-3 space-y-1">
-          <p>Nicolet (QC) · Desserte : Gentilly, Saint-Léonard-d’Aston, Bécancour et Nicolet</p>
+          <p>Nicolet (QC) · Desserte : Mauricie & Centre-du-Québec</p>
           <p>
             <a href="tel:+18199969022" className="hover:text-foreground font-medium">
               819-996-9022

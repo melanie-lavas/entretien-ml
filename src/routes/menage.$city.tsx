@@ -1,4 +1,4 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { createFileRoute, Link, notFound, redirect } from "@tanstack/react-router";
 import logoAsset from "@/assets/ml-excellence-logo.png.asset.json";
 import { CITIES, getCityBySlug } from "@/lib/seo-locations";
 import { Sparkles, Check, Home, HardHat, Phone, Mail, MapPin, ShieldCheck } from "lucide-react";
@@ -7,6 +7,9 @@ const BASE = "https://mlentretien.com";
 
 export const Route = createFileRoute("/menage/$city")({
   loader: ({ params }) => {
+    if (params.city === "gentilly") {
+      throw redirect({ to: "/menage/$city", params: { city: "becancour" }, statusCode: 301 });
+    }
     const city = getCityBySlug(params.city);
     if (!city) throw notFound();
     return city;

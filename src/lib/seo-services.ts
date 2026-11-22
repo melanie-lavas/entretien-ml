@@ -17,14 +17,14 @@ export type ServiceData = {
 export const SERVICES: ServiceData[] = [  {
     slug: "menage-apres-chantier",
     title: "Ménage après chantier",
-    h1: "Ménage après construction à Gentilly, Saint-Léonard-d’Aston et Bécancour",
-    metaTitle: "Ménage après construction Gentilly & Saint-Léonard-d’Aston | M.L",
+    h1: "Ménage après construction en Mauricie et au Centre-du-Québec",
+    metaTitle: "Nettoyage après construction Mauricie | M.L Excellence",
     metaDescription:
-      "Nettoyage après construction et rénovation à Gentilly, Saint-Léonard-d’Aston et Bécancour : poussière, armoires, vitres intérieures et planchers. Soumission gratuite.",
+      "Nettoyage après construction et rénovation : Nicolet, Bécancour, Saint-Léonard-d’Aston et environs. Poussière, armoires et planchers. Soumission gratuite.",
     intro:
-      "Vous terminez une construction ou une rénovation ? M.L Excellence nettoie avant la livraison ou l’emménagement : poussière fine, surfaces, armoires, cuisine, salles de bain et planchers. Nous accompagnons les propriétaires et les entrepreneurs de Gentilly, Saint-Léonard-d’Aston, Bécancour et Nicolet, selon l’état du chantier et les disponibilités. Indiquez votre municipalité et votre échéancier pour une soumission adaptée.",
+      "Vous terminez une construction ou une rénovation ? M.L Excellence nettoie avant la livraison ou l’emménagement : poussière fine, surfaces, armoires, cuisine, salles de bain et planchers. Nous accompagnons les propriétaires et les entrepreneurs de Saint-Léonard-d’Aston, Bécancour et Nicolet, selon l’état du chantier et les disponibilités. Indiquez votre municipalité et votre échéancier pour une soumission adaptée.",
     keywords:
-      "ménage après construction Gentilly, nettoyage après construction Saint-Léonard-d’Aston, ménage après chantier Bécancour, nettoyage après rénovation, nettoyage fin de chantier, ménage maison neuve",
+      "ménage après construction nettoyage après construction Saint-Léonard-d’Aston, ménage après chantier Bécancour, nettoyage après rénovation, nettoyage fin de chantier, ménage maison neuve",
     includes: [
       "Enlèvement de la poussière de construction (murs, plafonds, surfaces)",
       "Nettoyage intérieur et extérieur des armoires et rangements",
@@ -41,7 +41,7 @@ export const SERVICES: ServiceData[] = [  {
       { t: "Un seul contact", d: "Vous parlez directement à Mélanie, du devis à la livraison." },
     ],
     faq: [
-      { q: "Où offrez-vous le ménage après chantier ?", a: "À Gentilly, Saint-Grégoire, Bécancour, Nicolet et Saint-Léonard-d’Aston. Pour les environs, indiquez votre municipalité afin de confirmer la disponibilité et les modalités de déplacement." },
+      { q: "Où offrez-vous le ménage après chantier ?", a: "À Saint-Grégoire, Bécancour, Nicolet et Saint-Léonard-d’Aston. Pour les environs, indiquez votre municipalité afin de confirmer la disponibilité et les modalités de déplacement." },
       { q: "Quelles informations fournir pour une soumission après construction ?", a: "La municipalité, la superficie, les pièces à nettoyer, les travaux réalisés, l’état du chantier, la date prévue de fin des travaux et les disponibilités d’accès. Précisez aussi les tâches particulières demandées." },
       { q: "Qu’est-ce qui est inclus dans un ménage après chantier ?", a: "L’enlèvement de la poussière de construction, le nettoyage des armoires, de la cuisine et des salles de bain, les vitres intérieures et les planchers — jusqu’à ce que le bâtiment soit prêt à être livré ou habité." },
       { q: "Quel est le délai pour une soumission ?", a: "La soumission est gratuite et vous la recevez en moins de 24 h. Indiquez-nous la superficie et la date de fin des travaux." },
@@ -54,11 +54,11 @@ export const SERVICES: ServiceData[] = [  {
     h1: "Ménage résidentiel à Bécancour et Nicolet — propre, fiable, sans engagement",
     metaTitle: "Ménage résidentiel Bécancour & Nicolet | M.L Excellence",
     metaDescription:
-      "Ménage résidentiel à Bécancour, Gentilly, Saint-Grégoire et Nicolet. Équipe assurée, matériel fourni. Soumission gratuite en 24 h.",
+      "Ménage résidentiel à Bécancour, Saint-Grégoire et Nicolet. Équipe assurée, matériel fourni. Soumission gratuite en 24 h.",
     intro:
       "Notre service de ménage résidentiel s'adresse aux propriétaires et locataires de Bécancour et Nicolet qui veulent un intérieur impeccable, sans y consacrer leur fin de semaine. Maison, condo, jumelé ou grande propriété : nous arrivons avec tout le matériel et suivons une liste détaillée pièce par pièce.",
     keywords:
-      "ménage résidentiel Bécancour, femme de ménage Gentilly, entretien ménager maison, grand ménage Nicolet, ménage Saint-Grégoire, service de nettoyage résidentiel",
+      "ménage résidentiel Bécancour, femme de ménage entretien ménager maison, grand ménage Nicolet, ménage Saint-Grégoire, service de nettoyage résidentiel",
     includes: [
       "Dépoussiérage complet (meubles, plinthes, cadrages, luminaires, ventilateurs)",
       "Salles de bain désinfectées : douche, bain, toilette, lavabo, miroirs",
@@ -90,7 +90,7 @@ export const SERVICES: ServiceData[] = [  {
     intro:
       "Reprenez votre temps. Avec un contrat récurrent, vous rentrez chez vous dans un espace impeccable, sans y penser. Tarif réduit par rapport au ménage ponctuel, même équipe à chaque visite quand possible, et aucun engagement à long terme — on bâtit la confiance visite après visite.",
     keywords:
-      "contrat ménage Bécancour, ménage hebdomadaire Gentilly, ménage mensuel Nicolet, entretien récurrent résidentiel, service ménage régulier",
+      "contrat ménage Bécancour, ménage hebdomadaire ménage mensuel Nicolet, entretien récurrent résidentiel, service ménage régulier",
     includes: [
       "Plan personnalisé selon vos pièces et priorités",
       "Même équipe à chaque visite (quand possible)",

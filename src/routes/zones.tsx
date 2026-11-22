@@ -8,17 +8,17 @@ const PHONE_HREF = "tel:+18199969022";
 export const Route = createFileRoute("/zones")({
   head: () => ({
     meta: [
-      { title: "Ménage Gentilly, Saint-Léonard-d’Aston & environs | M.L Excellence" },
+      { title: "Secteurs de ménage Mauricie & Centre-du-Québec | M.L Excellence" },
       {
         name: "description",
         content:
-          "Ménage après construction à Gentilly et Saint-Léonard-d’Aston, entretien résidentiel à Bécancour et Nicolet. Consultez les secteurs et demandez une soumission.",
+          "Ménage après construction à Saint-Léonard-d’Aston, entretien résidentiel à Bécancour et Nicolet. Consultez les secteurs et demandez une soumission.",
       },
       { property: "og:title", content: "Secteurs desservis — M.L Excellence" },
       {
         property: "og:description",
         content:
-          "Gentilly, Saint-Léonard-d’Aston, Bécancour et Nicolet : ménage après construction et résidentiel. Soumission gratuite.",
+          "Saint-Léonard-d’Aston, Bécancour et Nicolet : ménage après construction et résidentiel. Soumission gratuite.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://mlentretien.com/zones" },
@@ -93,16 +93,16 @@ function ZonesPage() {
 
       <main className="max-w-5xl mx-auto px-5 py-10">
         <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-          Gentilly · Saint-Léonard-d’Aston · Bécancour · Nicolet
+          Mauricie · Centre-du-Québec
         </p>
         <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight">
-          Zones desservies — ménage après construction et résidentiel
+          Ménage en Mauricie et au Centre-du-Québec
         </h1>
         <p className="mt-4 text-muted-foreground max-w-2xl">
           Basés à Nicolet, nous desservons Bécancour et tous ses secteurs — Gentilly,
           Saint-Grégoire, Sainte-Angèle-de-Laval, Sainte-Gertrude et Précieux-Sang — ainsi que
           Nicolet et Saint-Léonard-d’Aston. Ménage après construction ou rénovation, et ménage résidentiel,
-          une fois ou en contrat récurrent. Pour les alentours, précisez votre municipalité afin de confirmer la disponibilité.
+          une fois ou en contrat récurrent. Pour les autres municipalités de la Mauricie et du Centre-du-Québec, précisez votre secteur afin de confirmer la disponibilité et les modalités de déplacement.
         </p>
 
         {/* Rappel rapide */}
@@ -169,7 +169,7 @@ function ZonesPage() {
             <ShieldCheck className="h-5 w-5 text-primary" /> Votre secteur n'est pas listé ?
           </h2>
           <p className="mt-2 text-sm text-muted-foreground">
-            Nous desservons Gentilly, Bécancour, Nicolet et Saint-Léonard-d’Aston. Un doute pour votre
+            Nous desservons Bécancour, Nicolet et Saint-Léonard-d’Aston. Un doute pour votre
             adresse ? Écrivez-nous : si c'est dans notre secteur, on s'y rend.
           </p>
           <a
@@ -185,7 +185,7 @@ function ZonesPage() {
       <footer className="border-t border-border/50 mt-10">
         <div className="max-w-5xl mx-auto px-5 py-8 text-sm text-muted-foreground">
           <p className="font-semibold text-foreground">M.L Excellence</p>
-          <p>Nicolet (Québec) · Desserte : Bécancour et Nicolet</p>
+          <p>Nicolet (Québec) · Mauricie et Centre-du-Québec</p>
           <p>
             <a href={PHONE_HREF} className="hover:text-foreground">
               {PHONE}

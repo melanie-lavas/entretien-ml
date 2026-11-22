@@ -1,25 +1,31 @@
 # M.L Excellence (M.L Entretien)
 
-> Entretien d'immeubles locatifs, commercial et résidentiel en Mauricie et au Centre-du-Québec : espaces communs, remises en état entre locataires, ménage résidentiel une fois ou en contrat, contrats 1 à 5 fois/semaine, homme à tout faire, plates-bandes et lavage auto. Soumission gratuite.
+> Ménage résidentiel et nettoyage après construction en Mauricie et au Centre-du-Québec. Soumission gratuite, prix selon le service, la superficie et la fréquence.
 
-M.L Excellence (Les services de propreté selon M.L) dessert Trois-Rivières, Shawinigan, Bécancour, Nicolet, Cap-de-la-Madeleine et Grand-Mère. Entreprise assurée en responsabilité civile. Basée à Nicolet (QC), desserte : Mauricie et Centre-du-Québec. Téléphone : 819-996-9022. Courriel : info.mlexcellance@gmail.com. Les prix sont établis selon le service, la superficie et la fréquence. Nous recherchons de nouveaux immeubles et entreprises pour l'horaire automne-hiver 2026-2027.
+Entreprise basée à Nicolet (QC). Secteurs présentés : Nicolet, Bécancour, Saint-Grégoire et Saint-Léonard-d’Aston. Pour les autres municipalités et les environs, la disponibilité et les modalités de déplacement sont confirmées lors de la soumission.
+Téléphone : 819-996-9022. Courriel : info.mlexcellance@gmail.com. Site : https://mlentretien.com.
 
-Bécancour est voisine de notre point de service à Nicolet (moins de 15 minutes) : tous les secteurs sont desservis sans frais de déplacement, incluant Gentilly, Sainte-Angèle-de-Laval, Saint-Grégoire, Précieux-Sang, Sainte-Gertrude, Wôlinak et le parc industriel et portuaire.
+## Services
+
+- Ménage résidentiel ponctuel, grand ménage, avant vente ou fin de bail.
+- Entretien récurrent : chaque semaine, aux deux semaines ou mensuel.
+- Nettoyage après construction ou rénovation : poussière, surfaces, armoires, cuisine, salles de bain, vitres intérieures et planchers, selon la soumission.
 
 ## Pages
 
-- [Accueil](/): Services, contrats commerciaux 1 à 5 x/semaine, témoignages, FAQ et formulaire de soumission rapide.
-- [Demander une soumission](/soumission): Questionnaire détaillé (résidence, grand ménage, fréquence, accès) envoyé par courriel.
-- [Services](/services): Détail de tous les services résidentiels et commerciaux — prix sur soumission.
+- [Accueil](/)
+- [Soumission gratuite](/soumission) : formulaire rapide enregistré; questionnaire détaillé optionnel.
+- [Services](/services)
 - [Ménage résidentiel](/services/menage-residentiel)
-- [Nettoyage commercial](/services/nettoyage-commercial)
-- [Contrat d'entretien récurrent](/services/contrat-entretien-recurrent)
-- [Entretien d'immeubles locatifs](/services/entretien-immeubles-locatifs): Halls, corridors, escaliers, buanderies, espaces communs et remises en état.
-- [Homme à tout faire & rénovations mineures](/services/homme-a-tout-faire)
-- [Entretien des plates-bandes](/services/entretien-plates-bandes)
-- [Lavage auto](/services/lavage-auto)
-- [Ménage Bécancour](/menage/becancour): Secteurs, services commerciaux et résidentiels, FAQ locale.
-- [Ménage Trois-Rivières](/menage/trois-rivieres)
-- [Ménage Shawinigan](/menage/shawinigan)
-- [Ménage Nicolet](/menage/nicolet)
-- [Zones desservies](/zones): Villes et secteurs couverts en Mauricie.
+- [Nettoyage après construction](/services/menage-apres-chantier)
+- [Contrat d’entretien récurrent](/services/contrat-entretien-recurrent)
+- [Ménage à Nicolet](/menage/nicolet)
+- [Ménage à Bécancour](/menage/becancour)
+- [Ménage à Saint-Grégoire](/menage/saint-gregoire)
+- [Ménage après construction à Saint-Léonard-d’Aston](/menage/saint-leonard-daston)
+- [Secteurs desservis](/zones)
+
+## Profils officiels
+
+- [Google](https://www.google.com/maps?cid=1541346873343242194)
+- [Instagram](https://www.instagram.com/melanie.2020.0/)
