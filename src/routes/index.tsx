@@ -23,7 +23,7 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Ménage après chantier et résidentiel à Bécancour" },
+      { title: "Ménage résidentiel Mauricie & Centre-du-Québec | M.L Excellence" },
       {
         name: "description",
         content:
@@ -32,7 +32,7 @@ export const Route = createFileRoute("/")({
       { name: "keywords", content: "ménage après chantier Bécancour, nettoyage après construction ménage résidentiel Bécancour, femme de ménage Nicolet, grand ménage Saint-Grégoire, entretien ménager résidentiel" },
       { name: "geo.region", content: "CA-QC" },
       { name: "geo.placename", content: "Saint-Léonard-d’Aston, Bécancour, Nicolet" },
-      { property: "og:title", content: "Ménage après chantier et résidentiel à Bécancour" },
+      { property: "og:title", content: "M.L Excellence — Ménage résidentiel et après construction" },
       {
         property: "og:description",
         content:
@@ -42,7 +42,7 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "fr_CA" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Ménage après chantier et résidentiel à Bécancour" },
+      { name: "twitter:title", content: "M.L Excellence — Ménage résidentiel et après construction" },
       { name: "twitter:description", content: "Après construction à Saint-Léonard-d’Aston. Ménage résidentiel à Bécancour et Nicolet. Soumission gratuite." },
     ],
     links: [{ rel: "canonical", href: "https://mlentretien.com/" }],
