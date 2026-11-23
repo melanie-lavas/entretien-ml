@@ -27,7 +27,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Ménage résidentiel et nettoyage après construction en Mauricie et au Centre-du-Québec. Nicolet, Bécancour et environs. Soumission gratuite en 24 h.",
+          "Nettoyage après construction partout en Mauricie et au Centre-du-Québec : on se déplace pour vos chantiers. Ménage résidentiel à Bécancour et Nicolet. Soumission gratuite en 24 h.",
       },
       { name: "keywords", content: "ménage après chantier Bécancour, nettoyage après construction ménage résidentiel Bécancour, femme de ménage Nicolet, grand ménage Saint-Grégoire, entretien ménager résidentiel" },
       { name: "geo.region", content: "CA-QC" },
@@ -36,14 +36,14 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Nettoyage après construction à Saint-Léonard-d’Aston, ménage résidentiel à Bécancour et Nicolet. Soumission gratuite.",
+          "Nettoyage après construction partout en Mauricie et au Centre-du-Québec. Ménage résidentiel à Bécancour et Nicolet. Soumission gratuite.",
       },
       { property: "og:url", content: "https://mlentretien.com/" },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "fr_CA" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "M.L Excellence — Ménage résidentiel et après construction" },
-      { name: "twitter:description", content: "Après construction à Saint-Léonard-d’Aston. Ménage résidentiel à Bécancour et Nicolet. Soumission gratuite." },
+      { name: "twitter:description", content: "Après construction partout en Mauricie et au Centre-du-Québec. Ménage résidentiel à Bécancour et Nicolet. Soumission gratuite." },
     ],
     links: [{ rel: "canonical", href: "https://mlentretien.com/" }],
     scripts: [
@@ -56,7 +56,7 @@ export const Route = createFileRoute("/")({
           name: "M.L Excellence",
           alternateName: "Les services de propreté M.L Excellence",
           description:
-            "Ménage après construction ou rénovation à Saint-Léonard-d’Aston, Bécancour et Nicolet. Ménage résidentiel ponctuel ou récurrent.",
+            "Ménage après construction ou rénovation partout en Mauricie et au Centre-du-Québec. Ménage résidentiel ponctuel ou récurrent à Bécancour et Nicolet.",
           email: "info.mlexcellance@gmail.com",
           telephone: "+1-819-996-9022",
           url: "https://mlentretien.com/",
