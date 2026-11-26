@@ -99,10 +99,12 @@ function ZonesPage() {
           Ménage en Mauricie et au Centre-du-Québec
         </h1>
         <p className="mt-4 text-muted-foreground max-w-2xl">
-          Basés à Nicolet, nous desservons Bécancour et tous ses secteurs — Gentilly,
-          Saint-Grégoire, Sainte-Angèle-de-Laval, Sainte-Gertrude et Précieux-Sang — ainsi que
-          Nicolet et Saint-Léonard-d’Aston. Ménage après construction ou rénovation, et ménage résidentiel,
-          une fois ou en contrat récurrent. Pour les autres municipalités de la Mauricie et du Centre-du-Québec, précisez votre secteur afin de confirmer la disponibilité et les modalités de déplacement.
+          Basés à Nicolet, nous desservons Bécancour, Saint-Grégoire, Sainte-Angèle-de-Laval,
+          Sainte-Gertrude, Précieux-Sang, Saint-Léonard-d’Aston, Saint-Célestin,
+          Saint-Pierre-les-Becquets et Saint-Sylvère. Ménage après construction ou rénovation,
+          et ménage résidentiel, une fois ou en contrat récurrent. Pour les autres municipalités
+          de la Mauricie et du Centre-du-Québec, précisez votre secteur afin de confirmer la
+          disponibilité et les modalités de déplacement. L’entretien commercial est offert partout au Québec sur soumission.
         </p>
 
         {/* Rappel rapide */}
@@ -169,8 +171,8 @@ function ZonesPage() {
             <ShieldCheck className="h-5 w-5 text-primary" /> Votre secteur n'est pas listé ?
           </h2>
           <p className="mt-2 text-sm text-muted-foreground">
-            Nous desservons Bécancour, Nicolet et Saint-Léonard-d’Aston. Un doute pour votre
-            adresse ? Écrivez-nous : si c'est dans notre secteur, on s'y rend.
+            Indiquez votre municipalité dans la demande : nous confirmons la disponibilité et le
+            déplacement pour le résidentiel. Pour un commerce ailleurs au Québec, décrivez vos locaux et vos besoins.
           </p>
           <a
             href="/soumission"
