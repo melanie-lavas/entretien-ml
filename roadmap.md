@@ -1,6 +1,10 @@
 - [x] Confirmer l’enregistrement des soumissions rapides et corriger la confirmation bloquée par le courriel; vérifier les liens Google et les métadonnées.
 - [x] Relier Instagram (@melanie.2020.0) au pied de page et aux données structurées.
-- [ ] Confirmer les avis courriel : domaine d’envoi non configuré et réception Web3Forms non confirmée.
+- [x] Tester la soumission rapide, confirmer son enregistrement et sa réception Gmail (classée dans les indésirables).
+- [x] Ajouter le lien Facebook fourni au site et aux données structurées.
+- [ ] Finaliser la validation Google sur business.google.com : Google ne propose aucune méthode exploitable par la connexion.
+- [x] Retirer le formulaire d’accueil en double et privilégier l’appel et la soumission rapide.
+- [x] Déplacer l’avis Web3Forms côté serveur et vérifier sa réception Gmail.
 - [ ] Renforcer le ménage après construction à Saint-Léonard-d’Aston et environs, relier les pages et vérifier les métadonnées et le sitemap.
 - [ ] Enregistrer et vérifier le formulaire rapide dans leads, conserver le questionnaire en appoint.
 - [ ] Ajouter la barre d'action mobile sur les pages publiques.

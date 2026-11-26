@@ -3,7 +3,6 @@ import { useServerFn } from "@tanstack/react-start";
 import { Phone, Send, CheckCircle2, LoaderCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { submitLead } from "@/lib/leads.functions";
-import { sendLeadByEmail } from "@/lib/web3forms";
 import { leadSchema, LEAD_SECTEURS, LEAD_BESOINS, LEAD_FREQUENCES } from "@/lib/leads-schema";
 
 export function QuickLeadForm({ sourcePage = "/soumission" }: { sourcePage?: "/" | "/soumission" }) {
@@ -26,21 +25,8 @@ export function QuickLeadForm({ sourcePage = "/soumission" }: { sourcePage?: "/"
     locked.current = true;
     setPending(true); setErrors({}); setFailure("");
     try {
-      const v = parsed.data;
-      await send({ data: v });
+      await send({ data: parsed.data });
       setSuccess(true);
-      await sendLeadByEmail({
-        subject: `Nouvelle demande (formulaire rapide) — ${v.nom} — ${v.secteur}`,
-        ...(v.courriel ? { email: v.courriel } : {}),
-        Nom: v.nom,
-        Téléphone: v.telephone,
-        Courriel: v.courriel || "(non fourni)",
-        Secteur: v.secteur,
-        "Type de besoin": v.type_besoin,
-        Fréquence: v.frequence,
-        Message: v.message || "(aucun)",
-        Page: v.source_page,
-      });
     }
     catch { setFailure("Votre demande n’a pas été enregistrée. Réessayez ou appelez le 819-996-9022."); }
     finally { locked.current = false; setPending(false); }

@@ -1,14 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
 import logoAsset from "@/assets/ml-excellence-logo.png.asset.json";
 import heroAsset from "@/assets/hero-immeubles.jpg.asset.json";
 import { CITIES } from "@/lib/seo-locations";
 import { QuickLeadForm } from "@/components/quick-lead-form";
-import { sendLeadByEmail } from "@/lib/web3forms";
 import {
   Sparkles,
   Home,
-  Mail,
   Check,
   ShieldCheck,
   Clock,
@@ -107,6 +104,7 @@ export const Route = createFileRoute("/")({
           sameAs: [
             "https://www.google.com/maps?cid=1541346873343242194",
             "https://www.instagram.com/melanie.2020.0/",
+            "https://www.facebook.com/share/1HFYuCVczx/?mibextid=wwXIfr",
           ],
         }),
       },
@@ -164,14 +162,6 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const SERVICES = [
-  { id: "apres-chantier", label: "Ménage après chantier / après construction", icon: HardHat },
-  { id: "interieur-unique", label: "Ménage résidentiel — une fois", icon: Home },
-  { id: "interieur-contrat", label: "Contrat résidentiel récurrent", icon: Sparkles },
-];
-
-
-
 
 const TRUST = [
   { icon: ShieldCheck, t: "Assurée & vérifiée", d: "Responsabilité civile complète" },
@@ -191,34 +181,6 @@ const FAQ = [
 ];
 
 function Index() {
-  const [selected, setSelected] = useState<string[]>([]);
-  const [form, setForm] = useState({ nom: "", tel: "", courriel: "", ville: "", message: "" });
-  const [sendState, setSendState] = useState<"idle" | "sending" | "sent" | "error">("idle");
-
-  const toggle = (id: string) =>
-    setSelected((s) => (s.includes(id) ? s.filter((x) => x !== id) : [...s, id]));
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (sendState === "sending" || sendState === "sent") return;
-    const services = selected
-      .map((id) => SERVICES.find((s) => s.id === id)?.label)
-      .filter(Boolean)
-      .join(", ");
-    setSendState("sending");
-    const ok = await sendLeadByEmail({
-      subject: "Demande de soumission — M.L Excellence (page d'accueil)",
-      ...(form.courriel ? { email: form.courriel } : {}),
-      Nom: form.nom,
-      Téléphone: form.tel,
-      Courriel: form.courriel,
-      Ville: form.ville,
-      "Services demandés": services || "(aucun sélectionné)",
-      Message: form.message,
-    });
-    setSendState(ok ? "sent" : "error");
-  };
-
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Bandeau réponse 24 h */}
@@ -292,10 +254,10 @@ function Index() {
                 Soumission gratuite
               </a>
               <a
-                href="mailto:info.mlexcellance@gmail.com"
+                href="tel:+18199969022"
                 className="inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold border-2 border-primary text-foreground"
               >
-                <Mail className="h-4 w-4" /> Nous écrire
+                <Phone className="h-4 w-4" /> Appeler 819-996-9022
               </a>
             </div>
             <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -441,136 +403,6 @@ function Index() {
 
       {/* Testimonials */}
 
-      {/* Form */}
-      <section id="soumission" className="px-6 py-16">
-        <div
-          className="max-w-3xl mx-auto rounded-3xl p-1"
-          style={{ background: "var(--gradient-hero)" }}
-        >
-          <div className="bg-card rounded-[calc(1.5rem-4px)] p-8 sm:p-10">
-            <h2 className="text-3xl font-bold">Demandez votre soumission</h2>
-            <p className="text-muted-foreground mt-2">
-              Gratuit, sans engagement. Réponse en moins de 24 h.
-            </p>
-
-            {sendState === "sent" ? (
-              <div role="status" className="mt-8 flex gap-3 rounded-xl border border-primary/40 bg-primary/5 p-5">
-                <Check className="h-6 w-6 shrink-0 text-primary" />
-                <div>
-                  <p className="font-semibold">Merci ! Votre demande est bien envoyée.</p>
-                  <p className="mt-1 text-sm text-muted-foreground">
-                    Mélanie vous répond en moins de 24 h. Pour une urgence, appelez le{" "}
-                    <a href="tel:+18199969022" className="font-semibold text-primary">
-                      819-996-9022
-                    </a>
-                    .
-                  </p>
-                </div>
-              </div>
-            ) : (
-            <form onSubmit={handleSubmit} className="mt-8 space-y-6">
-              <div>
-                <label className="block text-sm font-semibold mb-3">Quel(s) service(s) ?</label>
-                <div className="grid sm:grid-cols-2 gap-2">
-                  {SERVICES.map((s) => {
-                    const active = selected.includes(s.id);
-                    const Icon = s.icon;
-                    return (
-                      <button
-                        type="button"
-                        key={s.id}
-                        onClick={() => toggle(s.id)}
-                        className={`flex items-center gap-3 text-left rounded-xl px-4 py-3 border-2 transition ${
-                          active
-                            ? "border-primary bg-primary/10"
-                            : "border-border bg-background hover:border-primary/50"
-                        }`}
-                      >
-                        <Icon className="h-5 w-5 shrink-0 text-primary" />
-                        <span className="text-sm font-medium">{s.label}</span>
-                        {active && <Check className="h-4 w-4 ml-auto text-primary" />}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-
-              <div className="grid sm:grid-cols-2 gap-4">
-                <input
-                  required
-                  aria-label="Votre nom"
-                  placeholder="Votre nom *"
-                  value={form.nom}
-                  onChange={(e) => setForm({ ...form, nom: e.target.value })}
-                  maxLength={120}
-                  autoComplete="name"
-                  className="w-full rounded-xl border-2 border-border px-4 py-3 bg-background focus:border-primary outline-none"
-                />
-                <input
-                  aria-label="Téléphone"
-                  placeholder="Téléphone"
-                  value={form.tel}
-                  onChange={(e) => setForm({ ...form, tel: e.target.value })}
-                  type="tel"
-                  maxLength={30}
-                  autoComplete="tel"
-                  className="w-full rounded-xl border-2 border-border px-4 py-3 bg-background focus:border-primary outline-none"
-                />
-              </div>
-              <div className="grid sm:grid-cols-2 gap-4">
-                <input
-                  required
-                  type="email"
-                  aria-label="Courriel"
-                  placeholder="Courriel *"
-                  value={form.courriel}
-                  onChange={(e) => setForm({ ...form, courriel: e.target.value })}
-                  maxLength={150}
-                  autoComplete="email"
-                  className="w-full rounded-xl border-2 border-border px-4 py-3 bg-background focus:border-primary outline-none"
-                />
-                <input
-                  aria-label="Ville"
-                  placeholder="Ville (Bécancour, Nicolet…)"
-                  value={form.ville}
-                  onChange={(e) => setForm({ ...form, ville: e.target.value })}
-                  maxLength={80}
-                  autoComplete="address-level2"
-                  className="w-full rounded-xl border-2 border-border px-4 py-3 bg-background focus:border-primary outline-none"
-                />
-              </div>
-              <textarea
-                aria-label="Détails de votre demande"
-                placeholder="Détails (adresse, fréquence, superficie, etc.)"
-                rows={4}
-                value={form.message}
-                onChange={(e) => setForm({ ...form, message: e.target.value })}
-                maxLength={2000}
-                className="w-full rounded-xl border-2 border-border px-4 py-3 bg-background focus:border-primary outline-none resize-none"
-              />
-              <button
-                type="submit"
-                disabled={sendState === "sending"}
-                className="w-full rounded-full py-4 font-bold text-primary-foreground text-lg transition hover:scale-[1.02] disabled:opacity-60 disabled:hover:scale-100"
-                style={{ background: "var(--gradient-hero)", boxShadow: "var(--shadow-glow)" }}
-              >
-                {sendState === "sending" ? "Envoi en cours…" : "Envoyer ma demande"}
-              </button>
-              {sendState === "error" && (
-                <p role="alert" className="text-sm text-center text-destructive font-medium">
-                  L'envoi n'a pas fonctionné. Réessayez, ou appelez le 819-996-9022.
-                </p>
-              )}
-              <p className="text-xs text-center text-muted-foreground">
-                Votre demande sera envoyée directement à Mélanie ·{" "}
-                <span className="whitespace-nowrap">info.mlexcellance@gmail.com</span>
-              </p>
-            </form>
-            )}
-          </div>
-        </div>
-      </section>
-
       {/* FAQ */}
       <section id="faq" className="max-w-3xl mx-auto px-6 py-16">
         <h2 className="text-3xl font-bold text-center mb-10">Questions fréquentes</h2>
@@ -624,6 +456,15 @@ function Index() {
             className="inline-flex items-center gap-1.5 text-primary hover:underline font-medium"
           >
             Suivez-nous sur Instagram
+          </a>
+          {" · "}
+          <a
+            href="https://www.facebook.com/share/1HFYuCVczx/?mibextid=wwXIfr"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-primary hover:underline font-medium"
+          >
+            Suivez-nous sur Facebook
           </a>
         </p>
         <p className="mt-4 text-xs">© {new Date().getFullYear()} M.L Excellence — Tous droits réservés</p>
