@@ -88,14 +88,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "msvalidate.01", content: "998DDAAB02D52C131A83715BB0B23F95" },
 
       { name: "theme-color", content: "#0b1d3a" },
-      { property: "og:title", content: "M.L Excellence — Services de propreté à Bécancour" },
-      { property: "og:description", content: "Ménage après chantier et ménage résidentiel à Bécancour et Nicolet. Soumission gratuite et sans engagement." },
       { property: "og:site_name", content: "M.L Excellence" },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "fr_CA" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "M.L Excellence — Services de propreté à Bécancour" },
-      { name: "twitter:description", content: "Ménage après chantier et ménage résidentiel à Bécancour et Nicolet. Soumission gratuite." },
 
     ],
     links: [

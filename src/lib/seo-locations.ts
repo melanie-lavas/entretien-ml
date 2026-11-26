@@ -40,6 +40,7 @@ export const CITIES: CityData[] = [  {
       "Notre point de service est à Nicolet, à moins de 15 minutes de Saint-Grégoire. Nous desservons les secteurs de Bécancour sans frais de déplacement.",
       "Côté après chantier, nous nettoyons les constructions neuves et les rénovations — résidentielles comme commerciales, y compris dans le parc industriel et portuaire de Bécancour — jusqu'à la finition, prêtes à livrer. Nous développons présentement ce service à Bécancour pour l'horaire automne-hiver 2026-2027 : entrepreneurs, réservez votre place.",
       "Côté résidentiel, nous faisons le grand ménage initial, l'entretien récurrent (hebdomadaire, aux 2 semaines ou mensuel), les fins de bail et les ménages avant la vente d'une propriété.",
+      "Obtenir votre soumission est simple : remplissez le formulaire rapide en ligne (nom, téléphone, secteur et type de besoin) ou appelez le 819-996-9022. Mélanie vous répond en moins de 24 h avec une soumission gratuite et sans engagement, établie selon le service, la superficie et la fréquence souhaitée.",
     ],
     faq: [
       {
